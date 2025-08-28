@@ -45,6 +45,15 @@ jobs:
           BRANCH_NAME="fresh-seed-$(date +%Y%m%d-%H%M%S)"
           echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
 
+      - name: Extract GitHub org and repo
+        run: |
+          GITHUB_ORG=$(echo "${{ github.repository }}" | cut -d'/' -f1)
+          GITHUB_REPO=$(echo "${{ github.repository }}" | cut -d'/' -f2)
+          echo "GITHUB_ORG=$GITHUB_ORG" >> $GITHUB_ENV
+          echo "GITHUB_REPO=$GITHUB_REPO" >> $GITHUB_ENV
+          echo "GitHub Organization: $GITHUB_ORG"
+          echo "GitHub Repository: $GITHUB_REPO"
+
       - name: Verify seed config file exists
         run: |
           if [ ! -f "${{ github.event.inputs.config_file || 'seed-template.yaml' }}" ]; then
@@ -65,6 +74,12 @@ jobs:
           
           # Replace uribase_suffix value
           sed -i "s/^uribase_suffix:.*/uribase_suffix: ${{ github.event.inputs.uribase_suffix }}/" "$CONFIG_FILE"
+          
+          # Replace github_org value
+          sed -i "s/^github_org:.*/github_org: $GITHUB_ORG/" "$CONFIG_FILE"
+          
+          # Replace repo value
+          sed -i "s/^repo:.*/repo: $GITHUB_REPO/" "$CONFIG_FILE"
           
           echo "Updated seed-template.yaml content:"
           cat "$CONFIG_FILE"
@@ -118,6 +133,8 @@ jobs:
             
             - **Ontology ID**: `${{ github.event.inputs.ontology_id }}`
             - **URI Base Suffix**: `${{ github.event.inputs.uribase_suffix }}`
+            - **GitHub Organization**: `${{ env.GITHUB_ORG }}`
+            - **Repository**: `${{ env.GITHUB_REPO }}`
             - **Config File**: `${{ github.event.inputs.config_file || 'seed-template.yaml' }}`
             - **ODK Tag**: `${{ github.event.inputs.odk_tag || 'latest' }}`
             
