@@ -1,0 +1,23 @@
+id: sdf
+title: "My Application Ontology"
+github_org: materialdigital
+git_main_branch: main
+repo: app-ontology-template
+uribase: https://w3id.org/pmd/ao
+uribase_suffix: sdf
+
+release_artefacts:
+  - base
+  - full
+  - simple
+primary_release: full
+export_formats:
+  - owl
+  - ttl
+remove_owl_nothing: true
+
+#maybe raw link needed to explizit version
+import_group:
+  products:
+    - id: pmdco
+      mirror_from: https://w3id.org/pmd/co
