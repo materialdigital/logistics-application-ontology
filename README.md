@@ -1,22 +1,29 @@
-# application-ontology-template
 
-template repository for starting a PMDCo application ontology. iT comes preconfigured with github workflows using [ontology development kit](https://github.com/INCATools/ontology-development-kit).
+![Build Status](https://github.com/materialdigital/logistics-application-ontology/actions/workflows/qc.yml/badge.svg)
+# My Application Ontology
 
-## how to use
+Description: None
 
-1. Fork this repository
-2. Run the seed workflow under github actions, set the id and uribase_suffix. It will override the default values in seed-template.yaml
+More information can be found at http://obofoundry.org/ontology/log
 
-```yaml
-id: <change here>
-title: <ontology title>
-github_org: materialdigital
-git_main_branch: main
-repo: <repo name>
-uribase: https://w3id.org/pmd/ao
-uribase_suffix: xxx
-```
+## Versions
 
-3. Check the pul request create! If everything is fine merge to main
-4. Put ur ontology work into the \*-edit.owl file in src folder, after pushing changes to the repository the build_with imports workflow will run and integrate your changes into the release types defined
-5. Documentation of the application ontology is created via widoco and github pages, when the docs workflow runs
+### Stable release versions
+
+The latest version of the ontology can always be found at:
+
+https://w3id.org/pmd/ao/log.owl
+
+(note this will not show up until the request has been approved by obofoundry.org)
+
+### Editors' version
+
+Editors of this ontology should use the edit version, [src/ontology/log-edit.owl](src/ontology/log-edit.owl)
+
+## Contact
+
+Please use this GitHub repository's [Issue tracker](https://github.com/materialdigital/logistics-application-ontology/issues) to request new terms/classes or report errors or specific concerns related to the ontology.
+
+## Acknowledgements
+
+This ontology repository was created using the [Ontology Development Kit (ODK)](https://github.com/INCATools/ontology-development-kit).
