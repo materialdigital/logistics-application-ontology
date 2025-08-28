@@ -1,0 +1,8 @@
+cls
+http://purl.org/dc/terms/description
+http://purl.org/dc/terms/license
+http://purl.org/dc/terms/title
+https://w3id.org/pmd/ao/LOG_0000000
+term
+http://www.geneontology.org/formats/oboInOwl#SubsetProperty
+http://www.geneontology.org/formats/oboInOwl#SynonymTypeProperty

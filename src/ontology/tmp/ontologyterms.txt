@@ -1,0 +1,2 @@
+term
+https://w3id.org/pmd/ao/LOG_0000000
