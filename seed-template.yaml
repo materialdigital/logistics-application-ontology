@@ -16,8 +16,8 @@ export_formats:
   - ttl
 remove_owl_nothing: true
 
-#maybe raw link needed to explizit version
 import_group:
   products:
-    - id: pmdco
-      mirror_from: https://w3id.org/pmd/co
+  - id: pmdco
+    mirror_from: https://materialdigital.github.io/core-ontology/ontology.owl
+    module_type: mirror
