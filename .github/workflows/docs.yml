@@ -36,9 +36,9 @@ jobs:
       - name: Check for ontology file
         id: check
         run: |
-          ONTOLOGY_FILE=$(find src/ontology/ -name "*-base.owl" -type f | head -1)
+          ONTOLOGY_FILE=$(find src/ontology/ -name "*-full.owl" -type f | head -1)
           if [ -z "$ONTOLOGY_FILE" ]; then
-            echo "No *-base.owl file found in src/ontology/ directory."
+            echo "No *-full.owl file found in src/ontology/ directory."
             echo "exists=false" >> $GITHUB_OUTPUT
           else
             echo "Found ontology file: $ONTOLOGY_FILE"
