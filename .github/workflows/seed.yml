@@ -75,6 +75,9 @@ jobs:
           # Replace uribase_suffix value
           sed -i "s/^uribase_suffix:.*/uribase_suffix: ${{ github.event.inputs.uribase_suffix }}/" "$CONFIG_FILE"
           
+          # Replace uribase value
+          sed -i "s/^uribase_suffix:.*/uribase_suffix: https://w3id.org/pmd/ao/${{ github.event.inputs.uribase_suffix }}/" "$CONFIG_FILE"
+          
           # Replace github_org value
           sed -i "s/^github_org:.*/github_org: $GITHUB_ORG/" "$CONFIG_FILE"
           

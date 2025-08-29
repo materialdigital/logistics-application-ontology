@@ -1,10 +1,10 @@
-id: sdf
+id: xxx
 title: "My Application Ontology"
 github_org: materialdigital
 git_main_branch: main
 repo: app-ontology-template
-uribase: https://w3id.org/pmd/ao
-uribase_suffix: sdf
+uribase: https://w3id.org/pmd/ao/xxx
+uribase_suffix: xxx
 
 release_artefacts:
   - base
