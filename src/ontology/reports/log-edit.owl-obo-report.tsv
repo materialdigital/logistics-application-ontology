@@ -1,6 +1,6 @@
 Level	Rule Name	Subject	Property	Value
 ERROR	duplicate_label	transport equipment role	rdfs:label	transport equipment role@en
-ERROR	duplicate_label	transport equipment role	rdfs:label	transport equipment role@en
+ERROR	duplicate_label	business process	rdfs:label	transport equipment role@en
 ERROR	missing_ontology_description	https://w3id.org/pmd/ao/log.owl	dc:description	
 ERROR	missing_ontology_license	https://w3id.org/pmd/ao/log.owl	dc:license	
 ERROR	multiple_labels	industrial inventory	rdfs:label	cargo@en
@@ -13,8 +13,8 @@ ERROR	multiple_labels	transportation service	rdfs:label	consigning process@en
 ERROR	multiple_labels	transportation service	rdfs:label	transportation service@en
 ERROR	multiple_labels	manufacturing service	rdfs:label	freight forwarding process@en
 ERROR	multiple_labels	manufacturing service	rdfs:label	manufacturing service@en
-ERROR	multiple_labels	transport equipment role	rdfs:label	business process@en
-ERROR	multiple_labels	transport equipment role	rdfs:label	transport equipment role@en
+ERROR	multiple_labels	business process	rdfs:label	business process@en
+ERROR	multiple_labels	business process	rdfs:label	transport equipment role@en
 WARN	missing_definition	industrial inventory role	IAO:0000115	
 WARN	missing_definition	agreement	IAO:0000115	
 WARN	missing_definition	commercial service agreement	IAO:0000115	
@@ -136,7 +136,7 @@ WARN	missing_definition	selling business process	IAO:0000115
 WARN	missing_definition	shipment preparation process	IAO:0000115	
 WARN	missing_definition	supplying business process	IAO:0000115	
 WARN	missing_definition	warehousing process	IAO:0000115	
-WARN	missing_definition	transport equipment role	IAO:0000115	
+WARN	missing_definition	business process	IAO:0000115	
 WARN	missing_definition	manufacturing process	IAO:0000115	
 WARN	missing_definition	assembly process	IAO:0000115	
 WARN	missing_definition	measurement process	IAO:0000115	
