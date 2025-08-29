@@ -3,7 +3,7 @@ title: "My Application Ontology"
 github_org: materialdigital
 git_main_branch: main
 repo: logistics-application-ontology
-uribase: https://w3id.org/pmd/ao/log
+uribase: https://w3id.org/pmd/ao
 uribase_suffix: log
 
 release_artefacts:

@@ -1,0 +1,410 @@
+@prefix : <https://w3id.org/pmd/ao/log/log-simple.ttl#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix oboInOwl: <http://www.geneontology.org/formats/oboInOwl#> .
+@prefix logistics: <https://w3id.org/pmd/co/logistics/> .
+@base <https://w3id.org/pmd/ao/log/log-simple.ttl> .
+
+<https://w3id.org/pmd/ao/log/log-simple.ttl> rdf:type owl:Ontology ;
+                                              owl:versionIRI <https://w3id.org/pmd/ao/log/releases/2025-08-29/log-simple.ttl> ;
+                                              terms:creator <https://orcid.org/0000-0003-1649-6832> ;
+                                              terms:title "Platform Material Digital Application Ontology  for Logistics and supplychain (log)"@en ;
+                                              rdfs:comment "The logistics application ontology for use with PMD Core Ontology (PMDco). The scope of this module is the description of material science and engineering related logistics and general organization. Its is adopted from the IOF SupplyChain Module https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/"@en ;
+                                              owl:versionInfo "2025-08-29" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/IAO_0000112
+obo:IAO_0000112 rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000114
+obo:IAO_0000114 rdf:type owl:AnnotationProperty ;
+                obo:IAO_0000114 obo:IAO_0000428 ;
+                rdfs:label "Has Curation Status"@en ,
+                           "Hat Kurationsstatus"@de .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000115
+obo:IAO_0000115 rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000116
+obo:IAO_0000116 rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000117
+obo:IAO_0000117 rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000119
+obo:IAO_0000119 rdf:type owl:AnnotationProperty ;
+                obo:IAO_0000114 obo:IAO_0000428 ;
+                rdfs:label "Definition Source"@en ,
+                           "Definitionsquelle"@de .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000233
+obo:IAO_0000233 rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000412
+obo:IAO_0000412 rdf:type owl:AnnotationProperty ;
+                obo:IAO_0000114 obo:IAO_0000428 ;
+                rdfs:label "Imported From"@en ,
+                           "Importiert Aus"@de .
+
+
+###  http://purl.org/dc/elements/1.1/identifier
+dc:identifier rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/bibliographicCitation
+terms:bibliographicCitation rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+terms:created rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+terms:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+terms:title rdf:type owl:AnnotationProperty .
+
+
+###  http://www.geneontology.org/formats/oboInOwl#SubsetProperty
+oboInOwl:SubsetProperty rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#altLabel
+skos:altLabel rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+skos:definition rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#example
+skos:example rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#scopeNote
+skos:scopeNote rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/pmd/co/logistics/PMD_0000060
+logistics:PMD_0000060 rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/pmd/co/logistics/PMD_0001032
+logistics:PMD_0001032 rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000054
+obo:BFO_0000054 rdf:type owl:ObjectProperty ;
+                owl:inverseOf obo:BFO_0000055 ;
+                dc:identifier "206-BFO" ;
+                rdfs:label "has realization"@en ;
+                skos:altLabel "realized in"@en ;
+                skos:definition "b has realization c =Def c realizes b"@en ;
+                skos:example "As for realizes"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000055
+obo:BFO_0000055 rdf:type owl:ObjectProperty ;
+                dc:identifier "059-BFO" ;
+                rdfs:label "realizes"@en ;
+                skos:definition "(Elucidation) realizes is a relation between a process b and realizable entity c such that c inheres in some d & for all t, if b has participant d then c exists & the type instantiated by b is correlated with the type instantiated by c"@en ;
+                skos:example "A balding process realizes a disposition to go bald; a studying process realizes a student role; a process of pumping blood realizes the pumping function of a heart"@en ;
+                skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <Link>"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000056
+obo:BFO_0000056 rdf:type owl:ObjectProperty ;
+                owl:inverseOf obo:BFO_0000057 ;
+                dc:identifier "250-BFO" ;
+                rdfs:label "participates in"@en ;
+                skos:definition "(Elucidation) participates in holds between some b that is either a specifically dependent continuant or generically dependent continuant or independent continuant that is not a spatial region & some process p such that b participates in p some way"@en ;
+                skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <Link>"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000057
+obo:BFO_0000057 rdf:type owl:ObjectProperty ;
+                dc:identifier "248-BFO" ;
+                rdfs:label "has participant"@en ;
+                skos:definition "p has participant c =Def c participates in p"@en ;
+                skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <Link>"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000059
+obo:BFO_0000059 rdf:type owl:ObjectProperty ;
+                dc:identifier "256-BFO" ;
+                rdfs:label "concretizes"@en ;
+                skos:definition "b concretizes c =Def b is a process or a specifically dependent continuant & c is a generically dependent continuant & there is some time t such that c is the pattern or content which b shares at t with actual or potential copies"@en ;
+                skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <Link>"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000066
+obo:BFO_0000066 rdf:type owl:ObjectProperty ;
+                owl:inverseOf obo:BFO_0000183 ;
+                dc:identifier "143-BFO" ;
+                rdfs:label "occurs in"@en ;
+                skos:definition "b occurs in c =Def b is a process or a process boundary & c is a material entity or site & there exists a spatiotemporal region r & b occupies spatiotemporal region r & for all time t, if b exists at t then c exists at t & there exist spatial regions s and s' where b spatially projects onto s at t & c occupies spatial region s' at t & s is a continuant part of s' at t"@en ;
+                skos:example "A process of digestion occurs in the interior of an organism; a process of loading artillery rounds into a tank cannon occurs in the interior of the tank"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000084
+obo:BFO_0000084 rdf:type owl:ObjectProperty ;
+                dc:identifier "252-BFO" ;
+                rdfs:label "generically depends on"@en ;
+                skos:altLabel "g-depends on"@en ;
+                skos:definition "b generically depends on c =Def b is a generically dependent continuant & c is an independent continuant that is not a spatial region & at some time t there inheres in c a specifically dependent continuant which concretizes b at t"@en ;
+                skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <Link>"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000108
+obo:BFO_0000108 rdf:type owl:ObjectProperty ;
+                dc:identifier "118-BFO" ;
+                rdfs:label "exists at"@en ;
+                skos:definition "(Elucidation) exists at is a relation between a particular and some temporal region at which the particular exists"@en ;
+                skos:example "First World War exists at 1914-1916; Mexico exists at January 1, 2000"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000115
+obo:BFO_0000115 rdf:type owl:ObjectProperty ;
+                owl:inverseOf obo:BFO_0000129 ;
+                dc:identifier "230-BFO" ;
+                rdfs:label "has member part"@en ;
+                skos:definition "b has member part c =Def c member part of b"@en ;
+                skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <Link>"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000117
+obo:BFO_0000117 rdf:type owl:ObjectProperty ;
+                owl:inverseOf obo:BFO_0000132 ;
+                rdf:type owl:TransitiveProperty ;
+                dc:identifier "202-BFO" ;
+                rdfs:label "has occurrent part"@en ;
+                skos:definition "b has occurrent part c =Def c occurrent part of b"@en ;
+                skos:example "Mary's life has occurrent part Mary's 5th birthday"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000124
+obo:BFO_0000124 rdf:type owl:ObjectProperty ;
+                owl:inverseOf obo:BFO_0000171 ;
+                dc:identifier "236-BFO" ;
+                rdfs:label "location of"@en ;
+                skos:definition "b location of c =Def c located in b"@en ;
+                skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <Link>"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000129
+obo:BFO_0000129 rdf:type owl:ObjectProperty ;
+                dc:identifier "228-BFO" ;
+                rdfs:label "member part of"@en ;
+                skos:definition "b member part of c =Def b is an object & c is a material entity & there is some time t such that b continuant part of c at t & there is a mutually exhaustive and pairwise disjoint partition of c into objects x1, ..., xn (for some n ≠ 1) with b = xi (for some 1 <= i <= n)"@en ;
+                skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <Link>"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000132
+obo:BFO_0000132 rdf:type owl:ObjectProperty ,
+                         owl:TransitiveProperty ;
+                dc:identifier "003-BFO" ;
+                rdfs:label "occurrent part of"@en ;
+                skos:definition "(Elucidation) occurrent part of is a relation between occurrents b and c when b is part of c"@en ;
+                skos:example "Mary's 5th birthday is an occurrent part of Mary's life; the first set of the tennis match is an occurrent part of the tennis match"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000171
+obo:BFO_0000171 rdf:type owl:ObjectProperty ;
+                dc:identifier "234-BFO" ;
+                rdfs:label "located in"@en ;
+                skos:definition "b located in c =Def b is an independent continuant & c is an independent & neither is a spatial region & there is some time t such that the spatial region which b occupies at t is continuant part of the spatial region which c occupies at t"@en ;
+                skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <Link>"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000183
+obo:BFO_0000183 rdf:type owl:ObjectProperty ;
+                dc:identifier "267-BFO" ;
+                rdfs:label "environs"@en ;
+                skos:altLabel "contains process"@en ;
+                skos:definition "b environs c =Def c occurs in b"@en ;
+                skos:example "Mouth environs process of mastication; city environs traffic"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000196
+obo:BFO_0000196 rdf:type owl:ObjectProperty ;
+                owl:inverseOf obo:BFO_0000197 ;
+                dc:identifier "053-BFO" ;
+                rdfs:label "bearer of"@en ;
+                skos:definition "b bearer of c =Def c inheres in b"@en ;
+                skos:example "A patch of ink is the bearer of a colour quality; an organism is the bearer of a temperature quality"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000197
+obo:BFO_0000197 rdf:type owl:ObjectProperty ;
+                dc:identifier "051-BFO" ;
+                rdfs:label "inheres in"@en ;
+                skos:definition "b inheres in c =Def b is a specifically dependent continuant & c is an independent continuant that is not a spatial region & b specifically depends on c"@en ;
+                skos:example "A shape inheres in a shaped object; a mass inheres in a material entity"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000199
+obo:BFO_0000199 rdf:type owl:ObjectProperty ,
+                         owl:FunctionalProperty ;
+                dc:identifier "132-BFO" ;
+                rdfs:label "occupies temporal region"@en ;
+                skos:definition "p occupies temporal region t =Def p is a process or process boundary & the spatiotemporal region occupied by p temporally projects onto t"@en ;
+                skos:example "The Second World War occupies the temporal region September 1, 1939 - September 2, 1945"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000221
+obo:BFO_0000221 rdf:type owl:ObjectProperty ;
+                dc:identifier "268-BFO" ;
+                rdfs:label "first instant of"@en ;
+                skos:definition "t first instant of t' =Def t is a temporal instant & t' is a temporal region t' & t precedes all temporal parts of t' other than t"@en ;
+                skos:example "An hour starting at midnight yesterday has first instant midnight yesterday"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000223
+obo:BFO_0000223 rdf:type owl:ObjectProperty ;
+                dc:identifier "269-BFO" ;
+                rdfs:label "last instant of"@en ;
+                skos:definition "t last instant of t' =Def t is a temporal instant & t' is a temporal region & all temporal parts of t' other than t precede t"@en ;
+                skos:example "Last midnight is the last instant of yesterday"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000136
+obo:IAO_0000136 rdf:type owl:ObjectProperty ;
+                owl:inverseOf <https://w3id.org/pmd/co/PMD_0000004> ;
+                obo:IAO_0000112 "This document is about information artifacts and their representations"@en ;
+                obo:IAO_0000114 obo:IAO_0000125 ;
+                obo:IAO_0000115 "A (currently) primitive relation that relates an information artifact to an entity."@en ;
+                obo:IAO_0000116 """7/6/2009 Alan Ruttenberg. Following discussion with Jonathan Rees, and introduction of \"mentions\" relation. Weaken the is_about relationship to be primitive. 
+
+We will try to build it back up by elaborating the various subproperties that are more precisely defined.
+
+Some currently missing phenomena that should be considered \"about\" are predications - \"The only person who knows the answer is sitting beside me\" , Allegory, Satire, and other literary forms that can be topical without explicitly mentioning the topic."""@en ;
+                obo:IAO_0000117 "person:Alan Ruttenberg"@en ;
+                obo:IAO_0000119 "Smith, Ceusters, Ruttenberg, 2000 years of philosophy"@en ;
+                rdfs:label "is about"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000219
+obo:IAO_0000219 rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf obo:IAO_0000136 ;
+                owl:inverseOf obo:IAO_0000235 ;
+                obo:IAO_0000112 "A person's name denotes the person. A variable name in a computer program denotes some piece of memory. Lexically equivalent strings can denote different things, for instance \"Alan\" can denote different people. In each case of use, there is a case of the denotation relation obtaining, between \"Alan\" and the person that is being named."@en ;
+                obo:IAO_0000115 "A primitive, instance-level, relation obtaining between an information content entity and some portion of reality. Denotation is what happens when someone creates an information content entity E in order to specifically refer to something. The only relation between E and the thing is that E can be used to 'pick out' the thing. This relation connects those two together. Freedictionary.com sense 3: To signify directly; refer to specifically"@en ;
+                obo:IAO_0000116 """2009-11-10 Alan Ruttenberg. Old definition said the following to emphasize the generic nature of this relation. We no longer have 'specifically denotes', which would have been primitive, so make this relation primitive.
+g denotes r =def 
+r is a portion of reality
+there is some c that is a concretization of g 
+every c that is a concretization of g specifically denotes r"""@en ;
+                obo:IAO_0000117 "person:Alan Ruttenberg"@en ;
+                obo:IAO_0000119 "Conversations with Barry Smith, Werner Ceusters, Bjoern Peters, Michel Dumontier, Melanie Courtot, James Malone, Bill Hogan"@en ;
+                rdfs:comment ""@en ;
+                rdfs:label "denotes"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000235
+obo:IAO_0000235 rdf:type owl:ObjectProperty ;
+                obo:IAO_0000115 "inverse of the relation 'denotes'"@en ;
+                obo:IAO_0000117 "Person: Jie Zheng, Chris Stoeckert, Mike Conlon"@en ;
+                obo:IAO_0000233 <https://github.com/information-artifact-ontology/IAO/issues/206> ;
+                rdfs:label "denoted by"@en .
+
+
+###  https://w3id.org/pmd/ao/log/LOG_1900001
+<https://w3id.org/pmd/ao/log/LOG_1900001> rdf:type owl:ObjectProperty ;
+                                          obo:IAO_0000412 "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/ActsOnBehalfOfAtSomeTime" ;
+                                          rdfs:label "acts on behalf of"@en ;
+                                          skos:definition "relation from a material entity to a person or a group of agents or engineered system that holds when the material entity participates in some planned process in order to fulfill an objective for the person or group of agents or engineered system" .
+
+
+###  https://w3id.org/pmd/ao/log/LOG_1900002
+<https://w3id.org/pmd/ao/log/LOG_1900002> rdf:type owl:ObjectProperty ;
+                                          obo:IAO_0000412 "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/OwnedBy" ;
+                                          rdfs:label "owned by"@en ;
+                                          skos:definition "relationship from a material entity to a person or business organization when the material entity is held by the person or business organization as legal property" .
+
+
+###  https://w3id.org/pmd/ao/log/LOG_1900003
+<https://w3id.org/pmd/ao/log/LOG_1900003> rdf:type owl:ObjectProperty ;
+                                          obo:IAO_0000412 "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/owns" ;
+                                          rdfs:label "owns"@en ;
+                                          skos:definition "relationship from a person or business organization to an independent continuant when the agent holds the independent continuant as legal property" .
+
+
+###  https://w3id.org/pmd/co/PMD_0000004
+<https://w3id.org/pmd/co/PMD_0000004> rdf:type owl:ObjectProperty ;
+                                      rdfs:label "is subject of"@en ;
+                                      skos:definition "Inverse of 'is about'."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0000015
+<https://w3id.org/pmd/co/PMD_0000015> rdf:type owl:ObjectProperty ;
+                                      rdfs:subPropertyOf obo:BFO_0000057 ;
+                                      owl:inverseOf <https://w3id.org/pmd/co/PMD_0040131> ;
+                                      rdfs:label "has input"@en ;
+                                      skos:definition "relation from a process to someone or something physical or digital (continuant) that is a necessary precondition for the process to start" .
+
+
+###  https://w3id.org/pmd/co/PMD_0000016
+<https://w3id.org/pmd/co/PMD_0000016> rdf:type owl:ObjectProperty ;
+                                      rdfs:subPropertyOf obo:BFO_0000057 ;
+                                      owl:inverseOf <https://w3id.org/pmd/co/PMD_0040130> ;
+                                      rdfs:label "has output"@en ;
+                                      skos:definition "relation from a process to someone or something physical or digital (continuant) that participates in the process such that it is generated or modified during the process, and that it exists at the end of the process" .
+
+
+###  https://w3id.org/pmd/co/PMD_0040121
+<https://w3id.org/pmd/co/PMD_0040121> rdf:type owl:ObjectProperty ;
+                                      rdfs:subPropertyOf obo:IAO_0000136 ;
+                                      owl:inverseOf <https://w3id.org/pmd/co/PMD_0040122> ;
+                                      rdfs:label "specifies role"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0040122
+<https://w3id.org/pmd/co/PMD_0040122> rdf:type owl:ObjectProperty ;
+                                      rdfs:subPropertyOf <https://w3id.org/pmd/co/PMD_0000004> ;
+                                      rdfs:label "role specified by"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0040130
+<https://w3id.org/pmd/co/PMD_0040130> rdf:type owl:ObjectProperty ;
+                                      rdfs:subPropertyOf obo:BFO_0000056 ;
+                                      rdfs:label "is output of"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0040131
+<https://w3id.org/pmd/co/PMD_0040131> rdf:type owl:ObjectProperty ;
+                                      rdfs:subPropertyOf obo:BFO_0000056 ;
+                                      rdfs:label "is input of"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0060001
+<https://w3id.org/pmd/co/PMD_0060001> rdf:type owl:ObjectProperty ;
+                                      rdfs:subPropertyOf obo:IAO_0000136 ;
+                                      obo:IAO_0000119 "http://purl.obolibrary.org/obo/OBI_0001927" ;
+                                      rdfs:label "specifies value of"@en ;
+                                      skos:definition "A relation between a value specification and an entity which the specification is about." .
+
+
+###  Generated by the OWL API (version 4.5.29) https://github.com/owlcs/owlapi
