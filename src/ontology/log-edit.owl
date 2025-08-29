@@ -14,6 +14,7 @@ Annotation(dcterms:creator <https://orcid.org/0000-0003-1649-6832>)
 Annotation(dcterms:title "Platform Material Digital Application Ontology  for Logistics and supplychain (log)"@en)
 Annotation(rdfs:comment "The logistics application ontology for use with PMD Core Ontology (PMDco). The scope of this module is the description of material science and engineering related logistics and general organization. Its is adopted from the IOF SupplyChain Module https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/"@en)
 
+Declaration(Class(<https://w3id.org/pmd/ao/LOG_0000001>))
 Declaration(Class(<https://w3id.org/pmd/ao/LOG_1000000>))
 Declaration(Class(<https://w3id.org/pmd/ao/LOG_1000001>))
 Declaration(Class(<https://w3id.org/pmd/ao/LOG_1000002>))
@@ -260,6 +261,14 @@ AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <http://purl.ob
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <http://purl.obolibrary.org/obo/BFO_0000040> <http://purl.obolibrary.org/obo/BFO_0000040>)
 
+# Class: <https://w3id.org/pmd/ao/LOG_0000001> (industrial inventory role)
+
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <https://w3id.org/pmd/ao/LOG_0000001> "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/IndustrialInventoryRole")
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/ao/LOG_0000001> "industrial inventory role"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/ao/LOG_0000001> "role held by some material entity when it is stored by a bussiness organization and it is intended to be supplied to a customer or to be used or consumed in some product production process"@en-us)
+SubClassOf(<https://w3id.org/pmd/ao/LOG_0000001> <https://w3id.org/pmd/ao/LOG_1000106>)
+SubClassOf(<https://w3id.org/pmd/ao/LOG_0000001> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000197> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000040> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000056> ObjectUnionOf(<https://w3id.org/pmd/ao/LOG_1000123> <https://w3id.org/pmd/ao/LOG_1000128>)))))
+
 # Class: <https://w3id.org/pmd/ao/LOG_1000000> (agreement)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <https://w3id.org/pmd/ao/LOG_1000000> <https://spec.industrialontologies.org/ontology/core/Core/Agreement>)
@@ -471,8 +480,7 @@ AnnotationAssertion(rdfs:label <https://w3id.org/pmd/ao/LOG_1000025> "cargo"@en)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/ao/LOG_1000025> "industrial inventory"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/ao/LOG_1000025> "material entity that is transported using a transport equipment by a carrier"@en-us)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/ao/LOG_1000025> "material product, material component, raw material, or material artifact that is ready to be sold or used and is stored in a storage facility or on factory floor"@en-us)
-EquivalentClasses(<https://w3id.org/pmd/ao/LOG_1000025> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000040> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000196> <https://w3id.org/pmd/ao/LOG_1000073>)))
-EquivalentClasses(<https://w3id.org/pmd/ao/LOG_1000025> ObjectIntersectionOf(ObjectUnionOf(<https://w3id.org/pmd/ao/LOG_1000028> <https://w3id.org/pmd/ao/LOG_1000029> <https://w3id.org/pmd/ao/LOG_1000030> <https://w3id.org/pmd/ao/LOG_1000102>) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000196> <https://w3id.org/pmd/ao/LOG_1000078>)))
+EquivalentClasses(<https://w3id.org/pmd/ao/LOG_1000025> ObjectIntersectionOf(ObjectUnionOf(<https://w3id.org/pmd/ao/LOG_1000028> <https://w3id.org/pmd/ao/LOG_1000029> <https://w3id.org/pmd/ao/LOG_1000030> <https://w3id.org/pmd/ao/LOG_1000102>) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000196> <https://w3id.org/pmd/ao/LOG_0000001>)))
 SubClassOf(<https://w3id.org/pmd/ao/LOG_1000025> <http://purl.obolibrary.org/obo/BFO_0000040>)
 
 # Class: <https://w3id.org/pmd/ao/LOG_1000026> (load)
@@ -870,15 +878,10 @@ EquivalentClasses(<https://w3id.org/pmd/ao/LOG_1000077> ObjectIntersectionOf(<ht
 # Class: <https://w3id.org/pmd/ao/LOG_1000078> (material product role)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <https://w3id.org/pmd/ao/LOG_1000078> <https://spec.industrialontologies.org/ontology/core/Core/MaterialProductRole>)
-AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <https://w3id.org/pmd/ao/LOG_1000078> <https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/IndustrialInventoryRole>)
-AnnotationAssertion(rdfs:label <https://w3id.org/pmd/ao/LOG_1000078> "industrial inventory role"@en)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/ao/LOG_1000078> "material product role"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/ao/LOG_1000078> "role held by a material entity that is intended to be sold, or has been bought, or has been supplied"@en-us)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/ao/LOG_1000078> "role held by some material entity when it is stored by a bussiness organization and it is intended to be supplied to a customer or to be used or consumed in some product production process"@en-us)
 SubClassOf(<https://w3id.org/pmd/ao/LOG_1000078> <http://purl.obolibrary.org/obo/BFO_0000023>)
-SubClassOf(<https://w3id.org/pmd/ao/LOG_1000078> <https://w3id.org/pmd/ao/LOG_1000106>)
 SubClassOf(<https://w3id.org/pmd/ao/LOG_1000078> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000197> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000040> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000056> ObjectUnionOf(<https://w3id.org/pmd/ao/LOG_1000111> <https://w3id.org/pmd/ao/LOG_1000125> <https://w3id.org/pmd/ao/LOG_1000128>)))))
-SubClassOf(<https://w3id.org/pmd/ao/LOG_1000078> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000197> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000040> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000056> ObjectUnionOf(<https://w3id.org/pmd/ao/LOG_1000123> <https://w3id.org/pmd/ao/LOG_1000128>)))))
 
 # Class: <https://w3id.org/pmd/ao/LOG_1000079> (raw material role)
 
