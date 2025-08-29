@@ -2,21 +2,15 @@
 
 template repository for starting a PMDCo application ontology. iT comes preconfigured with github workflows using [ontology development kit](https://github.com/INCATools/ontology-development-kit).
 
-## how to use
+## How to use
 
 1. Fork this repository
-2. Run the seed workflow under github actions, set the id and uribase_suffix. It will override the default values in seed-template.yaml
+2. Run the seed workflow under GitHub Actions, and set the id and uribase_suffix. It will override the default values in [seed-template.yaml](./seed-template.yaml)
+   
+    Id and uribase_suffix are usually set to the same lowercase acronym that will be used with this ontology; examples are pmdco, tto, hto ...
+    Github org and repo name will be set automatically by the seed workflow. To run the workflow, switch to GitHub Actions, select the seed workflow, and dispatch the  job manually.
+4. Check the pull request created! If everything is fine, merge into main.
+5. Put your ontology work into the \*-edit.owl file in the src folder; after pushing changes to the repository, the build will run and integrate your changes into the release types defined.
+6. Documentation of the application ontology is created via widoco and GitHub Pages when the docs workflow runs.
 
-```yaml
-id: <change here>
-title: <ontology title>
-github_org: materialdigital
-git_main_branch: main
-repo: <repo name>
-uribase: https://w3id.org/pmd/ao
-uribase_suffix: xxx
-```
-
-3. Check the pul request create! If everything is fine merge to main
-4. Put ur ontology work into the \*-edit.owl file in src folder, after pushing changes to the repository the build_with imports workflow will run and integrate your changes into the release types defined
-5. Documentation of the application ontology is created via widoco and github pages, when the docs workflow runs
+   To enable the documentation, you have to activate GitHub Pages in the repository settings. Set it to GitHub Actions instead of branch; the doc action will upload      the artifacts needed after each push to the repository. 
