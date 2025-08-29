@@ -1215,7 +1215,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 EquivalentClasses(<https://w3id.org/pmd/ao/log/LOG_1000129> ObjectIntersectionOf(<https://w3id.org/pmd/ao/log/LOG_1000130> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000055> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000014> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000059> <https://w3id.org/pmd/ao/log/LOG_1000098>))) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000066> <https://w3id.org/pmd/ao/log/LOG_1000034>) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000117> <https://w3id.org/pmd/ao/log/LOG_1000144>)))
 SubClassOf(<https://w3id.org/pmd/ao/log/LOG_1000129> <https://w3id.org/pmd/ao/log/LOG_1000130>)
 
-# Class: <https://w3id.org/pmd/ao/log/LOG_1000130> (business process)
+# Class: <https://w3id.org/pmd/ao/log/LOG_1000130> (transport equipment role)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <https://w3id.org/pmd/ao/log/LOG_1000130> <https://spec.industrialontologies.org/ontology/core/Core/BusinessProcess>)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/ao/log/LOG_1000130> "business process"@en)
