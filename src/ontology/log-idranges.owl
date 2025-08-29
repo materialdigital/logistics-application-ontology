@@ -16,7 +16,7 @@ Ontology: <https://w3id.org/pmd/ao/log/log-idranges.owl>
 
 Annotations: 
     idsfor: "LOG",
-    idprefix: "https://w3id.org/pmd/ao/LOG_",
+    idprefix: "https://w3id.org/pmd/ao/log/LOG_",
     iddigits: 7
 
 AnnotationProperty: idprefix:
