@@ -360,11 +360,9 @@ SubClassOf(<https://w3id.org/pmd/ao/LOG_10000105> <https://w3id.org/pmd/ao/LOG_1
 
 # Class: <https://w3id.org/pmd/ao/LOG_1000011> (agent)
 
-AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <https://w3id.org/pmd/ao/LOG_1000011> <https://spec.industrialontologies.org/ontology/core/Core/Agent>)
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <https://w3id.org/pmd/ao/LOG_1000011> "https://spec.industrialontologies.org/iof/ontology/core/Core/Agent")
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/ao/LOG_1000011> "agent"@en)
 EquivalentClasses(<https://w3id.org/pmd/ao/LOG_1000011> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000040> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000196> <https://w3id.org/pmd/ao/LOG_1000054>)))
-EquivalentClasses(<https://w3id.org/pmd/ao/LOG_1000011> ObjectIntersectionOf(ObjectUnionOf(<https://w3id.org/pmd/ao/LOG_1000045> <https://w3id.org/pmd/ao/LOG_1000050>) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000196> <https://w3id.org/pmd/ao/LOG_1000058>)))
 SubClassOf(<https://w3id.org/pmd/ao/LOG_1000011> <http://purl.obolibrary.org/obo/BFO_0000040>)
 
 # Class: <https://w3id.org/pmd/ao/LOG_1000012> (buyer)
