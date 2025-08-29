@@ -1,10 +1,10 @@
 
 ![Build Status](https://github.com/materialdigital/logistics-application-ontology/actions/workflows/qc.yml/badge.svg)
-# My Application Ontology
+# Platform Material Digital (PMD) Logistics Application Ontology 
 
-Description: None
+PMDCo application ontology for logistics and supplychain adopted from [iof-supplychain-module](https://spec.industrialontologies.org/ontology/supplychain/Metadatasupplychain/supplychainModule) 
 
-More information can be found at http://obofoundry.org/ontology/log
+More information can be found at https://w3id.org/pmd/ao/log/
 
 ## Versions
 
@@ -14,7 +14,6 @@ The latest version of the ontology can always be found at:
 
 https://w3id.org/pmd/ao/log.owl
 
-(note this will not show up until the request has been approved by obofoundry.org)
 
 ### Editors' version
 
