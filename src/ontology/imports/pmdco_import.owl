@@ -3677,7 +3677,7 @@ AnnotationAssertion(skos:example co:PMD_0000053 "The process of melting aluminum
 SubClassOf(co:PMD_0000053 co:PMD_0000833)
 SubClassOf(co:PMD_0000053 ObjectIntersectionOf(obo:BFO_0000015 ObjectSomeValuesFrom(co:PMD_0000015 obo:BFO_0000040) ObjectSomeValuesFrom(co:PMD_0000016 co:PMD_0020139)))
 
-# Class: co:PMD_0000054 (Heizfunktion)
+# Class: co:PMD_0000054 (heating function)
 
 AnnotationAssertion(rdfs:label co:PMD_0000054 "Heizfunktion"@de)
 AnnotationAssertion(rdfs:label co:PMD_0000054 "heating function"@en)
@@ -3704,7 +3704,7 @@ AnnotationAssertion(skos:definition co:PMD_0000056 "A melting furnace is a devic
 AnnotationAssertion(skos:definition co:PMD_0000056 "Ein Schmelzofen ist ein Gerät, das eine Schmelzfunktion hat und in der Regel dazu dient, die Temperatur eines festen Materials zu erhöhen, um seine Umwandlung in eine Schmelze einzuleiten und aufrechtzuerhalten."@de)
 SubClassOf(co:PMD_0000056 ObjectIntersectionOf(co:PMD_0000655 ObjectSomeValuesFrom(obo:BFO_0000196 co:PMD_0000057)))
 
-# Class: co:PMD_0000057 (melting function)
+# Class: co:PMD_0000057 (Schmelzfunktion)
 
 AnnotationAssertion(rdfs:label co:PMD_0000057 "Schmelzfunktion"@de)
 AnnotationAssertion(rdfs:label co:PMD_0000057 "melting function"@en)
@@ -4211,7 +4211,7 @@ AnnotationAssertion(skos:definition co:PMD_0000564 "A subfunction of coating per
 AnnotationAssertion(skos:definition co:PMD_0000564 "Eine Unterfunktion der Beschichtung, die durchgeführt wird, um eine Beschichtung auf eine Oberfläche aufzutragen."@de)
 SubClassOf(co:PMD_0000564 co:PMD_0000575)
 
-# Class: co:PMD_0000565 (Beschichten Durch Löten)
+# Class: co:PMD_0000565 (coating by soldering)
 
 AnnotationAssertion(obo:IAO_0000114 co:PMD_0000565 obo:IAO_0000122)
 AnnotationAssertion(obo:IAO_0000117 co:PMD_0000565 "PMDco Team")
@@ -4426,7 +4426,7 @@ AnnotationAssertion(rdfs:label co:PMD_0000587 "crack growth"@en)
 AnnotationAssertion(skos:definition co:PMD_0000587 "The crack growth is an evolution of damage describing the progressive extension of a crack in a material under stress."@en)
 SubClassOf(co:PMD_0000587 co:PMD_0000635)
 
-# Class: co:PMD_0000588 (creep testing machine)
+# Class: co:PMD_0000588 (Kriechprüfmaschine)
 
 AnnotationAssertion(obo:IAO_0000117 co:PMD_0000588 "PMDco Team")
 AnnotationAssertion(rdfs:label co:PMD_0000588 "Kriechprüfmaschine"@de)
@@ -4558,7 +4558,7 @@ AnnotationAssertion(skos:definition co:PMD_0000604 "The dielectric constant is a
 SubClassOf(co:PMD_0000604 co:PMD_0000621)
 DisjointClasses(co:PMD_0000604 co:PMD_0000620)
 
-# Class: co:PMD_0000605 (differential scanning calorimeter)
+# Class: co:PMD_0000605 (Differential-Scanning-Kalorimeter)
 
 AnnotationAssertion(obo:IAO_0000117 co:PMD_0000605 "PMDco Team")
 AnnotationAssertion(rdfs:label co:PMD_0000605 "Differential-Scanning-Kalorimeter"@de)
@@ -4924,7 +4924,7 @@ AnnotationAssertion(skos:definition co:PMD_0000649 "Ein Umform Prozess, bei dem 
 AnnotationAssertion(skos:example co:PMD_0000649 "Stripping, Deep Drawing, Spinning"@en)
 SubClassOf(co:PMD_0000649 co:PMD_0000646)
 
-# Class: co:PMD_0000650 (forming under compressive conditions)
+# Class: co:PMD_0000650 (Druckumformen)
 
 AnnotationAssertion(obo:IAO_0000114 co:PMD_0000650 obo:IAO_0000122)
 AnnotationAssertion(obo:IAO_0000117 co:PMD_0000650 "PMDco Team")
@@ -5456,7 +5456,7 @@ AnnotationAssertion(skos:definition co:PMD_0000807 "Ein Fügeverfahren, bei dem 
 AnnotationAssertion(skos:example co:PMD_0000807 "Pouring, Embedding, Encasing"@en)
 SubClassOf(co:PMD_0000807 co:PMD_0000806)
 
-# Class: co:PMD_0000808 (Fügen Durch Umformen)
+# Class: co:PMD_0000808 (joining by shaping)
 
 AnnotationAssertion(obo:IAO_0000114 co:PMD_0000808 obo:IAO_0000122)
 AnnotationAssertion(obo:IAO_0000117 co:PMD_0000808 "PMDco Team")
@@ -5755,7 +5755,7 @@ TODO: Check general class axiom and defintion altogether !!!"@en)
 SubClassOf(co:PMD_0000848 co:PMD_0000005)
 SubClassOf(co:PMD_0000848 ObjectSomeValuesFrom(co:PMD_0001030 co:PMD_0000522))
 
-# Class: co:PMD_0000849 (Mechanische Eigenschaften Analyseverfahren)
+# Class: co:PMD_0000849 (mechanical property analyzing process)
 
 AnnotationAssertion(obo:IAO_0000117 co:PMD_0000849 "PMDco Team")
 AnnotationAssertion(rdfs:label co:PMD_0000849 "Mechanische Eigenschaften Analyseverfahren"@de)
@@ -6522,7 +6522,7 @@ AnnotationAssertion(skos:definition co:PMD_0000943 "Role of an object which has 
 AnnotationAssertion(skos:definition co:PMD_0000943 "Rolle eines Objektes, das aus einem Probenabschnitt (Sample) entnommen wurde (durch Umformen und/oder maschinelles Bearbeiten und/oder Wärmebehandlung) mit dem Zweck Proben (Test Pieces) aus diesem Objekt herzustellen."@de)
 SubClassOf(co:PMD_0000943 obo:BFO_0000023)
 
-# Class: co:PMD_0000944 (Spektrometer)
+# Class: co:PMD_0000944 (spectrometer)
 
 AnnotationAssertion(obo:IAO_0000117 co:PMD_0000944 "PMDco Team")
 AnnotationAssertion(rdfs:label co:PMD_0000944 "Spektrometer"@de)
@@ -6639,7 +6639,7 @@ AnnotationAssertion(rdfs:label co:PMD_0000961 "sublimation point"@en)
 AnnotationAssertion(skos:definition co:PMD_0000961 "The sublimation point is a phase boundary that describes the temperature at which a material transitions directly from a solid to a gaseous state without passing through the liquid phase."@en)
 SubClassOf(co:PMD_0000961 co:PMD_0000882)
 
-# Class: co:PMD_0000962 (Überkritische Fluidchromatographie Verfahren)
+# Class: co:PMD_0000962 (supercritical fluid chromatography process)
 
 AnnotationAssertion(obo:IAO_0000117 co:PMD_0000962 "PMDco Team")
 AnnotationAssertion(rdfs:label co:PMD_0000962 "supercritical fluid chromatography process"@en)
