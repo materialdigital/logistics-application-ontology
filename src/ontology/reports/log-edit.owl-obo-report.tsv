@@ -1,6 +1,7 @@
 Level	Rule Name	Subject	Property	Value
 WARN	equivalent_pair	lot	owl:equivalentClass	https://w3id.org/pmd/co/PMD_0020138
 WARN	equivalent_pair	manufacturer role	owl:equivalentClass	https://w3id.org/pmd/co/PMD_0000831
+WARN	equivalent_pair	assembly process	owl:equivalentClass	https://w3id.org/pmd/co/PMD_0000524
 WARN	missing_definition	industrial inventory	IAO:0000115	
 WARN	missing_definition	industrial inventory role	IAO:0000115	
 WARN	missing_definition	consigning process	IAO:0000115	
@@ -51,7 +52,6 @@ WARN	missing_definition	piece of transport equipment	IAO:0000115
 WARN	missing_definition	container	IAO:0000115	
 WARN	missing_definition	trailer	IAO:0000115	
 WARN	missing_definition	wagon	IAO:0000115	
-WARN	missing_definition	person	IAO:0000115	
 WARN	missing_definition	integrated carrier business organization	IAO:0000115	
 WARN	missing_definition	business organization	IAO:0000115	
 WARN	missing_definition	organization	IAO:0000115	

@@ -1242,14 +1242,14 @@ Werner suggests a solution based on &quot;Magnitudes&quot; a proposal for which 
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                     <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000050"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000027"/>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000115"/>
-                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/ao/log/LOG_1000045"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000881"/>
                             </owl:Restriction>
                         </owl:intersectionOf>
                     </owl:Class>
@@ -1280,8 +1280,8 @@ Werner suggests a solution based on &quot;Magnitudes&quot; a proposal for which 
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                     <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000047"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -4690,7 +4690,7 @@ Previous. An information content entity is a non-realizable information entity t
                                 <owl:intersectionOf rdf:parseType="Collection">
                                     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
                                     <owl:Class>
-                                        <owl:complementOf rdf:resource="https://w3id.org/pmd/ao/log/LOG_1000045"/>
+                                        <owl:complementOf rdf:resource="https://w3id.org/pmd/co/PMD_0000881"/>
                                     </owl:Class>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -4983,8 +4983,8 @@ Previous. An information content entity is a non-realizable information entity t
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                             <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000050"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                         </owl:unionOf>
                     </owl:Class>
                     <owl:Restriction>
@@ -5043,8 +5043,8 @@ Previous. An information content entity is a non-realizable information entity t
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                             <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000050"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                         </owl:unionOf>
                     </owl:Class>
                     <owl:Restriction>
@@ -5076,8 +5076,8 @@ Previous. An information content entity is a non-realizable information entity t
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                             <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000050"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                         </owl:unionOf>
                     </owl:Class>
                     <owl:Restriction>
@@ -5109,8 +5109,8 @@ Previous. An information content entity is a non-realizable information entity t
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                             <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000050"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                         </owl:unionOf>
                     </owl:Class>
                     <owl:Restriction>
@@ -5143,8 +5143,8 @@ Previous. An information content entity is a non-realizable information entity t
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                             <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000050"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                         </owl:unionOf>
                     </owl:Class>
                     <owl:Restriction>
@@ -5176,8 +5176,8 @@ Previous. An information content entity is a non-realizable information entity t
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                             <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000050"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                         </owl:unionOf>
                     </owl:Class>
                     <owl:Restriction>
@@ -5238,8 +5238,8 @@ Previous. An information content entity is a non-realizable information entity t
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                             <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000050"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                         </owl:unionOf>
                     </owl:Class>
                     <owl:Restriction>
@@ -5271,8 +5271,8 @@ Previous. An information content entity is a non-realizable information entity t
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                             <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000047"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                         </owl:unionOf>
                     </owl:Class>
                     <owl:Restriction>
@@ -5304,8 +5304,8 @@ Previous. An information content entity is a non-realizable information entity t
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                             <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000050"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                         </owl:unionOf>
                     </owl:Class>
                     <owl:Restriction>
@@ -5337,8 +5337,8 @@ Previous. An information content entity is a non-realizable information entity t
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                             <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000050"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                         </owl:unionOf>
                     </owl:Class>
                     <owl:Restriction>
@@ -5370,8 +5370,8 @@ Previous. An information content entity is a non-realizable information entity t
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                             <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000050"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                         </owl:unionOf>
                     </owl:Class>
                     <owl:Restriction>
@@ -5403,8 +5403,8 @@ Previous. An information content entity is a non-realizable information entity t
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                             <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000050"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                         </owl:unionOf>
                     </owl:Class>
                     <owl:Restriction>
@@ -5996,25 +5996,6 @@ Previous. An information content entity is a non-realizable information entity t
     
 
 
-    <!-- https://w3id.org/pmd/ao/log/LOG_1000045 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
-        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000123"/>
-        <obo:IAO_0000412 rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://openenergy-platform.org/ontology/oeo/oeo-import-edits.owl</obo:IAO_0000412>
-        <rdfs:label xml:lang="en">person</rdfs:label>
-        <skos:definition xml:lang="en">A person is a human being.</skos:definition>
-        <logistics:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</logistics:PMD_0000060>
-    </owl:Class>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="https://w3id.org/pmd/ao/log/LOG_1000045"/>
-        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
-        <logistics:PMD_0001032>https://github.com/materialdigital/core-ontology/issues/102</logistics:PMD_0001032>
-    </owl:Axiom>
-    
-
-
     <!-- https://w3id.org/pmd/ao/log/LOG_1000046 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/ao/log/LOG_1000046">
@@ -6090,7 +6071,7 @@ Previous. An information content entity is a non-realizable information entity t
                     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000027"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000115"/>
-                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/ao/log/LOG_1000045"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000881"/>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
@@ -6103,7 +6084,7 @@ Previous. An information content entity is a non-realizable information entity t
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000115"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/ao/log/LOG_1000045"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000881"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -6228,8 +6209,8 @@ Previous. An information content entity is a non-realizable information entity t
                                 <owl:someValuesFrom>
                                     <owl:Class>
                                         <owl:unionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                                             <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000050"/>
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                                         </owl:unionOf>
                                     </owl:Class>
                                 </owl:someValuesFrom>
@@ -6258,8 +6239,8 @@ Previous. An information content entity is a non-realizable information entity t
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000050"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
@@ -6290,8 +6271,8 @@ Previous. An information content entity is a non-realizable information entity t
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000050"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
@@ -6332,8 +6313,8 @@ Previous. An information content entity is a non-realizable information entity t
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000050"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
@@ -6357,8 +6338,8 @@ Previous. An information content entity is a non-realizable information entity t
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000050"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
@@ -6397,8 +6378,8 @@ Previous. An information content entity is a non-realizable information entity t
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                             <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000050"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                         </owl:unionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
@@ -6434,8 +6415,8 @@ Previous. An information content entity is a non-realizable information entity t
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000050"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
@@ -6514,8 +6495,8 @@ Previous. An information content entity is a non-realizable information entity t
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000047"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
@@ -6586,8 +6567,8 @@ Previous. An information content entity is a non-realizable information entity t
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000050"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
@@ -6627,8 +6608,8 @@ Previous. An information content entity is a non-realizable information entity t
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000050"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
@@ -6693,8 +6674,8 @@ Previous. An information content entity is a non-realizable information entity t
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000050"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
@@ -6732,8 +6713,8 @@ Previous. An information content entity is a non-realizable information entity t
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000050"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
@@ -6779,8 +6760,8 @@ Previous. An information content entity is a non-realizable information entity t
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000050"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
@@ -6811,8 +6792,8 @@ Previous. An information content entity is a non-realizable information entity t
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000047"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
@@ -6864,8 +6845,8 @@ Previous. An information content entity is a non-realizable information entity t
                                     </owl:Class>
                                     <owl:Class>
                                         <owl:unionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                                             <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000047"/>
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                                         </owl:unionOf>
                                     </owl:Class>
                                 </owl:intersectionOf>
@@ -6903,8 +6884,8 @@ Previous. An information content entity is a non-realizable information entity t
                             </owl:Class>
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000047"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                                 </owl:unionOf>
                             </owl:Class>
                         </owl:intersectionOf>
@@ -6933,8 +6914,8 @@ Previous. An information content entity is a non-realizable information entity t
                                 <owl:intersectionOf rdf:parseType="Collection">
                                     <owl:Class>
                                         <owl:unionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                                             <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000047"/>
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                                         </owl:unionOf>
                                     </owl:Class>
                                     <owl:Restriction>
@@ -6957,8 +6938,8 @@ Previous. An information content entity is a non-realizable information entity t
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000047"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
@@ -6991,8 +6972,8 @@ Previous. An information content entity is a non-realizable information entity t
                                 <owl:intersectionOf rdf:parseType="Collection">
                                     <owl:Class>
                                         <owl:unionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                                             <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000047"/>
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                                         </owl:unionOf>
                                     </owl:Class>
                                     <owl:Restriction>
@@ -7015,8 +6996,8 @@ Previous. An information content entity is a non-realizable information entity t
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000047"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
@@ -7049,8 +7030,8 @@ Previous. An information content entity is a non-realizable information entity t
                                 <owl:intersectionOf rdf:parseType="Collection">
                                     <owl:Class>
                                         <owl:unionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                                             <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000047"/>
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                                         </owl:unionOf>
                                     </owl:Class>
                                     <owl:Restriction>
@@ -7073,8 +7054,8 @@ Previous. An information content entity is a non-realizable information entity t
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000047"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
@@ -7180,8 +7161,8 @@ Previous. An information content entity is a non-realizable information entity t
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000047"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
@@ -7222,8 +7203,8 @@ Previous. An information content entity is a non-realizable information entity t
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000047"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
@@ -7243,8 +7224,8 @@ Previous. An information content entity is a non-realizable information entity t
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000047"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
@@ -7284,8 +7265,8 @@ Previous. An information content entity is a non-realizable information entity t
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000045"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000047"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
@@ -8617,6 +8598,7 @@ Previous. An information content entity is a non-realizable information entity t
     <!-- https://w3id.org/pmd/ao/log/LOG_1000132 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/ao/log/LOG_1000132">
+        <owl:equivalentClass rdf:resource="https://w3id.org/pmd/co/PMD_0000524"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/ao/log/LOG_1000131"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000833"/>
         <rdfs:subClassOf>
@@ -9488,6 +9470,7 @@ TODO: should move to &quot;process characteristic&quot;</skos:definition>
     <!-- https://w3id.org/pmd/co/PMD_0000524 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000524">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/ao/log/LOG_1000131"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000833"/>
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000428"/>
         <rdfs:label xml:lang="de">Assemblierungsprozess</rdfs:label>
@@ -12066,7 +12049,7 @@ Ein Rechenknoten kann virtuell (bspw. ein Container oder eine virtuelle Maschine
     <!-- https://w3id.org/pmd/co/PMD_0000814 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000814">
-        <owl:equivalentClass rdf:nodeID="genid1203"/>
+        <owl:equivalentClass rdf:nodeID="genid1202"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000029"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -12079,7 +12062,7 @@ Ein Rechenknoten kann virtuell (bspw. ein Container oder eine virtuelle Maschine
         <rdfs:label xml:lang="en">laboratory</rdfs:label>
         <skos:definition xml:lang="en">A place equipped for experimental study in a science or for testing and analysis.</skos:definition>
     </owl:Class>
-    <owl:Class rdf:nodeID="genid1203">
+    <owl:Class rdf:nodeID="genid1202">
         <owl:intersectionOf rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000029"/>
             <owl:Restriction>
@@ -12091,7 +12074,7 @@ Ein Rechenknoten kann virtuell (bspw. ein Container oder eine virtuelle Maschine
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0000814"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2002/07/owl#equivalentClass"/>
-        <owl:annotatedTarget rdf:nodeID="genid1203"/>
+        <owl:annotatedTarget rdf:nodeID="genid1202"/>
         <co:PMD_0001032>issue: https://github.com/materialdigital/core-ontology/issues/101</co:PMD_0001032>
     </owl:Axiom>
     
@@ -12858,12 +12841,19 @@ TODO: Check general class axiom and defintion altogether !!!</skos:definition>
         <obo:IAO_0000412 rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://openenergy-platform.org/ontology/oeo/oeo-import-edits.owl</obo:IAO_0000412>
         <rdfs:label xml:lang="en">person</rdfs:label>
         <skos:definition xml:lang="en">A person is a human being.</skos:definition>
+        <logistics:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</logistics:PMD_0000060>
     </owl:Class>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0000881"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
         <owl:annotatedTarget rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
         <co:PMD_0001032>https://github.com/materialdigital/core-ontology/issues/102</co:PMD_0001032>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0000881"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
+        <logistics:PMD_0001032>https://github.com/materialdigital/core-ontology/issues/102</logistics:PMD_0001032>
     </owl:Axiom>
     
 

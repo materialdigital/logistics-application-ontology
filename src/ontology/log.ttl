@@ -919,12 +919,12 @@ obo:IAO_0000417 rdf:type owl:ObjectProperty ;
                                                         rdf:type owl:Class
                                                       ] ;
                                           rdfs:range [ rdf:type owl:Class ;
-                                                       owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                     <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                       owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                     co:PMD_0000881
                                                                      [ owl:intersectionOf ( obo:BFO_0000027
                                                                                             [ rdf:type owl:Restriction ;
                                                                                               owl:onProperty obo:BFO_0000115 ;
-                                                                                              owl:someValuesFrom <https://w3id.org/pmd/ao/log/LOG_1000045>
+                                                                                              owl:someValuesFrom co:PMD_0000881
                                                                                             ]
                                                                                           ) ;
                                                                        rdf:type owl:Class
@@ -947,8 +947,8 @@ obo:IAO_0000417 rdf:type owl:ObjectProperty ;
 <https://w3id.org/pmd/ao/log/LOG_1900003> rdf:type owl:ObjectProperty ;
                                           rdfs:subPropertyOf owl:topObjectProperty ;
                                           rdfs:domain [ rdf:type owl:Class ;
-                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                      <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                                      co:PMD_0000881
                                                                     )
                                                       ] ;
                                           rdfs:range obo:BFO_0000004 ;
@@ -3660,7 +3660,7 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                                                                                      <https://w3id.org/pmd/ao/log/LOG_1000102>
                                                                                                      [ owl:intersectionOf ( obo:BFO_0000030
                                                                                                                             [ rdf:type owl:Class ;
-                                                                                                                              owl:complementOf <https://w3id.org/pmd/ao/log/LOG_1000045>
+                                                                                                                              owl:complementOf co:PMD_0000881
                                                                                                                             ]
                                                                                                                           ) ;
                                                                                                        rdf:type owl:Class
@@ -3873,8 +3873,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/ao/log/LOG_10000105
 <https://w3id.org/pmd/ao/log/LOG_10000105> rdf:type owl:Class ;
                                            owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                      <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                      co:PMD_0000881
                                                                                                     )
                                                                                       ]
                                                                                       [ rdf:type owl:Restriction ;
@@ -3916,8 +3916,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/ao/log/LOG_1000012
 <https://w3id.org/pmd/ao/log/LOG_1000012> rdf:type owl:Class ;
                                           owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                       owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                     <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                       owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                     co:PMD_0000881
                                                                                                    )
                                                                                      ]
                                                                                      [ rdf:type owl:Restriction ;
@@ -3940,8 +3940,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/ao/log/LOG_1000013
 <https://w3id.org/pmd/ao/log/LOG_1000013> rdf:type owl:Class ;
                                           owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                       owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                     <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                       owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                     co:PMD_0000881
                                                                                                    )
                                                                                      ]
                                                                                      [ rdf:type owl:Restriction ;
@@ -3964,8 +3964,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/ao/log/LOG_1000014
 <https://w3id.org/pmd/ao/log/LOG_1000014> rdf:type owl:Class ;
                                           owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                       owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                     <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                       owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                     co:PMD_0000881
                                                                                                    )
                                                                                      ]
                                                                                      [ rdf:type owl:Restriction ;
@@ -3989,8 +3989,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/ao/log/LOG_1000015
 <https://w3id.org/pmd/ao/log/LOG_1000015> rdf:type owl:Class ;
                                           owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                       owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                     <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                       owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                     co:PMD_0000881
                                                                                                    )
                                                                                      ]
                                                                                      [ rdf:type owl:Restriction ;
@@ -4013,8 +4013,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/ao/log/LOG_1000016
 <https://w3id.org/pmd/ao/log/LOG_1000016> rdf:type owl:Class ;
                                           owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                       owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                     <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                       owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                     co:PMD_0000881
                                                                                                    )
                                                                                      ]
                                                                                      [ rdf:type owl:Restriction ;
@@ -4058,8 +4058,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/ao/log/LOG_1000018
 <https://w3id.org/pmd/ao/log/LOG_1000018> rdf:type owl:Class ;
                                           owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                       owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                     <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                       owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                     co:PMD_0000881
                                                                                                    )
                                                                                      ]
                                                                                      [ rdf:type owl:Restriction ;
@@ -4082,8 +4082,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/ao/log/LOG_1000019
 <https://w3id.org/pmd/ao/log/LOG_1000019> rdf:type owl:Class ;
                                           owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                       owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                     <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                                                       owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                                                                     co:PMD_0000881
                                                                                                    )
                                                                                      ]
                                                                                      [ rdf:type owl:Restriction ;
@@ -4106,8 +4106,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/ao/log/LOG_1000020
 <https://w3id.org/pmd/ao/log/LOG_1000020> rdf:type owl:Class ;
                                           owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                       owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                     <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                       owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                     co:PMD_0000881
                                                                                                    )
                                                                                      ]
                                                                                      [ rdf:type owl:Restriction ;
@@ -4130,8 +4130,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/ao/log/LOG_1000021
 <https://w3id.org/pmd/ao/log/LOG_1000021> rdf:type owl:Class ;
                                           owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                       owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                     <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                       owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                     co:PMD_0000881
                                                                                                    )
                                                                                      ]
                                                                                      [ rdf:type owl:Restriction ;
@@ -4154,8 +4154,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/ao/log/LOG_1000022
 <https://w3id.org/pmd/ao/log/LOG_1000022> rdf:type owl:Class ;
                                           owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                       owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                     <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                       owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                     co:PMD_0000881
                                                                                                    )
                                                                                      ]
                                                                                      [ rdf:type owl:Restriction ;
@@ -4178,8 +4178,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/ao/log/LOG_1000023
 <https://w3id.org/pmd/ao/log/LOG_1000023> rdf:type owl:Class ;
                                           owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                       owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                     <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                       owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                     co:PMD_0000881
                                                                                                    )
                                                                                      ]
                                                                                      [ rdf:type owl:Restriction ;
@@ -4607,23 +4607,6 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                           skos:definition "piece of transport equipment in a rail transport system used for carrying cargo or passengers"@en-us .
 
 
-###  https://w3id.org/pmd/ao/log/LOG_1000045
-<https://w3id.org/pmd/ao/log/LOG_1000045> rdf:type owl:Class ;
-                                          rdfs:subClassOf obo:BFO_0000030 ;
-                                          obo:IAO_0000114 obo:IAO_0000123 ;
-                                          obo:IAO_0000412 "http://openenergy-platform.org/ontology/oeo/oeo-import-edits.owl"^^xsd:anyURI ;
-                                          rdfs:label "person"@en ;
-                                          skos:definition "A person is a human being."@en ;
-                                          logistics:PMD_0000060 "true"^^xsd:boolean .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource <https://w3id.org/pmd/ao/log/LOG_1000045> ;
-   owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget obo:BFO_0000030 ;
-   logistics:PMD_0001032 "https://github.com/materialdigital/core-ontology/issues/102"
- ] .
-
-
 ###  https://w3id.org/pmd/ao/log/LOG_1000046
 <https://w3id.org/pmd/ao/log/LOG_1000046> rdf:type owl:Class ;
                                           owl:equivalentClass [ owl:intersectionOf ( <https://w3id.org/pmd/ao/log/LOG_1000047>
@@ -4677,7 +4660,7 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                           owl:equivalentClass [ owl:intersectionOf ( obo:BFO_0000027
                                                                                      [ rdf:type owl:Restriction ;
                                                                                        owl:onProperty obo:BFO_0000115 ;
-                                                                                       owl:someValuesFrom <https://w3id.org/pmd/ao/log/LOG_1000045>
+                                                                                       owl:someValuesFrom co:PMD_0000881
                                                                                      ]
                                                                                      [ rdf:type owl:Restriction ;
                                                                                        owl:onProperty obo:IAO_0000235 ;
@@ -4689,7 +4672,7 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                           rdfs:subClassOf obo:BFO_0000027 ,
                                                           [ rdf:type owl:Restriction ;
                                                             owl:onProperty obo:BFO_0000115 ;
-                                                            owl:someValuesFrom <https://w3id.org/pmd/ao/log/LOG_1000045>
+                                                            owl:someValuesFrom co:PMD_0000881
                                                           ] ,
                                                           [ rdf:type owl:Restriction ;
                                                             owl:onProperty obo:IAO_0000235 ;
@@ -4777,8 +4760,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                                                                                       [ rdf:type owl:Restriction ;
                                                                                                         owl:onProperty <https://w3id.org/pmd/ao/log/LOG_1900001> ;
                                                                                                         owl:someValuesFrom [ rdf:type owl:Class ;
-                                                                                                                             owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                                                           <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                                             owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                                                           co:PMD_0000881
                                                                                                                                          )
                                                                                                                            ]
                                                                                                       ]
@@ -4797,8 +4780,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                                           [ rdf:type owl:Restriction ;
                                                             owl:onProperty obo:BFO_0000197 ;
                                                             owl:someValuesFrom [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                                      <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                                      co:PMD_0000881
                                                                                                                     )
                                                                                                       ]
                                                                                                       [ rdf:type owl:Restriction ;
@@ -4820,8 +4803,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                                           [ rdf:type owl:Restriction ;
                                                             owl:onProperty obo:BFO_0000197 ;
                                                             owl:someValuesFrom [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                                      <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                                      co:PMD_0000881
                                                                                                                     )
                                                                                                       ]
                                                                                                       [ rdf:type owl:Restriction ;
@@ -4850,8 +4833,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                                           [ rdf:type owl:Restriction ;
                                                             owl:onProperty obo:BFO_0000197 ;
                                                             owl:someValuesFrom [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                                      <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                                      co:PMD_0000881
                                                                                                                     )
                                                                                                       ]
                                                                                                       [ rdf:type owl:Restriction ;
@@ -4869,8 +4852,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                                           [ rdf:type owl:Restriction ;
                                                             owl:onProperty obo:BFO_0000197 ;
                                                             owl:someValuesFrom [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                                      <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                                      co:PMD_0000881
                                                                                                                     )
                                                                                                       ]
                                                                                                       [ rdf:type owl:Restriction ;
@@ -4899,8 +4882,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                                           [ rdf:type owl:Restriction ;
                                                             owl:onProperty obo:BFO_0000197 ;
                                                             owl:someValuesFrom [ rdf:type owl:Class ;
-                                                                                 owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                               <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                 owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                               co:PMD_0000881
                                                                                              )
                                                                                ]
                                                           ] ;
@@ -4923,8 +4906,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                                           [ rdf:type owl:Restriction ;
                                                             owl:onProperty obo:BFO_0000197 ;
                                                             owl:someValuesFrom [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                                      <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                                      co:PMD_0000881
                                                                                                                     )
                                                                                                       ]
                                                                                                       [ rdf:type owl:Restriction ;
@@ -4980,8 +4963,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                                           [ rdf:type owl:Restriction ;
                                                             owl:onProperty obo:BFO_0000197 ;
                                                             owl:someValuesFrom [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                                      <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                                                                                      co:PMD_0000881
                                                                                                                     )
                                                                                                       ]
                                                                                                       [ rdf:type owl:Restriction ;
@@ -5031,8 +5014,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                                           [ rdf:type owl:Restriction ;
                                                             owl:onProperty obo:BFO_0000197 ;
                                                             owl:someValuesFrom [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                                      <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                                      co:PMD_0000881
                                                                                                                     )
                                                                                                       ]
                                                                                                       [ rdf:type owl:Restriction ;
@@ -5060,8 +5043,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                                           [ rdf:type owl:Restriction ;
                                                             owl:onProperty obo:BFO_0000197 ;
                                                             owl:someValuesFrom [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                                      <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                                      co:PMD_0000881
                                                                                                                     )
                                                                                                       ]
                                                                                                       [ rdf:type owl:Restriction ;
@@ -5108,8 +5091,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                                           [ rdf:type owl:Restriction ;
                                                             owl:onProperty obo:BFO_0000197 ;
                                                             owl:someValuesFrom [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                                      <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                                      co:PMD_0000881
                                                                                                                     )
                                                                                                       ]
                                                                                                       [ rdf:type owl:Restriction ;
@@ -5135,8 +5118,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                                           [ rdf:type owl:Restriction ;
                                                             owl:onProperty obo:BFO_0000197 ;
                                                             owl:someValuesFrom [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                                      <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                                      co:PMD_0000881
                                                                                                                     )
                                                                                                       ]
                                                                                                       [ rdf:type owl:Restriction ;
@@ -5169,8 +5152,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                                           [ rdf:type owl:Restriction ;
                                                             owl:onProperty obo:BFO_0000197 ;
                                                             owl:someValuesFrom [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                                      <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000050>
+                                                                                                                      co:PMD_0000881
                                                                                                                     )
                                                                                                       ]
                                                                                                       [ rdf:type owl:Restriction ;
@@ -5192,8 +5175,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                                           [ rdf:type owl:Restriction ;
                                                             owl:onProperty obo:BFO_0000197 ;
                                                             owl:someValuesFrom [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                                      <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                                                                                      co:PMD_0000881
                                                                                                                     )
                                                                                                       ]
                                                                                                       [ rdf:type owl:Restriction ;
@@ -5230,8 +5213,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                                                                                                                    rdf:type owl:Class
                                                                                                                                  ]
                                                                                                                                  [ rdf:type owl:Class ;
-                                                                                                                                   owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                                                                 <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                                                                                                   owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                                                                                                                 co:PMD_0000881
                                                                                                                                                )
                                                                                                                                  ]
                                                                                                                                ) ;
@@ -5260,8 +5243,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                                                                                         rdf:type owl:Class
                                                                                                       ]
                                                                                                       [ rdf:type owl:Class ;
-                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                                      <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                                                                                      co:PMD_0000881
                                                                                                                     )
                                                                                                       ]
                                                                                                     ) ;
@@ -5279,8 +5262,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                                                                      [ rdf:type owl:Restriction ;
                                                                                        owl:onProperty obo:BFO_0000197 ;
                                                                                        owl:someValuesFrom [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                                                                   owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                                                                 <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                                                                                                   owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                                                                                                                 co:PMD_0000881
                                                                                                                                                )
                                                                                                                                  ]
                                                                                                                                  [ rdf:type owl:Restriction ;
@@ -5298,8 +5281,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                                           [ rdf:type owl:Restriction ;
                                                             owl:onProperty obo:BFO_0000197 ;
                                                             owl:someValuesFrom [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                                      <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                                                                                      co:PMD_0000881
                                                                                                                     )
                                                                                                       ]
                                                                                                       [ rdf:type owl:Restriction ;
@@ -5321,8 +5304,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                                                                      [ rdf:type owl:Restriction ;
                                                                                        owl:onProperty obo:BFO_0000197 ;
                                                                                        owl:someValuesFrom [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                                                                   owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                                                                 <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                                                                                                   owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                                                                                                                 co:PMD_0000881
                                                                                                                                                )
                                                                                                                                  ]
                                                                                                                                  [ rdf:type owl:Restriction ;
@@ -5340,8 +5323,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                                           [ rdf:type owl:Restriction ;
                                                             owl:onProperty obo:BFO_0000197 ;
                                                             owl:someValuesFrom [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                                      <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                                                                                      co:PMD_0000881
                                                                                                                     )
                                                                                                       ]
                                                                                                       [ rdf:type owl:Restriction ;
@@ -5363,8 +5346,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                                                                      [ rdf:type owl:Restriction ;
                                                                                        owl:onProperty obo:BFO_0000197 ;
                                                                                        owl:someValuesFrom [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                                                                   owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                                                                 <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                                                                                                   owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                                                                                                                 co:PMD_0000881
                                                                                                                                                )
                                                                                                                                  ]
                                                                                                                                  [ rdf:type owl:Restriction ;
@@ -5382,8 +5365,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                                           [ rdf:type owl:Restriction ;
                                                             owl:onProperty obo:BFO_0000197 ;
                                                             owl:someValuesFrom [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                                      <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                                                                                      co:PMD_0000881
                                                                                                                     )
                                                                                                       ]
                                                                                                       [ rdf:type owl:Restriction ;
@@ -5458,8 +5441,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                           owl:equivalentClass [ rdf:type owl:Restriction ;
                                                                 owl:onProperty obo:BFO_0000197 ;
                                                                 owl:someValuesFrom [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                                            owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                                          <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                                                                            owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                                                                                          co:PMD_0000881
                                                                                                                         )
                                                                                                           ]
                                                                                                           [ rdf:type owl:Restriction ;
@@ -5488,8 +5471,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                                           [ rdf:type owl:Restriction ;
                                                             owl:onProperty obo:BFO_0000197 ;
                                                             owl:someValuesFrom [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                                      <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                                                                                      co:PMD_0000881
                                                                                                                     )
                                                                                                       ]
                                                                                                       [ rdf:type owl:Restriction ;
@@ -5503,8 +5486,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                                           [ rdf:type owl:Restriction ;
                                                             owl:onProperty obo:BFO_0000197 ;
                                                             owl:someValuesFrom [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                                      <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                                                                                      co:PMD_0000881
                                                                                                                     )
                                                                                                       ]
                                                                                                       [ rdf:type owl:Restriction ;
@@ -5532,8 +5515,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                                           [ rdf:type owl:Restriction ;
                                                             owl:onProperty obo:BFO_0000197 ;
                                                             owl:someValuesFrom [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000045>
-                                                                                                                      <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                                                                        owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000047>
+                                                                                                                      co:PMD_0000881
                                                                                                                     )
                                                                                                       ]
                                                                                                       [ rdf:type owl:Restriction ;
@@ -6492,6 +6475,7 @@ obo:OBI_0001933 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/ao/log/LOG_1000132
 <https://w3id.org/pmd/ao/log/LOG_1000132> rdf:type owl:Class ;
+                                          owl:equivalentClass co:PMD_0000524 ;
                                           rdfs:subClassOf <https://w3id.org/pmd/ao/log/LOG_1000131> ,
                                                           co:PMD_0000833 ,
                                                           [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
@@ -7130,7 +7114,8 @@ co:PMD_0000523 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0000524
 co:PMD_0000524 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0000833 ;
+               rdfs:subClassOf <https://w3id.org/pmd/ao/log/LOG_1000131> ,
+                               co:PMD_0000833 ;
                obo:IAO_0000114 obo:IAO_0000428 ;
                rdfs:label "Assemblierungsprozess"@de ,
                           "assembling process"@en ;
@@ -9100,7 +9085,7 @@ co:PMD_0000813 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0000814
 co:PMD_0000814 rdf:type owl:Class ;
-               owl:equivalentClass _:genid1341 ;
+               owl:equivalentClass _:genid1340 ;
                rdfs:subClassOf obo:BFO_0000029 ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty obo:BFO_0000196 ;
@@ -9111,7 +9096,7 @@ co:PMD_0000814 rdf:type owl:Class ;
                           "laboratory"@en ;
                skos:definition "A place equipped for experimental study in a science or for testing and analysis."@en .
 
-_:genid1341 owl:intersectionOf ( obo:BFO_0000029
+_:genid1340 owl:intersectionOf ( obo:BFO_0000029
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:BFO_0000196 ;
                                     owl:someValuesFrom co:PMD_0000815
@@ -9122,7 +9107,7 @@ _:genid1341 owl:intersectionOf ( obo:BFO_0000029
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0000814 ;
    owl:annotatedProperty owl:equivalentClass ;
-   owl:annotatedTarget _:genid1341 ;
+   owl:annotatedTarget _:genid1340 ;
    co:PMD_0001032 "issue: https://github.com/materialdigital/core-ontology/issues/101"
  ] .
 
@@ -9700,13 +9685,21 @@ co:PMD_0000881 rdf:type owl:Class ;
                obo:IAO_0000114 obo:IAO_0000123 ;
                obo:IAO_0000412 "http://openenergy-platform.org/ontology/oeo/oeo-import-edits.owl"^^xsd:anyURI ;
                rdfs:label "person"@en ;
-               skos:definition "A person is a human being."@en .
+               skos:definition "A person is a human being."@en ;
+               logistics:PMD_0000060 "true"^^xsd:boolean .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0000881 ;
    owl:annotatedProperty rdfs:subClassOf ;
    owl:annotatedTarget obo:BFO_0000030 ;
    co:PMD_0001032 "https://github.com/materialdigital/core-ontology/issues/102"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource co:PMD_0000881 ;
+   owl:annotatedProperty rdfs:subClassOf ;
+   owl:annotatedTarget obo:BFO_0000030 ;
+   logistics:PMD_0001032 "https://github.com/materialdigital/core-ontology/issues/102"
  ] .
 
 
