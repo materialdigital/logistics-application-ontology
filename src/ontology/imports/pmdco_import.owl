@@ -5933,7 +5933,7 @@ AnnotationAssertion(skos:definition co:PMD_0000874 "A microscope that uses visib
 AnnotationAssertion(skos:definition co:PMD_0000874 "Ein Mikroskop, das sichtbares Licht und Linsen verwendet, um kleine Objekte oder Details zu vergrößern und zu betrachten."@de)
 SubClassOf(co:PMD_0000874 co:PMD_0000855)
 
-# Class: co:PMD_0000875 (optical microscopy)
+# Class: co:PMD_0000875 (Optische Mikroskopie)
 
 AnnotationAssertion(obo:IAO_0000117 co:PMD_0000875 "PMDco Team")
 AnnotationAssertion(rdfs:label co:PMD_0000875 "Ein Mikroskopieverfahren, das sichtbares Licht und Linsen verwendet, um eine Probe zu vergrößern und abzubilden, und weit verbreitet zur Untersuchung der Mikrostruktur und Morphologie von Materialien ist."@de)
@@ -5943,7 +5943,7 @@ AnnotationAssertion(skos:definition co:PMD_0000875 "A Microscopy Process that us
 AnnotationAssertion(skos:example co:PMD_0000875 "An example is Light Microscopy."@en)
 SubClassOf(co:PMD_0000875 co:PMD_0000856)
 
-# Class: co:PMD_0000876 (Optisches Profilometer)
+# Class: co:PMD_0000876 (optical profilometer)
 
 AnnotationAssertion(obo:IAO_0000117 co:PMD_0000876 "PMDco Team"@en)
 AnnotationAssertion(rdfs:label co:PMD_0000876 "Optisches Profilometer"@de)
@@ -6221,7 +6221,7 @@ AnnotationAssertion(skos:definition co:PMD_0000908 "Ein Urformprozess, der das F
 AnnotationAssertion(skos:example co:PMD_0000908 "Pottery"@en)
 SubClassOf(co:PMD_0000908 co:PMD_0000899)
 
-# Class: co:PMD_0000909 (project)
+# Class: co:PMD_0000909 (Projekt)
 
 AnnotationAssertion(rdfs:label co:PMD_0000909 "Projekt"@de)
 AnnotationAssertion(rdfs:label co:PMD_0000909 "project"@en)
