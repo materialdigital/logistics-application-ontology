@@ -1,6 +1,6 @@
 # Basic ODK workflow
 
-name: build
+name: update_repo
 
 # Controls when the action will run.
 on:
