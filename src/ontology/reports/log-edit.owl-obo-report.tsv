@@ -1,22 +1,10 @@
 Level	Rule Name	Subject	Property	Value
-ERROR	duplicate_label	transport equipment role	rdfs:label	transport equipment role@en
-ERROR	duplicate_label	transport equipment role	rdfs:label	transport equipment role@en
-ERROR	missing_ontology_description	https://w3id.org/pmd/ao/log	dc:description	
-ERROR	missing_ontology_license	https://w3id.org/pmd/ao/log	dc:license	
-ERROR	multiple_labels	industrial inventory	rdfs:label	cargo@en
-ERROR	multiple_labels	industrial inventory	rdfs:label	industrial inventory@en
-ERROR	multiple_labels	department	rdfs:label	Abteilung@de
-ERROR	multiple_labels	department	rdfs:label	department@en
-ERROR	multiple_labels	laboratory	rdfs:label	Labor@de
-ERROR	multiple_labels	laboratory	rdfs:label	laboratory@en
-ERROR	multiple_labels	transportation service	rdfs:label	consigning process@en
-ERROR	multiple_labels	transportation service	rdfs:label	transportation service@en
-ERROR	multiple_labels	manufacturing service	rdfs:label	freight forwarding process@en
-ERROR	multiple_labels	manufacturing service	rdfs:label	manufacturing service@en
-ERROR	multiple_labels	transport equipment role	rdfs:label	business process@en
-ERROR	multiple_labels	transport equipment role	rdfs:label	transport equipment role@en
+WARN	equivalent_pair	lot	owl:equivalentClass	https://w3id.org/pmd/co/PMD_0020138
 WARN	equivalent_pair	manufacturer role	owl:equivalentClass	https://w3id.org/pmd/co/PMD_0000831
+WARN	missing_definition	industrial inventory	IAO:0000115	
 WARN	missing_definition	industrial inventory role	IAO:0000115	
+WARN	missing_definition	consigning process	IAO:0000115	
+WARN	missing_definition	freight forwarding process	IAO:0000115	
 WARN	missing_definition	agreement	IAO:0000115	
 WARN	missing_definition	commercial service agreement	IAO:0000115	
 WARN	missing_definition	bill of lading	IAO:0000115	
@@ -43,7 +31,7 @@ WARN	missing_definition	carrier	IAO:0000115
 WARN	missing_definition	service provider	IAO:0000115	
 WARN	missing_definition	supply chain agent	IAO:0000115	
 WARN	missing_definition	wholesaler	IAO:0000115	
-WARN	missing_definition	industrial inventory	IAO:0000115	
+WARN	missing_definition	cargo	IAO:0000115	
 WARN	missing_definition	load	IAO:0000115	
 WARN	missing_definition	maintainable material item	IAO:0000115	
 WARN	missing_definition	material component	IAO:0000115	
@@ -137,7 +125,7 @@ WARN	missing_definition	selling business process	IAO:0000115
 WARN	missing_definition	shipment preparation process	IAO:0000115	
 WARN	missing_definition	supplying business process	IAO:0000115	
 WARN	missing_definition	warehousing process	IAO:0000115	
-WARN	missing_definition	transport equipment role	IAO:0000115	
+WARN	missing_definition	business process	IAO:0000115	
 WARN	missing_definition	manufacturing process	IAO:0000115	
 WARN	missing_definition	assembly process	IAO:0000115	
 WARN	missing_definition	measurement process	IAO:0000115	
@@ -151,4 +139,7 @@ WARN	missing_definition	travel process	IAO:0000115
 WARN	missing_definition	acts on behalf of	IAO:0000115	
 WARN	missing_definition	owned by	IAO:0000115	
 WARN	missing_definition	owns	IAO:0000115	
+WARN	multiple_equivalent_classes	lot	owl:equivalentClass	https://w3id.org/pmd/co/PMD_0020138
+WARN	multiple_equivalent_classes	lot	owl:equivalentClass	blank node
 INFO	missing_superclass	supply chain node role	rdfs:subClassOf	
+INFO	missing_superclass	manufacturing service	rdfs:subClassOf	

@@ -18,6 +18,8 @@
 <https://w3id.org/pmd/ao/log/log-full.ttl> rdf:type owl:Ontology ;
                                             owl:versionIRI <https://w3id.org/pmd/ao/log/releases/2025-09-01/log-full.ttl> ;
                                             dcterms:creator <https://orcid.org/0000-0003-1649-6832> ;
+                                            dcterms:description "This is an alignment of the IOF Supply Chain Ontologies Library to the Platform Material Digital Core Ontology. It contains ontologies to be used in the domain of supply chain and logistics." ;
+                                            dcterms:license "http://opensource.org/licenses/MIT" ;
                                             dcterms:title "Platform Material Digital Application Ontology  for Logistics and supplychain (log)"@en ;
                                             rdfs:comment "The logistics application ontology for use with PMD Core Ontology (PMDco). The scope of this module is the description of material science and engineering related logistics and general organization. Its is adopted from the IOF SupplyChain Module https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/"@en ;
                                             owl:versionInfo "2025-09-01" .
@@ -3650,6 +3652,38 @@ obo:OBI_0001933 rdf:type owl:Class ;
                 rdfs:label "value specification" .
 
 
+###  https://w3id.org/pmd/ao/log/LOG_0000000
+<https://w3id.org/pmd/ao/log/LOG_0000000> rdf:type owl:Class ;
+                                          owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Class ;
+                                                                                       owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000028>
+                                                                                                     <https://w3id.org/pmd/ao/log/LOG_1000029>
+                                                                                                     <https://w3id.org/pmd/ao/log/LOG_1000102>
+                                                                                                     [ owl:intersectionOf ( obo:BFO_0000030
+                                                                                                                            [ rdf:type owl:Class ;
+                                                                                                                              owl:complementOf <https://w3id.org/pmd/ao/log/LOG_1000045>
+                                                                                                                            ]
+                                                                                                                          ) ;
+                                                                                                       rdf:type owl:Class
+                                                                                                     ]
+                                                                                                   )
+                                                                                     ]
+                                                                                     [ rdf:type owl:Restriction ;
+                                                                                       owl:onProperty obo:BFO_0000196 ;
+                                                                                       owl:someValuesFrom <https://w3id.org/pmd/ao/log/LOG_0000001>
+                                                                                     ]
+                                                                                   ) ;
+                                                                rdf:type owl:Class
+                                                              ] ;
+                                          rdfs:subClassOf <https://w3id.org/pmd/ao/log/LOG_1000030> ,
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty obo:BFO_0000196 ;
+                                                            owl:someValuesFrom <https://w3id.org/pmd/ao/log/LOG_0000001>
+                                                          ] ;
+                                          obo:IAO_0000412 "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/IndustrialInventory" ;
+                                          rdfs:label "industrial inventory"@en ;
+                                          skos:definition "material product, material component, raw material, or material artifact that is ready to be sold or used and is stored in a storage facility or on factory floor"@en .
+
+
 ###  https://w3id.org/pmd/ao/log/LOG_0000001
 <https://w3id.org/pmd/ao/log/LOG_0000001> rdf:type owl:Class ;
                                           rdfs:subClassOf <https://w3id.org/pmd/ao/log/LOG_1000106> ,
@@ -3671,6 +3705,29 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                           obo:IAO_0000412 "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/IndustrialInventoryRole" ;
                                           rdfs:label "industrial inventory role"@en ;
                                           skos:definition "role held by some material entity when it is stored by a bussiness organization and it is intended to be supplied to a customer or to be used or consumed in some product production process"@en-us .
+
+
+###  https://w3id.org/pmd/ao/log/LOG_0000002
+<https://w3id.org/pmd/ao/log/LOG_0000002> rdf:type owl:Class ;
+                                          rdfs:subClassOf <https://w3id.org/pmd/ao/log/LOG_1000130> ;
+                                          obo:IAO_0000412 "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/ConsigningProcess" ;
+                                          rdfs:label "consigning process"@en ;
+                                          skos:definition "business process that results in placing a material entity in the possession of some agent without changing the ownership until the material entity is sold" .
+
+
+###  https://w3id.org/pmd/ao/log/LOG_0000003
+<https://w3id.org/pmd/ao/log/LOG_0000003> rdf:type owl:Class ;
+                                          rdfs:subClassOf [ owl:intersectionOf ( <https://w3id.org/pmd/ao/log/LOG_1000130>
+                                                                                 [ rdf:type owl:Restriction ;
+                                                                                   owl:onProperty obo:BFO_0000057 ;
+                                                                                   owl:someValuesFrom <https://w3id.org/pmd/ao/log/LOG_1000016>
+                                                                                 ]
+                                                                               ) ;
+                                                            rdf:type owl:Class
+                                                          ] ;
+                                          obo:IAO_0000412 "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/FreightForwardingProcess" ;
+                                          rdfs:label "freight forwarding process"@en ;
+                                          skos:definition "business process of planning and coordinating the transportation of material products on behalf of a shipper" .
 
 
 ###  https://w3id.org/pmd/ao/log/LOG_1000000
@@ -4164,31 +4221,22 @@ obo:OBI_0001933 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/ao/log/LOG_1000025
 <https://w3id.org/pmd/ao/log/LOG_1000025> rdf:type owl:Class ;
-                                          owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                       owl:unionOf ( <https://w3id.org/pmd/ao/log/LOG_1000028>
-                                                                                                     <https://w3id.org/pmd/ao/log/LOG_1000029>
-                                                                                                     <https://w3id.org/pmd/ao/log/LOG_1000030>
-                                                                                                     <https://w3id.org/pmd/ao/log/LOG_1000102>
-                                                                                                   )
-                                                                                     ]
+                                          owl:equivalentClass [ owl:intersectionOf ( obo:BFO_0000040
                                                                                      [ rdf:type owl:Restriction ;
                                                                                        owl:onProperty obo:BFO_0000196 ;
-                                                                                       owl:someValuesFrom <https://w3id.org/pmd/ao/log/LOG_0000001>
+                                                                                       owl:someValuesFrom <https://w3id.org/pmd/ao/log/LOG_1000073>
                                                                                      ]
                                                                                    ) ;
                                                                 rdf:type owl:Class
                                                               ] ;
-                                          rdfs:subClassOf <https://w3id.org/pmd/ao/log/LOG_1000030> ,
+                                          rdfs:subClassOf obo:BFO_0000040 ,
                                                           [ rdf:type owl:Restriction ;
                                                             owl:onProperty obo:BFO_0000196 ;
-                                                            owl:someValuesFrom <https://w3id.org/pmd/ao/log/LOG_0000001>
+                                                            owl:someValuesFrom <https://w3id.org/pmd/ao/log/LOG_1000073>
                                                           ] ;
-                                          obo:IAO_0000412 <https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/Cargo> ,
-                                                          <https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/IndustrialInventory> ;
-                                          rdfs:label "cargo"@en ,
-                                                     "industrial inventory"@en ;
-                                          skos:definition "material entity that is transported using a transport equipment by a carrier"@en-us ,
-                                                          "material product, material component, raw material, or material artifact that is ready to be sold or used and is stored in a storage facility or on factory floor"@en-us .
+                                          obo:IAO_0000412 <https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/Cargo> ;
+                                          rdfs:label "cargo"@en ;
+                                          skos:definition "material entity that is transported using a transport equipment by a carrier"@en-us .
 
 
 ###  https://w3id.org/pmd/ao/log/LOG_1000026
@@ -4294,8 +4342,7 @@ obo:OBI_0001933 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/ao/log/LOG_1000031
 <https://w3id.org/pmd/ao/log/LOG_1000031> rdf:type owl:Class ;
                                           rdfs:subClassOf obo:BFO_0000027 ;
-                                          rdfs:label "Abteilung"@de ,
-                                                     "department"@en ;
+                                          rdfs:label "department"@en ;
                                           skos:definition "object aggregate that is part of an organisation and consists of persons that are members of the same organisation"@en ;
                                           logistics:PMD_0000060 "true"^^xsd:boolean .
 
@@ -4312,8 +4359,7 @@ obo:OBI_0001933 rdf:type owl:Class ;
 <https://w3id.org/pmd/ao/log/LOG_1000033> rdf:type owl:Class ;
                                           rdfs:subClassOf <https://w3id.org/pmd/ao/log/LOG_1000032> ;
                                           obo:IAO_0000119 "“Laboratory.” Merriam-Webster.com Dictionary, Merriam-Webster, https://www.merriam-webster.com/dictionary/laboratory. Accessed 24 Nov. 2022."@en ;
-                                          rdfs:label "Labor"@de ,
-                                                     "laboratory"@en ;
+                                          rdfs:label "laboratory"@en ;
                                           skos:definition "A place equipped for experimental study in a science or for testing and analysis."@en ;
                                           logistics:PMD_0000060 "true"^^xsd:boolean .
 
@@ -4364,7 +4410,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/ao/log/LOG_1000037
 <https://w3id.org/pmd/ao/log/LOG_1000037> rdf:type owl:Class ;
-                                          owl:equivalentClass [ owl:intersectionOf ( obo:BFO_0000027
+                                          owl:equivalentClass co:PMD_0020138 ,
+                                                              [ owl:intersectionOf ( obo:BFO_0000027
                                                                                      [ rdf:type owl:Restriction ;
                                                                                        owl:onProperty obo:BFO_0000196 ;
                                                                                        owl:someValuesFrom <https://w3id.org/pmd/ao/log/LOG_1000080>
@@ -6068,11 +6115,10 @@ obo:OBI_0001933 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/ao/log/LOG_1000114
 <https://w3id.org/pmd/ao/log/LOG_1000114> rdf:type owl:Class ;
-                                          rdfs:subClassOf <https://w3id.org/pmd/ao/log/LOG_1000118> ,
-                                                          [ owl:intersectionOf ( <https://w3id.org/pmd/ao/log/LOG_1000113>
+                                          rdfs:subClassOf [ owl:intersectionOf ( <https://w3id.org/pmd/ao/log/LOG_1000113>
                                                                                  [ rdf:type owl:Restriction ;
                                                                                    owl:onProperty obo:BFO_0000117 ;
-                                                                                   owl:someValuesFrom <https://w3id.org/pmd/ao/log/LOG_1000118>
+                                                                                   owl:someValuesFrom <https://w3id.org/pmd/ao/log/LOG_0000003>
                                                                                  ]
                                                                                ) ;
                                                             rdf:type owl:Class
@@ -6122,10 +6168,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                                                                ) ;
                                                             rdf:type owl:Class
                                                           ] ;
-                                          obo:IAO_0000412 <https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/ConsigningProcess> ,
-                                                          "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/TransportationService" ;
-                                          rdfs:label "consigning process"@en ,
-                                                     "transportation service"@en ;
+                                          obo:IAO_0000412 "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/TransportationService" ;
+                                          rdfs:label "transportation service"@en ;
                                           skos:definition "business process that results in placing a material entity in the possession of some agent without changing the ownership until the material entity is sold"@en-us ,
                                                           "logistics service that consists of at least one transport process" .
 
@@ -6141,24 +6185,13 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                                                 rdf:type owl:Class
                                                               ] ;
                                           rdfs:subClassOf <https://w3id.org/pmd/ao/log/LOG_1000112> ,
-                                                          [ owl:intersectionOf ( <https://w3id.org/pmd/ao/log/LOG_1000130>
-                                                                                 [ rdf:type owl:Restriction ;
-                                                                                   owl:onProperty obo:BFO_0000057 ;
-                                                                                   owl:someValuesFrom <https://w3id.org/pmd/ao/log/LOG_1000016>
-                                                                                 ]
-                                                                               ) ;
-                                                            rdf:type owl:Class
-                                                          ] ,
                                                           [ rdf:type owl:Restriction ;
                                                             owl:onProperty obo:BFO_0000117 ;
                                                             owl:someValuesFrom <https://w3id.org/pmd/ao/log/LOG_1000131>
                                                           ] ;
-                                          obo:IAO_0000412 "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/FreightForwardingProcess" ,
-                                                          "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/ManufacturingService" ;
-                                          rdfs:label "freight forwarding process"@en ,
-                                                     "manufacturing service"@en ;
-                                          skos:definition "business process of planning and coordinating the transportation of material products on behalf of a shipper" ,
-                                                          "commercial service that consists of at least one manufacturing process" .
+                                          obo:IAO_0000412 "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/ManufacturingService" ;
+                                          rdfs:label "manufacturing service"@en ;
+                                          skos:definition "commercial service that consists of at least one manufacturing process" .
 
 
 ###  https://w3id.org/pmd/ao/log/LOG_1000119
@@ -6411,10 +6444,8 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                                                                ]
                                                           ] ;
                                           obo:IAO_0000412 <https://spec.industrialontologies.org/ontology/core/Core/BusinessProcess> ;
-                                          rdfs:label "business process"@en ,
-                                                     "transport equipment role"@en ;
-                                          skos:definition "planned process which is prescribed by a plan specification with one or more objectives specified by a business organization"@en-us ,
-                                                          "role held by a material artifact when it is planned to be involved in or is involved in carrying out some part of a planned transportation process and that is not consumed in that planned process"@en-us .
+                                          rdfs:label "business process"@en ;
+                                          skos:definition "planned process which is prescribed by a plan specification with one or more objectives specified by a business organization"@en-us .
 
 
 ###  https://w3id.org/pmd/ao/log/LOG_1000131
@@ -9069,7 +9100,7 @@ co:PMD_0000813 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0000814
 co:PMD_0000814 rdf:type owl:Class ;
-               owl:equivalentClass _:genid1332 ;
+               owl:equivalentClass _:genid1341 ;
                rdfs:subClassOf obo:BFO_0000029 ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty obo:BFO_0000196 ;
@@ -9080,7 +9111,7 @@ co:PMD_0000814 rdf:type owl:Class ;
                           "laboratory"@en ;
                skos:definition "A place equipped for experimental study in a science or for testing and analysis."@en .
 
-_:genid1332 owl:intersectionOf ( obo:BFO_0000029
+_:genid1341 owl:intersectionOf ( obo:BFO_0000029
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:BFO_0000196 ;
                                     owl:someValuesFrom co:PMD_0000815
@@ -9091,7 +9122,7 @@ _:genid1332 owl:intersectionOf ( obo:BFO_0000029
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0000814 ;
    owl:annotatedProperty owl:equivalentClass ;
-   owl:annotatedTarget _:genid1332 ;
+   owl:annotatedTarget _:genid1341 ;
    co:PMD_0001032 "issue: https://github.com/materialdigital/core-ontology/issues/101"
  ] .
 
@@ -14212,6 +14243,25 @@ co:PMD_0040128 rdf:type owl:NamedIndividual ,
                      ) ;
   rdf:type owl:Class ;
   rdfs:subClassOf <https://w3id.org/pmd/ao/log/LOG_1000001>
+] .
+
+
+[ owl:intersectionOf ( <https://w3id.org/pmd/ao/log/LOG_1000001>
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty obo:BFO_0000059 ;
+                         owl:someValuesFrom <https://w3id.org/pmd/ao/log/LOG_1000057>
+                       ]
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty obo:BFO_0000059 ;
+                         owl:someValuesFrom <https://w3id.org/pmd/ao/log/LOG_1000070>
+                       ]
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty obo:IAO_0000136 ;
+                         owl:someValuesFrom <https://w3id.org/pmd/ao/log/LOG_0000002>
+                       ]
+                     ) ;
+  rdf:type owl:Class ;
+  rdfs:subClassOf <https://w3id.org/pmd/ao/log/LOG_1000002>
 ] .
 
 

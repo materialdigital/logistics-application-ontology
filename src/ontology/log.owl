@@ -18,6 +18,8 @@
     <owl:Ontology rdf:about="https://w3id.org/pmd/ao/log.owl">
         <owl:versionIRI rdf:resource="https://w3id.org/pmd/ao/log/releases/2025-09-01/log.owl"/>
         <dcterms:creator rdf:resource="https://orcid.org/0000-0003-1649-6832"/>
+        <dcterms:description>This is an alignment of the IOF Supply Chain Ontologies Library to the Platform Material Digital Core Ontology. It contains ontologies to be used in the domain of supply chain and logistics.</dcterms:description>
+        <dcterms:license>http://opensource.org/licenses/MIT</dcterms:license>
         <dcterms:title xml:lang="en">Platform Material Digital Application Ontology  for Logistics and supplychain (log)</dcterms:title>
         <rdfs:comment xml:lang="en">The logistics application ontology for use with PMD Core Ontology (PMDco). The scope of this module is the description of material science and engineering related logistics and general organization. Its is adopted from the IOF SupplyChain Module https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/</rdfs:comment>
         <owl:versionInfo>2025-09-01</owl:versionInfo>
@@ -4673,6 +4675,48 @@ Previous. An information content entity is a non-realizable information entity t
     
 
 
+    <!-- https://w3id.org/pmd/ao/log/LOG_0000000 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/ao/log/LOG_0000000">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000028"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000029"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000102"/>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
+                                    <owl:Class>
+                                        <owl:complementOf rdf:resource="https://w3id.org/pmd/ao/log/LOG_1000045"/>
+                                    </owl:Class>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000196"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/ao/log/LOG_0000001"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/ao/log/LOG_1000030"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000196"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/ao/log/LOG_0000001"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000412>https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/IndustrialInventory</obo:IAO_0000412>
+        <rdfs:label xml:lang="en">industrial inventory</rdfs:label>
+        <skos:definition xml:lang="en">material product, material component, raw material, or material artifact that is ready to be sold or used and is stored in a storage facility or on factory floor</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/ao/log/LOG_0000001 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/ao/log/LOG_0000001">
@@ -4703,6 +4747,38 @@ Previous. An information content entity is a non-realizable information entity t
         <obo:IAO_0000412>https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/IndustrialInventoryRole</obo:IAO_0000412>
         <rdfs:label xml:lang="en">industrial inventory role</rdfs:label>
         <skos:definition xml:lang="en-us">role held by some material entity when it is stored by a bussiness organization and it is intended to be supplied to a customer or to be used or consumed in some product production process</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/ao/log/LOG_0000002 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/ao/log/LOG_0000002">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/ao/log/LOG_1000130"/>
+        <obo:IAO_0000412>https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/ConsigningProcess</obo:IAO_0000412>
+        <rdfs:label xml:lang="en">consigning process</rdfs:label>
+        <skos:definition>business process that results in placing a material entity in the possession of some agent without changing the ownership until the material entity is sold</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/ao/log/LOG_0000003 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/ao/log/LOG_0000003">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000130"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/ao/log/LOG_1000016"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <obo:IAO_0000412>https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/FreightForwardingProcess</obo:IAO_0000412>
+        <rdfs:label xml:lang="en">freight forwarding process</rdfs:label>
+        <skos:definition>business process of planning and coordinating the transportation of material products on behalf of a shipper</skos:definition>
     </owl:Class>
     
 
@@ -5386,34 +5462,24 @@ Previous. An information content entity is a non-realizable information entity t
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000028"/>
-                            <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000029"/>
-                            <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000030"/>
-                            <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000102"/>
-                        </owl:unionOf>
-                    </owl:Class>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000040"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000196"/>
-                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/ao/log/LOG_0000001"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/ao/log/LOG_1000073"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/ao/log/LOG_1000030"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000196"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/ao/log/LOG_0000001"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/ao/log/LOG_1000073"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000412 rdf:resource="https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/Cargo"/>
-        <obo:IAO_0000412 rdf:resource="https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/IndustrialInventory"/>
         <rdfs:label xml:lang="en">cargo</rdfs:label>
-        <rdfs:label xml:lang="en">industrial inventory</rdfs:label>
         <skos:definition xml:lang="en-us">material entity that is transported using a transport equipment by a carrier</skos:definition>
-        <skos:definition xml:lang="en-us">material product, material component, raw material, or material artifact that is ready to be sold or used and is stored in a storage facility or on factory floor</skos:definition>
     </owl:Class>
     
 
@@ -5562,7 +5628,6 @@ Previous. An information content entity is a non-realizable information entity t
 
     <owl:Class rdf:about="https://w3id.org/pmd/ao/log/LOG_1000031">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000027"/>
-        <rdfs:label xml:lang="de">Abteilung</rdfs:label>
         <rdfs:label xml:lang="en">department</rdfs:label>
         <skos:definition xml:lang="en">object aggregate that is part of an organisation and consists of persons that are members of the same organisation</skos:definition>
         <logistics:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</logistics:PMD_0000060>
@@ -5586,7 +5651,6 @@ Previous. An information content entity is a non-realizable information entity t
     <owl:Class rdf:about="https://w3id.org/pmd/ao/log/LOG_1000033">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/ao/log/LOG_1000032"/>
         <obo:IAO_0000119 xml:lang="en">“Laboratory.” Merriam-Webster.com Dictionary, Merriam-Webster, https://www.merriam-webster.com/dictionary/laboratory. Accessed 24 Nov. 2022.</obo:IAO_0000119>
-        <rdfs:label xml:lang="de">Labor</rdfs:label>
         <rdfs:label xml:lang="en">laboratory</rdfs:label>
         <skos:definition xml:lang="en">A place equipped for experimental study in a science or for testing and analysis.</skos:definition>
         <logistics:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</logistics:PMD_0000060>
@@ -5657,6 +5721,7 @@ Previous. An information content entity is a non-realizable information entity t
     <!-- https://w3id.org/pmd/ao/log/LOG_1000037 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/ao/log/LOG_1000037">
+        <owl:equivalentClass rdf:resource="https://w3id.org/pmd/co/PMD_0020138"/>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -8033,14 +8098,13 @@ Previous. An information content entity is a non-realizable information entity t
     <!-- https://w3id.org/pmd/ao/log/LOG_1000114 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/ao/log/LOG_1000114">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/ao/log/LOG_1000118"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000113"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000117"/>
-                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/ao/log/LOG_1000118"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/ao/log/LOG_0000003"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -8108,9 +8172,7 @@ Previous. An information content entity is a non-realizable information entity t
                 </owl:intersectionOf>
             </owl:Class>
         </rdfs:subClassOf>
-        <obo:IAO_0000412 rdf:resource="https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/ConsigningProcess"/>
         <obo:IAO_0000412>https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/TransportationService</obo:IAO_0000412>
-        <rdfs:label xml:lang="en">consigning process</rdfs:label>
         <rdfs:label xml:lang="en">transportation service</rdfs:label>
         <skos:definition xml:lang="en-us">business process that results in placing a material entity in the possession of some agent without changing the ownership until the material entity is sold</skos:definition>
         <skos:definition>logistics service that consists of at least one transport process</skos:definition>
@@ -8134,27 +8196,13 @@ Previous. An information content entity is a non-realizable information entity t
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/ao/log/LOG_1000112"/>
         <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000130"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
-                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/ao/log/LOG_1000016"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000117"/>
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/ao/log/LOG_1000131"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <obo:IAO_0000412>https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/FreightForwardingProcess</obo:IAO_0000412>
         <obo:IAO_0000412>https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/ManufacturingService</obo:IAO_0000412>
-        <rdfs:label xml:lang="en">freight forwarding process</rdfs:label>
         <rdfs:label xml:lang="en">manufacturing service</rdfs:label>
-        <skos:definition>business process of planning and coordinating the transportation of material products on behalf of a shipper</skos:definition>
         <skos:definition>commercial service that consists of at least one manufacturing process</skos:definition>
     </owl:Class>
     
@@ -8504,9 +8552,7 @@ Previous. An information content entity is a non-realizable information entity t
         </rdfs:subClassOf>
         <obo:IAO_0000412 rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/BusinessProcess"/>
         <rdfs:label xml:lang="en">business process</rdfs:label>
-        <rdfs:label xml:lang="en">transport equipment role</rdfs:label>
         <skos:definition xml:lang="en-us">planned process which is prescribed by a plan specification with one or more objectives specified by a business organization</skos:definition>
-        <skos:definition xml:lang="en-us">role held by a material artifact when it is planned to be involved in or is involved in carrying out some part of a planned transportation process and that is not consumed in that planned process</skos:definition>
     </owl:Class>
     
 
@@ -12020,7 +12066,7 @@ Ein Rechenknoten kann virtuell (bspw. ein Container oder eine virtuelle Maschine
     <!-- https://w3id.org/pmd/co/PMD_0000814 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000814">
-        <owl:equivalentClass rdf:nodeID="genid1332"/>
+        <owl:equivalentClass rdf:nodeID="genid1341"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000029"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -12033,7 +12079,7 @@ Ein Rechenknoten kann virtuell (bspw. ein Container oder eine virtuelle Maschine
         <rdfs:label xml:lang="en">laboratory</rdfs:label>
         <skos:definition xml:lang="en">A place equipped for experimental study in a science or for testing and analysis.</skos:definition>
     </owl:Class>
-    <owl:Class rdf:nodeID="genid1332">
+    <owl:Class rdf:nodeID="genid1341">
         <owl:intersectionOf rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000029"/>
             <owl:Restriction>
@@ -12045,7 +12091,7 @@ Ein Rechenknoten kann virtuell (bspw. ein Container oder eine virtuelle Maschine
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0000814"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2002/07/owl#equivalentClass"/>
-        <owl:annotatedTarget rdf:nodeID="genid1332"/>
+        <owl:annotatedTarget rdf:nodeID="genid1341"/>
         <co:PMD_0001032>issue: https://github.com/materialdigital/core-ontology/issues/101</co:PMD_0001032>
     </owl:Axiom>
     
@@ -19037,6 +19083,24 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
             </owl:Restriction>
         </owl:intersectionOf>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/ao/log/LOG_1000001"/>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://w3id.org/pmd/ao/log/LOG_1000001"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000059"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/ao/log/LOG_1000057"/>
+            </owl:Restriction>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000059"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/ao/log/LOG_1000070"/>
+            </owl:Restriction>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/ao/log/LOG_0000002"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/ao/log/LOG_1000002"/>
     </owl:Class>
     <owl:Class>
         <owl:intersectionOf rdf:parseType="Collection">
