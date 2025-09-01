@@ -11,10 +11,15 @@ Prefix(dcterms:=<http://purl.org/dc/terms/>)
 Ontology(<https://w3id.org/pmd/ao/log>
 Import(<https://w3id.org/pmd/ao/log/imports/pmdco_import.owl>)
 Annotation(dcterms:creator <https://orcid.org/0000-0003-1649-6832>)
+Annotation(dcterms:description "This is an alignment of the IOF Supply Chain Ontologies Library to the Platform Material Digital Core Ontology. It contains ontologies to be used in the domain of supply chain and logistics.")
+Annotation(dcterms:license "http://opensource.org/licenses/MIT")
 Annotation(dcterms:title "Platform Material Digital Application Ontology  for Logistics and supplychain (log)"@en)
 Annotation(rdfs:comment "The logistics application ontology for use with PMD Core Ontology (PMDco). The scope of this module is the description of material science and engineering related logistics and general organization. Its is adopted from the IOF SupplyChain Module https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/"@en)
 
+Declaration(Class(:LOG_0000000))
 Declaration(Class(:LOG_0000001))
+Declaration(Class(:LOG_0000002))
+Declaration(Class(:LOG_0000003))
 Declaration(Class(:LOG_1000000))
 Declaration(Class(:LOG_1000001))
 Declaration(Class(:LOG_1000002))
@@ -260,6 +265,14 @@ AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <http://purl.ob
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <http://purl.obolibrary.org/obo/BFO_0000040> <http://purl.obolibrary.org/obo/BFO_0000040>)
 
+# Class: :LOG_0000000 (industrial inventory)
+
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> :LOG_0000000 "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/IndustrialInventory")
+AnnotationAssertion(rdfs:label :LOG_0000000 "industrial inventory"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :LOG_0000000 "material product, material component, raw material, or material artifact that is ready to be sold or used and is stored in a storage facility or on factory floor"@en)
+EquivalentClasses(:LOG_0000000 ObjectIntersectionOf(ObjectUnionOf(:LOG_1000028 :LOG_1000029 :LOG_1000102 ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000030> ObjectComplementOf(:LOG_1000045))) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000196> :LOG_0000001)))
+SubClassOf(:LOG_0000000 <http://purl.obolibrary.org/obo/BFO_0000040>)
+
 # Class: :LOG_0000001 (industrial inventory role)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> :LOG_0000001 "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/IndustrialInventoryRole")
@@ -267,6 +280,20 @@ AnnotationAssertion(rdfs:label :LOG_0000001 "industrial inventory role"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :LOG_0000001 "role held by some material entity when it is stored by a bussiness organization and it is intended to be supplied to a customer or to be used or consumed in some product production process"@en-us)
 SubClassOf(:LOG_0000001 :LOG_1000106)
 SubClassOf(:LOG_0000001 ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000197> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000040> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000056> ObjectUnionOf(:LOG_1000123 :LOG_1000128)))))
+
+# Class: :LOG_0000002 (consigning process)
+
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> :LOG_0000002 "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/ConsigningProcess")
+AnnotationAssertion(rdfs:label :LOG_0000002 "consigning process"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :LOG_0000002 "business process that results in placing a material entity in the possession of some agent without changing the ownership until the material entity is sold")
+SubClassOf(:LOG_0000002 :LOG_1000130)
+
+# Class: :LOG_0000003 (freight forwarding process)
+
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> :LOG_0000003 "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/FreightForwardingProcess")
+AnnotationAssertion(rdfs:label :LOG_0000003 "freight forwarding process"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :LOG_0000003 "business process of planning and coordinating the transportation of material products on behalf of a shipper")
+SubClassOf(:LOG_0000003 ObjectIntersectionOf(:LOG_1000130 ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000057> :LOG_1000016)))
 
 # Class: :LOG_1000000 (agreement)
 
@@ -469,15 +496,12 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :LOG_100002
 EquivalentClasses(:LOG_1000024 ObjectIntersectionOf(:LOG_1000011 ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000196> :LOG_1000072)))
 SubClassOf(:LOG_1000024 :LOG_1000011)
 
-# Class: :LOG_1000025 (industrial inventory)
+# Class: :LOG_1000025 (cargo)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> :LOG_1000025 <https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/Cargo>)
-AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> :LOG_1000025 <https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/IndustrialInventory>)
 AnnotationAssertion(rdfs:label :LOG_1000025 "cargo"@en)
-AnnotationAssertion(rdfs:label :LOG_1000025 "industrial inventory"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :LOG_1000025 "material entity that is transported using a transport equipment by a carrier"@en-us)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :LOG_1000025 "material product, material component, raw material, or material artifact that is ready to be sold or used and is stored in a storage facility or on factory floor"@en-us)
-EquivalentClasses(:LOG_1000025 ObjectIntersectionOf(ObjectUnionOf(:LOG_1000028 :LOG_1000029 :LOG_1000030 :LOG_1000102) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000196> :LOG_0000001)))
+EquivalentClasses(:LOG_1000025 ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000040> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000196> :LOG_1000073)))
 SubClassOf(:LOG_1000025 <http://purl.obolibrary.org/obo/BFO_0000040>)
 
 # Class: :LOG_1000026 (load)
@@ -522,7 +546,6 @@ SubClassOf(:LOG_1000030 <http://purl.obolibrary.org/obo/BFO_0000040>)
 
 # Class: :LOG_1000031 (department)
 
-AnnotationAssertion(rdfs:label :LOG_1000031 "Abteilung"@de)
 AnnotationAssertion(rdfs:label :LOG_1000031 "department"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :LOG_1000031 "object aggregate that is part of an organisation and consists of persons that are members of the same organisation"@en)
 AnnotationAssertion(<https://w3id.org/pmd/co/logistics/PMD_0000060> :LOG_1000031 "true"^^xsd:boolean)
@@ -538,7 +561,6 @@ SubClassOf(:LOG_1000032 <http://purl.obolibrary.org/obo/BFO_0000027>)
 # Class: :LOG_1000033 (laboratory)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000119> :LOG_1000033 "“Laboratory.” Merriam-Webster.com Dictionary, Merriam-Webster, https://www.merriam-webster.com/dictionary/laboratory. Accessed 24 Nov. 2022."@en)
-AnnotationAssertion(rdfs:label :LOG_1000033 "Labor"@de)
 AnnotationAssertion(rdfs:label :LOG_1000033 "laboratory"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :LOG_1000033 "A place equipped for experimental study in a science or for testing and analysis."@en)
 AnnotationAssertion(<https://w3id.org/pmd/co/logistics/PMD_0000060> :LOG_1000033 "true"^^xsd:boolean)
@@ -571,6 +593,7 @@ SubClassOf(:LOG_1000036 <http://purl.obolibrary.org/obo/BFO_0000027>)
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> :LOG_1000037 "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/Lot")
 AnnotationAssertion(rdfs:label :LOG_1000037 "lot"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :LOG_1000037 "quantity of material entities produced together and sharing the same production history and specifications")
+EquivalentClasses(:LOG_1000037 <https://w3id.org/pmd/co/PMD_0020138>)
 EquivalentClasses(:LOG_1000037 ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000027> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000196> :LOG_1000080) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/IAO_0000235> :LOG_1000005)))
 SubClassOf(:LOG_1000037 <http://purl.obolibrary.org/obo/BFO_0000027>)
 
@@ -1092,7 +1115,7 @@ SubClassOf(:LOG_1000113 ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> :LOG_1000114 "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/FreightForwardingService")
 AnnotationAssertion(rdfs:label :LOG_1000114 "freight forwarding service"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :LOG_1000114 "logistics service that consists of at least one freight forwarding process")
-SubClassOf(:LOG_1000114 ObjectIntersectionOf(:LOG_1000113 ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000117> :LOG_1000118)))
+SubClassOf(:LOG_1000114 ObjectIntersectionOf(:LOG_1000113 ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000117> :LOG_0000003)))
 
 # Class: :LOG_1000115 (packaging service)
 
@@ -1110,9 +1133,7 @@ SubClassOf(:LOG_1000116 ObjectIntersectionOf(:LOG_1000113 ObjectSomeValuesFrom(<
 
 # Class: :LOG_1000117 (transportation service)
 
-AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> :LOG_1000117 <https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/ConsigningProcess>)
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> :LOG_1000117 "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/TransportationService")
-AnnotationAssertion(rdfs:label :LOG_1000117 "consigning process"@en)
 AnnotationAssertion(rdfs:label :LOG_1000117 "transportation service"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :LOG_1000117 "business process that results in placing a material entity in the possession of some agent without changing the ownership until the material entity is sold"@en-us)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :LOG_1000117 "logistics service that consists of at least one transport process")
@@ -1121,14 +1142,10 @@ SubClassOf(:LOG_1000117 ObjectIntersectionOf(:LOG_1000113 ObjectSomeValuesFrom(<
 
 # Class: :LOG_1000118 (manufacturing service)
 
-AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> :LOG_1000118 "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/FreightForwardingProcess")
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> :LOG_1000118 "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/ManufacturingService")
-AnnotationAssertion(rdfs:label :LOG_1000118 "freight forwarding process"@en)
 AnnotationAssertion(rdfs:label :LOG_1000118 "manufacturing service"@en)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :LOG_1000118 "business process of planning and coordinating the transportation of material products on behalf of a shipper")
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :LOG_1000118 "commercial service that consists of at least one manufacturing process")
 EquivalentClasses(:LOG_1000118 ObjectIntersectionOf(:LOG_1000112 ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000117> :LOG_1000131)))
-SubClassOf(:LOG_1000118 ObjectIntersectionOf(:LOG_1000130 ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000057> :LOG_1000016)))
 
 # Class: :LOG_1000119 (inventory management process)
 
@@ -1214,13 +1231,11 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :LOG_100012
 EquivalentClasses(:LOG_1000129 ObjectIntersectionOf(:LOG_1000130 ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000055> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000014> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000059> :LOG_1000098))) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000066> :LOG_1000034) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000117> :LOG_1000144)))
 SubClassOf(:LOG_1000129 :LOG_1000130)
 
-# Class: :LOG_1000130 (transport equipment role)
+# Class: :LOG_1000130 (business process)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> :LOG_1000130 <https://spec.industrialontologies.org/ontology/core/Core/BusinessProcess>)
 AnnotationAssertion(rdfs:label :LOG_1000130 "business process"@en)
-AnnotationAssertion(rdfs:label :LOG_1000130 "transport equipment role"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :LOG_1000130 "planned process which is prescribed by a plan specification with one or more objectives specified by a business organization"@en-us)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :LOG_1000130 "role held by a material artifact when it is planned to be involved in or is involved in carrying out some part of a planned transportation process and that is not consumed in that planned process"@en-us)
 SubClassOf(:LOG_1000130 <http://purl.obolibrary.org/obo/BFO_0000015>)
 SubClassOf(:LOG_1000130 ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000055> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000014> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000059> <https://w3id.org/pmd/co/PMD_0000003>))))
 SubClassOf(:LOG_1000130 ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000057> ObjectIntersectionOf(:LOG_1000011 ObjectSomeValuesFrom(:LOG_1900001 :LOG_1000047))))
@@ -1355,6 +1370,7 @@ SubClassOf(ObjectIntersectionOf(<http://purl.obolibrary.org/obo/IAO_0000005> Obj
 SubClassOf(ObjectIntersectionOf(<http://purl.obolibrary.org/obo/IAO_0000030> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0060001> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000017> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/IAO_0000219> <https://w3id.org/pmd/co/PMD_0040030>)))) :LOG_1000010)
 SubClassOf(ObjectIntersectionOf(:LOG_1000000 ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/IAO_0000136> :LOG_1000111) ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0040121> :LOG_1000055) ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0040121> :LOG_1000063)) :LOG_1000004)
 SubClassOf(ObjectIntersectionOf(:LOG_1000000 ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/IAO_0000136> :LOG_1000112) ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0040121> :LOG_1000058) ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0040121> :LOG_1000064)) :LOG_1000001)
+SubClassOf(ObjectIntersectionOf(:LOG_1000001 ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000059> :LOG_1000057) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000059> :LOG_1000070) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/IAO_0000136> :LOG_0000002)) :LOG_1000002)
 SubClassOf(ObjectIntersectionOf(:LOG_1000001 ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/IAO_0000136> :LOG_1000117) ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0040121> :LOG_1000057) ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0040121> :LOG_1000070)) :LOG_1000002)
 SubClassOf(ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000003> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000059> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000014> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000055> :LOG_1000112)))) :LOG_1000093)
 SubClassOf(ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000003> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000059> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000014> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000055> :LOG_1000121)))) :LOG_1000095)
