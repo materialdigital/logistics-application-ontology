@@ -146,8 +146,6 @@ Declaration(Class(:LOG_1000142))
 Declaration(Class(:LOG_1000143))
 Declaration(Class(:LOG_1000144))
 Declaration(Class(:LOG_1000145))
-Declaration(Class(:LOG_1001247))
-Declaration(Class(<https://w3id.org/pmd/co/PMD_0040009>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0040029>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0040030>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0040129>))
@@ -749,6 +747,7 @@ SubClassOf(:LOG_1000060 ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> :LOG_1000061 <https://spec.industrialontologies.org/ontology/core/Core/ManufacturerRole>)
 AnnotationAssertion(rdfs:label :LOG_1000061 "manufacturer role"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :LOG_1000061 "agent role held by an organization when it produces material products"@en-us)
+EquivalentClasses(:LOG_1000061 <https://w3id.org/pmd/co/PMD_0000831>)
 SubClassOf(:LOG_1000061 :LOG_1000054)
 SubClassOf(:LOG_1000061 ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000197> ObjectIntersectionOf(:LOG_1000050 ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000056> :LOG_1000123))))
 
@@ -1309,13 +1308,6 @@ AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <https://w3id.o
 # Class: <https://w3id.org/pmd/co/PMD_0000017> (identifier)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <https://w3id.org/pmd/co/PMD_0000017> <https://spec.industrialontologies.org/ontology/core/Core/Identifier>)
-
-# Class: <https://w3id.org/pmd/co/PMD_0040009> (Hersteller)
-
-AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0040009> "Hersteller"@de)
-AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0040009> "manufacturer company"@en)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0040009> "Processing Node's manufacturer name, e.g.: \"Ipsen\", \"UPC\" or \"Bosch\""@en)
-AnnotationAssertion(<https://w3id.org/pmd/co/logistics/PMD_0000060> <https://w3id.org/pmd/co/PMD_0040009> "true"^^xsd:boolean)
 
 # Class: <https://w3id.org/pmd/co/PMD_0040029> (geospatial site)
 
