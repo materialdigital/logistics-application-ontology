@@ -16,11 +16,11 @@
 @base <https://w3id.org/pmd/ao/log.ttl> .
 
 <https://w3id.org/pmd/ao/log.ttl> rdf:type owl:Ontology ;
-                                   owl:versionIRI <https://w3id.org/pmd/ao/log/releases/2025-08-29/log.ttl> ;
+                                   owl:versionIRI <https://w3id.org/pmd/ao/log/releases/2025-09-01/log.ttl> ;
                                    dcterms:creator <https://orcid.org/0000-0003-1649-6832> ;
                                    dcterms:title "Platform Material Digital Application Ontology  for Logistics and supplychain (log)"@en ;
                                    rdfs:comment "The logistics application ontology for use with PMD Core Ontology (PMDco). The scope of this module is the description of material science and engineering related logistics and general organization. Its is adopted from the IOF SupplyChain Module https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/"@en ;
-                                   owl:versionInfo "2025-08-29" .
+                                   owl:versionInfo "2025-09-01" .
 
 #################################################################
 #    Annotation properties
@@ -4909,6 +4909,7 @@ obo:OBI_0001933 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/ao/log/LOG_1000061
 <https://w3id.org/pmd/ao/log/LOG_1000061> rdf:type owl:Class ;
+                                          owl:equivalentClass co:PMD_0000831 ;
                                           rdfs:subClassOf <https://w3id.org/pmd/ao/log/LOG_1000054> ,
                                                           [ rdf:type owl:Restriction ;
                                                             owl:onProperty obo:BFO_0000197 ;
@@ -6659,10 +6660,6 @@ obo:OBI_0001933 rdf:type owl:Class ;
                                           obo:IAO_0000412 <https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/TravelProcess> ;
                                           rdfs:label "travel process"@en ;
                                           skos:definition "material location change process wherein one or more persons move between geographical locations"@en-us .
-
-
-###  https://w3id.org/pmd/ao/log/LOG_1001247
-<https://w3id.org/pmd/ao/log/LOG_1001247> rdf:type owl:Class .
 
 
 ###  https://w3id.org/pmd/co/PMD_0000000
@@ -9270,7 +9267,8 @@ co:PMD_0000830 rdf:type owl:Class ;
                                                         ) ;
                                      rdf:type owl:Class
                                    ] ;
-               rdfs:subClassOf co:PMD_0000879 ,
+               rdfs:subClassOf <https://w3id.org/pmd/ao/log/LOG_1000011> ,
+                               co:PMD_0000879 ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty obo:BFO_0000196 ;
                                  owl:someValuesFrom co:PMD_0000831
@@ -9282,7 +9280,7 @@ co:PMD_0000830 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0000831
 co:PMD_0000831 rdf:type owl:Class ;
-               rdfs:subClassOf obo:BFO_0000023 ;
+               rdfs:subClassOf <https://w3id.org/pmd/ao/log/LOG_1000054> ;
                rdfs:label "manufacturer role"@en ;
                skos:definition "The manufacturer role is a role that involves the production or fabrication of materials, components, or systems."@en .
 
@@ -12624,14 +12622,6 @@ co:PMD_0040001 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0020132 ;
                rdfs:label "Length"@de ;
                skos:definition "A size that characterizes the main spatial extend of an object or distance between characteristic points of an object."@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0040009
-co:PMD_0040009 rdf:type owl:Class ;
-               rdfs:label "Hersteller"@de ,
-                          "manufacturer company"@en ;
-               skos:definition "Processing Node's manufacturer name, e.g.: \"Ipsen\", \"UPC\" or \"Bosch\""@en ;
-               logistics:PMD_0000060 "true"^^xsd:boolean .
 
 
 ###  https://w3id.org/pmd/co/PMD_0040029

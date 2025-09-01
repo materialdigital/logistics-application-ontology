@@ -16,11 +16,11 @@
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#"
      xmlns:logistics="https://w3id.org/pmd/co/logistics/">
     <owl:Ontology rdf:about="https://w3id.org/pmd/ao/log.owl">
-        <owl:versionIRI rdf:resource="https://w3id.org/pmd/ao/log/releases/2025-08-29/log.owl"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/pmd/ao/log/releases/2025-09-01/log.owl"/>
         <dcterms:creator rdf:resource="https://orcid.org/0000-0003-1649-6832"/>
         <dcterms:title xml:lang="en">Platform Material Digital Application Ontology  for Logistics and supplychain (log)</dcterms:title>
         <rdfs:comment xml:lang="en">The logistics application ontology for use with PMD Core Ontology (PMDco). The scope of this module is the description of material science and engineering related logistics and general organization. Its is adopted from the IOF SupplyChain Module https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/</rdfs:comment>
-        <owl:versionInfo>2025-08-29</owl:versionInfo>
+        <owl:versionInfo>2025-09-01</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -6412,6 +6412,7 @@ Previous. An information content entity is a non-realizable information entity t
     <!-- https://w3id.org/pmd/ao/log/LOG_1000061 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/ao/log/LOG_1000061">
+        <owl:equivalentClass rdf:resource="https://w3id.org/pmd/co/PMD_0000831"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/ao/log/LOG_1000054"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -8848,12 +8849,6 @@ Previous. An information content entity is a non-realizable information entity t
         <rdfs:label xml:lang="en">travel process</rdfs:label>
         <skos:definition xml:lang="en-us">material location change process wherein one or more persons move between geographical locations</skos:definition>
     </owl:Class>
-    
-
-
-    <!-- https://w3id.org/pmd/ao/log/LOG_1001247 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/ao/log/LOG_1001247"/>
     
 
 
@@ -12278,6 +12273,7 @@ Ein Rechenknoten kann virtuell (bspw. ein Container oder eine virtuelle Maschine
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/ao/log/LOG_1000011"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000879"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -12295,7 +12291,7 @@ Ein Rechenknoten kann virtuell (bspw. ein Container oder eine virtuelle Maschine
     <!-- https://w3id.org/pmd/co/PMD_0000831 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000831">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000023"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/ao/log/LOG_1000054"/>
         <rdfs:label xml:lang="en">manufacturer role</rdfs:label>
         <skos:definition xml:lang="en">The manufacturer role is a role that involves the production or fabrication of materials, components, or systems.</skos:definition>
     </owl:Class>
@@ -16789,17 +16785,6 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020132"/>
         <rdfs:label xml:lang="de">Length</rdfs:label>
         <skos:definition xml:lang="en">A size that characterizes the main spatial extend of an object or distance between characteristic points of an object.</skos:definition>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/pmd/co/PMD_0040009 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0040009">
-        <rdfs:label xml:lang="de">Hersteller</rdfs:label>
-        <rdfs:label xml:lang="en">manufacturer company</rdfs:label>
-        <skos:definition xml:lang="en">Processing Node&apos;s manufacturer name, e.g.: &quot;Ipsen&quot;, &quot;UPC&quot; or &quot;Bosch&quot;</skos:definition>
-        <logistics:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</logistics:PMD_0000060>
     </owl:Class>
     
 
