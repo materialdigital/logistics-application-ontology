@@ -1,4 +1,4 @@
-Prefix(:=<https://w3id.org/pmd/ao/log.owl#>)
+Prefix(:=<https://w3id.org/pmd/ao/log#>)
 Prefix(dce:=<http://purl.org/dc/elements/1.1/>)
 Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
 Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
@@ -8,7 +8,7 @@ Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
 Prefix(dcterms:=<http://purl.org/dc/terms/>)
 
 
-Ontology(<https://w3id.org/pmd/ao/log.owl>
+Ontology(<https://w3id.org/pmd/ao/log>
 Import(<https://w3id.org/pmd/ao/log/imports/pmdco_import.owl>)
 Annotation(dcterms:creator <https://orcid.org/0000-0003-1649-6832>)
 Annotation(dcterms:title "Platform Material Digital Application Ontology  for Logistics and supplychain (log)"@en)
