@@ -8,7 +8,7 @@ Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
 Prefix(dcterms:=<http://purl.org/dc/terms/>)
 
 
-Ontology(<https://w3id.org/pmd/ao/log.owl>
+Ontology(<https://w3id.org/pmd/ao/log>
 Import(<https://w3id.org/pmd/ao/log/imports/pmdco_import.owl>)
 Annotation(dcterms:creator <https://orcid.org/0000-0003-1649-6832>)
 Annotation(dcterms:title "Platform Material Digital Application Ontology  for Logistics and supplychain (log)"@en)
@@ -1214,7 +1214,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :LOG_100012
 EquivalentClasses(:LOG_1000129 ObjectIntersectionOf(:LOG_1000130 ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000055> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000014> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000059> :LOG_1000098))) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000066> :LOG_1000034) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000117> :LOG_1000144)))
 SubClassOf(:LOG_1000129 :LOG_1000130)
 
-# Class: :LOG_1000130 (business process)
+# Class: :LOG_1000130 (transport equipment role)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> :LOG_1000130 <https://spec.industrialontologies.org/ontology/core/Core/BusinessProcess>)
 AnnotationAssertion(rdfs:label :LOG_1000130 "business process"@en)
