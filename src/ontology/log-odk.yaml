@@ -21,6 +21,8 @@ remove_owl_nothing: true
 
 import_group:
   products:
-  - id: pmdco
-    mirror_from: https://materialdigital.github.io/core-ontology/ontology.owl
-    module_type: mirror
+    - id: pmdco
+      module_type: filter
+      mirror_from: https://materialdigital.github.io/core-ontology/ontology.owl
+      base_iris:
+        - https://w3id.org/pmd/co/
