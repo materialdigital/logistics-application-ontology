@@ -21,7 +21,7 @@ CONFIG_HASH=                569314f66c1293a363d5e7282d43795b0fd8fc50d2039c2cc3e1
 OBOBASE=                    http://purl.obolibrary.org/obo
 URIBASE=                    https://w3id.org/pmd/ao
 ONT=                        log
-ONTBASE=                    https://w3id.org/pmd/ao/log
+ONTBASE=                    https://w3id.org/pmd/log
 EDIT_FORMAT=                owl
 SRC =                       $(ONT)-edit.$(EDIT_FORMAT)
 MAKE_FAST=                  $(MAKE) IMP=false PAT=false COMP=false MIR=false

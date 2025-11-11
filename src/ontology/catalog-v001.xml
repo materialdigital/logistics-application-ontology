@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
   <group id="odk-managed-catalog" prefer="public">
-    <uri name="https://w3id.org/pmd/ao/log/imports/pmdco_import.owl" uri="imports/pmdco_import.owl" />
+    <uri name="https://w3id.org/pmd/log/imports/pmdco_import.owl" uri="imports/pmdco_import.owl" />
   </group>
 </catalog>

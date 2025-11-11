@@ -11,12 +11,12 @@ Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 Prefix: idrange: <http://purl.obolibrary.org/obo/ro/idrange/>
 Prefix: owl: <http://www.w3.org/2002/07/owl#>
 
-Ontology: <https://w3id.org/pmd/ao/log/log-idranges.owl>
+Ontology: <https://w3id.org/pmd/log/log-idranges.owl>
 
 
 Annotations: 
     idsfor: "LOG",
-    idprefix: "https://w3id.org/pmd/ao/log/LOG_",
+    idprefix: "https://w3id.org/pmd/log/LOG_",
     iddigits: 7
 
 AnnotationProperty: idprefix:

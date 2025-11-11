@@ -1,4 +1,4 @@
-Prefix(:=<https://w3id.org/pmd/ao/log/imports/pmdco_import.owl#>)
+Prefix(:=<https://w3id.org/pmd/log/imports/pmdco_import.owl#>)
 Prefix(co:=<https://w3id.org/pmd/co/>)
 Prefix(dc:=<http://purl.org/dc/elements/1.1/>)
 Prefix(obo:=<http://purl.obolibrary.org/obo/>)
@@ -14,8 +14,8 @@ Prefix(protege:=<http://protege.stanford.edu/plugins/owl/protege#>)
 Prefix(oboInOwl:=<http://www.geneontology.org/formats/oboInOwl#>)
 
 
-Ontology(<https://w3id.org/pmd/ao/log/imports/pmdco_import.owl>
-<https://w3id.org/pmd/ao/log/releases/2025-09-05/imports/pmdco_import.owl>
+Ontology(<https://w3id.org/pmd/log/imports/pmdco_import.owl>
+<https://w3id.org/pmd/log/releases/2025-09-05/imports/pmdco_import.owl>
 Annotation(dc:source <https://w3id.org/pmd/co/3.0.0-alpha2>)
 Annotation(owl:versionInfo "2025-09-05")
 
