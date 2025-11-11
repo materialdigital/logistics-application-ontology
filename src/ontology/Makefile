@@ -19,7 +19,7 @@ CONFIG_HASH=                569314f66c1293a363d5e7282d43795b0fd8fc50d2039c2cc3e1
 # these can be overwritten on the command line
 
 OBOBASE=                    http://purl.obolibrary.org/obo
-URIBASE=                    https://w3id.org/pmd/ao
+URIBASE=                    https://w3id.org/pmd
 ONT=                        log
 ONTBASE=                    https://w3id.org/pmd/log
 EDIT_FORMAT=                owl
@@ -410,7 +410,7 @@ $(IMPORTDIR)/%_import.owl: $(MIRRORDIR)/%.owl $(IMPORTDIR)/%_terms.txt \
 		 remove $(foreach p, $(ANNOTATION_PROPERTIES), --term $(p)) \
 		        --term-file $(IMPORTDIR)/$*_terms.txt $(T_IMPORTSEED) \
 		        --select complement --select annotation-properties \
-		 odk:normalize --base-iri https://w3id.org/pmd/ao \
+		 odk:normalize --base-iri https://w3id.org/pmd \
 		               --subset-decls true --synonym-decls true \
 		 repair --merge-axiom-annotations true \
 		 $(ANNOTATE_CONVERT_FILE)
@@ -420,7 +420,7 @@ $(IMPORTDIR)/%_import.owl: $(MIRRORDIR)/%.owl $(IMPORTDIR)/%_terms.txt \
 ## Module for ontology: pmdco (mirror)
 $(IMPORTDIR)/pmdco_import.owl: $(MIRRORDIR)/pmdco.owl | all_robot_plugins
 	$(ROBOT) annotate --input $< --remove-annotations \
-		 odk:normalize --base-iri https://w3id.org/pmd/ao \
+		 odk:normalize --base-iri https://w3id.org/pmd \
 		               --subset-decls true --synonym-decls true \
 		               --add-source true \
 		 repair --merge-axiom-annotations true \
@@ -572,7 +572,7 @@ $(ONT)-simple.owl: $(EDIT_PREPROCESSED) $(OTHER_SRC) $(SIMPLESEED) $(IMPORT_FILE
 		remove --axioms equivalent \
 		filter --term-file $(SIMPLESEED) --select "annotations ontology anonymous self" --trim true --signature true \
 		reduce -r $(REASONER) $(REDUCE_OPTIONS) \
-		odk:normalize --base-iri https://w3id.org/pmd/ao --subset-decls true --synonym-decls true \
+		odk:normalize --base-iri https://w3id.org/pmd --subset-decls true --synonym-decls true \
 		repair --merge-axiom-annotations true \
 		$(SHARED_ROBOT_COMMANDS) annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) --output $@.tmp.owl && mv $@.tmp.owl $@
 # ----------------------------------------
