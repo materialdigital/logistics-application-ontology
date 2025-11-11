@@ -4,7 +4,7 @@
 
 PMDCo application ontology for logistics and supplychain adopted from [iof-supplychain-module](https://spec.industrialontologies.org/ontology/supplychain/Metadatasupplychain/supplychainModule) 
 
-More information can be found at https://w3id.org/pmd/ao/log/
+More information can be found at https://w3id.org/pmd/log/
 
 ## Versions
 
@@ -12,7 +12,7 @@ More information can be found at https://w3id.org/pmd/ao/log/
 
 The latest version of the ontology can always be found at:
 
-https://w3id.org/pmd/ao/log.owl
+https://w3id.org/pmd/log.owl
 
 
 ### Editors' version

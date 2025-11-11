@@ -7,7 +7,7 @@ uribase: https://w3id.org/pmd/ao
 uribase_suffix: log
 
 namespaces:
-  - https://w3id.org/pmd/ao/log/
+  - https://w3id.org/pmd/log/
 
 release_artefacts:
   - base
