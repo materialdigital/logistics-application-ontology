@@ -21,7 +21,6 @@ https://w3id.org/pmd/co/PMD_0000004
 http://purl.obolibrary.org/obo/BFO_0000132
 http://purl.obolibrary.org/obo/BFO_0000124
 http://purl.obolibrary.org/obo/BFO_0000108
-https://w3id.org/pmd/ao/log/LOG_1900001
 http://purl.obolibrary.org/obo/BFO_0000171
 http://purl.obolibrary.org/obo/BFO_0000056
 http://purl.obolibrary.org/obo/BFO_0000059
@@ -31,12 +30,14 @@ http://purl.obolibrary.org/obo/IAO_0000235
 http://purl.obolibrary.org/obo/IAO_0000219
 http://purl.obolibrary.org/obo/BFO_0000223
 http://purl.obolibrary.org/obo/BFO_0000221
+https://w3id.org/pmd/log/LOG_1900003
 http://purl.obolibrary.org/obo/BFO_0000084
 https://w3id.org/pmd/co/PMD_0000016
 http://purl.obolibrary.org/obo/IAO_0000136
 http://purl.obolibrary.org/obo/BFO_0000196
 http://purl.obolibrary.org/obo/BFO_0000055
-https://w3id.org/pmd/ao/log/LOG_1900002
+https://w3id.org/pmd/log/LOG_1900001
+https://w3id.org/pmd/log/LOG_1900002
 http://purl.obolibrary.org/obo/BFO_0000117
 http://purl.obolibrary.org/obo/BFO_0000197
 https://w3id.org/pmd/co/PMD_0040121
@@ -44,5 +45,4 @@ http://purl.obolibrary.org/obo/BFO_0000115
 https://w3id.org/pmd/co/PMD_0060001
 http://purl.obolibrary.org/obo/BFO_0000129
 http://purl.obolibrary.org/obo/BFO_0000054
-https://w3id.org/pmd/ao/log/LOG_1900003
 https://w3id.org/pmd/co/PMD_0040131
