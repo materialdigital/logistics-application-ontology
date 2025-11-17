@@ -1,8 +1,12 @@
 Level	Rule Name	Subject	Property	Value
+WARN	equivalent_class_axiom_no_genus	product identifier	IAO:0000219	material product
 WARN	missing_definition	industrial inventory	IAO:0000115	
 WARN	missing_definition	industrial inventory role	IAO:0000115	
 WARN	missing_definition	consigning process	IAO:0000115	
 WARN	missing_definition	freight forwarding process	IAO:0000115	
+WARN	missing_definition	manufacturer identifier	IAO:0000115	
+WARN	missing_definition	product identifier	IAO:0000115	
+WARN	missing_definition	batch identifier	IAO:0000115	
 WARN	missing_definition	agreement	IAO:0000115	
 WARN	missing_definition	commercial service agreement	IAO:0000115	
 WARN	missing_definition	bill of lading	IAO:0000115	

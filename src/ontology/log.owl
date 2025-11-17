@@ -15,13 +15,13 @@
      xmlns:dcterms="http://purl.org/dc/terms/"
      xmlns:logistics="https://w3id.org/pmd/co/logistics/">
     <owl:Ontology rdf:about="https://w3id.org/pmd/log.owl">
-        <owl:versionIRI rdf:resource="https://w3id.org/pmd/log/releases/2025-11-13/log.owl"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/pmd/log/releases/2025-11-17/log.owl"/>
         <dcterms:creator rdf:resource="https://orcid.org/0000-0003-1649-6832"/>
         <dcterms:description>This is an alignment of the IOF Supply Chain Ontologies Library to the Platform Material Digital Core Ontology. It contains ontologies to be used in the domain of supply chain and logistics.</dcterms:description>
         <dcterms:license>http://opensource.org/licenses/MIT</dcterms:license>
         <dcterms:title xml:lang="en">Platform Material Digital Application Ontology  for Logistics and supplychain (log)</dcterms:title>
         <rdfs:comment xml:lang="en">The logistics application ontology for use with PMD Core Ontology (PMDco). The scope of this module is the description of material science and engineering related logistics and general organization. Its is adopted from the IOF SupplyChain Module https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/</rdfs:comment>
-        <owl:versionInfo>2025-11-13</owl:versionInfo>
+        <owl:versionInfo>2025-11-17</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -347,24 +347,6 @@ A continuant cannot have an occurrent as part: use &apos;participates in&apos;. 
     
 
 
-    <!-- http://purl.obolibrary.org/obo/BFO_0000056 -->
-
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000056"/>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/BFO_0000057 -->
-
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000057"/>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/BFO_0000059 -->
-
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000059"/>
-    
-
-
     <!-- http://purl.obolibrary.org/obo/BFO_0000062 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000062">
@@ -419,12 +401,6 @@ A continuant cannot have an occurrent as part: use &apos;participates in&apos;. 
     
 
 
-    <!-- http://purl.obolibrary.org/obo/BFO_0000084 -->
-
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000084"/>
-    
-
-
     <!-- http://purl.obolibrary.org/obo/BFO_0000108 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000108">
@@ -434,12 +410,6 @@ A continuant cannot have an occurrent as part: use &apos;participates in&apos;. 
         <skos:definition xml:lang="en">(Elucidation) exists at is a relation between a particular and some temporal region at which the particular exists</skos:definition>
         <skos:example xml:lang="en">First World War exists at 1914-1916; Mexico exists at January 1, 2000</skos:example>
     </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/BFO_0000115 -->
-
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000115"/>
     
 
 
@@ -485,18 +455,6 @@ A continuant cannot have an occurrent as part: use &apos;participates in&apos;. 
         <skos:definition xml:lang="en">b has temporal part c =Def c temporal part of b</skos:definition>
         <skos:example xml:lang="en">Your life has temporal part the first year of your life</skos:example>
     </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/BFO_0000124 -->
-
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000124"/>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/BFO_0000129 -->
-
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000129"/>
     
 
 
@@ -572,12 +530,6 @@ A continuant cannot have an occurrent as part: use &apos;participates in&apos;. 
         <skos:definition xml:lang="en">(Elucidation) temporally projects onto is a relation between a spatiotemporal region s and some temporal region which is the temporal extent of s</skos:definition>
         <skos:example xml:lang="en">The world line of a particle temporally projects onto the temporal region extending from the beginning to the end of the existence of the particle</skos:example>
     </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/BFO_0000171 -->
-
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000171"/>
     
 
 
@@ -1484,8 +1436,15 @@ Werner suggests a solution based on &quot;Magnitudes&quot; a proposal for which 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002353">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
         <obo:IAO_0000115>inverse of has output</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">is output of</rdfs:label>
         <rdfs:label xml:lang="en">output of</rdfs:label>
     </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002502 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002502"/>
     
 
 
@@ -1543,22 +1502,6 @@ Werner suggests a solution based on &quot;Magnitudes&quot; a proposal for which 
         <rdfs:seeAlso xml:lang="en">has process attribute from OEO https://openenergyplatform.org/ontology/oeo/OEO_00000500</rdfs:seeAlso>
         <skos:definition xml:lang="en">A relation between a process and a process attribute that depends on it.</skos:definition>
         <skos:example xml:lang="en">Tensile testing process has process attribute tensile rate</skos:example>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/pmd/co/PMD_0000015 -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/PMD_0000015">
-        <owl:inverseOf rdf:resource="https://w3id.org/pmd/co/PMD_0040131"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/pmd/co/PMD_0000016 -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/PMD_0000016">
-        <owl:inverseOf rdf:resource="https://w3id.org/pmd/co/PMD_0040130"/>
     </owl:ObjectProperty>
     
 
@@ -1781,30 +1724,6 @@ O -consists of-&gt; PM -bearer of-&gt; Q</skos:definition>
     
 
 
-    <!-- https://w3id.org/pmd/co/PMD_0040130 -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/PMD_0040130">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
-        <rdfs:label xml:lang="en">is output of</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/pmd/co/PMD_0040131 -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/PMD_0040131">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
-        <rdfs:label xml:lang="en">is input of</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/pmd/co/PMD_0060001 -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/PMD_0060001"/>
-    
-
-
     <!-- https://w3id.org/pmd/log/LOG_1900001 -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/pmd/log/LOG_1900001">
@@ -1827,7 +1746,7 @@ O -consists of-&gt; PM -bearer of-&gt; Q</skos:definition>
                         <owl:intersectionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000027"/>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000115"/>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
                                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000881"/>
                             </owl:Restriction>
                         </owl:intersectionOf>
@@ -3985,6 +3904,7 @@ this case we explicitly refer to the singular form</obo:IAO_0000116>
         <obo:IAO_0000116 xml:lang="en">Alternative previous definition: a plan is a set of instructions that specify how an objective should be achieved</obo:IAO_0000116>
         <obo:IAO_0000119 xml:lang="en">OBI Plan and Planned Process branch</obo:IAO_0000119>
         <obo:IAO_0000119 xml:lang="en">OBI_0000344</obo:IAO_0000119>
+        <obo:IAO_0000412 rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/PlanSpecification"/>
         <rdfs:label xml:lang="en">plan specification</rdfs:label>
     </owl:Class>
     
@@ -4155,6 +4075,7 @@ this case we explicitly refer to the singular form</obo:IAO_0000116>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 xml:lang="en">An information content entity that is the outcome of a dubbing process and is used to refer to one instance of entity shared by a group of people to refer to that individual entity.</obo:IAO_0000115>
+        <obo:IAO_0000412 rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/Identifier"/>
         <rdfs:label xml:lang="en">identifier</rdfs:label>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
@@ -4408,7 +4329,8 @@ for now.</obo:IAO_0000116>
     <!-- http://purl.obolibrary.org/obo/OBI_0000571 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OBI_0000571">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000023"/>
+        <owl:equivalentClass rdf:resource="https://w3id.org/pmd/log/LOG_1000061"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/log/LOG_1000054"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
@@ -4575,14 +4497,6 @@ granularity. At these coarser levels, the individual molecules cannot be differe
     
 
 
-    <!-- https://w3id.org/pmd/co/PMD_0000003 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000003">
-        <obo:IAO_0000412 rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/PlanSpecification"/>
-    </owl:Class>
-    
-
-
     <!-- https://w3id.org/pmd/co/PMD_0000005 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000005">
@@ -4697,14 +4611,6 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
         <rdfs:label xml:lang="en">plan</rdfs:label>
         <skos:definition>A plan is a realizable entity that is the inheres in a bearer who is committed to realizing it as a planned process.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/pmd/co/PMD_0000017 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000017">
-        <obo:IAO_0000412 rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/Identifier"/>
     </owl:Class>
     
 
@@ -7857,15 +7763,6 @@ Ein Rechenknoten kann virtuell (bspw. ein Container oder eine virtuelle Maschine
         <rdfs:label xml:lang="en">magneto electrical property analyzing process</rdfs:label>
         <skos:definition xml:lang="en">An assay that investigates the magnetic and electrical properties of materials, including conductivity, resistivity, permittivity, permeability, and magnetization.</skos:definition>
         <skos:definition xml:lang="de">Eine Analyse, die die magnetischen und elektrischen Eigenschaften von Materialien untersucht, einschließlich Leitfähigkeit, Widerstand, Permittivität, Permeabilität und Magnetisierung.</skos:definition>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/pmd/co/PMD_0000831 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000831">
-        <owl:equivalentClass rdf:resource="https://w3id.org/pmd/log/LOG_1000061"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/log/LOG_1000054"/>
     </owl:Class>
     
 
@@ -14265,7 +14162,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                         <owl:intersectionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000040"/>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                                 <owl:someValuesFrom>
                                     <owl:Class>
                                         <owl:unionOf rdf:parseType="Collection">
@@ -14306,7 +14203,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000130"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000016"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -14315,6 +14212,83 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
         <obo:IAO_0000412>https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/FreightForwardingProcess</obo:IAO_0000412>
         <rdfs:label xml:lang="en">freight forwarding process</rdfs:label>
         <skos:definition>business process of planning and coordinating the transportation of material products on behalf of a shipper</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/log/LOG_0080000 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/log/LOG_0080000">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0020000"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000219"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000050"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000196"/>
+                                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OBI_0000571"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/log/LOG_1000006"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000219"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000050"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000196"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OBI_0000571"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">manufacturer identifier</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/log/LOG_0080001 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/log/LOG_0080001">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000219"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000029"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0020000"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000219"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000029"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">product identifier</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/log/LOG_0080002 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/log/LOG_0080002">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0020000"/>
+        <rdfs:label xml:lang="en">batch identifier</rdfs:label>
+        <skos:definition xml:lang="en">denotes all material artifact generated by one distinguishable manufacturing process run</skos:definition>
     </owl:Class>
     
 
@@ -14380,7 +14354,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000017"/>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0020000"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000219"/>
                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000037"/>
@@ -14388,8 +14362,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000017"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0020000"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000219"/>
@@ -14409,7 +14382,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000017"/>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0020000"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000219"/>
                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000050"/>
@@ -14417,8 +14390,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000017"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0020000"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000219"/>
@@ -14435,7 +14407,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
     <!-- https://w3id.org/pmd/log/LOG_1000007 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/log/LOG_1000007">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000017"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0020000"/>
         <obo:IAO_0000412 rdf:resource="https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/PartNumber"/>
         <rdfs:label xml:lang="en">part number</rdfs:label>
         <skos:definition xml:lang="en-us">identifier that uniquely identifies an artifact (material artifact) and that is created according to some part numbering system</skos:definition>
@@ -14449,7 +14421,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000017"/>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0020000"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000219"/>
                         <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000029"/>
@@ -14457,8 +14429,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000017"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0020000"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000219"/>
@@ -14749,7 +14720,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000050"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000196"/>
-                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000061"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OBI_0000571"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -14759,7 +14730,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000196"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000061"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OBI_0000571"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000412 rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/Manufacturer"/>
@@ -15232,7 +15203,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
-                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000017"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IAO_0020000"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -15247,7 +15218,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000017"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IAO_0020000"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000412>https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/LogisticUnit</obo:IAO_0000412>
@@ -15303,7 +15274,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000027"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -15315,7 +15286,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                                                 <owl:intersectionOf rdf:parseType="Collection">
                                                     <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000014"/>
                                                     <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000059"/>
+                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
                                                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000097"/>
                                                     </owl:Restriction>
                                                 </owl:intersectionOf>
@@ -15327,7 +15298,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                         </owl:someValuesFrom>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
@@ -15338,7 +15309,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                         </owl:someValuesFrom>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000115"/>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000020"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -15347,7 +15318,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000027"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -15359,7 +15330,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                                         <owl:intersectionOf rdf:parseType="Collection">
                                             <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000014"/>
                                             <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000059"/>
+                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
                                                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000097"/>
                                             </owl:Restriction>
                                         </owl:intersectionOf>
@@ -15373,7 +15344,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
@@ -15386,7 +15357,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000115"/>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000020"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -15405,13 +15376,13 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000038"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
                                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_10001247"/>
                                     <owl:Restriction>
-                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000016"/>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002234"/>
                                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000029"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
@@ -15424,13 +15395,13 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/log/LOG_1000038"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_10001247"/>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000016"/>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002234"/>
                                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000029"/>
                             </owl:Restriction>
                         </owl:intersectionOf>
@@ -15453,7 +15424,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000038"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000112"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -15462,7 +15433,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/log/LOG_1000038"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000112"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -15608,12 +15579,12 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000027"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000115"/>
-                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000881"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000006"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000881"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -15621,14 +15592,14 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000027"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000115"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000881"/>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000006"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000006"/>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000881"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000119 rdf:resource="http://openenergy-platform.org/ontology/oeo/OEO_00030022"/>
@@ -15782,7 +15753,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000111"/>
                             </owl:Restriction>
                         </owl:intersectionOf>
@@ -15814,13 +15785,13 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                                 <owl:someValuesFrom>
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
                                             <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000124"/>
                                             <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
+                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
                                                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000021"/>
                                             </owl:Restriction>
                                         </owl:intersectionOf>
@@ -15856,11 +15827,11 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000117"/>
                             </owl:Restriction>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000126"/>
                             </owl:Restriction>
                         </owl:intersectionOf>
@@ -15887,7 +15858,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                                         <owl:intersectionOf rdf:parseType="Collection">
                                             <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000051"/>
                                             <owl:Restriction>
-                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0040130"/>
+                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002353"/>
                                                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000126"/>
                                             </owl:Restriction>
                                         </owl:intersectionOf>
@@ -15958,7 +15929,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                                 <owl:someValuesFrom>
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
@@ -16005,7 +15976,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                         <owl:intersectionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000050"/>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000123"/>
                             </owl:Restriction>
                         </owl:intersectionOf>
@@ -16109,7 +16080,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                                 <owl:someValuesFrom>
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
@@ -16150,7 +16121,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                                 <owl:someValuesFrom>
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
@@ -16216,7 +16187,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                                 <owl:someValuesFrom>
                                     <owl:Class>
                                         <owl:unionOf rdf:parseType="Collection">
@@ -16255,7 +16226,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                                 <owl:someValuesFrom>
                                     <owl:Class>
                                         <owl:unionOf rdf:parseType="Collection">
@@ -16264,7 +16235,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                                                 <owl:intersectionOf rdf:parseType="Collection">
                                                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000125"/>
                                                     <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
+                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
                                                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000001"/>
                                                     </owl:Restriction>
                                                 </owl:intersectionOf>
@@ -16302,7 +16273,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000113"/>
                             </owl:Restriction>
                         </owl:intersectionOf>
@@ -16334,7 +16305,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000118"/>
                             </owl:Restriction>
                         </owl:intersectionOf>
@@ -16364,7 +16335,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
                                             <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                                                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000114"/>
                                             </owl:Restriction>
                                             <owl:Restriction>
@@ -16403,7 +16374,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
                                     <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000114"/>
                                     </owl:Restriction>
                                     <owl:Restriction>
@@ -16456,7 +16427,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                                         </owl:unionOf>
                                     </owl:Class>
                                     <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000115"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
@@ -16480,7 +16451,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000115"/>
                             </owl:Restriction>
                         </owl:intersectionOf>
@@ -16514,7 +16485,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                                         </owl:unionOf>
                                     </owl:Class>
                                     <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000116"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
@@ -16538,7 +16509,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000116"/>
                             </owl:Restriction>
                         </owl:intersectionOf>
@@ -16572,7 +16543,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                                         </owl:unionOf>
                                     </owl:Class>
                                     <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000117"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
@@ -16596,7 +16567,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000117"/>
                             </owl:Restriction>
                         </owl:intersectionOf>
@@ -16627,13 +16598,13 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                                 <owl:intersectionOf rdf:parseType="Collection">
                                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000011"/>
                                     <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000129"/>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
                                         <owl:someValuesFrom>
                                             <owl:Class>
                                                 <owl:intersectionOf rdf:parseType="Collection">
                                                     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000027"/>
                                                     <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000115"/>
+                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
                                                         <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000020"/>
                                                     </owl:Restriction>
                                                 </owl:intersectionOf>
@@ -16662,13 +16633,13 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                         <owl:intersectionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000011"/>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000129"/>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
                                 <owl:someValuesFrom>
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
                                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000027"/>
                                             <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000115"/>
+                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
                                                 <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000020"/>
                                             </owl:Restriction>
                                         </owl:intersectionOf>
@@ -16703,7 +16674,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                                 </owl:unionOf>
                             </owl:Class>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                                 <owl:someValuesFrom>
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
@@ -16732,68 +16703,6 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/log/LOG_1000054"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000197"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <owl:Class>
-                                <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000047"/>
-                                </owl:unionOf>
-                            </owl:Class>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
-                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000128"/>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000197"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <owl:Class>
-                                <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000047"/>
-                                </owl:unionOf>
-                            </owl:Class>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
-                                <owl:someValuesFrom>
-                                    <owl:Class>
-                                        <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000125"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
-                                                <owl:someValuesFrom>
-                                                    <owl:Class>
-                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000078"/>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000197"/>
-                                                                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
-                                                            </owl:Restriction>
-                                                        </owl:intersectionOf>
-                                                    </owl:Class>
-                                                </owl:someValuesFrom>
-                                            </owl:Restriction>
-                                        </owl:intersectionOf>
-                                    </owl:Class>
-                                </owl:someValuesFrom>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000197"/>
@@ -16859,6 +16768,68 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000197"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000047"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000128"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000197"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000047"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000125"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                                                <owl:someValuesFrom>
+                                                    <owl:Class>
+                                                        <owl:intersectionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000078"/>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000197"/>
+                                                                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
+                                                            </owl:Restriction>
+                                                        </owl:intersectionOf>
+                                                    </owl:Class>
+                                                </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000412 rdf:resource="https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/WholesalerRole"/>
         <rdfs:label xml:lang="en">wholesaler role</rdfs:label>
         <skos:definition xml:lang="en-us">role held by a person or business organization when it buys some product from a distributor and resells them to retailers</skos:definition>
@@ -16878,13 +16849,13 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                         <owl:intersectionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000040"/>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                                 <owl:someValuesFrom>
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
                                             <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000143"/>
                                             <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
+                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
                                                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000021"/>
                                             </owl:Restriction>
                                         </owl:intersectionOf>
@@ -17017,7 +16988,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                         <owl:intersectionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000040"/>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                                 <owl:someValuesFrom>
                                     <owl:Class>
                                         <owl:unionOf rdf:parseType="Collection">
@@ -17052,13 +17023,13 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                         <owl:intersectionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000040"/>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                                 <owl:someValuesFrom>
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
                                             <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000111"/>
                                             <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
+                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
                                                 <owl:someValuesFrom>
                                                     <owl:Class>
                                                         <owl:intersectionOf rdf:parseType="Collection">
@@ -17120,12 +17091,12 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                         <owl:intersectionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000040"/>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
-                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000131"/>
-                            </owl:Restriction>
-                            <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
                                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000005"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000131"/>
                             </owl:Restriction>
                         </owl:intersectionOf>
                     </owl:Class>
@@ -17151,7 +17122,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                         <owl:intersectionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000040"/>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0040130"/>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002353"/>
                                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000126"/>
                             </owl:Restriction>
                         </owl:intersectionOf>
@@ -17184,7 +17155,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                         <owl:intersectionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000040"/>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
                                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000140"/>
                             </owl:Restriction>
                         </owl:intersectionOf>
@@ -17237,12 +17208,12 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                                     <owl:Class>
                                         <owl:unionOf rdf:parseType="Collection">
                                             <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000124"/>
-                                                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
-                                            </owl:Restriction>
-                                            <owl:Restriction>
                                                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000183"/>
                                                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+                                            </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001015"/>
+                                                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
                                             </owl:Restriction>
                                         </owl:unionOf>
                                     </owl:Class>
@@ -17264,12 +17235,12 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
                                     <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000124"/>
-                                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
-                                    </owl:Restriction>
-                                    <owl:Restriction>
                                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000183"/>
                                         <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001015"/>
+                                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
                                     </owl:Restriction>
                                 </owl:unionOf>
                             </owl:Class>
@@ -17383,7 +17354,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
     <!-- https://w3id.org/pmd/log/LOG_1000093 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/log/LOG_1000093">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000003"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000104"/>
         <obo:IAO_0000412 rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/CommercialServiceSpecification"/>
         <rdfs:label xml:lang="en">commercial service specification</rdfs:label>
         <skos:definition xml:lang="en-us">plan specification that prescribes a commercial service</skos:definition>
@@ -17394,7 +17365,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
     <!-- https://w3id.org/pmd/log/LOG_1000095 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/log/LOG_1000095">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000003"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000104"/>
         <obo:IAO_0000412 rdf:resource="https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/PackagingPlanSpecification"/>
         <rdfs:label xml:lang="en">packaging plan specification</rdfs:label>
         <skos:definition xml:lang="en-us">plan specification that prescribes a packaging process</skos:definition>
@@ -17405,7 +17376,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
     <!-- https://w3id.org/pmd/log/LOG_1000096 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/log/LOG_1000096">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000003"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000104"/>
         <obo:IAO_0000412 rdf:resource="https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/ShipmentPlanSpecification"/>
         <rdfs:label xml:lang="en">shipment plan specification</rdfs:label>
         <skos:definition>plan specification that prescribes a shipment preparation process and a transportation process</skos:definition>
@@ -17416,7 +17387,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
     <!-- https://w3id.org/pmd/log/LOG_1000097 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/log/LOG_1000097">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000003"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000104"/>
         <obo:IAO_0000412 rdf:resource="https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/SupplyChainPlanSpecification"/>
         <rdfs:label xml:lang="en">supply chain plan specification</rdfs:label>
         <skos:definition xml:lang="en-us">plan specification that has one or more supply chain objective specifications as parts and that prescribes a supply chain process</skos:definition>
@@ -17427,7 +17398,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
     <!-- https://w3id.org/pmd/log/LOG_1000098 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/log/LOG_1000098">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000003"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000104"/>
         <obo:IAO_0000412 rdf:resource="https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/WarehousingPlanSpecification"/>
         <rdfs:label xml:lang="en">warehousing plan specification</rdfs:label>
         <skos:definition xml:lang="en-us">plan specification that prescribes a warehousing process</skos:definition>
@@ -17541,7 +17512,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/log/LOG_1000130"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
@@ -17565,14 +17536,14 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/log/LOG_1000130"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000022"/>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000117"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000128"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000117"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000128"/>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000022"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -17762,7 +17733,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                                 <owl:intersectionOf rdf:parseType="Collection">
                                     <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000014"/>
                                     <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000059"/>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
                                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000095"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
@@ -17770,7 +17741,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                         </owl:someValuesFrom>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000029"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -17824,17 +17795,17 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000130"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000023"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000059"/>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
                                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000097"/>
                                     <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000084"/>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002502"/>
                                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000023"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
@@ -17847,19 +17818,19 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/log/LOG_1000130"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000023"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000059"/>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000097"/>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000084"/>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002502"/>
                                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000023"/>
                             </owl:Restriction>
                         </owl:intersectionOf>
@@ -17880,13 +17851,13 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/log/LOG_1000130"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000020"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
@@ -17912,15 +17883,15 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000130"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000019"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000029"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000016"/>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002234"/>
                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000051"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -17941,19 +17912,19 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
-                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000029"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000132"/>
                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000112"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000029"/>
                     </owl:Restriction>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000020"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -17978,7 +17949,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                                 <owl:intersectionOf rdf:parseType="Collection">
                                     <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000014"/>
                                     <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000059"/>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
                                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000098"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
@@ -18005,7 +17976,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                         <owl:intersectionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000014"/>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000059"/>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
                                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000098"/>
                             </owl:Restriction>
                         </owl:intersectionOf>
@@ -18035,7 +18006,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
     <!-- https://w3id.org/pmd/log/LOG_1000130 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/log/LOG_1000130">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
@@ -18044,8 +18015,8 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                         <owl:intersectionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000014"/>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000059"/>
-                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000003"/>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IAO_0000104"/>
                             </owl:Restriction>
                         </owl:intersectionOf>
                     </owl:Class>
@@ -18054,7 +18025,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -18078,7 +18049,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
     <!-- https://w3id.org/pmd/log/LOG_1000131 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/log/LOG_1000131">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -18089,15 +18060,15 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                                 <owl:intersectionOf rdf:parseType="Collection">
                                     <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000014"/>
                                     <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000059"/>
-                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000003"/>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
+                                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IAO_0000104"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
                         </owl:someValuesFrom>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000011"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -18107,11 +18078,11 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000015"/>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002233"/>
                         <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000016"/>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002234"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
@@ -18141,23 +18112,23 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000015"/>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002233"/>
                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000028"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000016"/>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002234"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
                                     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000027"/>
                                     <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000115"/>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
                                         <owl:someValuesFrom>
                                             <owl:Class>
                                                 <owl:intersectionOf rdf:parseType="Collection">
                                                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000028"/>
                                                     <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0040131"/>
+                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002352"/>
                                                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000131"/>
                                                     </owl:Restriction>
                                                 </owl:intersectionOf>
@@ -18181,7 +18152,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
     <!-- https://w3id.org/pmd/log/LOG_1000134 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/log/LOG_1000134">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -18192,15 +18163,15 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                                 <owl:intersectionOf rdf:parseType="Collection">
                                     <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000014"/>
                                     <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000059"/>
-                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000003"/>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
+                                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IAO_0000104"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
                         </owl:someValuesFrom>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000011"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -18230,7 +18201,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -18238,7 +18209,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                             <owl:Restriction>
                                 <owl:onProperty>
                                     <rdf:Description>
-                                        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000124"/>
+                                        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0001015"/>
                                     </rdf:Description>
                                 </owl:onProperty>
                                 <owl:someValuesFrom>
@@ -18272,7 +18243,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                                                 </owl:someValuesFrom>
                                             </owl:Restriction>
                                             <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000171"/>
+                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001025"/>
                                                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000029"/>
                                             </owl:Restriction>
                                         </owl:intersectionOf>
@@ -18282,7 +18253,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                             <owl:Restriction>
                                 <owl:onProperty>
                                     <rdf:Description>
-                                        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000124"/>
+                                        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0001015"/>
                                     </rdf:Description>
                                 </owl:onProperty>
                                 <owl:someValuesFrom>
@@ -18318,7 +18289,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                                                 </owl:someValuesFrom>
                                             </owl:Restriction>
                                             <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000171"/>
+                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001025"/>
                                                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000029"/>
                                             </owl:Restriction>
                                         </owl:intersectionOf>
@@ -18373,7 +18344,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
     <!-- https://w3id.org/pmd/log/LOG_1000144 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/log/LOG_1000144">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -18384,15 +18355,15 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                                 <owl:intersectionOf rdf:parseType="Collection">
                                     <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000014"/>
                                     <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000059"/>
-                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000003"/>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
+                                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IAO_0000104"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
                         </owl:someValuesFrom>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000011"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -18949,7 +18920,27 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
         <owl:intersectionOf rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000005"/>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000059"/>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000017"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000008"/>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000002"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002353"/>
+                                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -18962,54 +18953,14 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
                     </owl:Class>
                 </owl:someValuesFrom>
             </owl:Restriction>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000017"/>
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000008"/>
-                            <owl:Class>
-                                <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000002"/>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0040130"/>
-                                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
-                                    </owl:Restriction>
-                                </owl:intersectionOf>
-                            </owl:Class>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
         </owl:intersectionOf>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0040129"/>
     </owl:Class>
     <owl:Class>
         <owl:intersectionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000030"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000104"/>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0060001"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000017"/>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000219"/>
-                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0040030"/>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
-        </owl:intersectionOf>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/log/LOG_1000010"/>
-    </owl:Class>
-    <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000003"/>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000059"/>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -19027,9 +18978,9 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
     </owl:Class>
     <owl:Class>
         <owl:intersectionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000003"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000104"/>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000059"/>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -19047,9 +18998,9 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
     </owl:Class>
     <owl:Class>
         <owl:intersectionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000003"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000104"/>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000059"/>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -19067,9 +19018,9 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
     </owl:Class>
     <owl:Class>
         <owl:intersectionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000003"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000104"/>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000059"/>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -19087,7 +19038,7 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
     </owl:Class>
     <owl:Class>
         <owl:intersectionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000017"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0020000"/>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000102"/>
@@ -19140,16 +19091,16 @@ Depending of the interconnectedness of the pores the foam is open- or closed-cel
         <owl:intersectionOf rdf:parseType="Collection">
             <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000001"/>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000059"/>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_0000002"/>
+            </owl:Restriction>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000057"/>
             </owl:Restriction>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000059"/>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000070"/>
-            </owl:Restriction>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_0000002"/>
             </owl:Restriction>
         </owl:intersectionOf>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/log/LOG_1000002"/>

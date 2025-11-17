@@ -11,13 +11,13 @@
 @base <https://w3id.org/pmd/log/log-simple.ttl> .
 
 <https://w3id.org/pmd/log/log-simple.ttl> rdf:type owl:Ontology ;
-                                           owl:versionIRI <https://w3id.org/pmd/log/releases/2025-11-13/log-simple.ttl> ;
+                                           owl:versionIRI <https://w3id.org/pmd/log/releases/2025-11-17/log-simple.ttl> ;
                                            terms:creator <https://orcid.org/0000-0003-1649-6832> ;
                                            terms:description "This is an alignment of the IOF Supply Chain Ontologies Library to the Platform Material Digital Core Ontology. It contains ontologies to be used in the domain of supply chain and logistics." ;
                                            terms:license "http://opensource.org/licenses/MIT" ;
                                            terms:title "Platform Material Digital Application Ontology  for Logistics and supplychain (log)"@en ;
                                            rdfs:comment "The logistics application ontology for use with PMD Core Ontology (PMDco). The scope of this module is the description of material science and engineering related logistics and general organization. Its is adopted from the IOF SupplyChain Module https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/"@en ;
-                                           owl:versionInfo "2025-11-13" .
+                                           owl:versionInfo "2025-11-17" .
 
 #################################################################
 #    Annotation properties
@@ -102,6 +102,21 @@ logistics:PMD_0001032 rdf:type owl:AnnotationProperty .
 #    Object Properties
 #################################################################
 
+###  http://purl.obolibrary.org/obo/BFO_0000050
+obo:BFO_0000050 rdf:type owl:ObjectProperty ,
+                         owl:TransitiveProperty ;
+                obo:IAO_0000112 "my brain is part of my body (continuant parthood, two material entities)"@en ,
+                                "my stomach cavity is part of my stomach (continuant parthood, immaterial entity is part of material entity)"@en ,
+                                "this day is part of this year (occurrent parthood)"@en ;
+                obo:IAO_0000115 "a core relation that holds between a part and its whole"@en ;
+                obo:IAO_0000116 "Everything is part of itself. Any part of any part of a thing is itself part of that thing. Two distinct things cannot be part of each other."@en ,
+                                "Occurrents are not subject to change and so parthood between occurrents holds for all the times that the part exists. Many continuants are subject to change, so parthood between continuants will only hold at certain times, but this is difficult to specify in OWL. See http://purl.obolibrary.org/obo/ro/docs/temporal-semantics/"@en ,
+                                """Parthood requires the part and the whole to have compatible classes: only an occurrent can be part of an occurrent; only a process can be part of a process; only a continuant can be part of a continuant; only an independent continuant can be part of an independent continuant; only an immaterial entity can be part of an immaterial entity; only a specifically dependent continuant can be part of a specifically dependent continuant; only a generically dependent continuant can be part of a generically dependent continuant. (This list is not exhaustive.)
+
+A continuant cannot be part of an occurrent: use 'participates in'. An occurrent cannot be part of a continuant: use 'has participant'. A material entity cannot be part of an immaterial entity: use 'has location'. A specifically dependent continuant cannot be part of an independent continuant: use 'inheres in'. An independent continuant cannot be part of a specifically dependent continuant: use 'bearer of'."""@en ;
+                rdfs:label "part of"@en .
+
+
 ###  http://purl.obolibrary.org/obo/BFO_0000054
 obo:BFO_0000054 rdf:type owl:ObjectProperty ;
                 owl:inverseOf obo:BFO_0000055 ;
@@ -117,18 +132,6 @@ obo:BFO_0000055 rdf:type owl:ObjectProperty ;
                 skos:example "A balding process realizes a disposition to go bald; a studying process realizes a student role; a process of pumping blood realizes the pumping function of a heart"@en .
 
 
-###  http://purl.obolibrary.org/obo/BFO_0000056
-obo:BFO_0000056 rdf:type owl:ObjectProperty .
-
-
-###  http://purl.obolibrary.org/obo/BFO_0000057
-obo:BFO_0000057 rdf:type owl:ObjectProperty .
-
-
-###  http://purl.obolibrary.org/obo/BFO_0000059
-obo:BFO_0000059 rdf:type owl:ObjectProperty .
-
-
 ###  http://purl.obolibrary.org/obo/BFO_0000066
 obo:BFO_0000066 rdf:type owl:ObjectProperty ;
                 owl:inverseOf obo:BFO_0000183 ;
@@ -137,19 +140,11 @@ obo:BFO_0000066 rdf:type owl:ObjectProperty ;
                 skos:example "A process of digestion occurs in the interior of an organism; a process of loading artillery rounds into a tank cannon occurs in the interior of the tank"@en .
 
 
-###  http://purl.obolibrary.org/obo/BFO_0000084
-obo:BFO_0000084 rdf:type owl:ObjectProperty .
-
-
 ###  http://purl.obolibrary.org/obo/BFO_0000108
 obo:BFO_0000108 rdf:type owl:ObjectProperty ;
                 rdfs:label "exists at"@en ;
                 skos:definition "(Elucidation) exists at is a relation between a particular and some temporal region at which the particular exists"@en ;
                 skos:example "First World War exists at 1914-1916; Mexico exists at January 1, 2000"@en .
-
-
-###  http://purl.obolibrary.org/obo/BFO_0000115
-obo:BFO_0000115 rdf:type owl:ObjectProperty .
 
 
 ###  http://purl.obolibrary.org/obo/BFO_0000117
@@ -161,24 +156,13 @@ obo:BFO_0000117 rdf:type owl:ObjectProperty ;
                 skos:example "Mary's life has occurrent part Mary's 5th birthday"@en .
 
 
-###  http://purl.obolibrary.org/obo/BFO_0000124
-obo:BFO_0000124 rdf:type owl:ObjectProperty .
-
-
-###  http://purl.obolibrary.org/obo/BFO_0000129
-obo:BFO_0000129 rdf:type owl:ObjectProperty .
-
-
 ###  http://purl.obolibrary.org/obo/BFO_0000132
-obo:BFO_0000132 rdf:type owl:ObjectProperty ,
-                         owl:TransitiveProperty ;
+obo:BFO_0000132 rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf obo:BFO_0000050 ;
+                rdf:type owl:TransitiveProperty ;
                 rdfs:label "occurrent part of"@en ;
                 skos:definition "(Elucidation) occurrent part of is a relation between occurrents b and c when b is part of c"@en ;
                 skos:example "Mary's 5th birthday is an occurrent part of Mary's life; the first set of the tennis match is an occurrent part of the tennis match"@en .
-
-
-###  http://purl.obolibrary.org/obo/BFO_0000171
-obo:BFO_0000171 rdf:type owl:ObjectProperty .
 
 
 ###  http://purl.obolibrary.org/obo/BFO_0000183
@@ -260,20 +244,106 @@ obo:IAO_0000235 rdf:type owl:ObjectProperty ;
                 rdfs:label "denoted by"@en .
 
 
+###  http://purl.obolibrary.org/obo/RO_0000056
+obo:RO_0000056 rdf:type owl:ObjectProperty ;
+               owl:inverseOf obo:RO_0000057 ;
+               obo:IAO_0000112 "this blood clot participates in this blood coagulation"@en ,
+                               "this input material (or this output material) participates in this process"@en ,
+                               "this investigator participates in this investigation"@en ;
+               obo:IAO_0000115 "a relation between a continuant and a process, in which the continuant is somehow involved in the process"@en ;
+               rdfs:label "participates in"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000057
+obo:RO_0000057 rdf:type owl:ObjectProperty ;
+               obo:IAO_0000112 "this blood coagulation has participant this blood clot"@en ,
+                               "this investigation has participant this investigator"@en ,
+                               "this process has participant this input material (or this output material)"@en ;
+               obo:IAO_0000115 "a relation between a process and a continuant, in which the continuant is somehow involved in the process"@en ;
+               obo:IAO_0000116 "Has_participant is a primitive instance-level relation between a process, a continuant, and a time at which the continuant participates in some way in the process. The relation obtains, for example, when this particular process of oxygen exchange across this particular alveolar membrane has_participant this particular sample of hemoglobin at this particular time."@en ;
+               rdfs:label "has participant"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000059
+obo:RO_0000059 rdf:type owl:ObjectProperty ;
+               obo:IAO_0000112 "A journal article is an information artifact that inheres in some number of printed journals. For each copy of the printed journal there is some quality that carries the journal article, such as a pattern of ink. The quality (a specifically dependent continuant) concretizes the journal article (a generically dependent continuant), and both depend on that copy of the printed journal (an independent continuant)."@en ,
+                               "An investigator reads a protocol and forms a plan to carry out an assay. The plan is a realizable entity (a specifically dependent continuant) that concretizes the protocol (a generically dependent continuant), and both depend on the investigator (an independent continuant). The plan is then realized by the assay (a process)."@en ;
+               obo:IAO_0000115 "A relationship between a specifically dependent continuant or process and a generically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant or process also depends on that same independent continuant. Multiple specifically dependent continuants or processes can concretize the same generically dependent continuant."@en ;
+               rdfs:label "concretizes"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0001015
+obo:RO_0001015 rdf:type owl:ObjectProperty ;
+               owl:inverseOf obo:RO_0001025 ;
+               rdf:type owl:TransitiveProperty ;
+               obo:IAO_0000112 "my head is the location of my brain"@en ,
+                               "this cage is the location of this rat"@en ;
+               obo:IAO_0000115 "a relation between two independent continuants, the location and the target, in which the target is entirely within the location"@en ;
+               obo:IAO_0000116 "Most location relations will only hold at certain times, but this is difficult to specify in OWL. See http://purl.obolibrary.org/obo/ro/docs/temporal-semantics/"@en ;
+               rdfs:label "location of"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0001025
+obo:RO_0001025 rdf:type owl:ObjectProperty ,
+                        owl:TransitiveProperty ;
+               owl:propertyChainAxiom ( obo:RO_0001025
+                                        obo:BFO_0000050
+                                      ) ;
+               obo:IAO_0000112 "my brain is located in my head"@en ,
+                               "this rat is located in this cage"@en ;
+               obo:IAO_0000115 "a relation between two independent continuants, the target and the location, in which the target is entirely within the location"@en ;
+               obo:IAO_0000116 "Location as a relation between instances: The primitive instance-level relation c located_in r at t reflects the fact that each continuant is at any given time associated with exactly one spatial region, namely its exact location. Following we can use this relation to define a further instance-level location relation - not between a continuant and the region which it exactly occupies, but rather between one continuant and another. c is located in c1, in this sense, whenever the spatial region occupied by c is part_of the spatial region occupied by c1.    Note that this relation comprehends both the relation of exact location between one continuant and another which obtains when r and r1 are identical (for example, when a portion of fluid exactly fills a cavity), as well as those sorts of inexact location relations which obtain, for example, between brain and head or between ovum and uterus"@en ,
+                               "Most location relations will only hold at certain times, but this is difficult to specify in OWL. See http://purl.obolibrary.org/obo/ro/docs/temporal-semantics/"@en ;
+               rdfs:label "located in"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002233
+obo:RO_0002233 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0000057 ;
+               owl:inverseOf obo:RO_0002352 ;
+               obo:IAO_0000115 "p has input c iff: p is a process, c is a material entity, c is a participant in p, c is present at the start of p, and the state of c is modified during p." ;
+               rdfs:label "has input"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002234
+obo:RO_0002234 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0000057 ;
+               owl:inverseOf obo:RO_0002353 ;
+               obo:IAO_0000115 "p has output c iff c is a participant in p, c is present at the end of p, and c is not present in the same state at the beginning of p." ;
+               rdfs:label "has output"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002351
+obo:RO_0002351 rdf:type owl:ObjectProperty ,
+                        owl:IrreflexiveProperty ;
+               obo:IAO_0000115 "has member is a mereological relation between a collection and an item." ;
+               obo:IAO_0000119 "SIO" ;
+               rdfs:label "has member"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002352
+obo:RO_0002352 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0000056 ;
+               obo:IAO_0000115 "inverse of has input" ;
+               rdfs:label "input of"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002353
+obo:RO_0002353 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0000056 ;
+               obo:IAO_0000115 "inverse of has output" ;
+               rdfs:label "is output of"@en ,
+                          "output of"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002502
+obo:RO_0002502 rdf:type owl:ObjectProperty .
+
+
 ###  https://w3id.org/pmd/co/PMD_0000004
 <https://w3id.org/pmd/co/PMD_0000004> rdf:type owl:ObjectProperty ;
                                       rdfs:label "is subject of"@en ;
                                       skos:definition "Inverse of 'is about'."@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0000015
-<https://w3id.org/pmd/co/PMD_0000015> rdf:type owl:ObjectProperty ;
-                                      owl:inverseOf <https://w3id.org/pmd/co/PMD_0040131> .
-
-
-###  https://w3id.org/pmd/co/PMD_0000016
-<https://w3id.org/pmd/co/PMD_0000016> rdf:type owl:ObjectProperty ;
-                                      owl:inverseOf <https://w3id.org/pmd/co/PMD_0040130> .
 
 
 ###  https://w3id.org/pmd/co/PMD_0040121
@@ -287,22 +357,6 @@ obo:IAO_0000235 rdf:type owl:ObjectProperty ;
 <https://w3id.org/pmd/co/PMD_0040122> rdf:type owl:ObjectProperty ;
                                       rdfs:subPropertyOf <https://w3id.org/pmd/co/PMD_0000004> ;
                                       rdfs:label "role specified by"@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0040130
-<https://w3id.org/pmd/co/PMD_0040130> rdf:type owl:ObjectProperty ;
-                                      rdfs:subPropertyOf obo:BFO_0000056 ;
-                                      rdfs:label "is output of"@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0040131
-<https://w3id.org/pmd/co/PMD_0040131> rdf:type owl:ObjectProperty ;
-                                      rdfs:subPropertyOf obo:BFO_0000056 ;
-                                      rdfs:label "is input of"@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0060001
-<https://w3id.org/pmd/co/PMD_0060001> rdf:type owl:ObjectProperty .
 
 
 ###  https://w3id.org/pmd/log/LOG_1900001
@@ -362,7 +416,7 @@ obo:IAO_0000235 rdf:type owl:ObjectProperty ;
 <https://w3id.org/pmd/log/LOG_0000003> rdf:type owl:Class ;
                                        rdfs:subClassOf [ owl:intersectionOf ( <https://w3id.org/pmd/log/LOG_1000130>
                                                                               [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty obo:BFO_0000057 ;
+                                                                                owl:onProperty obo:RO_0000057 ;
                                                                                 owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000016>
                                                                               ]
                                                                             ) ;
@@ -371,6 +425,27 @@ obo:IAO_0000235 rdf:type owl:ObjectProperty ;
                                        obo:IAO_0000412 "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/FreightForwardingProcess" ;
                                        rdfs:label "freight forwarding process"@en ;
                                        skos:definition "business process of planning and coordinating the transportation of material products on behalf of a shipper" .
+
+
+###  https://w3id.org/pmd/log/LOG_0080000
+<https://w3id.org/pmd/log/LOG_0080000> rdf:type owl:Class ;
+                                       rdfs:subClassOf <https://w3id.org/pmd/log/LOG_1000006> ;
+                                       rdfs:label "manufacturer identifier"@en .
+
+
+###  https://w3id.org/pmd/log/LOG_0080001
+<https://w3id.org/pmd/log/LOG_0080001> rdf:type owl:Class ;
+                                       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                         owl:onProperty obo:IAO_0000219 ;
+                                                         owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000029>
+                                                       ] ;
+                                       rdfs:label "product identifier"@en .
+
+
+###  https://w3id.org/pmd/log/LOG_0080002
+<https://w3id.org/pmd/log/LOG_0080002> rdf:type owl:Class ;
+                                       rdfs:label "batch identifier"@en ;
+                                       skos:definition "denotes all material artifact generated by one distinguishable manufacturing process run"@en .
 
 
 ###  https://w3id.org/pmd/log/LOG_1000000
@@ -548,11 +623,7 @@ obo:IAO_0000235 rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/pmd/log/LOG_1000017
 <https://w3id.org/pmd/log/LOG_1000017> rdf:type owl:Class ;
                                        rdfs:subClassOf <https://w3id.org/pmd/log/LOG_1000011> ,
-                                                       <https://w3id.org/pmd/log/LOG_1000050> ,
-                                                       [ rdf:type owl:Restriction ;
-                                                         owl:onProperty obo:BFO_0000196 ;
-                                                         owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000061>
-                                                       ] ;
+                                                       <https://w3id.org/pmd/log/LOG_1000050> ;
                                        obo:IAO_0000412 <https://spec.industrialontologies.org/ontology/core/Core/Manufacturer> ;
                                        rdfs:label "manufacturer"@en ;
                                        skos:definition "organization which has a manufacturer role"@en-us .
@@ -776,7 +847,7 @@ obo:IAO_0000235 rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/pmd/log/LOG_1000038
 <https://w3id.org/pmd/log/LOG_1000038> rdf:type owl:Class ;
                                        rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                         owl:onProperty obo:BFO_0000056 ;
+                                                         owl:onProperty obo:RO_0000056 ;
                                                          owl:someValuesFrom [ rdf:type owl:Class ;
                                                                               owl:unionOf ( <https://w3id.org/pmd/log/LOG_1000112>
                                                                                             <https://w3id.org/pmd/log/LOG_1000123>
@@ -784,7 +855,7 @@ obo:IAO_0000235 rdf:type owl:ObjectProperty ;
                                                                             ]
                                                        ] ,
                                                        [ rdf:type owl:Restriction ;
-                                                         owl:onProperty obo:BFO_0000115 ;
+                                                         owl:onProperty obo:RO_0002351 ;
                                                          owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000020>
                                                        ] ;
                                        obo:IAO_0000412 <https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/SupplyChainSystem> ;
@@ -796,10 +867,10 @@ obo:IAO_0000235 rdf:type owl:ObjectProperty ;
 <https://w3id.org/pmd/log/LOG_1000039> rdf:type owl:Class ;
                                        rdfs:subClassOf <https://w3id.org/pmd/log/LOG_1000038> ,
                                                        [ rdf:type owl:Restriction ;
-                                                         owl:onProperty obo:BFO_0000056 ;
+                                                         owl:onProperty obo:RO_0000056 ;
                                                          owl:someValuesFrom [ owl:intersectionOf ( <https://w3id.org/pmd/log/LOG_10001247>
                                                                                                    [ rdf:type owl:Restriction ;
-                                                                                                     owl:onProperty <https://w3id.org/pmd/co/PMD_0000016> ;
+                                                                                                     owl:onProperty obo:RO_0002234 ;
                                                                                                      owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000029>
                                                                                                    ]
                                                                                                  ) ;
@@ -815,7 +886,7 @@ obo:IAO_0000235 rdf:type owl:ObjectProperty ;
 <https://w3id.org/pmd/log/LOG_1000040> rdf:type owl:Class ;
                                        rdfs:subClassOf <https://w3id.org/pmd/log/LOG_1000038> ,
                                                        [ rdf:type owl:Restriction ;
-                                                         owl:onProperty obo:BFO_0000056 ;
+                                                         owl:onProperty obo:RO_0000056 ;
                                                          owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000112>
                                                        ] ;
                                        obo:IAO_0000412 <https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/ServiceSupplyChain> ;
@@ -996,7 +1067,7 @@ obo:IAO_0000235 rdf:type owl:ObjectProperty ;
                                                          owl:onProperty obo:BFO_0000197 ;
                                                          owl:someValuesFrom [ owl:intersectionOf ( <https://w3id.org/pmd/log/LOG_1000050>
                                                                                                    [ rdf:type owl:Restriction ;
-                                                                                                     owl:onProperty obo:BFO_0000056 ;
+                                                                                                     owl:onProperty obo:RO_0000056 ;
                                                                                                      owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000123>
                                                                                                    ]
                                                                                                  ) ;
@@ -1343,7 +1414,7 @@ obo:IAO_0000235 rdf:type owl:ObjectProperty ;
 <https://w3id.org/pmd/log/LOG_1000111> rdf:type owl:Class ;
                                        rdfs:subClassOf <https://w3id.org/pmd/log/LOG_1000130> ,
                                                        [ rdf:type owl:Restriction ;
-                                                         owl:onProperty obo:BFO_0000057 ;
+                                                         owl:onProperty obo:RO_0000057 ;
                                                          owl:someValuesFrom [ rdf:type owl:Class ;
                                                                               owl:unionOf ( <https://w3id.org/pmd/log/LOG_1000001>
                                                                                             <https://w3id.org/pmd/log/LOG_1000029>
@@ -1359,12 +1430,12 @@ obo:IAO_0000235 rdf:type owl:ObjectProperty ;
 <https://w3id.org/pmd/log/LOG_1000112> rdf:type owl:Class ;
                                        rdfs:subClassOf <https://w3id.org/pmd/log/LOG_1000130> ,
                                                        [ rdf:type owl:Restriction ;
-                                                         owl:onProperty obo:BFO_0000057 ;
-                                                         owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000022>
-                                                       ] ,
-                                                       [ rdf:type owl:Restriction ;
                                                          owl:onProperty obo:BFO_0000117 ;
                                                          owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000128>
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty obo:RO_0000057 ;
+                                                         owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000022>
                                                        ] ,
                                                        [ rdf:type owl:Restriction ;
                                                          owl:onProperty <https://w3id.org/pmd/co/PMD_0000004> ;
@@ -1485,7 +1556,7 @@ obo:IAO_0000235 rdf:type owl:ObjectProperty ;
 <https://w3id.org/pmd/log/LOG_1000121> rdf:type owl:Class ;
                                        rdfs:subClassOf <https://w3id.org/pmd/log/LOG_1000130> ,
                                                        [ rdf:type owl:Restriction ;
-                                                         owl:onProperty obo:BFO_0000057 ;
+                                                         owl:onProperty obo:RO_0000057 ;
                                                          owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000029>
                                                        ] ;
                                        obo:IAO_0000412 "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/PackagingProcess" ;
@@ -1521,14 +1592,14 @@ obo:IAO_0000235 rdf:type owl:ObjectProperty ;
 <https://w3id.org/pmd/log/LOG_10001247> rdf:type owl:Class ;
                                         rdfs:subClassOf <https://w3id.org/pmd/log/LOG_1000130> ,
                                                         [ rdf:type owl:Restriction ;
-                                                          owl:onProperty obo:BFO_0000057 ;
+                                                          owl:onProperty obo:RO_0000057 ;
                                                           owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000023>
                                                         ] ,
                                                         [ rdf:type owl:Restriction ;
-                                                          owl:onProperty obo:BFO_0000059 ;
+                                                          owl:onProperty obo:RO_0000059 ;
                                                           owl:someValuesFrom [ owl:intersectionOf ( <https://w3id.org/pmd/log/LOG_1000097>
                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                      owl:onProperty obo:BFO_0000084 ;
+                                                                                                      owl:onProperty obo:RO_0002502 ;
                                                                                                       owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000023>
                                                                                                     ]
                                                                                                   ) ;
@@ -1544,11 +1615,11 @@ obo:IAO_0000235 rdf:type owl:ObjectProperty ;
 <https://w3id.org/pmd/log/LOG_1000125> rdf:type owl:Class ;
                                        rdfs:subClassOf <https://w3id.org/pmd/log/LOG_1000130> ,
                                                        [ rdf:type owl:Restriction ;
-                                                         owl:onProperty obo:BFO_0000057 ;
+                                                         owl:onProperty obo:RO_0000057 ;
                                                          owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000020>
                                                        ] ,
                                                        [ rdf:type owl:Restriction ;
-                                                         owl:onProperty obo:BFO_0000057 ;
+                                                         owl:onProperty obo:RO_0000057 ;
                                                          owl:someValuesFrom [ rdf:type owl:Class ;
                                                                               owl:unionOf ( <https://w3id.org/pmd/log/LOG_1000001>
                                                                                             <https://w3id.org/pmd/log/LOG_1000029>
@@ -1564,15 +1635,15 @@ obo:IAO_0000235 rdf:type owl:ObjectProperty ;
 <https://w3id.org/pmd/log/LOG_1000126> rdf:type owl:Class ;
                                        rdfs:subClassOf [ owl:intersectionOf ( <https://w3id.org/pmd/log/LOG_1000130>
                                                                               [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty obo:BFO_0000057 ;
+                                                                                owl:onProperty obo:RO_0000057 ;
                                                                                 owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000019>
                                                                               ]
                                                                               [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty obo:BFO_0000057 ;
+                                                                                owl:onProperty obo:RO_0000057 ;
                                                                                 owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000029>
                                                                               ]
                                                                               [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty <https://w3id.org/pmd/co/PMD_0000016> ;
+                                                                                owl:onProperty obo:RO_0002234 ;
                                                                                 owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000051>
                                                                               ]
                                                                             ) ;
@@ -1588,17 +1659,17 @@ obo:IAO_0000235 rdf:type owl:ObjectProperty ;
                                        rdfs:subClassOf <https://w3id.org/pmd/log/LOG_1000130> ,
                                                        [ rdf:type owl:Class ;
                                                          owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                                         owl:onProperty obo:BFO_0000057 ;
-                                                                         owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000029>
-                                                                       ]
-                                                                       [ rdf:type owl:Restriction ;
                                                                          owl:onProperty obo:BFO_0000132 ;
                                                                          owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000112>
+                                                                       ]
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty obo:RO_0000057 ;
+                                                                         owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000029>
                                                                        ]
                                                                      )
                                                        ] ,
                                                        [ rdf:type owl:Restriction ;
-                                                         owl:onProperty obo:BFO_0000057 ;
+                                                         owl:onProperty obo:RO_0000057 ;
                                                          owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000020>
                                                        ] ;
                                        obo:IAO_0000412 <https://spec.industrialontologies.org/ontology/core/Core/SupplyingBusinessProcess> ;
@@ -1625,7 +1696,7 @@ obo:IAO_0000235 rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/pmd/log/LOG_1000130
 <https://w3id.org/pmd/log/LOG_1000130> rdf:type owl:Class ;
                                        rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                         owl:onProperty obo:BFO_0000057 ;
+                                                         owl:onProperty obo:RO_0000057 ;
                                                          owl:someValuesFrom [ owl:intersectionOf ( <https://w3id.org/pmd/log/LOG_1000011>
                                                                                                    [ rdf:type owl:Restriction ;
                                                                                                      owl:onProperty <https://w3id.org/pmd/log/LOG_1900001> ;
@@ -1643,11 +1714,11 @@ obo:IAO_0000235 rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/pmd/log/LOG_1000131
 <https://w3id.org/pmd/log/LOG_1000131> rdf:type owl:Class ;
                                        rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                         owl:onProperty obo:BFO_0000057 ;
+                                                         owl:onProperty obo:RO_0000057 ;
                                                          owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000011>
                                                        ] ,
                                                        [ rdf:type owl:Restriction ;
-                                                         owl:onProperty <https://w3id.org/pmd/co/PMD_0000016> ;
+                                                         owl:onProperty obo:RO_0002234 ;
                                                          owl:someValuesFrom [ rdf:type owl:Class ;
                                                                               owl:unionOf ( <https://w3id.org/pmd/log/LOG_1000028>
                                                                                             <https://w3id.org/pmd/log/LOG_1000029>
@@ -1664,7 +1735,7 @@ obo:IAO_0000235 rdf:type owl:ObjectProperty ;
 <https://w3id.org/pmd/log/LOG_1000132> rdf:type owl:Class ;
                                        rdfs:subClassOf <https://w3id.org/pmd/log/LOG_1000131> ,
                                                        [ rdf:type owl:Restriction ;
-                                                         owl:onProperty <https://w3id.org/pmd/co/PMD_0000015> ;
+                                                         owl:onProperty obo:RO_0002233 ;
                                                          owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000028>
                                                        ] ;
                                        obo:IAO_0000412 <https://spec.industrialontologies.org/ontology/core/Core/AssemblyProcess> ;
@@ -1675,7 +1746,7 @@ obo:IAO_0000235 rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/pmd/log/LOG_1000134
 <https://w3id.org/pmd/log/LOG_1000134> rdf:type owl:Class ;
                                        rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                         owl:onProperty obo:BFO_0000057 ;
+                                                         owl:onProperty obo:RO_0000057 ;
                                                          owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000011>
                                                        ] ;
                                        obo:IAO_0000412 <https://spec.industrialontologies.org/ontology/core/Core/MeasurementProcess> ;
@@ -1725,7 +1796,7 @@ obo:IAO_0000235 rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/pmd/log/LOG_1000144
 <https://w3id.org/pmd/log/LOG_1000144> rdf:type owl:Class ;
                                        rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                         owl:onProperty obo:BFO_0000057 ;
+                                                         owl:onProperty obo:RO_0000057 ;
                                                          owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000011>
                                                        ] ;
                                        obo:IAO_0000412 <https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/StorageProcess> ;
@@ -1785,16 +1856,16 @@ obo:IAO_0000235 rdf:type owl:ObjectProperty ;
 
 [ owl:intersectionOf ( <https://w3id.org/pmd/log/LOG_1000001>
                        [ rdf:type owl:Restriction ;
-                         owl:onProperty obo:BFO_0000059 ;
+                         owl:onProperty obo:IAO_0000136 ;
+                         owl:someValuesFrom <https://w3id.org/pmd/log/LOG_0000002>
+                       ]
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty obo:RO_0000059 ;
                          owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000057>
                        ]
                        [ rdf:type owl:Restriction ;
-                         owl:onProperty obo:BFO_0000059 ;
+                         owl:onProperty obo:RO_0000059 ;
                          owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000070>
-                       ]
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty obo:IAO_0000136 ;
-                         owl:someValuesFrom <https://w3id.org/pmd/log/LOG_0000002>
                        ]
                      ) ;
   rdf:type owl:Class ;
