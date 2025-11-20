@@ -3590,7 +3590,7 @@ AnnotationAssertion(skos:definition co:PMD_0000056 "A melting furnace is a devic
 AnnotationAssertion(skos:definition co:PMD_0000056 "Ein Schmelzofen ist ein Gerät, das eine Schmelzfunktion hat und in der Regel dazu dient, die Temperatur eines festen Materials zu erhöhen, um seine Umwandlung in eine Schmelze einzuleiten und aufrechtzuerhalten."@de)
 SubClassOf(co:PMD_0000056 ObjectIntersectionOf(co:PMD_0000655 ObjectSomeValuesFrom(obo:RO_0000085 co:PMD_0000057)))
 
-# Class: co:PMD_0000057 (Schmelzfunktion)
+# Class: co:PMD_0000057 (melting function)
 
 AnnotationAssertion(rdfs:label co:PMD_0000057 "Schmelzfunktion"@de)
 AnnotationAssertion(rdfs:label co:PMD_0000057 "melting function"@en)
@@ -4431,7 +4431,7 @@ AnnotationAssertion(co:PMD_0000060 co:PMD_0000604 "true"^^xsd:boolean)
 SubClassOf(co:PMD_0000604 co:PMD_0000621)
 DisjointClasses(co:PMD_0000604 co:PMD_0000620)
 
-# Class: co:PMD_0000605 (differential scanning calorimeter)
+# Class: co:PMD_0000605 (Differential-Scanning-Kalorimeter)
 
 AnnotationAssertion(rdfs:label co:PMD_0000605 "Differential-Scanning-Kalorimeter"@de)
 AnnotationAssertion(rdfs:label co:PMD_0000605 "differential scanning calorimeter"@en)
@@ -5695,7 +5695,7 @@ AnnotationAssertion(skos:definition co:PMD_0000874 "A microscope that uses visib
 AnnotationAssertion(skos:definition co:PMD_0000874 "Ein Mikroskop, das sichtbares Licht und Linsen verwendet, um kleine Objekte oder Details zu vergrößern und zu betrachten."@de)
 SubClassOf(co:PMD_0000874 co:PMD_0000855)
 
-# Class: co:PMD_0000875 (Optische Mikroskopie)
+# Class: co:PMD_0000875 (optical microscopy)
 
 AnnotationAssertion(rdfs:label co:PMD_0000875 "Ein Mikroskopieverfahren, das sichtbares Licht und Linsen verwendet, um eine Probe zu vergrößern und abzubilden, und weit verbreitet zur Untersuchung der Mikrostruktur und Morphologie von Materialien ist."@de)
 AnnotationAssertion(rdfs:label co:PMD_0000875 "Optische Mikroskopie"@de)
@@ -6332,7 +6332,7 @@ AnnotationAssertion(skos:definition co:PMD_0000961 "The sublimation point is a p
 AnnotationAssertion(co:PMD_0000060 co:PMD_0000961 "true"^^xsd:boolean)
 SubClassOf(co:PMD_0000961 co:PMD_0000882)
 
-# Class: co:PMD_0000962 (supercritical fluid chromatography process)
+# Class: co:PMD_0000962 (Überkritische Fluidchromatographie Verfahren)
 
 AnnotationAssertion(rdfs:label co:PMD_0000962 "supercritical fluid chromatography process"@en)
 AnnotationAssertion(rdfs:label co:PMD_0000962 "Überkritische Fluidchromatographie Verfahren"@de)
