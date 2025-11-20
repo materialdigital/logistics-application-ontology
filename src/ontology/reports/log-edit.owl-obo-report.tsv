@@ -1,0 +1,144 @@
+Level	Rule Name	Subject	Property	Value
+WARN	equivalent_class_axiom_no_genus	product identifier	IAO:0000219	material product
+WARN	missing_definition	industrial inventory	IAO:0000115	
+WARN	missing_definition	industrial inventory role	IAO:0000115	
+WARN	missing_definition	consigning process	IAO:0000115	
+WARN	missing_definition	freight forwarding process	IAO:0000115	
+WARN	missing_definition	manufacturer identifier	IAO:0000115	
+WARN	missing_definition	product identifier	IAO:0000115	
+WARN	missing_definition	batch identifier	IAO:0000115	
+WARN	missing_definition	agreement	IAO:0000115	
+WARN	missing_definition	commercial service agreement	IAO:0000115	
+WARN	missing_definition	bill of lading	IAO:0000115	
+WARN	missing_definition	transport equipment role	IAO:0000115	
+WARN	missing_definition	purchase order	IAO:0000115	
+WARN	missing_definition	lot number	IAO:0000115	
+WARN	missing_definition	organization identifier	IAO:0000115	
+WARN	missing_definition	part number	IAO:0000115	
+WARN	missing_definition	physical location identifier	IAO:0000115	
+WARN	missing_definition	global location number	IAO:0000115	
+WARN	missing_definition	location identification scheme	IAO:0000115	
+WARN	missing_definition	customer	IAO:0000115	
+WARN	missing_definition	agent	IAO:0000115	
+WARN	missing_definition	buyer	IAO:0000115	
+WARN	missing_definition	consignee	IAO:0000115	
+WARN	missing_definition	consignor	IAO:0000115	
+WARN	missing_definition	distributor	IAO:0000115	
+WARN	missing_definition	freight forwarder	IAO:0000115	
+WARN	missing_definition	manufacturer	IAO:0000115	
+WARN	missing_definition	retailer	IAO:0000115	
+WARN	missing_definition	shipper	IAO:0000115	
+WARN	missing_definition	supplier	IAO:0000115	
+WARN	missing_definition	carrier	IAO:0000115	
+WARN	missing_definition	service provider	IAO:0000115	
+WARN	missing_definition	supply chain agent	IAO:0000115	
+WARN	missing_definition	wholesaler	IAO:0000115	
+WARN	missing_definition	cargo	IAO:0000115	
+WARN	missing_definition	load	IAO:0000115	
+WARN	missing_definition	maintainable material item	IAO:0000115	
+WARN	missing_definition	material component	IAO:0000115	
+WARN	missing_definition	material product	IAO:0000115	
+WARN	missing_definition	material resource	IAO:0000115	
+WARN	missing_definition	department	IAO:0000115	
+WARN	missing_definition	facility	IAO:0000115	
+WARN	missing_definition	laboratory	IAO:0000115	
+WARN	missing_definition	storage facility	IAO:0000115	
+WARN	missing_definition	distribution center	IAO:0000115	
+WARN	missing_definition	logistic unit	IAO:0000115	
+WARN	missing_definition	lot	IAO:0000115	
+WARN	missing_definition	supply chain system	IAO:0000115	
+WARN	missing_definition	manufacturing supply chain system	IAO:0000115	
+WARN	missing_definition	service supply chain system	IAO:0000115	
+WARN	missing_definition	piece of transport equipment	IAO:0000115	
+WARN	missing_definition	container	IAO:0000115	
+WARN	missing_definition	trailer	IAO:0000115	
+WARN	missing_definition	wagon	IAO:0000115	
+WARN	missing_definition	integrated carrier business organization	IAO:0000115	
+WARN	missing_definition	business organization	IAO:0000115	
+WARN	missing_definition	organization	IAO:0000115	
+WARN	missing_definition	shipment	IAO:0000115	
+WARN	missing_definition	freight forwarding business function	IAO:0000115	
+WARN	missing_definition	transportation business function	IAO:0000115	
+WARN	missing_definition	agent role	IAO:0000115	
+WARN	missing_definition	buyer role	IAO:0000115	
+WARN	missing_definition	consignee role	IAO:0000115	
+WARN	missing_definition	consignor role	IAO:0000115	
+WARN	missing_definition	customer role	IAO:0000115	
+WARN	missing_definition	service consumer role	IAO:0000115	
+WARN	missing_definition	distributor role	IAO:0000115	
+WARN	missing_definition	manufacturer role	IAO:0000115	
+WARN	missing_definition	retailer role	IAO:0000115	
+WARN	missing_definition	supplier role	IAO:0000115	
+WARN	missing_definition	service provider role	IAO:0000115	
+WARN	missing_definition	logistics service provider role	IAO:0000115	
+WARN	missing_definition	manufacturing service provider role	IAO:0000115	
+WARN	missing_definition	freight forwarder role	IAO:0000115	
+WARN	missing_definition	packaging service provider role	IAO:0000115	
+WARN	missing_definition	storage service provider role	IAO:0000115	
+WARN	missing_definition	transportation service provider role	IAO:0000115	
+WARN	missing_definition	supply chain agent role	IAO:0000115	
+WARN	missing_definition	wholesaler role	IAO:0000115	
+WARN	missing_definition	cargo role	IAO:0000115	
+WARN	missing_definition	ship from location role	IAO:0000115	
+WARN	missing_definition	ship to location role	IAO:0000115	
+WARN	missing_definition	supply chain node role	IAO:0000115	
+WARN	missing_definition	material product role	IAO:0000115	
+WARN	missing_definition	raw material role	IAO:0000115	
+WARN	missing_definition	lot role	IAO:0000115	
+WARN	missing_definition	shipment role	IAO:0000115	
+WARN	missing_definition	load role	IAO:0000115	
+WARN	missing_definition	logistic unit role	IAO:0000115	
+WARN	missing_definition	traceable resource unit role	IAO:0000115	
+WARN	missing_definition	location role	IAO:0000115	
+WARN	missing_definition	ship from location	IAO:0000115	
+WARN	missing_definition	ship to location	IAO:0000115	
+WARN	missing_definition	supply chain node	IAO:0000115	
+WARN	missing_definition	business function	IAO:0000115	
+WARN	missing_definition	commercial service specification	IAO:0000115	
+WARN	missing_definition	packaging plan specification	IAO:0000115	
+WARN	missing_definition	shipment plan specification	IAO:0000115	
+WARN	missing_definition	supply chain plan specification	IAO:0000115	
+WARN	missing_definition	warehousing plan specification	IAO:0000115	
+WARN	missing_definition	airway	IAO:0000115	
+WARN	missing_definition	seaway	IAO:0000115	
+WARN	missing_definition	shipping route	IAO:0000115	
+WARN	missing_definition	raw material	IAO:0000115	
+WARN	missing_definition	traceable resource unit	IAO:0000115	
+WARN	missing_definition	maintainable material item role	IAO:0000115	
+WARN	missing_definition	material component role	IAO:0000115	
+WARN	missing_definition	material resource role	IAO:0000115	
+WARN	missing_definition	buying business process	IAO:0000115	
+WARN	missing_definition	commercial service	IAO:0000115	
+WARN	missing_definition	logistics service	IAO:0000115	
+WARN	missing_definition	freight forwarding service	IAO:0000115	
+WARN	missing_definition	packaging service	IAO:0000115	
+WARN	missing_definition	storage service	IAO:0000115	
+WARN	missing_definition	transportation service	IAO:0000115	
+WARN	missing_definition	manufacturing service	IAO:0000115	
+WARN	missing_definition	inventory management process	IAO:0000115	
+WARN	missing_definition	logistics process	IAO:0000115	
+WARN	missing_definition	packaging process	IAO:0000115	
+WARN	missing_definition	procuring business process	IAO:0000115	
+WARN	missing_definition	product production process	IAO:0000115	
+WARN	missing_definition	receiving process	IAO:0000115	
+WARN	missing_definition	supply chain process	IAO:0000115	
+WARN	missing_definition	selling business process	IAO:0000115	
+WARN	missing_definition	shipment preparation process	IAO:0000115	
+WARN	missing_definition	supplying business process	IAO:0000115	
+WARN	missing_definition	warehousing process	IAO:0000115	
+WARN	missing_definition	business process	IAO:0000115	
+WARN	missing_definition	manufacturing process	IAO:0000115	
+WARN	missing_definition	assembly process	IAO:0000115	
+WARN	missing_definition	measurement process	IAO:0000115	
+WARN	missing_definition	appraisal process	IAO:0000115	
+WARN	missing_definition	material location change process	IAO:0000115	
+WARN	missing_definition	arrival process	IAO:0000115	
+WARN	missing_definition	departure process	IAO:0000115	
+WARN	missing_definition	transport process	IAO:0000115	
+WARN	missing_definition	storage process	IAO:0000115	
+WARN	missing_definition	travel process	IAO:0000115	
+WARN	missing_definition	acts on behalf of	IAO:0000115	
+WARN	missing_definition	owned by	IAO:0000115	
+WARN	missing_definition	owns	IAO:0000115	
+INFO	missing_superclass	supply chain node role	rdfs:subClassOf	
+INFO	missing_superclass	manufacturing service	rdfs:subClassOf	
