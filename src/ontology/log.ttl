@@ -15,13 +15,13 @@
 @base <https://w3id.org/pmd/log.ttl> .
 
 <https://w3id.org/pmd/log.ttl> rdf:type owl:Ontology ;
-                                owl:versionIRI <https://w3id.org/pmd/log/releases/2025-11-17/log.ttl> ;
+                                owl:versionIRI <https://w3id.org/pmd/log/releases/2025-11-20/log.ttl> ;
                                 dcterms:creator <https://orcid.org/0000-0003-1649-6832> ;
                                 dcterms:description "This is an alignment of the IOF Supply Chain Ontologies Library to the Platform Material Digital Core Ontology. It contains ontologies to be used in the domain of supply chain and logistics." ;
                                 dcterms:license "http://opensource.org/licenses/MIT" ;
                                 dcterms:title "Platform Material Digital Application Ontology  for Logistics and supplychain (log)"@en ;
                                 rdfs:comment "The logistics application ontology for use with PMD Core Ontology (PMDco). The scope of this module is the description of material science and engineering related logistics and general organization. Its is adopted from the IOF SupplyChain Module https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/"@en ;
-                                owl:versionInfo "2025-11-17" .
+                                owl:versionInfo "2025-11-20" .
 
 #################################################################
 #    Annotation properties

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="https://w3id.org/pmd/log/log-base.owl#"
-     xml:base="https://w3id.org/pmd/log/log-base.owl"
+<rdf:RDF xmlns="https://w3id.org/pmd/log/"
+     xml:base="https://w3id.org/pmd/log/"
      xmlns:dce="http://purl.org/dc/elements/1.1/"
      xmlns:obo="http://purl.obolibrary.org/obo/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
@@ -11,15 +11,17 @@
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:dcterms="http://purl.org/dc/terms/"
      xmlns:logistics="https://w3id.org/pmd/co/logistics/">
-    <owl:Ontology rdf:about="https://w3id.org/pmd/log/log-base.owl">
-        <owl:versionIRI rdf:resource="https://w3id.org/pmd/log/releases/2025-11-20/log-base.owl"/>
+    <owl:Ontology rdf:about="https://w3id.org/pmd/log/">
+        <owl:versionIRI rdf:resource="https://w3id.org/pmd/log/1.0.0"/>
         <dce:type rdf:resource="http://purl.obolibrary.org/obo/IAO_8000001"/>
+        <dcterms:bibliographicCitation>Platform Material Digital Application Ontology for Logistics and Supplychain (log) 1.0.0, https://w3id.org/pmd/log/</dcterms:bibliographicCitation>
+        <dcterms:created>2025-11-20</dcterms:created>
         <dcterms:creator rdf:resource="https://orcid.org/0000-0003-1649-6832"/>
         <dcterms:description>This is an alignment of the IOF Supply Chain Ontologies Library to the Platform Material Digital Core Ontology. It contains ontologies to be used in the domain of supply chain and logistics.</dcterms:description>
         <dcterms:license>http://opensource.org/licenses/MIT</dcterms:license>
         <dcterms:title xml:lang="en">Platform Material Digital Application Ontology  for Logistics and supplychain (log)</dcterms:title>
         <rdfs:comment xml:lang="en">The logistics application ontology for use with PMD Core Ontology (PMDco). The scope of this module is the description of material science and engineering related logistics and general organization. Its is adopted from the IOF SupplyChain Module https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/</rdfs:comment>
-        <owl:versionInfo>2025-11-20</owl:versionInfo>
+        <owl:versionInfo>1.0.0</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -50,6 +52,18 @@
     <!-- http://purl.org/dc/elements/1.1/type -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/type"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/bibliographicCitation -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/bibliographicCitation"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/created -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/created"/>
     
 
 
