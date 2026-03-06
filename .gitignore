@@ -1,0 +1,15 @@
+# ODK-managed rules, do not modify
+# If you need to add your own ignore rules, you may do so below
+# the "End ODK-managed rules" marker at the end of this file.
+.DS_Store
+semantic.cache
+bin/
+.trunk/
+*.tmp
+*.tmp.obo
+*.tmp.owl
+*.tmp.json
+*-relation-graph.tsv.gz
+.template.db
+
+.github/token.txt

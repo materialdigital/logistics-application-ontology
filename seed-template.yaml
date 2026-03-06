@@ -1,0 +1,25 @@
+id: xxx
+title: "My Application Ontology"
+github_org: materialdigital
+git_main_branch: main
+repo: app-ontology-template
+uribase: https://w3id.org/pmd/xxx
+uribase_suffix: xxx
+
+release_artefacts:
+  - base
+  - full
+  - simple
+primary_release: full
+export_formats:
+  - owl
+  - ttl
+remove_owl_nothing: true
+
+import_group:
+  products:
+    - id: pmdco
+      module_type: mirror
+      mirror_from: https://materialdigital.github.io/core-ontology/ontology.owl
+      base_iris:
+        - https://w3id.org/pmd/co/

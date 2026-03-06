@@ -1,0 +1,487 @@
+# ==============================================================================
+# WORKFLOW: Create Widoco Documentation
+# ==============================================================================
+# Purpose: Generates and deploys human-readable HTML documentation for the ontology
+#
+# This workflow:
+# 1. Detects when ontology files are built/updated
+# 2. Generates HTML documentation using Widoco from the *-full.owl file
+# 3. Deploys documentation to GitHub Pages for public access
+#
+# Widoco (WIzard for DOCumenting Ontologies) creates professional documentation
+# that includes:
+# - Class hierarchies and definitions
+# - Property descriptions and domains/ranges
+# - Annotation property documentation
+# - Interactive WebVOWL diagrams
+# - Multi-language support (English and German)
+#
+# Execution Chain Position:
+# setup-repo → refresh-imports → qc → [DOCS]
+#
+# This is the final step in the workflow chain.
+#
+# Read more about Widoco: https://github.com/dgarijo/Widoco
+# Read more about GitHub Pages: https://docs.github.com/en/pages
+# ==============================================================================
+
+name: Create Widoco Documentation
+
+# ==============================================================================
+# WORKFLOW TRIGGERS
+# ==============================================================================
+# This workflow can be triggered in three ways:
+# 1. Via repository_dispatch from qc workflow (after build completes)
+# 2. Automatically on pushes to main branch that modify ontology files
+# 3. Manually via workflow_dispatch for forced doc regeneration
+#
+# Note: Pull requests trigger documentation build for validation but do not
+# deploy to GitHub Pages (see deploy job conditions).
+#
+# IMPORTANT: Push triggers skip commits made by github-actions[bot] to prevent
+# duplicate runs when the workflow chain is triggered via repository_dispatch.
+# ==============================================================================
+on:
+  # ============================================================================
+  # TRIGGER 1: Repository Dispatch (from qc workflow)
+  # ============================================================================
+  # Listens for 'trigger-docs' event dispatched by qc.yml
+  # This ensures documentation is generated immediately after ontology build
+  # ============================================================================
+  repository_dispatch:
+    types: [trigger-docs]
+
+  # ============================================================================
+  # TRIGGER 2: Push Events to Main Branch (for production deployments)
+  # ============================================================================
+  # Triggers when ontology files are pushed to main branch
+  #
+  # Why main branch only?
+  # - GitHub Pages typically deploys from main/master
+  # - Prevents documentation churn from feature branch work
+  # - Ensures only stable, reviewed changes trigger public doc updates
+  #
+  # Why src/ontology/**?
+  # - Documentation is generated from ontology files
+  # - Only relevant when ontology content changes
+  # - Excludes unrelated changes (README, workflow files, etc.)
+  #
+  # To enable preview docs for other branches:
+  # Change branches: ["main"] to branches: ["*"]
+  #
+  # Note: This trigger is skipped for commits made by github-actions[bot]
+  # to prevent duplicate runs when triggered via repository_dispatch
+  # ============================================================================
+  # push:
+  #   branches: ["main"]  # Production deployments from main only
+  #   paths:
+  #     - 'src/ontology/**'
+
+  # ============================================================================
+  # TRIGGER 3: Pull Request Events (for preview/validation)
+  # ============================================================================
+  # Triggers documentation build during PR review
+  # Note: Deploy step is skipped for PRs (see deploy job condition)
+  #
+  # Purpose:
+  # - Validates that documentation can be generated successfully
+  # - Allows preview of documentation changes before merge
+  # - Catches Widoco errors early in development cycle
+  # # ============================================================================
+  # pull_request:
+  #   branches: ["*"]
+  #   paths:
+  #     - 'src/ontology/**'
+
+  # ============================================================================
+  # TRIGGER 4: Manual Trigger (for forced regeneration)
+  # ============================================================================
+  # Allows manual execution via GitHub UI
+  # Useful for:
+  # - Forcing documentation refresh without code changes
+  # - Testing documentation generation
+  # - Recovering from failed deployments
+  # ============================================================================
+  workflow_dispatch:
+
+# ==============================================================================
+# ENVIRONMENT VARIABLES
+# ==============================================================================
+# Global variables available to all jobs in this workflow
+# ==============================================================================
+env:
+  # Default branch for git operations
+  DEFAULT_BRANCH: main
+
+# ==============================================================================
+# PERMISSIONS
+# ==============================================================================
+# Granular permissions for GITHUB_TOKEN to enable GitHub Pages deployment
+#
+# Why these specific permissions?
+# - contents: read : Allows reading repository files for building
+# - pages: write : Enables uploading artifacts to GitHub Pages
+# - id-token: write : Supports OIDC authentication for Pages deployment
+#
+# These are the minimum permissions needed for secure Pages deployment.
+# Read more: https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#permissions
+# ==============================================================================
+permissions:
+  contents: read    # Read repo files
+  pages: write      # Upload to Pages
+  id-token: write   # OIDC authentication
+
+# ==============================================================================
+# CONCURRENCY CONTROL
+# ==============================================================================
+# Ensures only one Pages deployment runs at a time
+#
+# Why is this important?
+# - Prevents race conditions during deployment
+# - Ensures sequential processing of queued deployments
+# - Avoids corrupted or partial documentation deployments
+#
+# Configuration:
+# - group: "pages" : All Pages deployments share this concurrency group
+# - cancel-in-progress: false : Don't cancel running deployments; queue instead
+#
+# Effect: If multiple commits trigger this workflow rapidly, they queue
+# and deploy sequentially rather than racing or canceling each other.
+# ==============================================================================
+concurrency:
+  group: "pages"
+  cancel-in-progress: false  # Queue deployments instead of canceling
+
+# ==============================================================================
+# JOBS
+# ==============================================================================
+jobs:
+  # ============================================================================
+  # JOB 1: check
+  # ============================================================================
+  # Pre-flight check to verify required ontology file exists
+  #
+  # Purpose:
+  # - Prevents build failures in repositories without built ontologies
+  # - Skips workflow gracefully if *-full.owl doesn't exist
+  # - Provides clear feedback about missing files
+  #
+  # Outputs:
+  # - ontology-exists: Boolean flag indicating if file was found
+  # - ontology-file: Path to the *-full.owl file (if exists)
+  #
+  # Why check for *-full.owl?
+  # - This is the standard ODK output file for complete ontology releases
+  # - Contains merged ontology with all imports
+  # - Required input for Widoco documentation generation
+  #
+  # CRITICAL: Skips workflow for commits made by github-actions[bot] on push
+  # to prevent duplicate runs when triggered via repository_dispatch
+  # ============================================================================
+  check:
+    runs-on: ubuntu-latest
+    
+    # CRITICAL: Skip this workflow if triggered by push from github-actions[bot]
+    # This prevents duplicate runs in the workflow chain
+    # The chain uses repository_dispatch, so push triggers from bot commits are redundant
+    # if: |
+    #   github.event_name != 'push' || 
+    #   github.event.head_commit.author.name != 'github-actions[bot]'
+    
+    # Job outputs (available to dependent jobs via needs.check.outputs)
+    outputs:
+      ontology-exists: ${{ steps.check.outputs.exists }}
+      ontology-file: ${{ steps.check.outputs.file }}
+    
+    steps:
+      # ========================================================================
+      # STEP 1.1: Checkout Repository
+      # ========================================================================
+      # Fetch repository code to check for ontology file
+      # Full history included for consistency with other workflows
+      # ========================================================================
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history
+
+      # ========================================================================
+      # STEP 1.2: Check for Ontology File
+      # ========================================================================
+      # Searches for *-full.owl file in src/ontology/
+      #
+      # Search logic:
+      # - find: Recursively searches directory
+      # - -name "*-full.owl": Matches any file ending in -full.owl
+      # - -type f: Only matches regular files (not directories)
+      # - head -1: Takes first match (handles multiple matches gracefully)
+      #
+      # Output handling:
+      # - If found: Sets exists=true and file=<path>
+      # - If not found: Sets exists=false and file=""
+      # ========================================================================
+      - name: Check for ontology file
+        id: check
+        run: |
+          # Search for *-full.owl file
+          ONTOLOGY_FILE=$(find src/ontology/ -name "*-full.owl" -type f | head -1)
+          
+          # Check if file was found
+          if [ -z "$ONTOLOGY_FILE" ]; then
+            echo "No *-full.owl file found in src/ontology/ directory."
+            echo "This usually means the ontology hasn't been built yet."
+            echo "exists=false" >> $GITHUB_OUTPUT
+            echo "file=" >> $GITHUB_OUTPUT
+          else
+            echo "Found ontology file: $ONTOLOGY_FILE"
+            echo "exists=true" >> $GITHUB_OUTPUT
+            echo "file=$ONTOLOGY_FILE" >> $GITHUB_OUTPUT
+          fi
+
+  # ============================================================================
+  # JOB 2: build
+  # ============================================================================
+  # Generates HTML documentation using Widoco
+  #
+  # Dependencies: Requires check job to pass and find ontology file
+  # Condition: Only runs if ontology-exists == 'true'
+  #
+  # Process:
+  # 1. Setup GitHub Pages environment
+  # 2. Download Widoco JAR (pinned version for reproducibility)
+  # 3. Generate HTML documentation with Widoco
+  # 4. Create default entry point (index.html)
+  # 5. Upload documentation as Pages artifact
+  # ============================================================================
+  build:
+    runs-on: ubuntu-latest
+    
+    # Job dependencies
+    needs: check
+    
+    # Conditional execution: only run if ontology file exists
+    if: needs.check.outputs.ontology-exists == 'true'
+    
+    steps:
+      # ========================================================================
+      # STEP 2.1: Checkout Repository
+      # ========================================================================
+      # Fetch repository code for documentation generation
+      # ========================================================================
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history
+
+      # ========================================================================
+      # STEP 2.2: Setup GitHub Pages Environment
+      # ========================================================================
+      # Configures Node.js and other dependencies for Pages builds
+      #
+      # This action:
+      # - Detects and validates Pages configuration
+      # - Sets up build environment variables
+      # - Prepares for artifact upload
+      #
+      # Uses v5 for latest features and compatibility
+      # Read more: https://github.com/actions/configure-pages
+      # ========================================================================
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      # ========================================================================
+      # STEP 2.3: Build HTML Documentation with Widoco
+      # ========================================================================
+      # Downloads and runs Widoco to generate HTML documentation
+      #
+      # Widoco Configuration:
+      # Version: v1.4.25 (pinned for reproducibility)
+      # Java Requirement: JDK 11+ (provided by runner)
+      #
+      # Command-line Options Explained:
+      # -ontFile <path>
+      #   Input: Path to the OWL ontology file
+      #   Example: src/ontology/myonto-full.owl
+      #
+      # -outFolder <path>
+      #   Output: Directory for generated HTML files
+      #   Set to ./_site for GitHub Pages compatibility
+      #
+      # -uniteSections
+      #   Combines all documentation sections into unified pages
+      #   Improves navigation and reduces page count
+      #
+      # -includeAnnotationProperties
+      #   Documents annotation properties (labels, comments, etc.)
+      #   Essential for complete ontology documentation
+      #
+      # -lang en-de
+      #   Generates documentation in English and German
+      #   Creates index-en.html and index-de.html
+      #   To change languages: Use ISO codes (e.g., en-es for English/Spanish)
+      #
+      # -getOntologyMetadata
+      #   Extracts and displays ontology metadata
+      #   Includes: title, description, version, authors, etc.
+      #
+      # -noPlaceHolderText
+      #   Removes placeholder text from documentation
+      #   Creates cleaner, more professional output
+      #
+      # -rewriteAll
+      #   Forces complete regeneration of all files
+      #   Ensures documentation is fully up-to-date
+      #
+      # -webVowl
+      #   Includes interactive WebVOWL visualization
+      #   Provides graphical view of ontology structure
+      #   Users can explore classes and relationships visually
+      #
+      # Memory Requirements:
+      # - Typical usage: 2-4GB RAM
+      # - Large ontologies may need more memory (adjust runner if needed)
+      # - Widoco uses Java, so heap size is configurable via JAVA_OPTS
+      #
+      # Output Files:
+      # - index-en.html : English documentation
+      # - index-de.html : German documentation
+      # - sections/ : Individual documentation sections
+      # - webvowl/ : WebVOWL visualization files
+      # - resources/ : CSS, JavaScript, images
+      #
+      # Read more: https://github.com/dgarijo/Widoco#usage
+      # ========================================================================
+      - name: Build HTML documentation with Widoco
+        run: |
+          # Download pinned Widoco release for reproducibility
+          # Using specific version ensures consistent output across builds
+          echo "Downloading Widoco v1.4.25..."
+          wget -O widoco.jar https://github.com/dgarijo/Widoco/releases/download/v1.4.25/widoco-1.4.25-jar-with-dependencies_JDK-11.jar
+          
+          # Create output directory for GitHub Pages
+          mkdir ./_site
+          
+          # Generate documentation with Widoco
+          echo "Generating documentation with Widoco..."
+          java -jar widoco.jar \
+            -ontFile ${{ needs.check.outputs.ontology-file }} \
+            -outFolder ./_site \
+            -uniteSections \
+            -includeAnnotationProperties \
+            -lang en-de \
+            -getOntologyMetadata \
+            -noPlaceHolderText \
+            -rewriteAll \
+            -webVowl
+          
+          echo "Documentation generation complete."
+
+      # ========================================================================
+      # STEP 2.4: Add Default Entry Point
+      # ========================================================================
+      # Creates index.html as default landing page for GitHub Pages
+      #
+      # Why is this needed?
+      # - GitHub Pages serves index.html by default
+      # - Widoco generates index-en.html, index-de.html, etc.
+      # - Without index.html, Pages shows directory listing or 404
+      #
+      # Solution: Copy English version to index.html
+      # - Provides default language for visitors
+      # - Users can switch to other languages via links in documentation
+      #
+      # To change default language:
+      # Replace index-en.html with index-de.html (or other language code)
+      # ========================================================================
+      - name: Add default entry point
+        run: |
+          echo "Creating default index.html from English version..."
+          cp ./_site/index-en.html ./_site/index.html
+          echo "Default entry point created."
+
+      # ========================================================================
+      # STEP 2.5: Upload Pages Artifact
+      # ========================================================================
+      # Packages documentation for GitHub Pages deployment
+      #
+      # What this does:
+      # - Compresses _site/ directory into artifact
+      # - Uploads artifact to GitHub (accessible to deploy job)
+      # - Prepares documentation for deployment
+      #
+      # Artifact contents:
+      # - All HTML files (index.html, sections, etc.)
+      # - WebVOWL visualization files
+      # - CSS, JavaScript, images
+      # - Multi-language documentation
+      #
+      # Uses v3 for stability
+      # Read more: https://github.com/actions/upload-pages-artifact
+      # ========================================================================
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+
+  # ============================================================================
+  # JOB 3: deploy
+  # ============================================================================
+  # Deploys generated documentation to GitHub Pages
+  #
+  # Dependencies: Requires build job to complete successfully
+  # Condition: Only runs for non-PR events (prevents PR preview deployments)
+  #
+  # Environment: github-pages
+  # - Protected environment for production deployments
+  # - Can require approvals if configured in repo settings
+  # - Provides deployment URL for accessing published docs
+  #
+  # Process:
+  # 1. Downloads artifact from build job
+  # 2. Deploys to GitHub Pages
+  # 3. Returns public URL for documentation
+  # ============================================================================
+  deploy:
+    # Environment configuration
+    # Uses 'github-pages' environment for protected deployments
+    # Output URL is accessible via steps.deployment.outputs.page_url
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    runs-on: ubuntu-latest
+    
+    # Job dependencies
+    needs: build
+    
+    # Conditional execution: skip for pull requests
+    # Why?
+    # - PRs shouldn't auto-deploy to production Pages
+    # - Prevents documentation churn during review
+    # - Deploy happens automatically after PR merge to main
+    #
+    # For branch-specific previews:
+    # Remove this condition and configure GitHub Pages to use branch deployments
+    if: github.event_name != 'pull_request'
+    
+    steps:
+      # ========================================================================
+      # STEP 3.1: Deploy to GitHub Pages
+      # ========================================================================
+      # Deploys documentation artifact to GitHub Pages
+      #
+      # What this does:
+      # 1. Downloads artifact uploaded by build job
+      # 2. Extracts files to Pages hosting environment
+      # 3. Publishes documentation at configured Pages URL
+      # 4. Returns deployment URL as output
+      #
+      # Deployment URL format:
+      # - https://<username>.github.io/<repository>/ (for user/org repos)
+      # - https://<organization>.github.io/<repository>/ (for org repos)
+      # - Custom domain if configured in repo Pages settings
+      #
+      # Uses v4 for latest deployment features
+      # Read more: https://github.com/actions/deploy-pages
+      # ========================================================================
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

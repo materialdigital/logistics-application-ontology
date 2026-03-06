@@ -1,0 +1,6 @@
+# Add your component names here (one per line)
+# Do not add .owl extension, just the name.
+material_data
+process_data
+sustainability_info
+dismantling_data

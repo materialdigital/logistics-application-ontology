@@ -1,0 +1,23 @@
+https://w3id.org/pmd/co/PMD_0000833 #manufacturing process
+http://purl.obolibrary.org/obo/OBI_0000070 #assay
+https://w3id.org/pmd/co/PMD_0000583 #computing process
+https://w3id.org/pmd/co/PMD_0000892 #portion of matter
+https://w3id.org/pmd/co/PMD_0000602 #Device
+http://purl.obolibrary.org/obo/OBI_0000112 #Specimen role
+https://w3id.org/pmd/co/PMD_0000907 # primary shaping from the plastic state
+http://purl.obolibrary.org/obo/BFO_0000040 #material entity
+https://w3id.org/pmd/co/PMD_0000868 #natural organic material
+https://w3id.org/pmd/co/PMD_0000661 #glass
+https://w3id.org/pmd/co/PMD_0000952 #strength
+https://w3id.org/pmd/co/PMD_0000877 #optical property
+https://w3id.org/pmd/co/PMD_0050004 #thermoplastics
+https://w3id.org/pmd/co/PMD_0000891 #disconnected material entity aggregate
+https://w3id.org/pmd/co/PMD_0020102 #mass proportion
+https://w3id.org/pmd/co/PMD_0020104 #volume proportion
+http://purl.obolibrary.org/obo/IAO_0020000 #identifier
+https://w3id.org/pmd/co/PMD_0000597 #Density
+https://w3id.org/pmd/co/PMD_0000848 #mechanical property
+https://w3id.org/pmd/co/PMD_0000967 #temperature
+https://w3id.org/pmd/co/PMD_0000882 #phase boundary
+https://w3id.org/pmd/co/PMD_0000777 #heat capacity
+https://w3id.org/pmd/co/PMD_0000949 #stiffness

@@ -1,0 +1,4 @@
+# ComponentName | ID           | Label           | ParentID
+material_data         | https://w3id.org/pmd/co/PMD_0000000    | material  | https://w3id.org/pmd/co/PMD_0000001
+material_data         | http://purl.obolibrary.org/obo/BFO_0000017    | realizable entity    | http://purl.obolibrary.org/obo/BFO_0000020
+process_data     | https://w3id.org/pmd/co/PMD_0000907    | primary shaping from the plastic state   | https://w3id.org/pmd/co/PMD_0000899

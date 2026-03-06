@@ -1,0 +1,39 @@
+# ==============================================================================
+# External Ontology Imports Configuration
+# ==============================================================================
+# This file defines external ontologies to import into your application ontology.
+# Each line defines one import with the format: import_id|import_url
+#
+# Format:
+#   import_id|import_url
+#
+# Where:
+#   - import_id: Short identifier for the ontology (lowercase, no spaces)
+#                This will be used as the filename prefix (e.g., "logo" → "logo.owl")
+#   - import_url: Direct URL to the ontology OWL file
+#
+# IMPORTANT NOTES:
+# 1. The pipe character "|" is the delimiter between ID and URL
+# 2. Lines starting with # are comments and will be ignored
+# 3. Empty lines are ignored
+# 4. PMD Core Ontology (pmdco) is ALWAYS imported automatically - don't add it here
+# 5. For each import, you can optionally create a corresponding terms file
+#    (e.g., logo_terms.txt) in the root directory to specify which classes to import
+#
+# ==============================================================================
+
+# Example: Import the Logistics Ontology from PMD
+# Uncomment the line below to enable this import:
+# logo|https://raw.githubusercontent.com/materialdigital/logistics-application-ontology/main/logo.owl
+
+# Example: Import another external ontology
+# Uncomment and modify as needed:
+# myonto|https://example.org/ontologies/myonto.owl
+
+# ==============================================================================
+# Add your imports below this line
+# ==============================================================================
+
+logo|https://raw.githubusercontent.com/materialdigital/logistics-application-ontology/refs/heads/main/log-full.owl
+tto|https://raw.githubusercontent.com/materialdigital/tensile-test-ontology/refs/heads/main/tto-full.owl
+hto|https://raw.githubusercontent.com/materialdigital/heat-treatment-application-ontology/refs/heads/main/src/ontology/hto-full.owl
