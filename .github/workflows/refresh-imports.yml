@@ -1,22 +1,39 @@
 # ==============================================================================
-# WORKFLOW: Refresh Ontology Imports
+# WORKFLOW: Refresh Ontology Imports (Standalone)
 # ==============================================================================
 # Purpose: Updates external ontology import modules to maintain consistency
-#          with upstream ontologies
+#          with upstream ontologies (PMD Core, external vocabularies, etc.)
 #
 # This workflow:
-# 1. Detects changes to import-related files or receives trigger from setup-repo
-# 2. Runs ODK make targets to refresh external ontology modules
-# 3. Commits updated import files back to the repository
-# 4. Triggers the QC workflow to continue the automation chain
+# 1. Runs ODK make targets to refresh all external ontology import modules
+# 2. Commits the updated import files back to the repository
+# 3. Triggers the Build/QC workflow to rebuild release artifacts
 #
-# External imports are OWL files that include terms from other ontologies
-# (e.g., BFO, PATO, CHEBI). Keeping them updated ensures consistency.
+# External imports are OWL files that include terms extracted from upstream
+# ontologies (e.g. PMD Core, BFO, PATO). Keeping them updated ensures that
+# any additions or corrections in upstream ontologies propagate into this one.
 #
-# Execution Chain Position: 
-# setup-repo → [REFRESH-IMPORTS] → qc → docs
+# Execution Chain Position:
+# [this: refresh-imports] → qc (BUILD) → docs
 #
-# Read more about ODK imports: 
+# IMPORTANT — PUSH TRIGGER DESIGN DECISION:
+# The push trigger for this workflow has been intentionally DISABLED.
+# The Build/QC workflow (qc.yml) already runs `make refresh-imports all_assets`
+# internally, covering all push events that modify ontology source files.
+# Enabling a separate push trigger here would cause DOUBLE runs:
+#   push → refresh-imports runs (refreshes imports, triggers qc)
+#   push → qc runs simultaneously (also refreshes imports, then builds)
+# This creates redundant CI runs, potential race conditions on git commits,
+# and wasted runner minutes. The disabled push trigger is preserved as comments
+# below for reference in case standalone push refresh is ever needed.
+#
+# WHEN TO USE THIS WORKFLOW:
+# - Manual refresh: Run via GitHub UI → Actions → Refresh Ontology Imports → Run workflow
+# - External update: Run when an upstream ontology (e.g. pmdco) releases a new
+#   version and you want to pull in the changes without modifying source files
+# - Debugging: Run to test whether import extraction is working correctly
+#
+# Read more about ODK imports:
 # https://github.com/INCATools/ontology-development-kit#imports
 # ==============================================================================
 
@@ -25,83 +42,62 @@ name: Refresh Ontology Imports
 # ==============================================================================
 # WORKFLOW TRIGGERS
 # ==============================================================================
-# This workflow can be triggered in three ways:
-# 1. Via repository_dispatch from setup-repo workflow (initial setup)
-# 2. Automatically on pushes that modify import-related files
-# 3. Manually via workflow_dispatch for forced refresh
-#
-# Path filters ensure the workflow only runs when relevant files change,
-# preventing unnecessary executions on unrelated commits.
-#
-# IMPORTANT: Push triggers skip commits made by github-actions[bot] to prevent
-# duplicate runs when the workflow chain is triggered via repository_dispatch.
-# ==============================================================================
 on:
   # ============================================================================
-  # TRIGGER 1: Repository Dispatch (from setup-repo workflow)
+  # TRIGGER 1: Repository Dispatch (triggered programmatically by other workflows)
   # ============================================================================
-  # Listens for 'trigger-refresh-imports' event dispatched by setup-repo.yml
-  # This ensures imports are refreshed immediately after initial ontology setup
+  # Listens for 'trigger-refresh-imports' event. This allows other workflows
+  # (or external scripts) to explicitly request an import refresh.
+  # Note: The current setup-repo.yml triggers 'trigger-qc' directly rather than
+  # this event. This trigger is kept for backward compatibility and custom use.
   # ============================================================================
   repository_dispatch:
     types: [trigger-refresh-imports]
 
   # ============================================================================
-  # TRIGGER 2: Push Events (for regular development)
+  # TRIGGER 2: Push Events — INTENTIONALLY DISABLED
   # ============================================================================
-  # Triggers when import-related files are modified and pushed
-  # 
-  # Monitored paths:
-  # - src/ontology/imports/** : Import module definitions and OWL files
-  # - src/ontology/*-edit.owl : Main edit file (may contain import declarations)
+  # Push triggers are disabled to prevent double-triggering with qc.yml.
+  # The qc.yml workflow already runs make refresh-imports internally, so
+  # running this separately on the same push would be redundant.
   #
-  # Why these paths?
-  # - Changes to import definitions require re-fetching external ontology terms
-  # - Edit file changes may add/remove imports that need processing
+  # To re-enable push triggers for standalone import refresh (e.g. if you
+  # separate refresh and build into independent pipelines), uncomment below:
   #
-  # Note: This trigger is skipped for commits made by github-actions[bot]
-  # to prevent duplicate runs when triggered via repository_dispatch
+  # push:
+  #   branches: ["main"]
+  #   paths:
+  #     - 'src/ontology/imports/**'       # Import term lists and module files
+  #     - 'src/ontology/*-odk.yaml'       # ODK config changes affecting imports
   # ============================================================================
-  push:
-    branches: ["main"]  # Triggers only on main branch
-    paths:
-      # - 'src/ontology/imports/**'
-      # - 'src/ontology/*-edit.owl'
-      - 'src/ontology/**'
-
 
   # ============================================================================
-  # TRIGGER 3: Pull Request Events (for PR validation)
+  # TRIGGER 3: Pull Request Events — INTENTIONALLY DISABLED
   # ============================================================================
-  # Same as push trigger, but for pull requests
-  # Allows validation of import changes during code review
-  # Note: Commits are skipped for PRs (see commit step conditions)
+  # Disabled for the same reason as the push trigger above.
+  # qc.yml handles import refresh as part of its PR validation run.
+  #
+  # To re-enable:
+  # pull_request:
+  #   branches: ["main"]
+  #   paths:
+  #     - 'src/ontology/imports/**'
+  #     - 'src/ontology/*-odk.yaml'
   # ============================================================================
-  pull_request:
-    branches: ["main"]
-    paths:
-      # - 'src/ontology/imports/**'
-      # - 'src/ontology/*-edit.owl'
-      - 'src/ontology/**'
 
   # ============================================================================
-  # TRIGGER 4: Manual Trigger (for forced refresh)
+  # TRIGGER 4: Manual Trigger (the primary intended trigger for this workflow)
   # ============================================================================
-  # Allows manual execution via GitHub UI
-  # Useful for:
-  # - Testing import refresh without code changes
-  # - Forcing refresh after upstream ontology updates
-  # - Troubleshooting import issues
+  # Run manually via GitHub UI:
+  #   Actions → Refresh Ontology Imports → Run workflow
+  # Useful for pulling in upstream ontology updates without source file changes.
   # ============================================================================
   workflow_dispatch:
 
 # ==============================================================================
 # ENVIRONMENT VARIABLES
 # ==============================================================================
-# Global variables available to all jobs in this workflow
-# ==============================================================================
 env:
-  # Default branch for git operations (used in some ODK make targets)
   DEFAULT_BRANCH: main
 
 # ==============================================================================
@@ -111,38 +107,32 @@ jobs:
   # ============================================================================
   # JOB 1: check-ontology-dir
   # ============================================================================
-  # Pre-flight check to verify ontology directory exists
-  # 
-  # Purpose: Prevents workflow failure in empty/misconfigured repositories
-  # - Runs before main job (cheap safety check)
-  # - Outputs boolean flag for conditional job execution
-  # - Skips entire workflow if src/ontology/ doesn't exist
+  # Pre-flight check: verifies src/ontology/ exists before attempting refresh.
+  # Prevents workflow failures in empty or pre-setup repositories.
   #
-  # Additional check: Skips workflow for bot commits on push events
-  # - Prevents duplicate runs when workflow chain is active
-  # - Bot commits happen when workflows commit their outputs
-  # - Repository dispatch handles the workflow chain progression
+  # Skips the entire workflow for push commits made by github-actions[bot].
+  # This prevents infinite loops when the workflow commits refreshed imports
+  # and that commit triggers another push event.
   # ============================================================================
   check-ontology-dir:
     runs-on: ubuntu-latest
-    
-    # CRITICAL: Skip this workflow if triggered by push from github-actions[bot]
-    # This prevents duplicate runs in the workflow chain
-    # The chain uses repository_dispatch, so push triggers from bot commits are redundant
+
+    # Skip push events triggered by the github-actions[bot] to prevent
+    # infinite commit loops (bot commits refreshed imports → push fires again).
+    # github.actor is always available on every event type (no context warnings).
+    # Repository dispatch and workflow_dispatch are unaffected (event_name != 'push').
     if: |
-      github.event_name != 'push' || 
-      github.event.head_commit.author.name != 'github-actions[bot]'
-    
-    # Job outputs (available to dependent jobs via needs.check-ontology-dir.outputs)
+      github.event_name != 'push' ||
+      github.actor != 'github-actions[bot]'
+
     outputs:
       dir-exists: ${{ steps.check.outputs.exists }}
-    
+
     steps:
       # ========================================================================
       # STEP 1.1: Checkout Repository
       # ========================================================================
-      # Fetch repository code for directory check
-      # Lightweight checkout (no full history needed for directory check)
+      # Lightweight checkout — full history not needed for directory check.
       # ========================================================================
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -150,179 +140,126 @@ jobs:
       # ========================================================================
       # STEP 1.2: Check for Ontology Directory
       # ========================================================================
-      # Verifies src/ontology/ exists and sets output flag
-      # ========================================================================
       - name: Check for ontology directory
         id: check
         run: |
           if [ -d "src/ontology" ]; then
-            echo "Ontology directory found."
+            echo "Ontology directory found: src/ontology/"
             echo "exists=true" >> $GITHUB_OUTPUT
           else
-            echo "No src/ontology directory found; skipping workflow."
+            echo "No src/ontology/ directory found — skipping workflow."
+            echo "Run the Setup New Ontology workflow first."
             echo "exists=false" >> $GITHUB_OUTPUT
           fi
 
   # ============================================================================
   # JOB 2: refresh-imports
   # ============================================================================
-  # Main job that performs import refresh operations
+  # Main job: runs ODK make targets to refresh all external import modules.
   #
-  # Dependencies: Requires check-ontology-dir to pass
-  # Condition: Only runs if src/ontology/ directory exists
-  # Container: ODK full image with all necessary tools
+  # Dependencies: requires check-ontology-dir to complete
+  # Condition: only runs if src/ontology/ exists
+  # Container: odkfull:v1.6 (provides make, ROBOT, Java, mirror tooling)
   # ============================================================================
   refresh-imports:
     runs-on: ubuntu-latest
-    
-    # Grant write permissions for committing updated imports
+
     permissions:
       contents: write
-    
-    # Job dependencies
+
     needs: check-ontology-dir
-    
-    # Conditional execution: only run if directory exists
+
     if: needs.check-ontology-dir.outputs.dir-exists == 'true'
-    
-    # Use ODK container for consistent tooling environment
-    # Version v1.6 pinned for reproducibility
-    # Includes: ROBOT, OWLTools, make, Java, Python
+
     container: obolibrary/odkfull:v1.6
 
     steps:
       # ========================================================================
       # STEP 2.1: Checkout Repository
       # ========================================================================
-      # Fetch complete repository with full git history
-      # 
-      # Why fetch-depth: 0?
-      # - Full history may be needed for ODK make targets
-      # - Allows git operations that reference commits/branches
-      # - Required for accurate import mirroring
+      # Full history needed for accurate ODK make target execution.
       # ========================================================================
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Full history
+          fetch-depth: 0
 
       # ========================================================================
       # STEP 2.2: Refresh Imports via ODK
       # ========================================================================
-      # Runs ODK make targets to update external ontology import modules
-      #
-      # Process:
-      # 1. Attempt standard refresh-imports target (most common)
-      # 2. If that fails, try per-import refresh (fallback for custom setups)
+      # Runs ODK make targets to update all external ontology import modules.
       #
       # Make variables:
-      # - IMP=true  : Enable import module generation
-      # - MIR=true  : Enable mirror mode (local caching of external ontologies)
-      # - PAT=false : Disable patient profile generation (if applicable)
-      # - -B        : Force rebuild (treats all targets as needing update)
+      # - IMP=true  : Enable import module generation (extracts terms)
+      # - MIR=true  : Enable mirror mode (downloads and caches external ontologies)
+      # - PAT=false : Disable DOSDP pattern generation (not needed for import refresh)
+      # - -B        : Force rebuild (treat all targets as out-of-date)
       #
-      # What this does:
-      # - Downloads latest versions of external ontologies
-      # - Extracts only needed terms (defined in imports/*_terms.txt)
-      # - Generates import module OWL files (imports/*_import.owl)
-      # - Caches external ontologies locally (mirror/ directory)
+      # What this does per import:
+      # 1. Downloads the full upstream ontology (mirroring to mirror/ directory)
+      # 2. Reads the term list from imports/{id}_terms.txt
+      # 3. Extracts a minimal module using SLME (Syntactic Locality Module Extraction)
+      # 4. Writes the extracted module to imports/{id}_import.owl
       #
       # Fallback logic:
-      # If refresh-imports target doesn't exist in Makefile, attempts to
-      # refresh specific import files directly (e.g., imports/pmdco_import.owl)
+      # If the standard `refresh-imports` make target fails (e.g. custom Makefile
+      # configuration), the step falls back to refreshing specific import targets
+      # directly. Customize the fallback target if your imports are named differently.
       # ========================================================================
-      - name: Refresh imports via ODK
+      - name: Refresh imports via ODK make targets
         working-directory: src/ontology
         run: |
-          # ===== OPTION A: Standard Refresh Target =====
-          # Most ODK repositories have a refresh-imports target
-          # This target processes all imports defined in *-odk.yaml
-          echo "Attempting standard refresh-imports target..."
+          echo "Attempting standard refresh-imports make target..."
           make IMP=true MIR=true PAT=false refresh-imports -B || {
             echo "Standard refresh-imports target not found or failed."
-            echo "Attempting per-import refresh (fallback)..."
-            
-            # ===== OPTION B: Per-Import Refresh (Fallback) =====
-            # If standard target fails, try refreshing specific imports
-            # Customize this section based on your ontology's imports
-            # Example: imports/pmdco_import.owl
-            #
-            # To find your import targets, check:
-            # 1. src/ontology/imports/ directory
-            # 2. project-odk.yaml import_group section
-            # 3. src/ontology/Makefile IMPORTS variable
+            echo "Falling back to per-import refresh..."
+
+            # Fallback: refresh specific import targets one by one.
+            # Add additional targets here if your ontology imports more than pmdco.
+            # To find target names: check src/ontology/imports/ for *_import.owl files
             make IMP=true MIR=true PAT=false imports/pmdco_import.owl -B || \
-              echo "Specific import target failed; no changes needed"
+              echo "Fallback target also failed; imports may already be up to date."
           }
-          
           echo "Import refresh complete."
 
       # ========================================================================
-      # STEP 2.3: Commit Updated Imports
+      # STEP 2.3: Commit Updated Import Files
       # ========================================================================
-      # Commits refreshed import files back to the repository
+      # Commits the refreshed import OWL files back to the repository.
       #
-      # Conditions:
-      # - Only runs for push/dispatch events (not pull requests)
-      # - Only commits if changes detected (action skips empty commits)
+      # Why --force?
+      # Import OWL files (imports/*_import.owl) are often listed in .gitignore
+      # because they are generated artifacts. --force bypasses .gitignore so
+      # the extracted modules are tracked in version control and available for
+      # downstream steps and collaborators without re-running the refresh.
       #
-      # What gets committed:
-      # - src/ontology/imports/*.owl : Updated import module files
-      #
-      # Why --force flag?
-      # - Import OWL files are often in .gitignore
-      # - --force overrides gitignore rules for these specific files
-      # - Ensures generated imports are tracked in version control
-      #
-      # Commit metadata:
-      # - Message: Descriptive message indicating automated refresh
-      # - Author: github-actions[bot] (distinguishes from human commits)
+      # Skipped for pull requests (imports are rebuilt after PR merge).
       # ========================================================================
-      - name: Commit updated imports
-        # Skip commits for pull requests (review changes manually in PR)
+      - name: Commit refreshed import files
         if: github.event_name != 'pull_request'
         uses: EndBug/add-and-commit@v9
         with:
-          # Descriptive commit message for git history
-          message: "Refresh imports via ODK"
-          
-          # Working directory (repository root)
+          message: "Refresh ontology imports via ODK (make refresh-imports)"
           cwd: "."
-          
-          # Add only import OWL files, forcing inclusion despite .gitignore
           add: "src/ontology/imports/*.owl --force"
-          
-          # Use GitHub Actions bot as commit author
           default_author: github_actions
-          
-          # Push to current branch
           push: true
 
       # ========================================================================
-      # STEP 2.4: Trigger Next Workflow (QC)
+      # STEP 2.4: Trigger QC Build Workflow
       # ========================================================================
-      # Dispatches repository event to start the QC workflow
+      # After refreshing imports, dispatch a repository event to kick off the
+      # Build/QC workflow (qc.yml) to rebuild all release artifacts with the
+      # updated import modules.
       #
-      # Workflow Chain:
-      # setup-repo → refresh-imports → [QC] → docs
+      # Workflow chain:
+      #   [this: refresh-imports] → trigger-qc → qc.yml → trigger-docs → docs.yml
       #
-      # Why repository_dispatch?
-      # - Allows explicit workflow chaining
-      # - Maintains clear separation between workflow stages
-      # - Prevents race conditions with concurrent triggers
-      #
-      # Condition: Only trigger for non-PR events (PRs don't auto-deploy)
-      #
-      # Event type: trigger-qc
-      # Listened for by: qc.yml
+      # Skipped for pull requests.
       # ========================================================================
-      - name: Trigger QC Workflow
-        # Skip for pull requests (QC will run via push trigger after PR merge)
+      - name: Trigger QC build workflow
         if: github.event_name != 'pull_request'
         uses: peter-evans/repository-dispatch@v3
         with:
-          # Use default GitHub token (automatically available)
           token: ${{ secrets.GITHUB_TOKEN }}
-          
-          # Event name that qc.yml listens for
           event-type: trigger-qc
