@@ -225,7 +225,7 @@ Declaration(AnnotationProperty(<https://w3id.org/pmd/co/logistics/PMD_0001032>))
 #   Object Properties
 ############################
 
-# Object Property: <http://purl.obolibrary.org/obo/RO_0002353> (is output of)
+# Object Property: <http://purl.obolibrary.org/obo/RO_0002353> (output of)
 
 AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/RO_0002353> "is output of"@en)
 
@@ -273,43 +273,43 @@ ObjectPropertyRange(<https://w3id.org/pmd/log/LOG_1900003> <http://purl.obolibra
 #   Classes
 ############################
 
-# Class: <http://purl.obolibrary.org/obo/BFO_0000015> (<http://purl.obolibrary.org/obo/BFO_0000015>)
+# Class: <http://purl.obolibrary.org/obo/BFO_0000015> (process)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <http://purl.obolibrary.org/obo/BFO_0000015> <https://spec.industrialontologies.org/ontology/core/Core/PlannedProcess>)
 
-# Class: <http://purl.obolibrary.org/obo/BFO_0000023> (<http://purl.obolibrary.org/obo/BFO_0000023>)
+# Class: <http://purl.obolibrary.org/obo/BFO_0000023> (role)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <http://purl.obolibrary.org/obo/BFO_0000023> <http://purl.obolibrary.org/obo/BFO_0000023>)
 
-# Class: <http://purl.obolibrary.org/obo/BFO_0000027> (<http://purl.obolibrary.org/obo/BFO_0000027>)
+# Class: <http://purl.obolibrary.org/obo/BFO_0000027> (object aggregate)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <http://purl.obolibrary.org/obo/BFO_0000027> <https://spec.industrialontologies.org/ontology/core/Core/EngineeredSystem>)
 
-# Class: <http://purl.obolibrary.org/obo/BFO_0000028> (<http://purl.obolibrary.org/obo/BFO_0000028>)
+# Class: <http://purl.obolibrary.org/obo/BFO_0000028> (three-dimensional spatial region)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <http://purl.obolibrary.org/obo/BFO_0000028> <http://purl.obolibrary.org/obo/BFO_0000028>)
 
-# Class: <http://purl.obolibrary.org/obo/BFO_0000029> (<http://purl.obolibrary.org/obo/BFO_0000029>)
+# Class: <http://purl.obolibrary.org/obo/BFO_0000029> (site)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <http://purl.obolibrary.org/obo/BFO_0000029> <http://purl.obolibrary.org/obo/BFO_0000029>)
 
-# Class: <http://purl.obolibrary.org/obo/BFO_0000034> (<http://purl.obolibrary.org/obo/BFO_0000034>)
+# Class: <http://purl.obolibrary.org/obo/BFO_0000034> (function)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <http://purl.obolibrary.org/obo/BFO_0000034> <http://purl.obolibrary.org/obo/BFO_0000034>)
 
-# Class: <http://purl.obolibrary.org/obo/BFO_0000040> (<http://purl.obolibrary.org/obo/BFO_0000040>)
+# Class: <http://purl.obolibrary.org/obo/BFO_0000040> (material entity)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <http://purl.obolibrary.org/obo/BFO_0000040> <http://purl.obolibrary.org/obo/BFO_0000040>)
 
-# Class: <http://purl.obolibrary.org/obo/IAO_0000104> (<http://purl.obolibrary.org/obo/IAO_0000104>)
+# Class: <http://purl.obolibrary.org/obo/IAO_0000104> (plan specification)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <http://purl.obolibrary.org/obo/IAO_0000104> <https://spec.industrialontologies.org/ontology/core/Core/PlanSpecification>)
 
-# Class: <http://purl.obolibrary.org/obo/IAO_0020000> (<http://purl.obolibrary.org/obo/IAO_0020000>)
+# Class: <http://purl.obolibrary.org/obo/IAO_0020000> (identifier)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <http://purl.obolibrary.org/obo/IAO_0020000> <https://spec.industrialontologies.org/ontology/core/Core/Identifier>)
 
-# Class: <http://purl.obolibrary.org/obo/OBI_0000571> (<http://purl.obolibrary.org/obo/OBI_0000571>)
+# Class: <http://purl.obolibrary.org/obo/OBI_0000571> (manufacturer role)
 
 EquivalentClasses(<http://purl.obolibrary.org/obo/OBI_0000571> <https://w3id.org/pmd/log/LOG_1000061>)
 
