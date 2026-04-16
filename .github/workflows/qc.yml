@@ -123,7 +123,22 @@ jobs:
       #   src/ontology/sparql/
       # ODK automatically discovers and runs them via sparql_test.
       # ──────────────────────────────────────────────────────────────────────
+      # ── Guard: skip ODK checks if repo not yet set up ─────────────────────
+      # src/ontology/ only exists after the setup-repo workflow has run.
+      # PRs against the template itself (before setup) skip all ODK steps.
+      # ──────────────────────────────────────────────────────────────────────
+      - name: Check ontology scaffold exists
+        id: scaffold
+        run: |
+          if [ -d "src/ontology" ] && [ -f "src/ontology/Makefile" ]; then
+            echo "present=true" >> $GITHUB_OUTPUT
+          else
+            echo "present=false" >> $GITHUB_OUTPUT
+            echo "src/ontology not found — skipping ODK checks (repo not yet set up)."
+          fi
+
       - name: ODK fast quality checks
+        if: steps.scaffold.outputs.present == 'true'
         run: |
           cd src/ontology
           make IMP=false PAT=false COMP=false MIR=false \
@@ -135,6 +150,7 @@ jobs:
       # To target a different profile (e.g. EL), change --profile EL.
       # ──────────────────────────────────────────────────────────────────────
       - name: Validate OWL DL profile
+        if: steps.scaffold.outputs.present == 'true'
         run: |
           cd src/ontology
           # ODK's reason_test writes the merged ontology to tmp/
