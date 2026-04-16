@@ -23,6 +23,7 @@
 - [Quick Start](#quick-start)
 - [Configuration Files](#configuration-files)
 - [CI/CD Workflows](#cicd-workflows)
+- [Release Process](#release-process)
 - [Development Guide](#development-guide)
 - [Import Architecture](#import-architecture)
 - [ID Range Allocation](#id-range-allocation)
@@ -96,6 +97,8 @@ application-ontology-template/
 ├── .github/workflows/           # CI/CD pipeline (5 workflows)
 │   ├── setup-repo.yml           #   Initial ontology scaffolding (22 steps)
 │   ├── qc.yml                   #   PR quality checks + full build
+│   ├── release.yml              #   Versioned release + GitHub release creation
+│   ├── enforce-tags.yml         #   Reject non-semver tags
 │   ├── refresh-imports.yml      #   Re-extract external imports via SLME
 │   ├── update-repo.yml          #   Sync repo structure from ODK config
 │   └── docs.yml                 #   Generate Widoco HTML documentation
@@ -380,14 +383,20 @@ env:
 | **Trigger** | Manual dispatch / `repository_dispatch: trigger-docs` |
 | **What it does** | Generates HTML documentation using [Widoco](https://github.com/dgarijo/Widoco) and deploys to GitHub Pages |
 
+### `release.yml` — Release Ontology
+| | |
+|:---|:---|
+| **Trigger** | Manual dispatch (enter version in UI) / push `v*.*.*` git tag |
+| **Container** | `obolibrary/odkfull:v1.6` |
+| **What it does** | Builds release artifacts → sets PMDco-convention `owl:versionIRI` → commits to `main` → creates GitHub release with OWL/TTL/JSON attached → triggers versioned docs |
+
 ### Workflow Chain
 
+<<<<<<< HEAD
 ```
-setup-repo  ──►  qc (ontology-build)  ──►  docs (Widoco)
-                         ▲
-     push to main ───────┘
-
-any pull_request ──►  qc (pr-checks)  ──►  PR comment
+setup-repo  ──►  qc (build)  ──►  docs (Widoco)
+                    ▲
+    push to main ───┘
 ```
 
 ---
