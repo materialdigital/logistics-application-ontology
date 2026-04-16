@@ -95,7 +95,7 @@ application-ontology-template/
 │
 ├── .github/workflows/           # CI/CD pipeline (5 workflows)
 │   ├── setup-repo.yml           #   Initial ontology scaffolding (22 steps)
-│   ├── qc.yml                   #   Build + quality control
+│   ├── qc.yml                   #   PR quality checks + full build
 │   ├── refresh-imports.yml      #   Re-extract external imports via SLME
 │   ├── update-repo.yml          #   Sync repo structure from ODK config
 │   └── docs.yml                 #   Generate Widoco HTML documentation
@@ -285,11 +285,82 @@ Five GitHub Actions workflows automate the entire ontology lifecycle:
 | **What it does** | Reads config files → configures ODK → seeds repo scaffold → creates import stubs → patches catalog → generates shared OWL backbone → extracts imports via SLME → creates ROBOT templates → injects annotations → validates → commits → triggers QC build |
 | **Container** | `obolibrary/odkfull:v1.6` |
 
-### `qc.yml` — Build Ontology
+### `qc.yml` — Build Ontology + PR Quality Checks
+
+`qc.yml` runs two different jobs depending on the event type:
+
+#### Job 1: `pr-checks` — Fast quality gates on every pull request
+
 | | |
 |:---|:---|
-| **Trigger** | Push to `main` / `repository_dispatch: trigger-qc` |
-| **What it does** | Runs `make test` (reasoner + syntax checks) → `make refresh-imports` → builds release artifacts (OWL, TTL, JSON) → commits results → triggers docs |
+| **Trigger** | Every pull request targeting `main` (no path filter) |
+| **Container** | `obolibrary/odkfull:v1.6` |
+| **What it does** | Runs fast ODK quality checks → validates OWL DL profile → posts report as PR comment |
+
+Checks performed (in order):
+
+| Check | ODK target / tool | What it catches |
+|:---|:---|:---|
+| ID range validation | `make validate_idranges` | IRI conflicts outside allocated ranges |
+| Consistency (ELK) | `make reason_test` | Unsatisfiable classes, logical contradictions |
+| SPARQL unit tests | `make sparql_test` | Custom SPARQL checks in `src/ontology/sparql/` |
+| ROBOT report | `make robot_reports` | Missing labels, definitions, synonyms |
+| OWL DL profile | `robot validate-profile` | OWL DL violations (undeclared entities, etc.) |
+
+Results are posted as a **comment on the PR** and also appear in the GitHub Actions Step Summary. If a previous run already posted a comment, it is updated in place rather than creating a new one.
+
+#### Job 2: `ontology-build` — Full build on push to main
+
+| | |
+|:---|:---|
+| **Trigger** | Push to `main` (ontology source files only) / `repository_dispatch: trigger-qc` / `workflow_dispatch` |
+| **Container** | `obolibrary/odkfull:v1.6` |
+| **What it does** | `make refresh-imports` → `make all_assets` → commits release artifacts → triggers `docs.yml` |
+
+#### Customising PR Quality Checks
+
+**Add custom SPARQL checks**
+
+Place any `.sparql` `ASK` or `SELECT` query in `src/ontology/sparql/`. ODK's `sparql_test` target picks them up automatically:
+
+```
+src/ontology/sparql/
+├── my-check-no-orphans.sparql
+└── my-check-required-annotations.sparql
+```
+
+**Disable a specific ODK check**
+
+Pass the corresponding flag as `false` in the `make` call inside `qc.yml`:
+
+```yaml
+# Example: skip pattern expansion and mirror downloads
+make IMP=false PAT=false COMP=false MIR=false validate_idranges reason_test sparql_test robot_reports
+```
+
+| Flag | Default | Effect when `false` |
+|:---|:---|:---|
+| `IMP` | true | Skip import refresh |
+| `PAT` | true | Skip pattern expansion |
+| `COMP` | true | Skip component rebuild |
+| `MIR` | true | Skip upstream mirror downloads |
+
+**Change the OWL profile checked**
+
+In `qc.yml`, find the `robot validate-profile` step and change `--profile DL` to `--profile EL` or `--profile RL` as needed.
+
+**Disable the PR comment** (keep only GitHub Step Summary)
+
+In `qc.yml`, remove or comment out the `gh pr comment` / `gh api` call at the end of the `Post QC report as PR comment` step's Python block.
+
+**Increase ROBOT memory** (for large upstream ontologies)
+
+In the `ontology-build` job, change `ROBOT_JAVA_ARGS=-Xmx6G` to a larger value:
+
+```yaml
+env:
+  ROBOT_ENV: 'ROBOT_JAVA_ARGS=-Xmx12G'
+```
 
 ### `refresh-imports.yml` — Refresh Ontology Imports
 | | |
@@ -312,9 +383,11 @@ Five GitHub Actions workflows automate the entire ontology lifecycle:
 ### Workflow Chain
 
 ```
-setup-repo  ──►  qc (build)  ──►  docs (Widoco)
-                    ▲
-    push to main ───┘
+setup-repo  ──►  qc (ontology-build)  ──►  docs (Widoco)
+                         ▲
+     push to main ───────┘
+
+any pull_request ──►  qc (pr-checks)  ──►  PR comment
 ```
 
 ---
