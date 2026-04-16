@@ -2,8 +2,6 @@ Level	Rule Name	Subject	Property	Value
 WARN	equivalent_class_axiom_no_genus	product identifier	IAO:0000219	material product
 WARN	missing_definition	industrial inventory	IAO:0000115	
 WARN	missing_definition	industrial inventory role	IAO:0000115	
-WARN	missing_definition	consigning process	IAO:0000115	
-WARN	missing_definition	freight forwarding process	IAO:0000115	
 WARN	missing_definition	manufacturer identifier	IAO:0000115	
 WARN	missing_definition	product identifier	IAO:0000115	
 WARN	missing_definition	batch identifier	IAO:0000115	
@@ -140,5 +138,7 @@ WARN	missing_definition	travel process	IAO:0000115
 WARN	missing_definition	acts on behalf of	IAO:0000115	
 WARN	missing_definition	owned by	IAO:0000115	
 WARN	missing_definition	owns	IAO:0000115	
+INFO	lowercase_definition	consigning process	IAO:0000115	business process that results in placing a material entity in the possession of some agent without changing the ownership until the material entity is sold
+INFO	lowercase_definition	freight forwarding process	IAO:0000115	business process of planning and coordinating the transportation of material products on behalf of a shipper
 INFO	missing_superclass	supply chain node role	rdfs:subClassOf	
 INFO	missing_superclass	manufacturing service	rdfs:subClassOf	

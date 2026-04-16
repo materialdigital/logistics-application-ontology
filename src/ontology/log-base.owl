@@ -12,14 +12,14 @@
      xmlns:dcterms="http://purl.org/dc/terms/"
      xmlns:logistics="https://w3id.org/pmd/co/logistics/">
     <owl:Ontology rdf:about="https://w3id.org/pmd/log/log-base.owl">
-        <owl:versionIRI rdf:resource="https://w3id.org/pmd/log/releases/2025-11-20/log-base.owl"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/pmd/log/releases/2026-04-16/log-base.owl"/>
         <dce:type rdf:resource="http://purl.obolibrary.org/obo/IAO_8000001"/>
         <dcterms:creator rdf:resource="https://orcid.org/0000-0003-1649-6832"/>
         <dcterms:description>This is an alignment of the IOF Supply Chain Ontologies Library to the Platform Material Digital Core Ontology. It contains ontologies to be used in the domain of supply chain and logistics.</dcterms:description>
         <dcterms:license>http://opensource.org/licenses/MIT</dcterms:license>
         <dcterms:title xml:lang="en">Platform Material Digital Application Ontology  for Logistics and supplychain (log)</dcterms:title>
         <rdfs:comment xml:lang="en">The logistics application ontology for use with PMD Core Ontology (PMDco). The scope of this module is the description of material science and engineering related logistics and general organization. Its is adopted from the IOF SupplyChain Module https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/</rdfs:comment>
-        <owl:versionInfo>2025-11-20</owl:versionInfo>
+        <owl:versionInfo>2026-04-16</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -32,6 +32,12 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000115 -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000115"/>
     
 
 
@@ -472,12 +478,6 @@
     
 
 
-    <!-- http://purl.obolibrary.org/obo/OBI_0000011 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OBI_0000011"/>
-    
-
-
     <!-- http://purl.obolibrary.org/obo/OBI_0000571 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OBI_0000571">
@@ -624,6 +624,7 @@
 
     <owl:Class rdf:about="https://w3id.org/pmd/log/LOG_0000002">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/log/LOG_1000130"/>
+        <obo:IAO_0000115>business process that results in placing a material entity in the possession of some agent without changing the ownership until the material entity is sold</obo:IAO_0000115>
         <obo:IAO_0000412>https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/ConsigningProcess</obo:IAO_0000412>
         <rdfs:label xml:lang="en">consigning process</rdfs:label>
         <skos:definition>business process that results in placing a material entity in the possession of some agent without changing the ownership until the material entity is sold</skos:definition>
@@ -645,6 +646,7 @@
                 </owl:intersectionOf>
             </owl:Class>
         </rdfs:subClassOf>
+        <obo:IAO_0000115>business process of planning and coordinating the transportation of material products on behalf of a shipper</obo:IAO_0000115>
         <obo:IAO_0000412>https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/FreightForwardingProcess</obo:IAO_0000412>
         <rdfs:label xml:lang="en">freight forwarding process</rdfs:label>
         <skos:definition>business process of planning and coordinating the transportation of material products on behalf of a shipper</skos:definition>
@@ -1716,7 +1718,7 @@
                                 <owl:intersectionOf rdf:parseType="Collection">
                                     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000015"/>
                                     <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002233"/>
                                         <owl:someValuesFrom>
                                             <owl:Class>
                                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -1760,7 +1762,7 @@
                         <owl:intersectionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000015"/>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002233"/>
                                 <owl:someValuesFrom>
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
@@ -4163,7 +4165,11 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000130"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000029"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002233"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -4175,10 +4181,6 @@
                                 </owl:intersectionOf>
                             </owl:Class>
                         </owl:someValuesFrom>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
-                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000029"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -4379,7 +4381,15 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000130"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000066"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000034"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000117"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000144"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002233"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -4392,21 +4402,25 @@
                             </owl:Class>
                         </owl:someValuesFrom>
                     </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000066"/>
-                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000034"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000117"/>
-                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000144"/>
-                    </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/log/LOG_1000130"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000066"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000034"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000117"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000144"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002233"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -4420,18 +4434,6 @@
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000066"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000034"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000117"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000144"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <obo:IAO_0000412>https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/WarehousingProcess</obo:IAO_0000412>
         <rdfs:label xml:lang="en">warehousing process</rdfs:label>
         <skos:definition>business process of storing products (material products) in a storage facility for future use</skos:definition>
@@ -4442,23 +4444,7 @@
     <!-- https://w3id.org/pmd/log/LOG_1000130 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/log/LOG_1000130">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000014"/>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
-                                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IAO_0000104"/>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
@@ -4475,6 +4461,22 @@
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002233"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000014"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IAO_0000104"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000412 rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/BusinessProcess"/>
         <rdfs:label xml:lang="en">business process</rdfs:label>
         <skos:definition xml:lang="en-us">planned process which is prescribed by a plan specification with one or more objectives specified by a business organization</skos:definition>
@@ -4485,12 +4487,16 @@
     <!-- https://w3id.org/pmd/log/LOG_1000131 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/log/LOG_1000131">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000011"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002233"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -4502,10 +4508,6 @@
                                 </owl:intersectionOf>
                             </owl:Class>
                         </owl:someValuesFrom>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
-                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000011"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -4588,12 +4590,16 @@
     <!-- https://w3id.org/pmd/log/LOG_1000134 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/log/LOG_1000134">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000011"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002233"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -4605,10 +4611,6 @@
                                 </owl:intersectionOf>
                             </owl:Class>
                         </owl:someValuesFrom>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
-                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000011"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -4780,12 +4782,16 @@
     <!-- https://w3id.org/pmd/log/LOG_1000144 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/log/LOG_1000144">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000011"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002233"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -4797,10 +4803,6 @@
                                 </owl:intersectionOf>
                             </owl:Class>
                         </owl:someValuesFrom>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
-                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000011"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>

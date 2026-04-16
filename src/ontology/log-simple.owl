@@ -11,13 +11,13 @@
      xmlns:terms="http://purl.org/dc/terms/"
      xmlns:logistics="https://w3id.org/pmd/co/logistics/">
     <owl:Ontology rdf:about="https://w3id.org/pmd/log/log-simple.owl">
-        <owl:versionIRI rdf:resource="https://w3id.org/pmd/log/releases/2025-11-20/log-simple.owl"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/pmd/log/releases/2026-04-16/log-simple.owl"/>
         <terms:creator rdf:resource="https://orcid.org/0000-0003-1649-6832"/>
         <terms:description>This is an alignment of the IOF Supply Chain Ontologies Library to the Platform Material Digital Core Ontology. It contains ontologies to be used in the domain of supply chain and logistics.</terms:description>
         <terms:license>http://opensource.org/licenses/MIT</terms:license>
         <terms:title xml:lang="en">Platform Material Digital Application Ontology  for Logistics and supplychain (log)</terms:title>
         <rdfs:comment xml:lang="en">The logistics application ontology for use with PMD Core Ontology (PMDco). The scope of this module is the description of material science and engineering related logistics and general organization. Its is adopted from the IOF SupplyChain Module https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/</rdfs:comment>
-        <owl:versionInfo>2025-11-20</owl:versionInfo>
+        <owl:versionInfo>2026-04-16</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -47,7 +47,54 @@
 
     <!-- http://purl.obolibrary.org/obo/IAO_0000115 -->
 
-    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000115"/>
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000115">
+        <obo:IAO_0000115 xml:lang="en">The official OBI definition, explaining the meaning of a class or property. Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions.</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">The official definition, explaining the meaning of a class or property. Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions.</obo:IAO_0000115>
+        <obo:IAO_0000116 xml:lang="en">2012-04-05: 
+Barry Smith
+
+The official OBI definition, explaining the meaning of a class or property: &apos;Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions&apos;  is terrible.
+
+Can you fix to something like:
+
+A statement of necessary and sufficient conditions explaining the meaning of an expression referring to a class or property.
+
+Alan Ruttenberg
+
+Your proposed definition is a reasonable candidate, except that it is very common that necessary and sufficient conditions are not given. Mostly they are necessary, occasionally they are necessary and sufficient or just sufficient. Often they use terms that are not themselves defined and so they effectively can&apos;t be evaluated by those criteria. 
+
+On the specifics of the proposed definition:
+
+We don&apos;t have definitions of &apos;meaning&apos; or &apos;expression&apos; or &apos;property&apos;. For &apos;reference&apos; in the intended sense I think we use the term &apos;denotation&apos;. For &apos;expression&apos;, I think we you mean symbol, or identifier. For &apos;meaning&apos; it differs for class and property. For class we want documentation that let&apos;s the intended reader determine whether an entity is instance of the class, or not. For property we want documentation that let&apos;s the intended reader determine, given a pair of potential relata, whether the assertion that the relation holds is true. The &apos;intended reader&apos; part suggests that we also specify who, we expect, would be able to understand the definition, and also generalizes over human and computer reader to include textual and logical definition. 
+
+Personally, I am more comfortable weakening definition to documentation, with instructions as to what is desirable. 
+
+We also have the outstanding issue of how to aim different definitions to different audiences. A clinical audience reading chebi wants a different sort of definition documentation/definition from a chemistry trained audience, and similarly there is a need for a definition that is adequate for an ontologist to work with.</obo:IAO_0000116>
+        <obo:IAO_0000116 xml:lang="en">2012-04-05: 
+Barry Smith
+
+The official OBI definition, explaining the meaning of a class or property: &apos;Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions&apos;  is terrible.
+
+Can you fix to something like:
+
+A statement of necessary and sufficient conditions explaining the meaning of an expression referring to a class or property.
+
+Alan Ruttenberg
+
+Your proposed definition is a reasonable candidate, except that it is very common that necessary and sufficient conditions are not given. Mostly they are necessary, occasionally they are necessary and sufficient or just sufficient. Often they use terms that are not themselves defined and so they effectively can&apos;t be evaluated by those criteria. 
+
+On the specifics of the proposed definition:
+
+We don&apos;t have definitions of &apos;meaning&apos; or &apos;expression&apos; or &apos;property&apos;. For &apos;reference&apos; in the intended sense I think we use the term &apos;denotation&apos;. For &apos;expression&apos;, I think we you mean symbol, or identifier. For &apos;meaning&apos; it differs for class and property. For class we want documentation that let&apos;s the intended reader determine whether an entity is instance of the class, or not. For property we want documentation that let&apos;s the intended reader determine, given a pair of potential relata, whether the assertion that the relation holds is true. The &apos;intended reader&apos; part suggests that we also specify who, we expect, would be able to understand the definition, and also generalizes over human and computer reader to include textual and logical definition. 
+
+Personally, I am more comfortable weakening definition to documentation, with instructions as to what is desirable. 
+
+We also have the outstanding issue of how to aim different definitions to different audiences. A clinical audience reading chebi wants a different sort of definition documentation/definition from a chemistry trained audience, and similarly there is a need for a definition that is adequate for an ontologist to work with.  </obo:IAO_0000116>
+        <obo:IAO_0000119 xml:lang="en">GROUP:OBI:&lt;http://purl.obolibrary.org/obo/obi&gt;</obo:IAO_0000119>
+        <rdfs:label>definition</rdfs:label>
+        <rdfs:label xml:lang="en">definition</rdfs:label>
+        <rdfs:label>textual definition</rdfs:label>
+    </owl:AnnotationProperty>
     
 
 
@@ -67,6 +114,12 @@
         <obo:IAO_0000119 xml:lang="en">GROUP:OBI:&lt;http://purl.obolibrary.org/obo/obi&gt;</obo:IAO_0000119>
         <rdfs:label xml:lang="en">definition source</rdfs:label>
     </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000233 -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000233"/>
     
 
 
@@ -178,6 +231,7 @@ A continuant cannot be part of an occurrent: use &apos;participates in&apos;. An
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000054">
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
         <rdfs:label xml:lang="en">has realization</rdfs:label>
+        <rdfs:label xml:lang="en">realized in</rdfs:label>
         <skos:definition xml:lang="en">b has realization c =Def c realizes b</skos:definition>
         <skos:example xml:lang="en">As for realizes</skos:example>
     </owl:ObjectProperty>
@@ -187,6 +241,7 @@ A continuant cannot be part of an occurrent: use &apos;participates in&apos;. An
     <!-- http://purl.obolibrary.org/obo/BFO_0000055 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000055">
+        <obo:IAO_0000115 xml:lang="en">Paraphrase of elucidation: a relation between a process and a realizable entity, where there is some material entity that is bearer of the realizable entity and participates in the process, and the realizable entity comes to be realized in the course of the process</obo:IAO_0000115>
         <rdfs:label xml:lang="en">realizes</rdfs:label>
         <skos:definition xml:lang="en">(Elucidation) realizes is a relation between a process b and realizable entity c such that c inheres in some d &amp; for all t, if b has participant d then c exists &amp; the type instantiated by b is correlated with the type instantiated by c</skos:definition>
         <skos:example xml:lang="en">A balding process realizes a disposition to go bald; a studying process realizes a student role; a process of pumping blood realizes the pumping function of a heart</skos:example>
@@ -251,22 +306,13 @@ A continuant cannot be part of an occurrent: use &apos;participates in&apos;. An
 
     <!-- http://purl.obolibrary.org/obo/BFO_0000196 -->
 
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000196">
-        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000197"/>
-        <rdfs:label xml:lang="en">bearer of</rdfs:label>
-        <skos:definition xml:lang="en">b bearer of c =Def c inheres in b</skos:definition>
-        <skos:example xml:lang="en">A patch of ink is the bearer of a colour quality; an organism is the bearer of a temperature quality</skos:example>
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000196"/>
     
 
 
     <!-- http://purl.obolibrary.org/obo/BFO_0000197 -->
 
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000197">
-        <rdfs:label xml:lang="en">inheres in</rdfs:label>
-        <skos:definition xml:lang="en">b inheres in c =Def b is a specifically dependent continuant &amp; c is an independent continuant that is not a spatial region &amp; b specifically depends on c</skos:definition>
-        <skos:example xml:lang="en">A shape inheres in a shaped object; a mass inheres in a material entity</skos:example>
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000197"/>
     
 
 
@@ -331,6 +377,7 @@ r is a portion of reality
 there is some c that is a concretization of g 
 every c that is a concretization of g specifically denotes r</obo:IAO_0000116>
         <obo:IAO_0000119 xml:lang="en">Conversations with Barry Smith, Werner Ceusters, Bjoern Peters, Michel Dumontier, Melanie Courtot, James Malone, Bill Hogan</obo:IAO_0000119>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
         <rdfs:label xml:lang="en">denotes</rdfs:label>
     </owl:ObjectProperty>
     
@@ -340,6 +387,7 @@ every c that is a concretization of g specifically denotes r</obo:IAO_0000116>
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000235">
         <obo:IAO_0000115 xml:lang="en">inverse of the relation &apos;denotes&apos;</obo:IAO_0000115>
+        <obo:IAO_0000233 rdf:resource="https://github.com/information-artifact-ontology/IAO/issues/206"/>
         <rdfs:label xml:lang="en">denoted by</rdfs:label>
     </owl:ObjectProperty>
     
@@ -376,6 +424,7 @@ every c that is a concretization of g specifically denotes r</obo:IAO_0000116>
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0000059">
         <obo:IAO_0000112 xml:lang="en">A journal article is an information artifact that inheres in some number of printed journals. For each copy of the printed journal there is some quality that carries the journal article, such as a pattern of ink. The quality (a specifically dependent continuant) concretizes the journal article (a generically dependent continuant), and both depend on that copy of the printed journal (an independent continuant).</obo:IAO_0000112>
         <obo:IAO_0000112 xml:lang="en">An investigator reads a protocol and forms a plan to carry out an assay. The plan is a realizable entity (a specifically dependent continuant) that concretizes the protocol (a generically dependent continuant), and both depend on the investigator (an independent continuant). The plan is then realized by the assay (a process).</obo:IAO_0000112>
+        <obo:IAO_0000115 xml:lang="en">A relationship between a specifically dependent continuant and a generically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant also depends on that same independent continuant. Multiple specifically dependent continuants can concretize the same generically dependent continuant.</obo:IAO_0000115>
         <obo:IAO_0000115 xml:lang="en">A relationship between a specifically dependent continuant or process and a generically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant or process also depends on that same independent continuant. Multiple specifically dependent continuants or processes can concretize the same generically dependent continuant.</obo:IAO_0000115>
         <rdfs:label xml:lang="en">concretizes</rdfs:label>
     </owl:ObjectProperty>
@@ -575,6 +624,7 @@ every c that is a concretization of g specifically denotes r</obo:IAO_0000116>
 
     <owl:Class rdf:about="https://w3id.org/pmd/log/LOG_0000002">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/log/LOG_1000130"/>
+        <obo:IAO_0000115>business process that results in placing a material entity in the possession of some agent without changing the ownership until the material entity is sold</obo:IAO_0000115>
         <obo:IAO_0000412>https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/ConsigningProcess</obo:IAO_0000412>
         <rdfs:label xml:lang="en">consigning process</rdfs:label>
         <skos:definition>business process that results in placing a material entity in the possession of some agent without changing the ownership until the material entity is sold</skos:definition>
@@ -596,6 +646,7 @@ every c that is a concretization of g specifically denotes r</obo:IAO_0000116>
                 </owl:intersectionOf>
             </owl:Class>
         </rdfs:subClassOf>
+        <obo:IAO_0000115>business process of planning and coordinating the transportation of material products on behalf of a shipper</obo:IAO_0000115>
         <obo:IAO_0000412>https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/FreightForwardingProcess</obo:IAO_0000412>
         <rdfs:label xml:lang="en">freight forwarding process</rdfs:label>
         <skos:definition>business process of planning and coordinating the transportation of material products on behalf of a shipper</skos:definition>
