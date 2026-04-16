@@ -5,6 +5,7 @@
 semantic.cache
 bin/
 
+.trunk/
 *.tmp
 *.tmp.obo
 *.tmp.owl

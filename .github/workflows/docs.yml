@@ -1,80 +1,334 @@
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: create widoco documentation
+# ==============================================================================
+# WORKFLOW: Generate & Deploy Versioned Documentation
+# ==============================================================================
+# Purpose: Build Widoco HTML documentation and deploy to GitHub Pages with
+#          full version history preserved.
+#
+# ╔═════════════════════════════════════════════════════════════════════╗
+# ║  BREAKING CHANGE vs. previous docs.yml                             ║
+# ║  ─────────────────────────────────────────────────────────────────  ║
+# ║  This workflow now deploys to the `gh-pages` BRANCH instead of     ║
+# ║  using the GitHub Actions Pages deployment API.                    ║
+# ║                                                                     ║
+# ║  REQUIRED one-time change in your repository settings:             ║
+# ║    Settings → Pages → Build and deployment → Source                ║
+# ║    Change from: "GitHub Actions"                                   ║
+# ║    Change to:   "Deploy from a branch"                             ║
+# ║                 Branch: gh-pages  /  (root)                        ║
+# ║                                                                     ║
+# ║  WHY this change was made:                                         ║
+# ║    The old approach (actions/deploy-pages) replaces the entire     ║
+# ║    Pages site on every deploy — making versioned docs impossible.  ║
+# ║    The gh-pages branch approach (peaceiris/actions-gh-pages with   ║
+# ║    keep_files: true) accumulates version directories without        ║
+# ║    overwriting older releases.                                     ║
+# ║                                                                     ║
+# ║  MIGRATION from old approach:                                      ║
+# ║    Your existing Pages content will be replaced on the next run.   ║
+# ║    If you want to preserve it, manually copy the content of your   ║
+# ║    existing Pages deployment into the gh-pages branch before       ║
+# ║    triggering this workflow.                                       ║
+# ╚═════════════════════════════════════════════════════════════════════╝
+#
+# ┌─────────────────────────────────────────────────────────────────────┐
+# │  Resulting GitHub Pages structure                                   │
+# │  ─────────────────────────────────────────────────────────────────  │
+# │  /                         root index — lists all versions           │
+# │  /dev/                     always the latest build from main (push) │
+# │  /dev/doc/                 Widoco HTML — development version         │
+# │  /dev/doc/ontology.ttl     TTL (served by Widoco)                   │
+# │  /dev/doc/ontology.jsonld  JSON-LD (served by Widoco)               │
+# │  /dev/doc/ontology.rdf     RDF/XML (served by Widoco)               │
+# │  /2025-11-20/              date-tagged release (preserved forever)  │
+# │  /2025-11-20/doc/          Widoco HTML for that release             │
+# │  /1.0.0/                   semver release (also supported)          │
+# │  /1.0.0/doc/               Widoco HTML for v1.0.0                   │
+# └─────────────────────────────────────────────────────────────────────┘
+#
+# How the version is determined:
+#   - From release.yml dispatch: client_payload.version = "1.0.0"
+#   - From workflow_dispatch:    version input (leave empty for "latest")
+#   - From regular qc.yml push:  no version in payload → "latest"
+#
+# Customisation:
+#   - Widoco language: change -lang en-de (see step "Build Widoco docs")
+#   - Widoco version:  change the JAR URL (see step "Build Widoco docs")
+#   - Memory:          set JAVA_OPTS=-Xmx4G if Widoco runs out of memory
+# ==============================================================================
+
+name: Generate Versioned Documentation
 
 on:
-  workflow_run:
-    workflows: ["build"]
-    types:
-      - completed
-    branches: ["main"]
+  # ── From qc.yml (regular build) or release.yml (versioned release) ────────
+  # release.yml passes {"version": "1.0.0"} in client_payload.
+  # qc.yml passes no version → docs are published under /latest/.
+  repository_dispatch:
+    types: [trigger-docs]
 
-  # Allows you to run this workflow manually from the Actions tab
+  # ── Manual trigger ────────────────────────────────────────────────────────
   workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to document (e.g. 1.0.0). Leave empty to rebuild 'latest'."
+        required: false
+        type: string
+        default: ''
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# ==============================================================================
+# PERMISSIONS
+# ==============================================================================
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write   # Required to push to gh-pages branch
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# ==============================================================================
+# CONCURRENCY
+# ==============================================================================
+# Serialize deployments — never run two at the same time or the gh-pages branch
+# could get corrupted by two concurrent pushes.
 concurrency:
-  group: "pages"
+  group: gh-pages-deploy
   cancel-in-progress: false
 
+# ==============================================================================
+# JOBS
+# ==============================================================================
 jobs:
-  # Check job
+
+  # ============================================================================
+  # JOB 1: check
+  # ============================================================================
+  # Verify the ontology has been scaffolded and find the full OWL file.
+  # Resolves the version string for this build.
+  # ============================================================================
   check:
+    name: Pre-flight check
     runs-on: ubuntu-latest
+
     outputs:
       ontology-exists: ${{ steps.check.outputs.exists }}
-      ontology-file: ${{ steps.check.outputs.file }}
+      ontology-file:   ${{ steps.check.outputs.file }}
+      version:         ${{ steps.ver.outputs.version }}
+
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
+
       - name: Check for ontology file
         id: check
         run: |
-          ONTOLOGY_FILE=$(find src/ontology/ -name "*-simple.owl" -type f | head -1)
+          ONTOLOGY_FILE=$(find src/ontology/ -name "*-full.owl" -type f 2>/dev/null | head -1)
           if [ -z "$ONTOLOGY_FILE" ]; then
-            echo "No *-full.owl file found in src/ontology/ directory."
+            echo "No *-full.owl found — ontology not yet built. Skipping docs."
             echo "exists=false" >> $GITHUB_OUTPUT
+            echo "file=" >> $GITHUB_OUTPUT
           else
-            echo "Found ontology file: $ONTOLOGY_FILE"
+            echo "Found: $ONTOLOGY_FILE"
             echo "exists=true" >> $GITHUB_OUTPUT
             echo "file=$ONTOLOGY_FILE" >> $GITHUB_OUTPUT
           fi
 
-  # Build job
-  build:
-    runs-on: ubuntu-latest
+      # ── Determine version ─────────────────────────────────────────────────
+      # Priority: repository_dispatch payload → workflow_dispatch input → "latest"
+      # ──────────────────────────────────────────────────────────────────────
+      - name: Resolve version
+        id: ver
+        run: |
+          PAYLOAD="${{ github.event.client_payload.version }}"
+          INPUT="${{ inputs.version }}"
+          VERSION="${PAYLOAD:-${INPUT:-latest}}"
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Building docs for version: $VERSION"
+
+  # ============================================================================
+  # JOB 2: build-and-deploy
+  # ============================================================================
+  # Runs Widoco, copies serializations, assembles the Pages site, and pushes
+  # to the gh-pages branch.
+  #
+  # Uses peaceiris/actions-gh-pages with keep_files: true so that each run
+  # ADDS a new version directory without deleting existing ones.
+  # ============================================================================
+  build-and-deploy:
+    name: Build & deploy docs
     needs: check
     if: needs.check.outputs.ontology-exists == 'true'
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Build HTML for main
-        run: |
-          wget -O widoco.jar https://github.com/dgarijo/Widoco/releases/download/v1.4.25/widoco-1.4.25-jar-with-dependencies_JDK-11.jar
-          mkdir ./_site
-          java -jar widoco.jar -ontFile ${{ needs.check.outputs.ontology-file }} -outFolder ./_site -uniteSections -includeAnnotationProperties -lang en-de -getOntologyMetadata -noPlaceHolderText -rewriteAll -webVowl
-      - name: add default entry point
-        run: |
-          cp ./_site/index-en.html ./_site/index.html
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: build
+
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # ── Fetch existing gh-pages content ───────────────────────────────────
+      # We need the list of already-published versions so we can regenerate
+      # the root index.html with all versions (old + new).
+      # ──────────────────────────────────────────────────────────────────────
+      - name: Fetch existing gh-pages content
+        run: |
+          git fetch origin gh-pages:gh-pages 2>/dev/null || true
+          if git show-ref --verify --quiet refs/heads/gh-pages; then
+            git worktree add ./gh-pages-existing gh-pages
+          else
+            mkdir -p ./gh-pages-existing
+            echo "gh-pages branch does not exist yet — first deployment."
+          fi
+
+      # ── Download Widoco ───────────────────────────────────────────────────
+      # Pinned to v1.4.25. To upgrade, update the URL below.
+      # ──────────────────────────────────────────────────────────────────────
+      - name: Download Widoco
+        run: |
+          wget -q -O widoco.jar \
+            https://github.com/dgarijo/Widoco/releases/download/v1.4.25/widoco-1.4.25-jar-with-dependencies_JDK-11.jar
+
+      # ── Build Widoco docs ─────────────────────────────────────────────────
+      # Output goes to ./_site/<version>/doc/
+      #
+      # Widoco flags:
+      #   -lang en-de               English + German docs (change as needed)
+      #   -uniteSections            All sections in one page per lang
+      #   -includeAnnotationProperties  Documents annotation properties
+      #   -getOntologyMetadata      Reads title/authors/version from OWL file
+      #   -noPlaceHolderText        Removes template placeholder text
+      #   -rewriteAll               Always regenerate (don't skip existing files)
+      #   -webVowl                  Include interactive WebVOWL diagram
+      #
+      # To change language, edit -lang. Available codes: en, de, es, fr, it, ...
+      # ──────────────────────────────────────────────────────────────────────
+      - name: Build Widoco docs
+        run: |
+          VERSION="${{ needs.check.outputs.version }}"
+          ONTFILE="${{ needs.check.outputs.ontology-file }}"
+          mkdir -p "./_site/${VERSION}/doc"
+
+          java -jar widoco.jar \
+            -ontFile "$ONTFILE" \
+            -outFolder "./_site/${VERSION}/doc" \
+            -uniteSections \
+            -includeAnnotationProperties \
+            -lang en-de \
+            -getOntologyMetadata \
+            -noPlaceHolderText \
+            -rewriteAll \
+            -webVowl
+
+          # Default entry point (English)
+          cp "./_site/${VERSION}/doc/index-en.html" "./_site/${VERSION}/doc/index.html" || true
+
+      # ── Note: serializations are served by Widoco automatically ─────────────
+      # Widoco copies the source ontology file and generates download buttons
+      # for JSON-LD, RDF/XML, N-Triples, and TTL in the HTML documentation.
+      # The files are placed at the root of the doc/ output as ontology.jsonld,
+      # ontology.rdf, ontology.ntx, ontology.ttl — no manual copy needed.
+
+      # ── Update /dev/ ──────────────────────────────────────────────────────
+      # /dev/ always mirrors the latest build from main (every push).
+      # Named releases (e.g. /2025-11-20/ or /1.0.0/) are preserved alongside.
+      # This gives a stable URL for development/preview access.
+      # ──────────────────────────────────────────────────────────────────────
+      - name: Update /dev/
+        run: |
+          VERSION="${{ needs.check.outputs.version }}"
+          rm -rf ./_site/dev
+          cp -r "./_site/${VERSION}" ./_site/dev
+
+      # ── Build root index.html ─────────────────────────────────────────────
+      # Generates a simple version listing page as the site root.
+      # Reads existing version directories from the previously fetched
+      # gh-pages branch and adds the current version to the list.
+      # ──────────────────────────────────────────────────────────────────────
+      - name: Build root index.html
+        run: |
+          VERSION="${{ needs.check.outputs.version }}"
+
+          python3 - <<'PYEOF'
+          import os, re
+
+          current = os.environ.get("CURRENT_VERSION", "latest")
+
+          # Collect versions from existing gh-pages + the one just built
+          existing = set()
+          for d in os.listdir("./gh-pages-existing"):
+              if os.path.isdir(f"./gh-pages-existing/{d}") and d not in ("latest", ".git"):
+                  existing.add(d)
+          existing.add(current)
+          existing.discard("latest")
+
+          # Sort: semver entries first (newest first), then non-semver entries
+          def sort_key(v):
+              m = re.match(r'^(\d+)\.(\d+)\.(\d+)$', v)
+              return (1, -int(m.group(1)), -int(m.group(2)), -int(m.group(3))) if m else (2, v)
+
+          versions = sorted(existing, key=sort_key)
+
+          rows = ""
+          for v in versions:
+              tag = " ← current" if v == current else ""
+              rows += f"""
+                <tr>
+                  <td><strong>{v}</strong>{tag}</td>
+                  <td><a href="{v}/doc/">HTML Documentation</a></td>
+                </tr>"""
+
+          html = f"""<!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="utf-8">
+            <title>Ontology Documentation</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <style>
+              body {{ font-family: sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; }}
+              h1 {{ border-bottom: 2px solid #333; padding-bottom: .5rem; }}
+              table {{ border-collapse: collapse; width: 100%; margin-top: 1rem; }}
+              th, td {{ border: 1px solid #ddd; padding: .6rem 1rem; text-align: left; }}
+              th {{ background: #f5f5f5; }}
+              a {{ color: #0066cc; }}
+              .dev {{ background: #fffbe6; }}
+            </style>
+          </head>
+          <body>
+            <h1>Ontology Documentation</h1>
+            <p>
+              Development build: <a href="dev/doc/">dev/doc/</a>
+              &nbsp;&mdash;&nbsp; updated on every push to main
+            </p>
+            <h2>Releases</h2>
+            <table>
+              <thead>
+                <tr><th>Version</th><th>Documentation</th></tr>
+              </thead>
+              <tbody>{rows}
+              </tbody>
+            </table>
+          </body>
+          </html>
+          """
+          with open("./_site/index.html", "w") as f:
+              f.write(html)
+          print("root index.html written.")
+          PYEOF
+        env:
+          CURRENT_VERSION: ${{ needs.check.outputs.version }}
+
+      # ── Deploy to gh-pages branch ─────────────────────────────────────────
+      # keep_files: true  → existing version directories are NOT deleted.
+      #                     Only new/updated files are written.
+      #
+      # This is the key mechanism that preserves old release docs.
+      #
+      # NOTE: If you need to DELETE an old version from Pages, you must
+      # manually remove it from the gh-pages branch via:
+      #   git clone <repo> --branch gh-pages
+      #   rm -rf <version>/
+      #   git commit -am "Remove version <version>" && git push
+      # ──────────────────────────────────────────────────────────────────────
+      - name: Deploy to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          keep_files: true
+          user_name: github-actions[bot]
+          user_email: github-actions[bot]@users.noreply.github.com
+          commit_message: "docs: publish ${{ needs.check.outputs.version }}"

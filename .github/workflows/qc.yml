@@ -1,39 +1,340 @@
-# Basic ODK workflow
+# ==============================================================================
+# WORKFLOW: Build Ontology (Quality Control)
+# ==============================================================================
+# Purpose: Two-phase CI — fast PR checks on every pull request, full build on
+#          push/dispatch.
+#
+# ┌─────────────────────────────────────────────────────────────────────┐
+# │  Job 1: pr-checks  (pull_request events only)                       │
+# │  ─────────────────────────────────────────────────────────────────  │
+# │  Fast ODK quality gates run on every PR regardless of which files   │
+# │  changed. Results are posted as a comment on the PR.                │
+# │                                                                     │
+# │  Checks performed:                                                  │
+# │    • validate_idranges  — IRI ranges in *-idranges.owl are intact  │
+# │    • reason_test        — ontology is consistent (ELK reasoner)    │
+# │    • sparql_test        — SPARQL unit tests in src/ontology/sparql/ │
+# │    • robot_reports      — ROBOT report (missing labels, etc.)      │
+# │    • validate-profile DL — ontology is valid OWL DL                │
+# │                                                                     │
+# │  Customisation:                                                     │
+# │    Add *.sparql files to src/ontology/sparql/ to extend checks.    │
+# │    See README § "Customising PR Quality Checks".                   │
+# │                                                                     │
+# │  To disable a check, pass its make flag as false, e.g.:            │
+# │    make IMP=false PAT=false COMP=false MIR=false reason_test        │
+# ├─────────────────────────────────────────────────────────────────────┤
+# │  Job 2: ontology-build  (push / dispatch events)                   │
+# │  ─────────────────────────────────────────────────────────────────  │
+# │  Full build triggered only when ontology source files change on     │
+# │  main (or via workflow/repository dispatch).                        │
+# │                                                                     │
+# │  Steps:                                                             │
+# │    1. make refresh-imports  — re-extract SLME modules               │
+# │    2. make all_assets       — generate OWL/TTL/JSON release files  │
+# │    3. Commit release artifacts back to main                        │
+# │    4. Dispatch trigger-docs to start docs.yml                      │
+# └─────────────────────────────────────────────────────────────────────┘
+#
+# Execution chain:
+#   setup-repo → [ontology-build] → docs
+#   update-repo → [ontology-build] → docs
+#   push to main (ontology files) → [ontology-build] → docs
+#   any PR → [pr-checks]
+# ==============================================================================
 
-name: build
+name: Build Ontology
 
-# Controls when the action will run.
+# ==============================================================================
+# WORKFLOW TRIGGERS
+# ==============================================================================
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
-  push:
-    branches: ["*"]
-  pull_request:
-    branches: ["*"]
+  # ── Trigger from setup-repo / update-repo ──────────────────────────────────
+  repository_dispatch:
+    types: [trigger-qc]
 
-  # Allows you to run this workflow manually from the Actions tab
+  # ── Push to main: full build (path-filtered to ontology source files) ───────
+  # Bot commits from this workflow touch only release artifacts (*.owl, *.ttl,
+  # *.json) which are NOT in the paths list below, so there is no infinite loop.
+  push:
+    branches: ["main"]
+    paths:
+      - 'src/ontology/*-edit.owl'
+      - 'src/ontology/components/**'
+      - 'src/ontology/imports/**'
+      - 'src/ontology/Makefile'
+      - 'src/ontology/*-Makefile'
+
+  # ── Pull request: fast PR checks (no path filter — runs on every PR) ────────
+  pull_request:
+    branches: ["main"]
+
+  # ── Manual trigger ──────────────────────────────────────────────────────────
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# ==============================================================================
+# ENVIRONMENT
+# ==============================================================================
+env:
+  DEFAULT_BRANCH: main
+
+# ==============================================================================
+# JOBS
+# ==============================================================================
 jobs:
-  # This workflow contains a single job called "ontology_qc"
-  ontology_qc:
-    # The type of runner that the job will run on
+
+  # ============================================================================
+  # JOB 1: pr-checks
+  # ============================================================================
+  # Runs ONLY on pull_request events. Performs fast ODK quality gates and
+  # posts a summary comment on the PR.
+  #
+  # Flags explained:
+  #   IMP=false   — skip import refresh (use committed imports as-is)
+  #   PAT=false   — skip pattern expansion
+  #   COMP=false  — skip component rebuild
+  #   MIR=false   — skip mirror downloads
+  #
+  # These flags keep the PR check fast (< 3 min typically) by skipping the
+  # heavy steps that are only needed for a full release build.
+  # ============================================================================
+  pr-checks:
+    name: PR Quality Checks
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     container: obolibrary/odkfull:v1.6
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
+    permissions:
+      contents: read
+      pull-requests: write
 
-      - name: Build ontology
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ── Fast ODK quality gates ─────────────────────────────────────────────
+      # Targets:
+      #   validate_idranges  checks *-idranges.owl is consistent with edit file
+      #   reason_test        runs ELK reasoner; also produces tmp/merged-*.ofn
+      #   sparql_test        runs all *.sparql tests in src/ontology/sparql/
+      #   robot_reports      ROBOT report: missing labels, synonyms, definitions
+      #
+      # Add custom SPARQL checks by placing *.sparql files in:
+      #   src/ontology/sparql/
+      # ODK automatically discovers and runs them via sparql_test.
+      # ──────────────────────────────────────────────────────────────────────
+      # ── Guard: skip ODK checks if repo not yet set up ─────────────────────
+      # src/ontology/ only exists after the setup-repo workflow has run.
+      # PRs against the template itself (before setup) skip all ODK steps.
+      # ──────────────────────────────────────────────────────────────────────
+      - name: Check ontology scaffold exists
+        id: scaffold
+        run: |
+          if [ -d "src/ontology" ] && [ -f "src/ontology/Makefile" ]; then
+            echo "present=true" >> $GITHUB_OUTPUT
+          else
+            echo "present=false" >> $GITHUB_OUTPUT
+            echo "src/ontology not found — skipping ODK checks (repo not yet set up)."
+          fi
+
+      - name: ODK fast quality checks
+        if: steps.scaffold.outputs.present == 'true'
+        run: |
+          cd src/ontology
+          make IMP=false PAT=false COMP=false MIR=false \
+            validate_idranges reason_test sparql_test robot_reports
+
+      # ── OWL DL profile validation ──────────────────────────────────────────
+      # Uses the merged ontology file produced by reason_test above.
+      # Fails the job if the ontology violates OWL DL constraints.
+      # To target a different profile (e.g. EL), change --profile EL.
+      # ──────────────────────────────────────────────────────────────────────
+      - name: Validate OWL DL profile
+        if: steps.scaffold.outputs.present == 'true'
+        run: |
+          cd src/ontology
+          # ODK's reason_test writes the merged ontology to tmp/
+          MERGED=$(ls tmp/merged-*-edit.ofn 2>/dev/null | head -1)
+          if [ -z "$MERGED" ]; then
+            echo "No merged file found in tmp/ — skipping DL profile check."
+            exit 0
+          fi
+          robot validate-profile \
+            --profile DL \
+            --input "$MERGED" \
+            --output ../../validation.txt \
+            || { cat ../../validation.txt; exit 1; }
+
+      # ── Collect ROBOT report and post PR comment ───────────────────────────
+      # Reads the report TSV produced by robot_reports and posts a markdown
+      # summary both to the GitHub Step Summary and as a PR comment.
+      #
+      # The comment is upserted: if a previous run already posted a comment
+      # with the <!-- ontology-qc-report --> marker it will be updated in place
+      # rather than creating a new comment on every push to the PR branch.
+      #
+      # To disable the PR comment (keep only the Step Summary), remove the
+      # gh pr comment / gh api call at the end of the Python block below.
+      # ──────────────────────────────────────────────────────────────────────
+      - name: Post QC report as PR comment
+        if: always()
         env:
-          DEFAULT_BRANCH: main
-        run: cd src/ontology && make refresh-imports all_assets ROBOT_ENV='ROBOT_JAVA_ARGS=-Xmx6G'
-      - name: Commit files # commit the src folder
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 - <<'EOF'
+          import csv, os, glob, subprocess
+
+          def read_report(pattern):
+              files = glob.glob(pattern)
+              if not files:
+                  return []
+              rows = []
+              with open(files[0], newline="") as f:
+                  reader = csv.DictReader(f, delimiter="\t")
+                  for row in reader:
+                      rows.append(row)
+              return rows
+
+          def severity_emoji(level):
+              return {"ERROR": "🔴", "WARN": "🟡", "INFO": "🔵"}.get(level.upper(), "⚪")
+
+          report_rows = read_report("src/ontology/*.report.tsv")
+
+          if not report_rows:
+              issues_md = "_No issues found — all ROBOT report checks passed._"
+          else:
+              errors   = [r for r in report_rows if r.get("Level","").upper() == "ERROR"]
+              warnings = [r for r in report_rows if r.get("Level","").upper() == "WARN"]
+              infos    = [r for r in report_rows if r.get("Level","").upper() == "INFO"]
+
+              lines = []
+              if errors:
+                  lines.append(f"**🔴 Errors: {len(errors)}**")
+              if warnings:
+                  lines.append(f"**🟡 Warnings: {len(warnings)}**")
+              if infos:
+                  lines.append(f"**🔵 Info: {len(infos)}**")
+
+              if errors or warnings:
+                  lines.append("")
+                  lines.append("| Level | Subject | Property | Value |")
+                  lines.append("| --- | --- | --- | --- |")
+                  for r in (errors + warnings)[:50]:  # cap at 50 rows
+                      lvl  = severity_emoji(r.get("Level","")) + " " + r.get("Level","")
+                      subj = r.get("Subject", r.get("Entity",""))
+                      prop = r.get("Property","")
+                      val  = r.get("Value", r.get("Note",""))
+                      lines.append(f"| {lvl} | {subj} | {prop} | {val} |")
+                  if len(errors + warnings) > 50:
+                      lines.append(f"_… and {len(errors+warnings)-50} more. Download the full report artifact._")
+              issues_md = "\n".join(lines)
+
+          # Read DL validation result if present
+          dl_md = ""
+          if os.path.exists("validation.txt"):
+              content = open("validation.txt").read().strip()
+              if content:
+                  dl_md = f"\n\n### OWL DL Profile\n```\n{content[:2000]}\n```"
+
+          marker = "<!-- ontology-qc-report -->"
+          md = (
+              f"{marker}\n"
+              f"## Ontology Quality Check\n\n"
+              f"### ROBOT Report\n{issues_md}"
+              f"{dl_md}\n"
+          )
+
+          # Write to GitHub Step Summary
+          summary_path = os.environ.get("GITHUB_STEP_SUMMARY", "")
+          if summary_path:
+              with open(summary_path, "a") as f:
+                  f.write(md)
+
+          # Post / update PR comment
+          pr_ref = os.environ.get("GITHUB_REF", "")
+          pr_num = pr_ref.replace("refs/pull/", "").replace("/merge", "")
+          if not pr_num.isdigit():
+              print("Not a PR context — skipping comment.")
+          else:
+              repo = os.environ["GITHUB_REPOSITORY"]
+              result = subprocess.run(
+                  ["gh", "api", f"repos/{repo}/issues/{pr_num}/comments",
+                   "--jq", f'[.[] | select(.body | startswith("{marker}")) | .id][0]'],
+                  capture_output=True, text=True
+              )
+              comment_id = result.stdout.strip()
+              if comment_id and comment_id != "null":
+                  subprocess.run(
+                      ["gh", "api", f"repos/{repo}/issues/comments/{comment_id}",
+                       "-X", "PATCH", "-f", f"body={md}"],
+                      check=True
+                  )
+              else:
+                  subprocess.run(
+                      ["gh", "pr", "comment", pr_num, "--repo", repo, "--body", md],
+                      check=True
+                  )
+          EOF
+
+      # ── Archive reports ────────────────────────────────────────────────────
+      - name: Archive QC reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qc-reports
+          path: |
+            src/ontology/*.report.tsv
+            validation.txt
+          retention-days: 14
+
+  # ============================================================================
+  # JOB 2: ontology-build
+  # ============================================================================
+  # Runs for push / repository_dispatch / workflow_dispatch events.
+  # Performs the full ODK build and commits release artifacts to main.
+  # ============================================================================
+  ontology-build:
+    name: Build Ontology
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    container: obolibrary/odkfull:v1.6
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # ── Full ODK build ─────────────────────────────────────────────────────
+      # refresh-imports: re-download upstream ontologies and extract SLME modules
+      # all_assets:      generate OWL/TTL/JSON release files + QC reports
+      #
+      # Memory: ROBOT_JAVA_ARGS=-Xmx6G is sufficient for most ontologies.
+      # Increase to -Xmx8G / -Xmx12G if you hit OutOfMemory errors.
+      # ──────────────────────────────────────────────────────────────────────
+      - name: Build ontology (refresh imports + generate all release assets)
+        env:
+          ROBOT_ENV: 'ROBOT_JAVA_ARGS=-Xmx6G'
+        run: |
+          cd src/ontology
+          make refresh-imports all_assets
+
+      # ── Commit release artifacts ───────────────────────────────────────────
+      - name: Commit ontology release assets
         uses: EndBug/add-and-commit@v9
         with:
-          message: "updated ontology"
-          add: "*.* --force"
-          cwd: "./src/"
+          message: "Building the ontology from the edits"
+          cwd: "."
+          add: "src/ontology/*.owl src/ontology/*.json src/ontology/*.ttl src/ontology/imports/*.owl --force"
           default_author: github_actions
+          push: true
+
+      # ── Trigger documentation workflow ─────────────────────────────────────
+      - name: Trigger Documentation Workflow
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          event-type: trigger-docs

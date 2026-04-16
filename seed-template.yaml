@@ -1,13 +1,10 @@
-id: log
+id: xxx
 title: "My Application Ontology"
 github_org: materialdigital
 git_main_branch: main
-repo: logistics-application-ontology
-uribase: https://w3id.org/pmd
-uribase_suffix: log
-
-namespaces:
-  - https://w3id.org/pmd/log/
+repo: app-ontology-template
+uribase: https://w3id.org/pmd/xxx
+uribase_suffix: xxx
 
 release_artefacts:
   - base
@@ -19,12 +16,10 @@ export_formats:
   - ttl
 remove_owl_nothing: true
 
-ci: []
-
 import_group:
   products:
     - id: pmdco
       module_type: mirror
-      mirror_from: https://w3id.org/pmd/co/3.0.0-alpha4
+      mirror_from: https://materialdigital.github.io/core-ontology/ontology.owl
       base_iris:
         - https://w3id.org/pmd/co/
