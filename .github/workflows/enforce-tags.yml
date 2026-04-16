@@ -1,0 +1,51 @@
+# ==============================================================================
+# WORKFLOW: Enforce Tag Naming Convention
+# ==============================================================================
+# Purpose: Reject any git tag that does not follow the required semver format.
+#
+# Required format: v<major>.<minor>.<patch>  (e.g. v1.0.0, v2.3.11)
+#
+# Tags that do NOT match are immediately deleted and the push fails with a
+# clear error message. This prevents accidental date-based tags (v2025-11-20),
+# branch-style tags, or other formats from entering the repository.
+#
+# Note: This workflow fires on every tag push. For conforming tags it exits
+# in ~5 seconds and costs almost nothing.
+#
+# Alternative (native, no workflow needed):
+#   GitHub Rulesets → New ruleset → Tags → Metadata restrictions →
+#   Branch/tag name pattern → regex: v\d+\.\d+\.\d+
+#   (Requires GitHub Team/Pro or public repository)
+# ==============================================================================
+
+name: Enforce Tag Convention
+
+on:
+  push:
+    tags:
+      - "*"
+
+permissions:
+  contents: write   # Required to delete non-conforming tags
+
+jobs:
+  check-tag:
+    name: Validate tag format
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check tag matches v<major>.<minor>.<patch>
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+          echo "Tag pushed: $TAG"
+
+          if echo "$TAG" | grep -qE '^v[0-9]+\.[0-9]+\.[0-9]+$'; then
+            echo "Tag '$TAG' conforms to semver convention — OK."
+          else
+            echo "::error::Tag '$TAG' rejected. Only semver tags are allowed (e.g. v1.0.0)."
+            echo "Deleting non-conforming tag..."
+            gh api repos/${{ github.repository }}/git/refs/tags/${TAG} -X DELETE
+            exit 1
+          fi

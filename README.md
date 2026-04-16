@@ -23,6 +23,7 @@
 - [Quick Start](#quick-start)
 - [Configuration Files](#configuration-files)
 - [CI/CD Workflows](#cicd-workflows)
+- [Release Process](#release-process)
 - [Development Guide](#development-guide)
 - [Import Architecture](#import-architecture)
 - [ID Range Allocation](#id-range-allocation)
@@ -95,7 +96,9 @@ application-ontology-template/
 │
 ├── .github/workflows/           # CI/CD pipeline (5 workflows)
 │   ├── setup-repo.yml           #   Initial ontology scaffolding (22 steps)
-│   ├── qc.yml                   #   Build + quality control
+│   ├── qc.yml                   #   PR quality checks + full build
+│   ├── release.yml              #   Versioned release + GitHub release creation
+│   ├── enforce-tags.yml         #   Reject non-semver tags
 │   ├── refresh-imports.yml      #   Re-extract external imports via SLME
 │   ├── update-repo.yml          #   Sync repo structure from ODK config
 │   └── docs.yml                 #   Generate Widoco HTML documentation
@@ -309,13 +312,102 @@ Five GitHub Actions workflows automate the entire ontology lifecycle:
 | **Trigger** | Manual dispatch / `repository_dispatch: trigger-docs` |
 | **What it does** | Generates HTML documentation using [Widoco](https://github.com/dgarijo/Widoco) and deploys to GitHub Pages |
 
+### `release.yml` — Release Ontology
+| | |
+|:---|:---|
+| **Trigger** | Manual dispatch (enter version in UI) / push `v*.*.*` git tag |
+| **Container** | `obolibrary/odkfull:v1.6` |
+| **What it does** | Builds release artifacts → sets PMDco-convention `owl:versionIRI` → commits to `main` → creates GitHub release with OWL/TTL/JSON attached → triggers versioned docs |
+
 ### Workflow Chain
 
+<<<<<<< HEAD
 ```
 setup-repo  ──►  qc (build)  ──►  docs (Widoco)
                     ▲
     push to main ───┘
+=======
+```text
+setup-repo  ──►  qc (ontology-build)  ──►  docs (/dev/ updated)
+                         ▲
+     push to main ───────┘
+
+release ──►  docs (/<version>/ added to Pages)
+   ▲
+   └── workflow_dispatch (enter version) OR git tag push
+
+any pull_request ──►  qc (pr-checks)  ──►  PR comment
+>>>>>>> e06896c (feat: add versioned release workflow, enforce tag convention)
 ```
+
+---
+
+## Release Process
+
+### Version IRI Convention
+
+This template follows the **PMD Core Ontology convention** for `owl:versionIRI`:
+
+```turtle
+owl:versionIRI  <https://w3id.org/pmd/{id}/{version}>
+owl:versionInfo "{version}"
+```
+
+Example for ontology `myont` at version `1.0.0`:
+
+```turtle
+owl:ontologyIRI  <https://w3id.org/pmd/myont>
+owl:versionIRI   <https://w3id.org/pmd/myont/1.0.0>
+owl:versionInfo  "1.0.0"
+```
+
+This differs from the ODK default (`releases/2025-11-20/myont.owl`) — the `release.yml` workflow overrides it automatically via ROBOT annotate after the build.
+
+Versions must be **semver** (`X.Y.Z`) without a `v` prefix. Git tags are created with the `v` prefix (`v1.0.0`).
+
+### How to Create a Release
+
+**Option A — via GitHub UI (recommended):**
+
+1. Navigate to **Actions → Release Ontology → Run workflow**
+2. Enter version (e.g. `1.0.0`)
+3. Optionally add release notes
+4. Click **Run workflow**
+
+**Option B — via git tag:**
+
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+Both options:
+- Build all release artifacts with the correct `owl:versionIRI`
+- Commit the versioned OWL/TTL/JSON files to `main`
+- Create a GitHub release with all serializations attached
+- Trigger a versioned documentation build (adds `/{version}/` to GitHub Pages)
+
+### GitHub Pages Structure After Release
+
+```text
+https://{org}.github.io/{repo}/           version index (all releases)
+https://{org}.github.io/{repo}/dev/doc/   development build (updated on every push)
+https://{org}.github.io/{repo}/1.0.0/doc/ Widoco HTML for v1.0.0 (permanent)
+https://{org}.github.io/{repo}/2.0.0/doc/ Widoco HTML for v2.0.0 (permanent)
+```
+
+Widoco generates serialization download links (OWL, TTL, RDF/XML, JSON-LD) directly in the HTML documentation — no separate hosting needed.
+
+> **Breaking change — GitHub Pages source setting**
+>
+> The docs workflow now deploys via the `gh-pages` **branch** instead of the GitHub Actions Pages API. This is required to preserve old release documentation across deploys.
+>
+> **One-time setup required:**
+> Go to **Settings → Pages → Build and deployment → Source**
+> Change from `GitHub Actions` → `Deploy from a branch`, select branch `gh-pages` / `(root)`.
+>
+> **Migrating from the old single-version docs:**
+> Your existing Pages content will be replaced on the next docs run. If you want to preserve it, manually copy the content into the `gh-pages` branch before triggering the workflow.
 
 ---
 
