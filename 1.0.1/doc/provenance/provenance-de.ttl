@@ -1,0 +1,10 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix : <> .
+<https://w3id.org/pmd/log/releases/2026-04-17/log-full.owl> a prov:Entity;
+	 dc:title "Platform Material Digital Application Ontology  for Logistics and supplychain (log)";
+	 prov:wasAttributedTo <https://orcid.org/0000-0003-1649-6832>;
+	 dc:creator <https://orcid.org/0000-0003-1649-6832>;
+	 prov:wasAttributedTo <https://github.com/dgarijo/Widoco/>,<http://www.essepuntato.it/lode/>;
+.
