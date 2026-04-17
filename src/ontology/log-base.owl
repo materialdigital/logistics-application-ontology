@@ -89,6 +89,12 @@
     
 
 
+    <!-- http://www.w3.org/2004/02/skos/core#closeMatch -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#closeMatch"/>
+    
+
+
     <!-- http://www.w3.org/2004/02/skos/core#definition -->
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#definition"/>
@@ -489,6 +495,12 @@
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OBI_0000571">
         <owl:equivalentClass rdf:resource="https://w3id.org/pmd/log/LOG_1000061"/>
     </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/org#FormalOrganization -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/org#FormalOrganization"/>
     
 
 
@@ -2028,6 +2040,7 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000027"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/org#FormalOrganization"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
@@ -2169,6 +2182,7 @@
         </rdfs:subClassOf>
         <obo:IAO_0000412 rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/AgentRole"/>
         <rdfs:label xml:lang="en">agent role</rdfs:label>
+        <skos:closeMatch rdf:resource="http://www.w3.org/ns/org#Role"/>
         <skos:definition xml:lang="en-us">role that someone or something has when they act on behalf of a person, engineered system or a group of agents</skos:definition>
     </owl:Class>
     
@@ -3013,6 +3027,7 @@
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <obo:IAO_0000412 rdf:resource="https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/TransportationServiceProviderRole"/>
         <rdfs:label xml:lang="en">transportation service provider role</rdfs:label>
     </owl:Class>
     

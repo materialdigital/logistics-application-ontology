@@ -35,6 +35,8 @@ Declaration(Class(<http://purl.obolibrary.org/obo/IAO_0000030>))
 Declaration(Class(<http://purl.obolibrary.org/obo/IAO_0000104>))
 Declaration(Class(<http://purl.obolibrary.org/obo/IAO_0020000>))
 Declaration(Class(<http://purl.obolibrary.org/obo/OBI_0000571>))
+Declaration(Class(<http://www.w3.org/ns/org#Membership>))
+Declaration(Class(<http://www.w3.org/ns/org#Post>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0040029>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0040030>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0040129>))
@@ -770,6 +772,7 @@ AnnotationAssertion(rdfs:label <https://w3id.org/pmd/log/LOG_1000047> "business 
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/log/LOG_1000047> "organization engaging in or planning to engage in any activity of buying and selling goods or services for a profit")
 EquivalentClasses(<https://w3id.org/pmd/log/LOG_1000047> ObjectIntersectionOf(<https://w3id.org/pmd/log/LOG_1000050> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000196> <https://w3id.org/pmd/log/LOG_1000091>)))
 SubClassOf(<https://w3id.org/pmd/log/LOG_1000047> <https://w3id.org/pmd/log/LOG_1000050>)
+SubClassOf(<https://w3id.org/pmd/log/LOG_1000047> <http://www.w3.org/ns/org#FormalOrganization>)
 
 # Class: <https://w3id.org/pmd/log/LOG_1000050> (organization)
 
@@ -780,6 +783,7 @@ AnnotationAssertion(<https://w3id.org/pmd/co/logistics/PMD_0000060> <https://w3i
 AnnotationAssertion(<https://w3id.org/pmd/co/logistics/PMD_0001032> <https://w3id.org/pmd/log/LOG_1000050> "issue: https://github.com/materialdigital/core-ontology/issues/101")
 EquivalentClasses(<https://w3id.org/pmd/log/LOG_1000050> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000027> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/IAO_0000235> <https://w3id.org/pmd/log/LOG_1000006>) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0002351> <http://xmlns.com/foaf/0.1/Person>)))
 SubClassOf(<https://w3id.org/pmd/log/LOG_1000050> <http://purl.obolibrary.org/obo/BFO_0000027>)
+SubClassOf(<https://w3id.org/pmd/log/LOG_1000050> <http://www.w3.org/ns/org#FormalOrganization>)
 
 # Class: <https://w3id.org/pmd/log/LOG_1000051> (shipment)
 
@@ -811,6 +815,9 @@ AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <https://w3id.o
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/log/LOG_1000054> "agent role"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/log/LOG_1000054> "role that someone or something has when they act on behalf of a person, engineered system or a group of agents"@en-us)
 SubClassOf(<https://w3id.org/pmd/log/LOG_1000054> <http://purl.obolibrary.org/obo/BFO_0000023>)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#closeMatch> <https://w3id.org/pmd/log/LOG_1000054> <http://www.w3.org/ns/org#Role>)
+SubClassOf(<http://www.w3.org/ns/org#Post> <http://purl.obolibrary.org/obo/BFO_0000023>)
+SubClassOf(<http://www.w3.org/ns/org#Membership> <http://purl.obolibrary.org/obo/BFO_0000023>)
 SubClassOf(<https://w3id.org/pmd/log/LOG_1000054> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000197> ObjectIntersectionOf(ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000040> ObjectComplementOf(<http://purl.obolibrary.org/obo/BFO_0000024>)) ObjectSomeValuesFrom(<https://w3id.org/pmd/log/LOG_1900001> ObjectUnionOf(<http://xmlns.com/foaf/0.1/Person> <https://w3id.org/pmd/log/LOG_1000050>)))))
 
 # Class: <https://w3id.org/pmd/log/LOG_1000055> (buyer role)
@@ -937,6 +944,7 @@ SubClassOf(<https://w3id.org/pmd/log/LOG_1000069> <https://w3id.org/pmd/log/LOG_
 
 # Class: <https://w3id.org/pmd/log/LOG_1000070> (transportation service provider role)
 
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <https://w3id.org/pmd/log/LOG_1000070> <https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/TransportationServiceProviderRole>)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/log/LOG_1000070> "transportation service provider role"@en)
 EquivalentClasses(<https://w3id.org/pmd/log/LOG_1000070> ObjectIntersectionOf(<https://w3id.org/pmd/log/LOG_1000065> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000197> ObjectIntersectionOf(ObjectUnionOf(<http://xmlns.com/foaf/0.1/Person> <https://w3id.org/pmd/log/LOG_1000047>) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000056> <https://w3id.org/pmd/log/LOG_1000117>)))))
 SubClassOf(<https://w3id.org/pmd/log/LOG_1000070> <https://w3id.org/pmd/log/LOG_1000065>)

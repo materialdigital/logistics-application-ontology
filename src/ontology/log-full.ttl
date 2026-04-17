@@ -207,6 +207,10 @@ rdfs:label rdf:type owl:AnnotationProperty ;
 skos:altLabel rdf:type owl:AnnotationProperty .
 
 
+###  http://www.w3.org/2004/02/skos/core#closeMatch
+skos:closeMatch rdf:type owl:AnnotationProperty .
+
+
 ###  http://www.w3.org/2004/02/skos/core#comment
 skos:comment rdf:type owl:AnnotationProperty .
 
@@ -3650,6 +3654,7 @@ skos:Concept rdf:type owl:Class .
 
 ###  http://www.w3.org/ns/org#Membership
 <http://www.w3.org/ns/org#Membership> rdf:type owl:Class ;
+                                      rdfs:subClassOf obo:BFO_0000023 ;
                                       owl:disjointWith <http://www.w3.org/ns/org#Organization> ,
                                                        <http://www.w3.org/ns/org#Role> ;
                                       rdfs:label "Appartenenza"@it ,
@@ -3700,6 +3705,7 @@ skos:Concept rdf:type owl:Class .
 
 ###  http://www.w3.org/ns/org#Post
 <http://www.w3.org/ns/org#Post> rdf:type owl:Class ;
+                                rdfs:subClassOf obo:BFO_0000023 ;
                                 rdfs:label "Impiego"@it ,
                                            "Post"@en ,
                                            "Poste"@fr ,
@@ -15019,6 +15025,7 @@ co:PMD_0200008 rdf:type owl:Class ;
                                                              rdf:type owl:Class
                                                            ] ;
                                        rdfs:subClassOf obo:BFO_0000027 ,
+                                                       <http://www.w3.org/ns/org#FormalOrganization> ,
                                                        [ rdf:type owl:Restriction ;
                                                          owl:onProperty obo:IAO_0000235 ;
                                                          owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000006>
@@ -15120,6 +15127,7 @@ co:PMD_0200008 rdf:type owl:Class ;
                                                        ] ;
                                        obo:IAO_0000412 <https://spec.industrialontologies.org/ontology/core/Core/AgentRole> ;
                                        rdfs:label "agent role"@en ;
+                                       skos:closeMatch <http://www.w3.org/ns/org#Role> ;
                                        skos:definition "role that someone or something has when they act on behalf of a person, engineered system or a group of agents"@en-us .
 
 
@@ -15725,6 +15733,7 @@ co:PMD_0200008 rdf:type owl:Class ;
                                                                               rdf:type owl:Class
                                                                             ]
                                                        ] ;
+                                       obo:IAO_0000412 <https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/TransportationServiceProviderRole> ;
                                        rdfs:label "transportation service provider role"@en .
 
 

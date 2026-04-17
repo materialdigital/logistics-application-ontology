@@ -132,6 +132,10 @@ terms:title rdf:type owl:AnnotationProperty .
 skos:altLabel rdf:type owl:AnnotationProperty .
 
 
+###  http://www.w3.org/2004/02/skos/core#closeMatch
+skos:closeMatch rdf:type owl:AnnotationProperty .
+
+
 ###  http://www.w3.org/2004/02/skos/core#definition
 skos:definition rdf:type owl:AnnotationProperty .
 
@@ -1059,6 +1063,7 @@ obo:RO_0002502 rdf:type owl:ObjectProperty .
 <https://w3id.org/pmd/log/LOG_1000054> rdf:type owl:Class ;
                                        obo:IAO_0000412 <https://spec.industrialontologies.org/ontology/core/Core/AgentRole> ;
                                        rdfs:label "agent role"@en ;
+                                       skos:closeMatch <http://www.w3.org/ns/org#Role> ;
                                        skos:definition "role that someone or something has when they act on behalf of a person, engineered system or a group of agents"@en-us .
 
 
@@ -1196,6 +1201,7 @@ obo:RO_0002502 rdf:type owl:ObjectProperty .
 ###  https://w3id.org/pmd/log/LOG_1000070
 <https://w3id.org/pmd/log/LOG_1000070> rdf:type owl:Class ;
                                        rdfs:subClassOf <https://w3id.org/pmd/log/LOG_1000065> ;
+                                       obo:IAO_0000412 <https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/TransportationServiceProviderRole> ;
                                        rdfs:label "transportation service provider role"@en .
 
 

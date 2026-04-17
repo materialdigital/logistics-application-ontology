@@ -173,6 +173,12 @@ We also have the outstanding issue of how to aim different definitions to differ
     
 
 
+    <!-- http://www.w3.org/2004/02/skos/core#closeMatch -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#closeMatch"/>
+    
+
+
     <!-- http://www.w3.org/2004/02/skos/core#definition -->
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#definition"/>
@@ -1484,6 +1490,7 @@ every c that is a concretization of g specifically denotes r</obo:IAO_0000116>
     <owl:Class rdf:about="https://w3id.org/pmd/log/LOG_1000054">
         <obo:IAO_0000412 rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/AgentRole"/>
         <rdfs:label xml:lang="en">agent role</rdfs:label>
+        <skos:closeMatch rdf:resource="http://www.w3.org/ns/org#Role"/>
         <skos:definition xml:lang="en-us">role that someone or something has when they act on behalf of a person, engineered system or a group of agents</skos:definition>
     </owl:Class>
     
@@ -1674,6 +1681,7 @@ every c that is a concretization of g specifically denotes r</obo:IAO_0000116>
 
     <owl:Class rdf:about="https://w3id.org/pmd/log/LOG_1000070">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/log/LOG_1000065"/>
+        <obo:IAO_0000412 rdf:resource="https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/TransportationServiceProviderRole"/>
         <rdfs:label xml:lang="en">transportation service provider role</rdfs:label>
     </owl:Class>
     

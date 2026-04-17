@@ -275,6 +275,12 @@ We also have the outstanding issue of how to aim different definitions to differ
     
 
 
+    <!-- http://www.w3.org/2004/02/skos/core#closeMatch -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#closeMatch"/>
+    
+
+
     <!-- http://www.w3.org/2004/02/skos/core#comment -->
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#comment"/>
@@ -5020,6 +5026,7 @@ for now.</obo:IAO_0000116>
     <!-- http://www.w3.org/ns/org#Membership -->
 
     <owl:Class rdf:about="http://www.w3.org/ns/org#Membership">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000023"/>
         <owl:disjointWith rdf:resource="http://www.w3.org/ns/org#Organization"/>
         <owl:disjointWith rdf:resource="http://www.w3.org/ns/org#Role"/>
         <rdfs:label xml:lang="it">Appartenenza</rdfs:label>
@@ -5085,6 +5092,7 @@ for now.</obo:IAO_0000116>
     <!-- http://www.w3.org/ns/org#Post -->
 
     <owl:Class rdf:about="http://www.w3.org/ns/org#Post">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000023"/>
         <rdfs:label xml:lang="it">Impiego</rdfs:label>
         <rdfs:label xml:lang="en">Post</rdfs:label>
         <rdfs:label xml:lang="fr">Poste</rdfs:label>
@@ -20532,6 +20540,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000027"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/org#FormalOrganization"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
@@ -20673,6 +20682,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
         </rdfs:subClassOf>
         <obo:IAO_0000412 rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/AgentRole"/>
         <rdfs:label xml:lang="en">agent role</rdfs:label>
+        <skos:closeMatch rdf:resource="http://www.w3.org/ns/org#Role"/>
         <skos:definition xml:lang="en-us">role that someone or something has when they act on behalf of a person, engineered system or a group of agents</skos:definition>
     </owl:Class>
     
@@ -21517,6 +21527,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <obo:IAO_0000412 rdf:resource="https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/TransportationServiceProviderRole"/>
         <rdfs:label xml:lang="en">transportation service provider role</rdfs:label>
     </owl:Class>
     
