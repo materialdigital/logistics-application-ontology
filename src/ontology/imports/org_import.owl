@@ -468,7 +468,7 @@ AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#Site> "sede"@es)
 #   Named Individuals
 ############################
 
-# Individual: <http://www.w3.org/ns/org#Head> (responsable)
+# Individual: <http://www.w3.org/ns/org#Head> (director ejecutivo)
 
 AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#Head> "director ejecutivo"@es)
 AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#Head> "directora ejecutiva"@es)

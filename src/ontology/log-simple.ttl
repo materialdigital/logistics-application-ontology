@@ -11,14 +11,16 @@
 @base <https://w3id.org/pmd/log/log-simple.ttl> .
 
 <https://w3id.org/pmd/log/log-simple.ttl> rdf:type owl:Ontology ;
-                                           owl:versionIRI <https://w3id.org/pmd/log/1.0.1> ;
-                                           terms:creator <https://orcid.org/0000-0003-1649-6832> ;
+                                           owl:versionIRI <https://w3id.org/pmd/log/releases/2026-04-17/log-simple.ttl> ;
+                                           terms:creator <https://orcid.org/0000-0001-7192-7143> ,
+                                                         <https://orcid.org/0000-0003-1649-6832> ,
+                                                         <https://orcid.org/0009-0003-1503-4422> ,
+                                                         <https://orcid.org/0009-0007-7468-3544> ;
                                            terms:description "This is an alignment of the IOF Supply Chain Ontologies Library to the Platform Material Digital Core Ontology. It contains ontologies to be used in the domain of supply chain and logistics." ;
-                                           terms:license "http://opensource.org/licenses/MIT" ;
-                                           terms:title "Platform Material Digital Application Ontology  for Logistics and supplychain (log)"@en ;
+                                           terms:license <https://creativecommons.org/licenses/by/4.0/> ;
+                                           terms:title "Platform Material Digital Application Ontology for Logistics and Supply Chain (LOG)"@en ;
                                            rdfs:comment "The logistics application ontology for use with PMD Core Ontology (PMDco). The scope of this module is the description of material science and engineering related logistics and general organization. Its is adopted from the IOF SupplyChain Module https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/"@en ;
-                                           owl:versionInfo "1.0.1" ,
-                                                           "2026-04-17" .
+                                           owl:versionInfo "2026-04-17" .
 
 #################################################################
 #    Annotation properties
@@ -77,8 +79,8 @@ Personally, I am more comfortable weakening definition to documentation, with in
 
 We also have the outstanding issue of how to aim different definitions to different audiences. A clinical audience reading chebi wants a different sort of definition documentation/definition from a chemistry trained audience, and similarly there is a need for a definition that is adequate for an ontologist to work with.  """@en ;
                 obo:IAO_0000119 "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ;
-                rdfs:label "definition"@en ,
-                           "definition" ,
+                rdfs:label "definition" ,
+                           "definition"@en ,
                            "textual definition" .
 
 
@@ -90,9 +92,9 @@ obo:IAO_0000116 rdf:type owl:AnnotationProperty .
 obo:IAO_0000119 rdf:type owl:AnnotationProperty ;
                 obo:IAO_0000115 "Formal citation, e.g. identifier in external database to indicate / attribute source(s) for the definition. Free text indicate / attribute source(s) for the definition. EXAMPLE: Author Name, URI, MeSH Term C04, PUBMED ID, Wiki uri on 31.01.2007"@en ,
                                 "formal citation, e.g. identifier in external database to indicate / attribute source(s) for the definition. Free text indicate / attribute source(s) for the definition. EXAMPLE: Author Name, URI, MeSH Term C04, PUBMED ID, Wiki uri on 31.01.2007"@en ;
-                obo:IAO_0000119 "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w"@en ,
-                                "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ,
-                                "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w" ;
+                obo:IAO_0000119 "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w" ,
+                                "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w"@en ,
+                                "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ;
                 rdfs:label "definition source"@en .
 
 
@@ -195,6 +197,10 @@ obo:BFO_0000066 rdf:type owl:ObjectProperty ;
                 rdfs:label "occurs in"@en ;
                 skos:definition "b occurs in c =Def b is a process or a process boundary & c is a material entity or site & there exists a spatiotemporal region r & b occupies spatiotemporal region r & for all time t, if b exists at t then c exists at t & there exist spatial regions s and s' where b spatially projects onto s at t & c occupies spatial region s' at t & s is a continuant part of s' at t"@en ;
                 skos:example "A process of digestion occurs in the interior of an organism; a process of loading artillery rounds into a tank cannon occurs in the interior of the tank"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000082
+obo:BFO_0000082 rdf:type owl:ObjectProperty .
 
 
 ###  http://purl.obolibrary.org/obo/BFO_0000108
@@ -843,6 +849,7 @@ obo:RO_0002502 rdf:type owl:ObjectProperty .
 
 ###  https://w3id.org/pmd/log/LOG_1000032
 <https://w3id.org/pmd/log/LOG_1000032> rdf:type owl:Class ;
+                                       rdfs:subClassOf <https://w3id.org/pmd/log/LOG_1000146> ;
                                        obo:IAO_0000412 <https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/Facility> ;
                                        rdfs:label "facility"@en ;
                                        skos:definition "engineered system that consists of buildings, structures, roads, machines, and equipment desgined to provide certain capabilities"@en-us .
@@ -1867,6 +1874,12 @@ obo:RO_0002502 rdf:type owl:ObjectProperty .
                                        obo:IAO_0000412 <https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/TravelProcess> ;
                                        rdfs:label "travel process"@en ;
                                        skos:definition "material location change process wherein one or more persons move between geographical locations"@en-us .
+
+
+###  https://w3id.org/pmd/log/LOG_1000146
+<https://w3id.org/pmd/log/LOG_1000146> rdf:type owl:Class ;
+                                       rdfs:label "physical premises"@en ;
+                                       skos:definition "object aggregate that has a location at some geospatial site and serves as a physical place of operation for an organization"@en .
 
 
 #################################################################
