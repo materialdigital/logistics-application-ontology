@@ -96,8 +96,8 @@ jobs:
         run: |
           VERSION="${{ steps.version.outputs.version }}"
           ODK_YAML=$(find src/ontology -maxdepth 1 -name "*-odk.yaml" | head -1)
-          ONT_ID=$(yq '.id' "$ODK_YAML")
-          URIBASE=$(yq '.uribase' "$ODK_YAML")
+          ONT_ID=$(python3 -c "import yaml; d=yaml.safe_load(open('$ODK_YAML')); print(d['id'])")
+          URIBASE=$(python3 -c "import yaml; d=yaml.safe_load(open('$ODK_YAML')); print(d['uribase'])")
           ONTBASE="${URIBASE}/${ONT_ID}"
           for f in $(find src/ontology -maxdepth 1 -name "*.owl" \
                      ! -name "*-edit.owl" ! -name "*-idranges.owl"); do
