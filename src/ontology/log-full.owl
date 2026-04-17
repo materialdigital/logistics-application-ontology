@@ -2039,14 +2039,14 @@ RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c.
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000050"/>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000027"/>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
-                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000881"/>
+                                <owl:someValuesFrom rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
                             </owl:Restriction>
                         </owl:intersectionOf>
                     </owl:Class>
@@ -2077,7 +2077,7 @@ RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c.
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000047"/>
                 </owl:unionOf>
             </owl:Class>
@@ -9481,25 +9481,6 @@ A manufacturing process is always a transformative process.</skos:definition>
     
 
 
-    <!-- https://w3id.org/pmd/co/PMD_0000881 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000881">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
-        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000123"/>
-        <obo:IAO_0000412 rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://openenergy-platform.org/ontology/oeo/oeo-import-edits.owl</obo:IAO_0000412>
-        <rdfs:label xml:lang="en">person</rdfs:label>
-        <skos:definition xml:lang="en">A person is a human being.</skos:definition>
-        <logistics:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</logistics:PMD_0000060>
-    </owl:Class>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0000881"/>
-        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
-        <logistics:PMD_0001032>https://github.com/materialdigital/core-ontology/issues/102</logistics:PMD_0001032>
-    </owl:Axiom>
-    
-
-
     <!-- https://w3id.org/pmd/co/PMD_0000882 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000882">
@@ -13966,21 +13947,21 @@ Depending on the interconnectedness of the pores the foam is open- or closed-cel
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020131">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
-        <rdfs:subClassOf rdf:nodeID="genid947"/>
+        <rdfs:subClassOf rdf:nodeID="genid946"/>
         <owl:disjointWith rdf:resource="https://w3id.org/pmd/co/PMD_0020148"/>
         <rdfs:label xml:lang="en">intensive quality</rdfs:label>
         <skos:altLabel xml:lang="en">Point property</skos:altLabel>
         <skos:definition xml:lang="en">An intensive quality is a quality that inheres in only portion of matter and thus is independent of the bearers (system-) size.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
-    <owl:Restriction rdf:nodeID="genid947">
+    <owl:Restriction rdf:nodeID="genid946">
         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000001"/>
     </owl:Restriction>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0020131"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid947"/>
+        <owl:annotatedTarget rdf:nodeID="genid946"/>
         <rdfs:comment xml:lang="en">Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom.</rdfs:comment>
     </owl:Axiom>
     
@@ -19082,7 +19063,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                                 <owl:intersectionOf rdf:parseType="Collection">
                                     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
                                     <owl:Class>
-                                        <owl:complementOf rdf:resource="https://w3id.org/pmd/co/PMD_0000881"/>
+                                        <owl:complementOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
                                     </owl:Class>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -19454,7 +19435,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                            <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                             <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000050"/>
                         </owl:unionOf>
                     </owl:Class>
@@ -19514,7 +19495,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                            <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                             <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000050"/>
                         </owl:unionOf>
                     </owl:Class>
@@ -19547,7 +19528,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                            <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                             <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000050"/>
                         </owl:unionOf>
                     </owl:Class>
@@ -19580,7 +19561,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                            <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                             <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000050"/>
                         </owl:unionOf>
                     </owl:Class>
@@ -19614,7 +19595,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                            <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                             <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000050"/>
                         </owl:unionOf>
                     </owl:Class>
@@ -19647,7 +19628,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                            <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                             <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000050"/>
                         </owl:unionOf>
                     </owl:Class>
@@ -19709,7 +19690,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                            <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                             <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000050"/>
                         </owl:unionOf>
                     </owl:Class>
@@ -19742,7 +19723,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                            <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                             <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000047"/>
                         </owl:unionOf>
                     </owl:Class>
@@ -19775,7 +19756,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                            <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                             <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000050"/>
                         </owl:unionOf>
                     </owl:Class>
@@ -19808,7 +19789,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                            <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                             <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000050"/>
                         </owl:unionOf>
                     </owl:Class>
@@ -19841,7 +19822,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                            <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                             <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000050"/>
                         </owl:unionOf>
                     </owl:Class>
@@ -19874,7 +19855,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                            <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                             <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000050"/>
                         </owl:unionOf>
                     </owl:Class>
@@ -20545,7 +20526,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
-                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000881"/>
+                        <owl:someValuesFrom rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -20560,7 +20541,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000881"/>
+                <owl:someValuesFrom rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000119 rdf:resource="http://openenergy-platform.org/ontology/oeo/OEO_00030022"/>
@@ -20679,7 +20660,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                                 <owl:someValuesFrom>
                                     <owl:Class>
                                         <owl:unionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                                            <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                                             <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000050"/>
                                         </owl:unionOf>
                                     </owl:Class>
@@ -20709,7 +20690,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000050"/>
                                 </owl:unionOf>
                             </owl:Class>
@@ -20741,7 +20722,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000050"/>
                                 </owl:unionOf>
                             </owl:Class>
@@ -20783,7 +20764,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000050"/>
                                 </owl:unionOf>
                             </owl:Class>
@@ -20808,7 +20789,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000050"/>
                                 </owl:unionOf>
                             </owl:Class>
@@ -20848,7 +20829,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                            <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                             <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000050"/>
                         </owl:unionOf>
                     </owl:Class>
@@ -20885,7 +20866,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000050"/>
                                 </owl:unionOf>
                             </owl:Class>
@@ -20964,7 +20945,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000047"/>
                                 </owl:unionOf>
                             </owl:Class>
@@ -21036,7 +21017,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000050"/>
                                 </owl:unionOf>
                             </owl:Class>
@@ -21077,7 +21058,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000050"/>
                                 </owl:unionOf>
                             </owl:Class>
@@ -21143,7 +21124,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000050"/>
                                 </owl:unionOf>
                             </owl:Class>
@@ -21182,7 +21163,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000050"/>
                                 </owl:unionOf>
                             </owl:Class>
@@ -21229,7 +21210,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000050"/>
                                 </owl:unionOf>
                             </owl:Class>
@@ -21261,7 +21242,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000047"/>
                                 </owl:unionOf>
                             </owl:Class>
@@ -21314,7 +21295,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                                     </owl:Class>
                                     <owl:Class>
                                         <owl:unionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                                            <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                                             <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000047"/>
                                         </owl:unionOf>
                                     </owl:Class>
@@ -21353,7 +21334,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                             </owl:Class>
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000047"/>
                                 </owl:unionOf>
                             </owl:Class>
@@ -21383,7 +21364,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                                 <owl:intersectionOf rdf:parseType="Collection">
                                     <owl:Class>
                                         <owl:unionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                                            <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                                             <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000047"/>
                                         </owl:unionOf>
                                     </owl:Class>
@@ -21407,7 +21388,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000047"/>
                                 </owl:unionOf>
                             </owl:Class>
@@ -21441,7 +21422,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                                 <owl:intersectionOf rdf:parseType="Collection">
                                     <owl:Class>
                                         <owl:unionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                                            <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                                             <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000047"/>
                                         </owl:unionOf>
                                     </owl:Class>
@@ -21465,7 +21446,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000047"/>
                                 </owl:unionOf>
                             </owl:Class>
@@ -21499,7 +21480,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                                 <owl:intersectionOf rdf:parseType="Collection">
                                     <owl:Class>
                                         <owl:unionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                                            <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                                             <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000047"/>
                                         </owl:unionOf>
                                     </owl:Class>
@@ -21523,7 +21504,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000047"/>
                                 </owl:unionOf>
                             </owl:Class>
@@ -21630,7 +21611,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000047"/>
                                 </owl:unionOf>
                             </owl:Class>
@@ -21672,7 +21653,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000047"/>
                                 </owl:unionOf>
                             </owl:Class>
@@ -21737,7 +21718,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000047"/>
                                 </owl:unionOf>
                             </owl:Class>
@@ -21758,7 +21739,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Class>
                                 <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000881"/>
+                                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
                                     <rdf:Description rdf:about="https://w3id.org/pmd/log/LOG_1000047"/>
                                 </owl:unionOf>
                             </owl:Class>
