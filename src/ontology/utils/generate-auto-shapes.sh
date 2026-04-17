@@ -3,7 +3,8 @@
 # Run from src/ontology/ directory.
 set -e
 
-sh run.sh robot \
+REPO_ROOT="$(pwd)/../.."
+docker run --rm -v "${REPO_ROOT}:/work" -w /work/src/ontology obolibrary/odkfull:latest robot \
   --catalog catalog-v001.xml \
   merge --input log-edit.owl \
   remove --term owl:real \
