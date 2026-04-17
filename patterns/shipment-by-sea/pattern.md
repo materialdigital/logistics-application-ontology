@@ -1,5 +1,7 @@
 # Pattern: Shipment by Sea
 
+[Visualize example data](https://thhanke.github.io/visgraph/?rdfUrl=https://raw.githubusercontent.com/materialdigital/logistics-application-ontology/refs/heads/main/patterns/shipment-by-sea/shape-data.ttl)
+
 ## Purpose
 Model a material product shipment from a supplier to a producer via sea transport, including geospatial ship-from and ship-to locations and a bill of lading.
 

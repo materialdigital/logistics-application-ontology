@@ -1,5 +1,7 @@
 # Pattern: Multimodal Transport
 
+[Visualize example data](https://thhanke.github.io/visgraph/?rdfUrl=https://raw.githubusercontent.com/materialdigital/logistics-application-ontology/refs/heads/main/patterns/multimodal-transport/shape-data.ttl)
+
 ## Purpose
 Model a shipment transported via two sequential transport legs — sea freight from origin port to intermediate port, then road transport to final destination — linked through a supply chain node at the port of transfer.
 

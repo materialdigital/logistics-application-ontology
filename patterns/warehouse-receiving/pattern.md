@@ -1,5 +1,7 @@
 # Pattern: Warehouse Receiving
 
+[Visualize example data](https://thhanke.github.io/visgraph/?rdfUrl=https://raw.githubusercontent.com/materialdigital/logistics-application-ontology/refs/heads/main/patterns/warehouse-receiving/shape-data.ttl)
+
 ## Purpose
 Model goods arriving at a storage facility, triggering a receiving process that executes a warehousing plan, and the subsequent storage process.
 

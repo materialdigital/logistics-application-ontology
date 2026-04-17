@@ -1,5 +1,7 @@
 # Pattern: Contract Negotiation
 
+[Visualize example data](https://thhanke.github.io/visgraph/?rdfUrl=https://raw.githubusercontent.com/materialdigital/logistics-application-ontology/refs/heads/main/patterns/contract-negotiation/shape-data.ttl)
+
 ## Purpose
 Model a commercial service agreement negotiated and signed by persons acting in organizational roles, representing their respective companies as buyer and supplier.
 
