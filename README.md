@@ -1,6 +1,6 @@
 
 ![Build Status](https://github.com/materialdigital/logistics-application-ontology/actions/workflows/qc.yml/badge.svg)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19629237.svg)](https://doi.org/10.5281/zenodo.19629236)
+[![DOI](https://zenodo.org/badge/1046227251.svg)](https://doi.org/10.5281/zenodo.19629236)
 
 # Platform Material Digital — Logistics Application Ontology (LOG)
 
