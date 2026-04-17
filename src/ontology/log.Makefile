@@ -42,11 +42,16 @@ autoshapes:
 
 .PHONY: validate-patterns
 validate-patterns: autoshapes
-	$(foreach f, $(wildcard ../../patterns/*/data.ttl), \
-	  docker run --rm -v $(CURDIR)/../../:/data ghcr.io/ashleycaselli/shacl:latest \
-	    validate -datafile /data/$(patsubst $(CURDIR)/../../%,%,$(f)) \
-	             -shapesfile /data/patterns/autoshape/auto-shapes-open.ttl \
-	  || exit 1 ;)
+	$(foreach f, $(wildcard ../../patterns/*/shape-data.ttl), \
+	  echo "Testing pattern: $(dir $(f))" && \
+	  python3 -m pyshacl \
+	    -s $(dir $(f))shape.ttl \
+	    $(f) || exit 1 ;) \
+	$(foreach f, $(wildcard ../../patterns/*/shape-data.ttl), \
+	  echo "Auto-shape test: $(dir $(f))" && \
+	  python3 -m pyshacl \
+	    -s ../../patterns/autoshape/auto-shapes-open.ttl \
+	    $(f) || exit 1 ;)
 
 update-ontology-annotations:
 	$(ROBOT) annotate --input ../../log.owl $(ALL_ANNOTATIONS) --output ../../log.owl && \
