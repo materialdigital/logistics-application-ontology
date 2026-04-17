@@ -5,7 +5,6 @@
 semantic.cache
 bin/
 
-.trunk/
 *.tmp
 *.tmp.obo
 *.tmp.owl
@@ -66,5 +65,10 @@ src/patterns/data/**/*.ofn
 src/patterns/data/**/*.txt
 src/patterns/pattern_owl_seed.txt
 src/patterns/all_pattern_terms.txt
+
+
+# patterns: track hand-written files, ignore generated autoshapes
+!/patterns/
+/patterns/autoshape/auto-shapes-*.ttl
 
 # End of ODK-managed rules

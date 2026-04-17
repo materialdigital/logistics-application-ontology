@@ -36,6 +36,18 @@ $(IMPORTDIR)/foaf_import.owl: $(MIRRORDIR)/foaf.owl $(IMPORTDIR)/foaf_terms.txt 
 		 repair --merge-axiom-annotations true \
 		 $(ANNOTATE_CONVERT_FILE)
 
+.PHONY: autoshapes
+autoshapes:
+	sh utils/generate-auto-shapes.sh
+
+.PHONY: validate-patterns
+validate-patterns: autoshapes
+	$(foreach f, $(wildcard ../../patterns/*/data.ttl), \
+	  docker run --rm -v $(CURDIR)/../../:/data ghcr.io/ashleycaselli/shacl:latest \
+	    validate -datafile /data/$(patsubst $(CURDIR)/../../%,%,$(f)) \
+	             -shapesfile /data/patterns/autoshape/auto-shapes-open.ttl \
+	  || exit 1 ;)
+
 update-ontology-annotations:
 	$(ROBOT) annotate --input ../../log.owl $(ALL_ANNOTATIONS) --output ../../log.owl && \
 	$(ROBOT) annotate --input ../../log.ttl $(ALL_ANNOTATIONS) --output ../../log.ttl && \
