@@ -18,13 +18,14 @@
 @base <https://w3id.org/pmd/log.ttl> .
 
 <https://w3id.org/pmd/log.ttl> rdf:type owl:Ontology ;
-                                owl:versionIRI <https://w3id.org/pmd/log/releases/2026-04-17/log.ttl> ;
+                                owl:versionIRI <https://w3id.org/pmd/log/1.0.1> ;
                                 dcterms:creator <https://orcid.org/0000-0003-1649-6832> ;
                                 dcterms:description "This is an alignment of the IOF Supply Chain Ontologies Library to the Platform Material Digital Core Ontology. It contains ontologies to be used in the domain of supply chain and logistics." ;
                                 dcterms:license "http://opensource.org/licenses/MIT" ;
                                 dcterms:title "Platform Material Digital Application Ontology  for Logistics and supplychain (log)"@en ;
                                 rdfs:comment "The logistics application ontology for use with PMD Core Ontology (PMDco). The scope of this module is the description of material science and engineering related logistics and general organization. Its is adopted from the IOF SupplyChain Module https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/"@en ;
-                                owl:versionInfo "2026-04-17" .
+                                owl:versionInfo "1.0.1" ,
+                                                "2026-04-17" .
 
 #################################################################
 #    Annotation properties
@@ -34,8 +35,8 @@
 obo:IAO_0000112 rdf:type owl:AnnotationProperty ;
                 obo:IAO_0000115 "A phrase describing how a term should be used and/or a citation to a work which uses it. May also include other kinds of examples that facilitate immediate understanding, such as widely know prototypes or instances of a class, or cases where a relation is said to hold."@en ;
                 obo:IAO_0000119 "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ;
-                rdfs:label "example of usage" ,
-                           "example of usage"@en .
+                rdfs:label "example of usage"@en ,
+                           "example of usage" .
 
 
 ###  http://purl.obolibrary.org/obo/IAO_0000114
@@ -87,8 +88,8 @@ Personally, I am more comfortable weakening definition to documentation, with in
 
 We also have the outstanding issue of how to aim different definitions to different audiences. A clinical audience reading chebi wants a different sort of definition documentation/definition from a chemistry trained audience, and similarly there is a need for a definition that is adequate for an ontologist to work with.  """@en ;
                 obo:IAO_0000119 "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ;
-                rdfs:label "definition" ,
-                           "definition"@en ,
+                rdfs:label "definition"@en ,
+                           "definition" ,
                            "textual definition" .
 
 
@@ -103,9 +104,9 @@ obo:IAO_0000116 rdf:type owl:AnnotationProperty ;
 obo:IAO_0000119 rdf:type owl:AnnotationProperty ;
                 obo:IAO_0000115 "Formal citation, e.g. identifier in external database to indicate / attribute source(s) for the definition. Free text indicate / attribute source(s) for the definition. EXAMPLE: Author Name, URI, MeSH Term C04, PUBMED ID, Wiki uri on 31.01.2007"@en ,
                                 "formal citation, e.g. identifier in external database to indicate / attribute source(s) for the definition. Free text indicate / attribute source(s) for the definition. EXAMPLE: Author Name, URI, MeSH Term C04, PUBMED ID, Wiki uri on 31.01.2007"@en ;
-                obo:IAO_0000119 "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w" ,
-                                "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w"@en ,
-                                "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ;
+                obo:IAO_0000119 "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w"@en ,
+                                "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ,
+                                "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w" ;
                 rdfs:label "definition source"@en .
 
 
@@ -140,8 +141,8 @@ obo:IAO_0100001 rdf:type owl:AnnotationProperty ;
 dce:source rdf:type owl:AnnotationProperty ;
            rdfs:comment """A reference to a resource from which the present resource
          is derived."""@en-us ;
-           rdfs:label "Source" ,
-                      "Source"@en-us .
+           rdfs:label "Source"@en-us ,
+                      "Source" .
 
 
 ###  http://purl.org/dc/terms/bibliographicCitation
@@ -200,8 +201,8 @@ oboInOwl:hasExactSynonym rdf:type owl:AnnotationProperty ;
 
 ###  http://www.w3.org/2000/01/rdf-schema#label
 rdfs:label rdf:type owl:AnnotationProperty ;
-           rdfs:label "label" ,
-                      "label"@en .
+           rdfs:label "label"@en ,
+                      "label" .
 
 
 ###  http://www.w3.org/2004/02/skos/core#altLabel
@@ -3227,14 +3228,14 @@ obo:IAO_0000027 rdf:type owl:Class ;
                 obo:IAO_0000116 "2/2/2009 Alan and Bjoern discussing FACS run output data. This is a data item because it is about the cell population. Each element records an event and is typically further composed a set of measurment data items that record the fluorescent intensity stimulated by one of the lasers."@en ,
                                 "2009-03-16: data item deliberatly ambiguous: we merged data set and datum to be one entity, not knowing how to define singular versus plural. So data item is more general than datum."@en ,
                                 "2009-03-16: removed datum as alternative term as datum specifically refers to singular form, and is thus not an exact synonym."@en ,
-                                "2014-03-31: See discussion at http://odontomachus.wordpress.com/2014/03/30/aboutness-objects-propositions/" ,
                                 """JAR: datum     -- well, this will be very tricky to define, but maybe some 
 information-like stuff that might be put into a computer and that is 
 meant, by someone, to denote and/or to be interpreted by some 
 process... I would include lists, tables, sentences... I think I might 
 defer to Barry, or to Brian Cantwell Smith
 
-JAR: A data item is an approximately justified approximately true approximate belief"""@en ;
+JAR: A data item is an approximately justified approximately true approximate belief"""@en ,
+                                "2014-03-31: See discussion at http://odontomachus.wordpress.com/2014/03/30/aboutness-objects-propositions/" ;
                 rdfs:label "data item"@en .
 
 

@@ -17,8 +17,8 @@
         <terms:license>http://opensource.org/licenses/MIT</terms:license>
         <terms:title xml:lang="en">Platform Material Digital Application Ontology  for Logistics and supplychain (log)</terms:title>
         <rdfs:comment xml:lang="en">The logistics application ontology for use with PMD Core Ontology (PMDco). The scope of this module is the description of material science and engineering related logistics and general organization. Its is adopted from the IOF SupplyChain Module https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/</rdfs:comment>
-        <owl:versionInfo>2026-04-17</owl:versionInfo>
         <owl:versionInfo>1.0.1</owl:versionInfo>
+        <owl:versionInfo>2026-04-17</owl:versionInfo>
     </owl:Ontology>
     
 
