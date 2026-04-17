@@ -140,6 +140,7 @@ jobs:
           ROBOT_ENV: ROBOT_JAVA_ARGS=-Xmx6G
         run: |
           cd src/ontology
+          touch log-edit.owl
           make PAT=false \
             VERSION=${{ steps.version.outputs.version }} \
             'ANNOTATE_ONTOLOGY_VERSION=annotate -V $(ONTBASE)/$(VERSION) --annotation owl:versionInfo $(VERSION)' \
