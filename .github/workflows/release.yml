@@ -1,34 +1,25 @@
 # ==============================================================================
 # WORKFLOW: Release Ontology
 # ==============================================================================
-# Purpose: Build a versioned ontology release, create a GitHub release with
+# Purpose: Stamp release version into artifacts, create a GitHub release with
 #          attached serialization artifacts, and trigger documentation rebuild.
 #
 # ┌─────────────────────────────────────────────────────────────────────┐
 # │  What this workflow does                                            │
 # │  ─────────────────────────────────────────────────────────────────  │
-# │  1. Builds all release artifacts via ODK `make all_assets`         │
-# │  2. Overrides owl:versionIRI to follow the PMDco convention:       │
-# │       <ontbase>/<version>  (semver, no file extension)             │
-# │     e.g.  https://w3id.org/pmd/myont/1.0.0                        │
-# │     NOT the ODK default: …/releases/2025-11-20/myont.owl          │
-# │  2. Commits release artifacts back to main                         │
-# │  3. Creates a git tag v<version> pointing to that commit           │
-# │  4. Creates a GitHub release with OWL / TTL / JSON attached        │
-# │  5. Dispatches trigger-docs so docs.yml rebuilds the versioned     │
-# │     documentation site                                             │
+# │  1. Validates semver tag format (replaces enforce-tags.yml)        │
+# │  2. Stamps owl:versionIRI and owl:versionInfo into all artifacts   │
+# │     using ROBOT annotate — no ODK rebuild (qc.yml owns that)      │
+# │       versionIRI: <ontbase>/<version>  (PMDco convention)         │
+# │       e.g.  https://w3id.org/pmd/log/1.0.0                        │
+# │  3. Commits stamped artifacts back to main                         │
+# │  4. Creates a git tag v<version> pointing to that commit           │
+# │  5. Creates a GitHub release with OWL / TTL attached               │
+# │  6. Dispatches trigger-docs so docs.yml rebuilds versioned docs    │
 # └─────────────────────────────────────────────────────────────────────┘
 #
 # Triggers:
-#   A. Manual (workflow_dispatch) — you enter the version number in the UI
-#   B. Automatic — push a git tag matching v*.*.* (semver)
-#
-# How to release:
-#   Option A (recommended):
-#     Actions → Release Ontology → Run workflow → enter version e.g. 1.0.0
-#
-#   Option B:
-#     git tag v1.0.0 && git push origin v1.0.0
+#   Manual only — Actions → Release Ontology → Run workflow → enter version
 #
 # Version format: semver without the "v" prefix (e.g. 1.0.0, 2.1.3)
 #
@@ -39,7 +30,6 @@
 name: Release Ontology
 
 on:
-  # ── Manual trigger ────────────────────────────────────────────────────────
   workflow_dispatch:
     inputs:
       version:
@@ -52,22 +42,9 @@ on:
         type: string
         default: ""
 
-  # ── Tag push trigger ──────────────────────────────────────────────────────
-  # Push a v*.*.* tag to trigger a release without going through the UI.
-  # The version is derived from the tag name (v prefix is stripped).
-  push:
-    tags:
-      - v[0-9]+.[0-9]+.[0-9]+
-
-# ==============================================================================
-# PERMISSIONS
-# ==============================================================================
 permissions:
-  contents: write   # Required for: git tag, git push, gh release create, artifact commit
+  contents: write
 
-# ==============================================================================
-# JOBS
-# ==============================================================================
 jobs:
   release:
     name: Build & Release
@@ -78,109 +55,76 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # Full history needed for git tag operations
+          fetch-depth: 0
 
-      # ── Guard: only run if repo has been scaffolded ───────────────────────
-      # src/ontology/ only exists after setup-repo has run.
-      # A release against the uninitialized template is not meaningful.
-      # ──────────────────────────────────────────────────────────────────────
       - name: Check ontology scaffold exists
-        id: scaffold
         run: |
-          if [ -d "src/ontology" ] && [ -f "src/ontology/Makefile" ]; then
-            echo "present=true" >> $GITHUB_OUTPUT
-          else
-            echo "present=false" >> $GITHUB_OUTPUT
+          if [ ! -d "src/ontology" ] || [ ! -f "src/ontology/Makefile" ]; then
             echo "::error::src/ontology not found. Run the Setup New Ontology workflow first."
             exit 1
           fi
 
-      # ── Resolve version string ────────────────────────────────────────────
-      # For workflow_dispatch: use the version input directly.
-      # For tag push:         strip the "v" prefix from the tag name.
-      # ──────────────────────────────────────────────────────────────────────
+      # ── Validate and resolve version ─────────────────────────────────────
       - name: Resolve version
         id: version
         run: |
-          if [ "${{ github.event_name }}" = "push" ]; then
-            VERSION="${GITHUB_REF_NAME#v}"
-          else
-            VERSION="${{ inputs.version }}"
-          fi
-
-          # Validate semver format
-          echo "$VERSION" | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' || {
+          VERSION="${{ inputs.version }}"
+          echo "$VERSION" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+$' || {
             echo "::error::Version '$VERSION' is not valid semver (expected X.Y.Z)"
             exit 1
           }
-
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Releasing version: $VERSION"
 
-      # ── Build release artifacts with PMDco-convention versionIRI ─────────
-      # ODK default ANNOTATE_ONTOLOGY_VERSION sets:
-      #   owl:versionIRI  <ontbase>/releases/<date>/<file>.owl  ← wrong
-      #
-      # We override it to use the PMDco convention:
-      #   owl:versionIRI  <ontbase>/<version>   (semver, no file extension)
-      #
-      # Example for myont v1.0.0 with ONTBASE=https://w3id.org/pmd/myont:
-      #   owl:versionIRI  https://w3id.org/pmd/myont/1.0.0
-      #   owl:versionInfo 1.0.0
-      #
-      # Single-quoting ANNOTATE_ONTOLOGY_VERSION prevents the shell from
-      # expanding $(ONTBASE) and $(VERSION) — make expands them itself using
-      # values already defined in the ODK-generated Makefile.
-      #
-      # refresh-imports is run before all_assets (same as qc.yml ontology-build)
-      # to ensure SLME modules are extracted from current mirrors.
-      # ──────────────────────────────────────────────────────────────────────
-      - name: Build release artifacts
+      # ── Guard: fail early if release already exists ───────────────────────
+      - name: Check release does not already exist
         env:
-          ROBOT_ENV: ROBOT_JAVA_ARGS=-Xmx6G
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          cd src/ontology
-          make PAT=false \
-            VERSION=${{ steps.version.outputs.version }} \
-            'ANNOTATE_ONTOLOGY_VERSION=annotate -V $(ONTBASE)/$(VERSION) --annotation owl:versionInfo $(VERSION)' \
-            refresh-imports all_assets
+          VERSION="${{ steps.version.outputs.version }}"
+          if gh release view "v${VERSION}" > /dev/null 2>&1; then
+            echo "::error::Release v${VERSION} already exists. Delete it and the tag first."
+            exit 1
+          fi
 
-      # ── Commit release artifacts to main ─────────────────────────────────
-      # Versioned artifacts must be in main so that docs.yml can find them
-      # when building the release documentation page.
+      # ── Stamp versionIRI into all release artifacts ───────────────────────
+      # qc.yml owns the full ODK rebuild on push to main.
+      # The release workflow only stamps the correct semver versionIRI
+      # onto the already-built committed artifacts using ROBOT annotate.
       # ──────────────────────────────────────────────────────────────────────
+      - name: Stamp version into artifacts
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          ONTBASE="https://w3id.org/pmd/log"
+          for f in src/ontology/log-full.owl src/ontology/log-base.owl src/ontology/log-simple.owl src/ontology/log.owl; do
+            [ -f "$f" ] || continue
+            robot annotate \
+              --input "$f" \
+              --version-iri "${ONTBASE}/${VERSION}" \
+              --annotation owl:versionInfo "${VERSION}" \
+              --output "$f"
+          done
+
+      # ── Commit stamped artifacts ──────────────────────────────────────────
       - name: Commit release artifacts
         uses: EndBug/add-and-commit@v9
         with:
           message: Release v${{ steps.version.outputs.version }}
           cwd: .
-          add: src/ontology/*.owl src/ontology/*.json src/ontology/*.ttl src/ontology/imports/*.owl --force
+          add: src/ontology/*.owl src/ontology/*.ttl --force
           default_author: github_actions
           push: true
 
       # ── Create git tag ────────────────────────────────────────────────────
-      # For workflow_dispatch: tag does not yet exist — create it on the
-      # freshly committed release artifact commit.
-      # For tag push: tag already exists — skip creation silently.
-      # ──────────────────────────────────────────────────────────────────────
       - name: Create git tag
-        if: github.event_name == 'workflow_dispatch'
         run: |
           VERSION="${{ steps.version.outputs.version }}"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
-          # Tag may already exist if the user manually created it before running this workflow
           git tag "v${VERSION}" 2>/dev/null && git push origin "v${VERSION}" || \
             echo "Tag v${VERSION} already exists — skipping."
 
       # ── Create GitHub release ─────────────────────────────────────────────
-      # Attaches all serialization files as release assets.
-      # Excludes the edit file (*-edit.owl) — that is the source, not a release
-      # artifact.
-      #
-      # --generate-notes: auto-generate release notes from commit history.
-      # If release_notes input was provided, it is prepended.
-      # ──────────────────────────────────────────────────────────────────────
       - name: Create GitHub release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -188,8 +132,7 @@ jobs:
           VERSION="${{ steps.version.outputs.version }}"
           NOTES="${{ inputs.release_notes }}"
 
-          # Collect release artifacts (exclude edit file and import sources)
-          ASSETS=$(find src/ontology -maxdepth 1 \( -name "*.owl" -o -name "*.ttl" -o -name "*.json" \) \
+          ASSETS=$(find src/ontology -maxdepth 1 \( -name "*.owl" -o -name "*.ttl" \) \
                    ! -name "*-edit.owl" | tr '\n' ' ')
 
           if [ -z "$ASSETS" ]; then
@@ -199,27 +142,20 @@ jobs:
 
           echo "Attaching assets: $ASSETS"
 
-          # Build gh flags
-          FLAGS="--title \"Release v${VERSION}\" --tag v${VERSION} --generate-notes"
           if [ -n "$NOTES" ]; then
-            FLAGS="$FLAGS --notes \"${NOTES}\""
+            gh release create "v${VERSION}" \
+              --title "Release v${VERSION}" \
+              --notes "$NOTES" \
+              --generate-notes \
+              $ASSETS
+          else
+            gh release create "v${VERSION}" \
+              --title "Release v${VERSION}" \
+              --generate-notes \
+              $ASSETS
           fi
 
-          gh release create "v${VERSION}" \
-            --title "Release v${VERSION}" \
-            --tag "v${VERSION}" \
-            --generate-notes \
-            ${NOTES:+--notes-start-tag "$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo '')"} \
-            $ASSETS || \
-          gh release create "v${VERSION}" \
-            --title "Release v${VERSION}" \
-            --generate-notes \
-            $ASSETS
-
       # ── Trigger versioned documentation build ────────────────────────────
-      # Passes the version in the client_payload so docs.yml knows which
-      # version directory to create under the GitHub Pages site.
-      # ──────────────────────────────────────────────────────────────────────
       - name: Trigger versioned documentation build
         uses: peter-evans/repository-dispatch@v3
         with:
