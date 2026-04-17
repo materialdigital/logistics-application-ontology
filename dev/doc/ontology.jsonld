@@ -41433,9 +41433,11 @@
     "@value" : "The logistics application ontology for use with PMD Core Ontology (PMDco). The scope of this module is the description of material science and engineering related logistics and general organization. Its is adopted from the IOF SupplyChain Module https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/"
   } ],
   "http://www.w3.org/2002/07/owl#versionIRI" : [ {
-    "@id" : "https://w3id.org/pmd/log/releases/2026-04-17/log-full.owl"
+    "@id" : "https://w3id.org/pmd/log/1.0.1"
   } ],
   "http://www.w3.org/2002/07/owl#versionInfo" : [ {
+    "@value" : "1.0.1"
+  }, {
     "@value" : "2026-04-17"
   } ]
 }, {
