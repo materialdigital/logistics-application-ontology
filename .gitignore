@@ -32,16 +32,6 @@ src/ontology/mirror
 src/ontology/mirror/*
 src/ontology/reports/*
 !src/ontology/reports/release-diff.md
-src/ontology/log.owl
-src/ontology/log.obo
-src/ontology/log.json
-src/ontology/log.db
-src/ontology/log-base.*
-src/ontology/log-basic.*
-src/ontology/log-full.*
-src/ontology/log-simple.*
-src/ontology/log-simple-non-classified.*
-
 src/ontology/seed.txt
 src/ontology/dosdp-tools.log
 src/ontology/ed_definitions_merged.owl

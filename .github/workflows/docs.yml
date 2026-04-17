@@ -213,19 +213,12 @@ jobs:
             -rewriteAll \
             -webVowl
 
-          # Default entry point (English)
           cp "./_site/${VERSION}/doc/index-en.html" "./_site/${VERSION}/doc/index.html" || true
 
-      # ── Note: serializations are served by Widoco automatically ─────────────
-      # Widoco copies the source ontology file and generates download buttons
-      # for JSON-LD, RDF/XML, N-Triples, and TTL in the HTML documentation.
-      # The files are placed at the root of the doc/ output as ontology.jsonld,
-      # ontology.rdf, ontology.ntx, ontology.ttl — no manual copy needed.
-
       # ── Update /dev/ ──────────────────────────────────────────────────────
-      # /dev/ always mirrors the latest build from main (every push).
-      # Named releases (e.g. /2025-11-20/ or /1.0.0/) are preserved alongside.
-      # This gives a stable URL for development/preview access.
+      # Always mirrors the latest build. On a qc build (no version payload)
+      # this is the only thing published — no versioned directory, no index
+      # update — keeping release history clean.
       # ──────────────────────────────────────────────────────────────────────
       - name: Update /dev/
         run: |
@@ -233,12 +226,12 @@ jobs:
           rm -rf ./_site/dev
           cp -r "./_site/${VERSION}" ./_site/dev
 
-      # ── Build root index.html ─────────────────────────────────────────────
-      # Generates a simple version listing page as the site root.
-      # Reads existing version directories from the previously fetched
-      # gh-pages branch and adds the current version to the list.
+      # ── Build root index.html (release only) ─────────────────────────────
+      # Only regenerated when a real version is provided (release trigger).
+      # qc builds only update /dev/ and skip this step.
       # ──────────────────────────────────────────────────────────────────────
       - name: Build root index.html
+        if: needs.check.outputs.version != 'latest'
         run: |
           VERSION="${{ needs.check.outputs.version }}"
 
@@ -323,6 +316,12 @@ jobs:
       #   rm -rf <version>/
       #   git commit -am "Remove version <version>" && git push
       # ──────────────────────────────────────────────────────────────────────
+      # On qc builds (version = "latest") remove the _site/latest/ build dir —
+      # /dev/ already has the content; we don't want a permanent /latest/ page.
+      - name: Drop build dir for dev deploys
+        if: needs.check.outputs.version == 'latest'
+        run: rm -rf ./_site/latest
+
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
         with:
