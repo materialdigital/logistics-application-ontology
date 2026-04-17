@@ -25,6 +25,6 @@ import_group:
   products:
     - id: pmdco
       module_type: mirror
-      mirror_from: https://w3id.org/pmd/co/3.0.0-alpha4
+      mirror_from: https://w3id.org/pmd/co/3.0.0
       base_iris:
         - https://w3id.org/pmd/co/

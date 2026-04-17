@@ -463,7 +463,7 @@ ifeq ($(MIR),true)
 .PHONY: mirror-pmdco
 .PRECIOUS: $(MIRRORDIR)/pmdco.owl
 mirror-pmdco: | $(TMPDIR)
-	$(ROBOT) convert -I https://w3id.org/pmd/co/3.0.0-alpha4 -o $(TMPDIR)/$@.owl
+	$(ROBOT) convert -I https://w3id.org/pmd/co/3.0.0 -o $(TMPDIR)/$@.owl
 
 
 $(MIRRORDIR)/%.owl: mirror-% | $(MIRRORDIR)
