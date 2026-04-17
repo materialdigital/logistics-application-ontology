@@ -18,13 +18,15 @@
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#"
      xmlns:logistics="https://w3id.org/pmd/co/logistics/">
     <owl:Ontology rdf:about="https://w3id.org/pmd/log/log-full.owl">
-        <owl:versionIRI rdf:resource="https://w3id.org/pmd/log/1.0.1"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/pmd/log/releases/2026-04-17/log-full.owl"/>
+        <terms:creator rdf:resource="https://orcid.org/0000-0001-7192-7143"/>
         <terms:creator rdf:resource="https://orcid.org/0000-0003-1649-6832"/>
+        <terms:creator rdf:resource="https://orcid.org/0009-0003-1503-4422"/>
+        <terms:creator rdf:resource="https://orcid.org/0009-0007-7468-3544"/>
         <terms:description>This is an alignment of the IOF Supply Chain Ontologies Library to the Platform Material Digital Core Ontology. It contains ontologies to be used in the domain of supply chain and logistics.</terms:description>
-        <terms:license>http://opensource.org/licenses/MIT</terms:license>
-        <terms:title xml:lang="en">Platform Material Digital Application Ontology  for Logistics and supplychain (log)</terms:title>
+        <terms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+        <terms:title xml:lang="en">Platform Material Digital Application Ontology for Logistics and Supply Chain (LOG)</terms:title>
         <rdfs:comment xml:lang="en">The logistics application ontology for use with PMD Core Ontology (PMDco). The scope of this module is the description of material science and engineering related logistics and general organization. Its is adopted from the IOF SupplyChain Module https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/</rdfs:comment>
-        <owl:versionInfo>1.0.1</owl:versionInfo>
         <owl:versionInfo>2026-04-17</owl:versionInfo>
     </owl:Ontology>
     
@@ -563,6 +565,13 @@ A continuant cannot have an occurrent as part: use &apos;participates in&apos;. 
         <skos:definition xml:lang="en">b occurs in c =Def b is a process or a process boundary &amp; c is a material entity or site &amp; there exists a spatiotemporal region r &amp; b occupies spatiotemporal region r &amp; for all time t, if b exists at t then c exists at t &amp; there exist spatial regions s and s&apos; where b spatially projects onto s at t &amp; c occupies spatial region s&apos; at t &amp; s is a continuant part of s&apos; at t</skos:definition>
         <skos:example xml:lang="en">A process of digestion occurs in the interior of an organism; a process of loading artillery rounds into a tank cannon occurs in the interior of the tank</skos:example>
     </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000082 -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000082"/>
     
 
 
@@ -21677,7 +21686,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
 
     <owl:Class rdf:about="https://w3id.org/pmd/log/LOG_1000032">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000027"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/log/LOG_1000146"/>
         <obo:IAO_0000412 rdf:resource="https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/Facility"/>
         <rdfs:label xml:lang="en">facility</rdfs:label>
         <skos:definition xml:lang="en-us">engineered system that consists of buildings, structures, roads, machines, and equipment desgined to provide certain capabilities</skos:definition>
@@ -25011,6 +25020,35 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
         <obo:IAO_0000412 rdf:resource="https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/TravelProcess"/>
         <rdfs:label xml:lang="en">travel process</rdfs:label>
         <skos:definition xml:lang="en-us">material location change process wherein one or more persons move between geographical locations</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/log/LOG_1000146 -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pmd/log/LOG_1000146">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000027"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000082"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0040029"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000027"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/org#Site"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000082"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0040029"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">physical premises</rdfs:label>
+        <skos:definition xml:lang="en">object aggregate that has a location at some geospatial site and serves as a physical place of operation for an organization</skos:definition>
     </owl:Class>
     
 
