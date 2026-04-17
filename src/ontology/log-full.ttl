@@ -2,6 +2,7 @@
 @prefix co: <https://w3id.org/pmd/co/> .
 @prefix dce: <http://purl.org/dc/elements/1.1/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix org: <http://www.w3.org/ns/org#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -221,6 +222,14 @@ skos:definition rdf:type owl:AnnotationProperty .
 
 ###  http://www.w3.org/2004/02/skos/core#example
 skos:example rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/ns/org#purpose
+org:purpose rdf:type owl:AnnotationProperty ;
+            rdfs:label "but"@fr ,
+                       "obiettivo"@it ,
+                       "purpose"@en ,
+                       "tiene objetivo"@es .
 
 
 ###  https://w3id.org/pmd/co/PMD_0000060
@@ -1164,200 +1173,342 @@ obo:STATO_0000102 rdf:type owl:ObjectProperty ;
                   rdfs:label "executes" .
 
 
+###  http://www.w3.org/ns/org#changedBy
+org:changedBy rdf:type owl:ObjectProperty ;
+              owl:inverseOf org:originalOrganization ;
+              rdfs:domain org:Organization ;
+              rdfs:range org:ChangeEvent ;
+              rdfs:label "cambiata da"@it ,
+                         "changed by"@en ,
+                         "es modificada por"@es ,
+                         "es modificado por"@es ,
+                         "modifiée par"@fr .
+
+
+###  http://www.w3.org/ns/org#classification
+org:classification rdf:type owl:ObjectProperty ;
+                   rdfs:domain org:Organization ;
+                   rdfs:range skos:Concept ;
+                   rdfs:label "classification"@en ,
+                              "classification"@fr ,
+                              "classificazione"@it ,
+                              "pertenece a la clasificación"@es .
+
+
 ###  http://www.w3.org/ns/org#hasMember
-<http://www.w3.org/ns/org#hasMember> rdf:type owl:ObjectProperty ;
-                                     owl:inverseOf <http://www.w3.org/ns/org#memberOf> ;
-                                     rdfs:domain <http://www.w3.org/ns/org#Organization> ;
-                                     rdfs:range <http://xmlns.com/foaf/0.1/Agent> ;
-                                     rdfs:label "ha membro"@it ,
-                                                "has member"@en ,
-                                                "possède un membre"@fr ,
-                                                "tiene miembro"@es .
+org:hasMember rdf:type owl:ObjectProperty ;
+              owl:inverseOf org:memberOf ;
+              rdfs:domain org:Organization ;
+              rdfs:range <http://xmlns.com/foaf/0.1/Agent> ;
+              rdfs:label "ha membro"@it ,
+                         "has member"@en ,
+                         "possède un membre"@fr ,
+                         "tiene miembro"@es .
 
 
 ###  http://www.w3.org/ns/org#hasMembership
-<http://www.w3.org/ns/org#hasMembership> rdf:type owl:ObjectProperty ;
-                                         owl:inverseOf <http://www.w3.org/ns/org#member> ;
-                                         rdfs:domain <http://xmlns.com/foaf/0.1/Agent> ;
-                                         rdfs:range <http://www.w3.org/ns/org#Membership> ;
-                                         rdfs:label "appartenenza"@it ,
-                                                    "engagement"@fr ,
-                                                    "membership"@en ,
-                                                    "tiene membresía"@es .
+org:hasMembership rdf:type owl:ObjectProperty ;
+                  owl:inverseOf org:member ;
+                  rdfs:domain <http://xmlns.com/foaf/0.1/Agent> ;
+                  rdfs:range org:Membership ;
+                  rdfs:label "appartenenza"@it ,
+                             "engagement"@fr ,
+                             "membership"@en ,
+                             "tiene membresía"@es .
 
 
 ###  http://www.w3.org/ns/org#hasPost
-<http://www.w3.org/ns/org#hasPost> rdf:type owl:ObjectProperty ;
-                                   owl:inverseOf <http://www.w3.org/ns/org#postIn> ;
-                                   rdfs:domain <http://www.w3.org/ns/org#Organization> ;
-                                   rdfs:range <http://www.w3.org/ns/org#Post> ;
-                                   rdfs:label "impiego"@it ,
-                                              "possède un poste"@fr ,
-                                              "post"@en ,
-                                              "tiene puesto"@es .
+org:hasPost rdf:type owl:ObjectProperty ;
+            owl:inverseOf org:postIn ;
+            rdfs:domain org:Organization ;
+            rdfs:range org:Post ;
+            rdfs:label "impiego"@it ,
+                       "possède un poste"@fr ,
+                       "post"@en ,
+                       "tiene puesto"@es .
+
+
+###  http://www.w3.org/ns/org#hasPrimarySite
+org:hasPrimarySite rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf org:hasSite ;
+                   rdfs:domain org:Organization ;
+                   rdfs:range org:Site ;
+                   rdfs:label "primary Site"@en ,
+                              "sede principale"@it ,
+                              "site principal"@fr ,
+                              "tiene sede principal en"@es .
+
+
+###  http://www.w3.org/ns/org#hasRegisteredSite
+org:hasRegisteredSite rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf org:hasPrimarySite ;
+                      rdfs:domain org:FormalOrganization ;
+                      rdfs:range org:Site ;
+                      rdfs:label "registered Site"@en ,
+                                 "sede legale"@it ,
+                                 "siège social"@fr ,
+                                 "tiene sede registrada en"@es .
+
+
+###  http://www.w3.org/ns/org#hasSite
+org:hasSite rdf:type owl:ObjectProperty ;
+            owl:inverseOf org:siteOf ;
+            rdfs:domain org:Organization ;
+            rdfs:range org:Site ;
+            rdfs:label "a un site"@fr ,
+                       "ha sede"@it ,
+                       "has site"@en ,
+                       "tiene sede en"@es .
 
 
 ###  http://www.w3.org/ns/org#hasSubOrganization
-<http://www.w3.org/ns/org#hasSubOrganization> rdf:type owl:ObjectProperty ;
-                                              owl:inverseOf <http://www.w3.org/ns/org#subOrganizationOf> ;
-                                              rdfs:domain <http://www.w3.org/ns/org#Organization> ;
-                                              rdfs:range <http://www.w3.org/ns/org#Organization> ;
-                                              rdfs:label "a une Sous-Organization"@fr ,
-                                                         "ha sotto-Organization"@it ,
-                                                         "has SubOrganization"@en ,
-                                                         "tiene suborganización"@es .
+org:hasSubOrganization rdf:type owl:ObjectProperty ;
+                       owl:inverseOf org:subOrganizationOf ;
+                       rdfs:domain org:Organization ;
+                       rdfs:range org:Organization ;
+                       rdfs:label "a une Sous-Organization"@fr ,
+                                  "ha sotto-Organization"@it ,
+                                  "has SubOrganization"@en ,
+                                  "tiene suborganización"@es .
 
 
 ###  http://www.w3.org/ns/org#hasUnit
-<http://www.w3.org/ns/org#hasUnit> rdf:type owl:ObjectProperty ;
-                                   rdfs:subPropertyOf <http://www.w3.org/ns/org#hasSubOrganization> ;
-                                   owl:inverseOf <http://www.w3.org/ns/org#unitOf> ;
-                                   rdfs:domain <http://www.w3.org/ns/org#FormalOrganization> ;
-                                   rdfs:range <http://www.w3.org/ns/org#OrganizationalUnit> ;
-                                   rdfs:label "contiene unidad"@es ,
-                                              "ha Unit"@it ,
-                                              "has Unit"@en ,
-                                              "possède une Unité"@fr .
+org:hasUnit rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf org:hasSubOrganization ;
+            owl:inverseOf org:unitOf ;
+            rdfs:domain org:FormalOrganization ;
+            rdfs:range org:OrganizationalUnit ;
+            rdfs:label "contiene unidad"@es ,
+                       "ha Unit"@it ,
+                       "has Unit"@en ,
+                       "possède une Unité"@fr .
 
 
 ###  http://www.w3.org/ns/org#headOf
-<http://www.w3.org/ns/org#headOf> rdf:type owl:ObjectProperty ;
-                                  rdfs:subPropertyOf <http://www.w3.org/ns/org#memberOf> ;
-                                  rdfs:domain <http://xmlns.com/foaf/0.1/Agent> ;
-                                  rdfs:range <http://www.w3.org/ns/org#Organization> ;
-                                  rdfs:label "es director ejecutivo de"@es ,
-                                             "head of"@en ,
-                                             "responsabile di"@it ,
-                                             "responsable de"@fr .
+org:headOf rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf org:memberOf ;
+           rdfs:domain <http://xmlns.com/foaf/0.1/Agent> ;
+           rdfs:range org:Organization ;
+           rdfs:label "es director ejecutivo de"@es ,
+                      "head of"@en ,
+                      "responsabile di"@it ,
+                      "responsable de"@fr .
 
 
 ###  http://www.w3.org/ns/org#heldBy
-<http://www.w3.org/ns/org#heldBy> rdf:type owl:ObjectProperty ;
-                                  owl:inverseOf <http://www.w3.org/ns/org#holds> ;
-                                  rdfs:domain <http://www.w3.org/ns/org#Post> ;
-                                  rdfs:range <http://xmlns.com/foaf/0.1/Agent> ;
-                                  rdfs:label "held by"@en ,
-                                             "occupé par"@fr ,
-                                             "ocupado por"@es ,
-                                             "ricoperto da"@it .
+org:heldBy rdf:type owl:ObjectProperty ;
+           owl:inverseOf org:holds ;
+           rdfs:domain org:Post ;
+           rdfs:range <http://xmlns.com/foaf/0.1/Agent> ;
+           rdfs:label "held by"@en ,
+                      "occupé par"@fr ,
+                      "ocupado por"@es ,
+                      "ricoperto da"@it .
 
 
 ###  http://www.w3.org/ns/org#holds
-<http://www.w3.org/ns/org#holds> rdf:type owl:ObjectProperty ;
-                                 rdfs:domain <http://xmlns.com/foaf/0.1/Agent> ;
-                                 rdfs:range <http://www.w3.org/ns/org#Post> ;
-                                 rdfs:label "holds"@en ,
-                                            "occupe"@fr ,
-                                            "ocupa"@es ,
-                                            "ricopre"@it .
+org:holds rdf:type owl:ObjectProperty ;
+          rdfs:domain <http://xmlns.com/foaf/0.1/Agent> ;
+          rdfs:range org:Post ;
+          rdfs:label "holds"@en ,
+                     "occupe"@fr ,
+                     "ocupa"@es ,
+                     "ricopre"@it .
+
+
+###  http://www.w3.org/ns/org#linkedTo
+org:linkedTo rdf:type owl:ObjectProperty ;
+             rdfs:domain org:Organization ;
+             rdfs:range org:Organization ;
+             rdfs:label "collegato a"@it ,
+                        "está relacionada con"@es ,
+                        "está relacionado con"@es ,
+                        "linked to"@en ,
+                        "relié à"@fr .
 
 
 ###  http://www.w3.org/ns/org#member
-<http://www.w3.org/ns/org#member> rdf:type owl:ObjectProperty ,
-                                           owl:FunctionalProperty ;
-                                  rdfs:domain <http://www.w3.org/ns/org#Membership> ;
-                                  rdfs:range <http://xmlns.com/foaf/0.1/Agent> ;
-                                  rdfs:label "es condición de miembro sobre agente"@es ,
-                                             "member"@en ,
-                                             "membre"@fr ,
-                                             "membro"@it .
+org:member rdf:type owl:ObjectProperty ,
+                    owl:FunctionalProperty ;
+           rdfs:domain org:Membership ;
+           rdfs:range <http://xmlns.com/foaf/0.1/Agent> ;
+           rdfs:label "es condición de miembro sobre agente"@es ,
+                      "member"@en ,
+                      "membre"@fr ,
+                      "membro"@it .
+
+
+###  http://www.w3.org/ns/org#memberDuring
+org:memberDuring rdf:type owl:ObjectProperty ;
+                 rdfs:domain org:Membership ;
+                 rdfs:label "durée d'engagement"@fr ,
+                            "es miembro durante"@es ,
+                            "member During"@en ,
+                            "membro durante"@it .
 
 
 ###  http://www.w3.org/ns/org#memberOf
-<http://www.w3.org/ns/org#memberOf> rdf:type owl:ObjectProperty ;
-                                    rdfs:domain <http://xmlns.com/foaf/0.1/Agent> ;
-                                    rdfs:range <http://www.w3.org/ns/org#Organization> ;
-                                    rdfs:label "es miembro de"@es ,
-                                               "member of"@en ,
-                                               "membre de"@fr ,
-                                               "membro di"@it .
+org:memberOf rdf:type owl:ObjectProperty ;
+             rdfs:domain <http://xmlns.com/foaf/0.1/Agent> ;
+             rdfs:range org:Organization ;
+             rdfs:label "es miembro de"@es ,
+                        "member of"@en ,
+                        "membre de"@fr ,
+                        "membro di"@it .
 
 
 ###  http://www.w3.org/ns/org#organization
-<http://www.w3.org/ns/org#organization> rdf:type owl:ObjectProperty ,
-                                                 owl:FunctionalProperty ;
-                                        rdfs:domain <http://www.w3.org/ns/org#Membership> ;
-                                        rdfs:range <http://www.w3.org/ns/org#Organization> ;
-                                        rdfs:label "es condición de miembro sobre organización"@es ,
-                                                   "organisation"@fr ,
-                                                   "organization"@en ,
-                                                   "organizzazione"@it .
+org:organization rdf:type owl:ObjectProperty ,
+                          owl:FunctionalProperty ;
+                 rdfs:domain org:Membership ;
+                 rdfs:range org:Organization ;
+                 rdfs:label "es condición de miembro sobre organización"@es ,
+                            "organisation"@fr ,
+                            "organization"@en ,
+                            "organizzazione"@it .
+
+
+###  http://www.w3.org/ns/org#originalOrganization
+org:originalOrganization rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf <http://www.w3.org/ns/prov#used> ;
+                         rdfs:domain org:ChangeEvent ;
+                         rdfs:range org:Organization ;
+                         rdfs:label "es organización original"@es ,
+                                    "organisation originelle"@fr ,
+                                    "organizzazione originale"@it ,
+                                    "original organization"@en .
 
 
 ###  http://www.w3.org/ns/org#postIn
-<http://www.w3.org/ns/org#postIn> rdf:type owl:ObjectProperty ;
-                                  rdfs:domain <http://www.w3.org/ns/org#Post> ;
-                                  rdfs:range <http://www.w3.org/ns/org#Organization> ;
-                                  rdfs:label "es un puesto en"@es ,
-                                             "impiego in"@it ,
-                                             "post in"@en ,
-                                             "poste chez"@fr .
+org:postIn rdf:type owl:ObjectProperty ;
+           rdfs:domain org:Post ;
+           rdfs:range org:Organization ;
+           rdfs:label "es un puesto en"@es ,
+                      "impiego in"@it ,
+                      "post in"@en ,
+                      "poste chez"@fr .
 
 
 ###  http://www.w3.org/ns/org#reportsTo
-<http://www.w3.org/ns/org#reportsTo> rdf:type owl:ObjectProperty ;
-                                     rdfs:domain [ rdf:type owl:Class ;
-                                                   owl:unionOf ( <http://www.w3.org/ns/org#Post>
-                                                                 <http://xmlns.com/foaf/0.1/Agent>
-                                                               )
-                                                 ] ;
-                                     rdfs:range [ rdf:type owl:Class ;
-                                                  owl:unionOf ( <http://www.w3.org/ns/org#Post>
-                                                                <http://xmlns.com/foaf/0.1/Agent>
-                                                              )
-                                                ] ;
-                                     rdfs:label "est subordonné à"@fr ,
-                                                "reports to"@en ,
-                                                "responde ante"@es ,
-                                                "riporta a"@it .
+org:reportsTo rdf:type owl:ObjectProperty ;
+              rdfs:domain [ rdf:type owl:Class ;
+                            owl:unionOf ( org:Post
+                                          <http://xmlns.com/foaf/0.1/Agent>
+                                        )
+                          ] ;
+              rdfs:range [ rdf:type owl:Class ;
+                           owl:unionOf ( org:Post
+                                         <http://xmlns.com/foaf/0.1/Agent>
+                                       )
+                         ] ;
+              rdfs:label "est subordonné à"@fr ,
+                         "reports to"@en ,
+                         "responde ante"@es ,
+                         "riporta a"@it .
+
+
+###  http://www.w3.org/ns/org#resultedFrom
+org:resultedFrom rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasGeneratedBy> ;
+                 owl:inverseOf org:resultingOrganization ;
+                 rdfs:domain org:Organization ;
+                 rdfs:range org:ChangeEvent ;
+                 rdfs:label "es el resultado de"@es ,
+                            "issue de"@fr ,
+                            "resulted from"@en ,
+                            "risultato da"@it .
+
+
+###  http://www.w3.org/ns/org#resultingOrganization
+org:resultingOrganization rdf:type owl:ObjectProperty ;
+                          rdfs:domain org:ChangeEvent ;
+                          rdfs:range org:Organization ;
+                          rdfs:label "a donné naissance à"@fr ,
+                                     "resulta en"@es ,
+                                     "resulted in"@en ,
+                                     "risultato in"@it .
 
 
 ###  http://www.w3.org/ns/org#role
-<http://www.w3.org/ns/org#role> rdf:type owl:ObjectProperty ;
-                                rdfs:domain [ rdf:type owl:Class ;
-                                              owl:unionOf ( <http://www.w3.org/ns/org#Membership>
-                                                            <http://www.w3.org/ns/org#Post>
-                                                          )
-                                            ] ;
-                                rdfs:range <http://www.w3.org/ns/org#Role> ;
-                                rdfs:label "desempeña la actividad de"@es ,
-                                           "role"@en ,
-                                           "ruolo"@it ,
-                                           "rôle"@fr .
+org:role rdf:type owl:ObjectProperty ;
+         rdfs:domain [ rdf:type owl:Class ;
+                       owl:unionOf ( org:Membership
+                                     org:Post
+                                   )
+                     ] ;
+         rdfs:range org:Role ;
+         rdfs:label "desempeña la actividad de"@es ,
+                    "role"@en ,
+                    "ruolo"@it ,
+                    "rôle"@fr .
+
+
+###  http://www.w3.org/ns/org#siteAddress
+org:siteAddress rdf:type owl:ObjectProperty ;
+                rdfs:domain org:Site ;
+                rdfs:label "adresse du Site"@fr ,
+                           "es la dirección de la sede"@es ,
+                           "indirizzo della sede"@it ,
+                           "site Address"@en .
+
+
+###  http://www.w3.org/ns/org#siteOf
+org:siteOf rdf:type owl:ObjectProperty ;
+           rdfs:domain org:Site ;
+           rdfs:range org:Organization ;
+           rdfs:label "es sede de"@es ,
+                      "sede di"@it ,
+                      "site Of"@en ,
+                      "site de"@fr .
 
 
 ###  http://www.w3.org/ns/org#subOrganizationOf
-<http://www.w3.org/ns/org#subOrganizationOf> rdf:type owl:ObjectProperty ;
-                                             rdfs:subPropertyOf <http://www.w3.org/ns/org#transitiveSubOrganizationOf> ;
-                                             rdfs:domain <http://www.w3.org/ns/org#Organization> ;
-                                             rdfs:range <http://www.w3.org/ns/org#Organization> ;
-                                             rdfs:label "es suborganización de"@es ,
-                                                        "sotto-Organization di"@it ,
-                                                        "sous-Organization de"@fr ,
-                                                        "subOrganization of"@en .
+org:subOrganizationOf rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf org:transitiveSubOrganizationOf ;
+                      rdfs:domain org:Organization ;
+                      rdfs:range org:Organization ;
+                      rdfs:label "es suborganización de"@es ,
+                                 "sotto-Organization di"@it ,
+                                 "sous-Organization de"@fr ,
+                                 "subOrganization of"@en .
 
 
 ###  http://www.w3.org/ns/org#transitiveSubOrganizationOf
-<http://www.w3.org/ns/org#transitiveSubOrganizationOf> rdf:type owl:ObjectProperty ,
-                                                                owl:TransitiveProperty ;
-                                                       rdfs:domain <http://www.w3.org/ns/org#Organization> ;
-                                                       rdfs:range <http://www.w3.org/ns/org#Organization> ;
-                                                       rdfs:label "es suborganización de (transitiva)"@es ,
-                                                                  "es suborganización de manera transitiva de"@es ,
-                                                                  "sotto-Organization transitiva"@it ,
-                                                                  "sous-Organization transitive de"@fr ,
-                                                                  "transitive sub-organization"@en .
+org:transitiveSubOrganizationOf rdf:type owl:ObjectProperty ,
+                                         owl:TransitiveProperty ;
+                                rdfs:domain org:Organization ;
+                                rdfs:range org:Organization ;
+                                rdfs:label "es suborganización de (transitiva)"@es ,
+                                           "es suborganización de manera transitiva de"@es ,
+                                           "sotto-Organization transitiva"@it ,
+                                           "sous-Organization transitive de"@fr ,
+                                           "transitive sub-organization"@en .
 
 
 ###  http://www.w3.org/ns/org#unitOf
-<http://www.w3.org/ns/org#unitOf> rdf:type owl:ObjectProperty ;
-                                  rdfs:subPropertyOf <http://www.w3.org/ns/org#subOrganizationOf> ;
-                                  rdfs:domain <http://www.w3.org/ns/org#OrganizationalUnit> ;
-                                  rdfs:range <http://www.w3.org/ns/org#FormalOrganization> ;
-                                  rdfs:label "es unidad de"@es ,
-                                             "unit Of"@en ,
-                                             "unità di"@it ,
-                                             "unité de"@fr .
+org:unitOf rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf org:subOrganizationOf ;
+           rdfs:domain org:OrganizationalUnit ;
+           rdfs:range org:FormalOrganization ;
+           rdfs:label "es unidad de"@es ,
+                      "unit Of"@en ,
+                      "unità di"@it ,
+                      "unité de"@fr .
+
+
+###  http://www.w3.org/ns/prov#used
+<http://www.w3.org/ns/prov#used> rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/prov#wasDerivedFrom
+<http://www.w3.org/ns/prov#wasDerivedFrom> rdf:type owl:ObjectProperty ;
+                                           owl:propertyChainAxiom ( org:resultedFrom
+                                                                    org:originalOrganization
+                                                                  ) .
+
+
+###  http://www.w3.org/ns/prov#wasGeneratedBy
+<http://www.w3.org/ns/prov#wasGeneratedBy> rdf:type owl:ObjectProperty .
 
 
 ###  https://w3id.org/pmd/co/PMD_0000004
@@ -1599,12 +1750,26 @@ obo:OBI_0002135 rdf:type owl:DatatypeProperty ;
                 rdfs:label "has specified value"@en .
 
 
+###  http://www.w3.org/2004/02/skos/core#notation
+skos:notation rdf:type owl:DatatypeProperty .
+
+
 ###  http://www.w3.org/2006/time#inXSDDateTime
 <http://www.w3.org/2006/time#inXSDDateTime> rdf:type owl:DatatypeProperty ;
                                             rdfs:label "en fecha-tiempo XSD"@es ,
                                                        "in XSD Date-Time"@en ;
                                             skos:definition "Posición de un instante, expresado utilizando xsd:dateTime."@es ,
                                                             "Position of an instant, expressed using xsd:dateTime"@en .
+
+
+###  http://www.w3.org/ns/org#identifier
+org:identifier rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf skos:notation ;
+               rdfs:domain org:Organization ;
+               rdfs:label "identifiant"@fr ,
+                          "identificatore"@it ,
+                          "identifier"@en ,
+                          "tiene identificador"@es .
 
 
 ###  https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001008
@@ -3642,83 +3807,111 @@ dcterms:Agent rdf:type owl:Class ;
 skos:Concept rdf:type owl:Class .
 
 
+###  http://www.w3.org/ns/org#ChangeEvent
+org:ChangeEvent rdf:type owl:Class ;
+                rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> ;
+                owl:disjointWith org:Membership ,
+                                 org:Organization ,
+                                 org:Role ,
+                                 org:Site ;
+                rdfs:label "Change Event"@en ,
+                           "Evento di cambiamento"@it ,
+                           "evento de cambio"@es ,
+                           "Évènement"@fr .
+
+
 ###  http://www.w3.org/ns/org#FormalOrganization
-<http://www.w3.org/ns/org#FormalOrganization> rdf:type owl:Class ;
-                                              rdfs:subClassOf <http://www.w3.org/ns/org#Organization> ,
-                                                              <http://xmlns.com/foaf/0.1/Organization> ;
-                                              rdfs:label "Formal Organization"@en ,
-                                                         "Organisation Formelle"@fr ,
-                                                         "Organizzazione formale"@it ,
-                                                         "organización formal"@es .
+org:FormalOrganization rdf:type owl:Class ;
+                       rdfs:subClassOf org:Organization ,
+                                       <http://xmlns.com/foaf/0.1/Organization> ;
+                       rdfs:label "Formal Organization"@en ,
+                                  "Organisation Formelle"@fr ,
+                                  "Organizzazione formale"@it ,
+                                  "organización formal"@es .
 
 
 ###  http://www.w3.org/ns/org#Membership
-<http://www.w3.org/ns/org#Membership> rdf:type owl:Class ;
-                                      rdfs:subClassOf obo:BFO_0000023 ;
-                                      owl:disjointWith <http://www.w3.org/ns/org#Organization> ,
-                                                       <http://www.w3.org/ns/org#Role> ;
-                                      rdfs:label "Appartenenza"@it ,
-                                                 "Engagement"@fr ,
-                                                 "Membership"@en ,
-                                                 "membresía"@es .
+org:Membership rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000023 ;
+               owl:disjointWith org:Organization ,
+                                org:Role ,
+                                org:Site ;
+               rdfs:label "Appartenenza"@it ,
+                          "Engagement"@fr ,
+                          "Membership"@en ,
+                          "membresía"@es .
 
 
 ###  http://www.w3.org/ns/org#Organization
-<http://www.w3.org/ns/org#Organization> rdf:type owl:Class ;
-                                        owl:equivalentClass <http://xmlns.com/foaf/0.1/Organization> ;
-                                        rdfs:subClassOf dcterms:Agent ,
-                                                        <http://xmlns.com/foaf/0.1/Agent> ;
-                                        owl:disjointWith <http://www.w3.org/ns/org#Role> ;
-                                        rdfs:label "Organisation"@fr ,
-                                                   "Organization"@en ,
-                                                   "Organizzazione"@it ,
-                                                   "organización"@es .
+org:Organization rdf:type owl:Class ;
+                 owl:equivalentClass <http://xmlns.com/foaf/0.1/Organization> ;
+                 rdfs:subClassOf dcterms:Agent ,
+                                 <http://xmlns.com/foaf/0.1/Agent> ;
+                 owl:disjointWith org:Role ,
+                                  org:Site ;
+                 rdfs:label "Organisation"@fr ,
+                            "Organization"@en ,
+                            "Organizzazione"@it ,
+                            "organización"@es .
 
 
 ###  http://www.w3.org/ns/org#OrganizationalCollaboration
-<http://www.w3.org/ns/org#OrganizationalCollaboration> rdf:type owl:Class ;
-                                                       owl:equivalentClass [ owl:intersectionOf ( <http://www.w3.org/ns/org#Organization>
-                                                                                                  [ rdf:type owl:Restriction ;
-                                                                                                    owl:onProperty <http://www.w3.org/ns/org#hasMember> ;
-                                                                                                    owl:allValuesFrom <http://www.w3.org/ns/org#Organization>
-                                                                                                  ]
-                                                                                                ) ;
-                                                                             rdf:type owl:Class
-                                                                           ] ;
-                                                       rdfs:subClassOf <http://www.w3.org/ns/org#Organization> ,
-                                                                       <http://xmlns.com/foaf/0.1/Organization> ;
-                                                       rdfs:label "Collaborazione"@it ,
-                                                                  "Endeavour"@en ,
-                                                                  "Partenariat"@fr ,
-                                                                  "proyecto de cooperación empresarial"@es .
+org:OrganizationalCollaboration rdf:type owl:Class ;
+                                owl:equivalentClass [ owl:intersectionOf ( org:Organization
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty org:hasMember ;
+                                                                             owl:allValuesFrom org:Organization
+                                                                           ]
+                                                                         ) ;
+                                                      rdf:type owl:Class
+                                                    ] ;
+                                rdfs:subClassOf org:Organization ,
+                                                <http://xmlns.com/foaf/0.1/Organization> ;
+                                rdfs:label "Collaborazione"@it ,
+                                           "Endeavour"@en ,
+                                           "Partenariat"@fr ,
+                                           "proyecto de cooperación empresarial"@es .
 
 
 ###  http://www.w3.org/ns/org#OrganizationalUnit
-<http://www.w3.org/ns/org#OrganizationalUnit> rdf:type owl:Class ;
-                                              rdfs:subClassOf <http://www.w3.org/ns/org#Organization> ,
-                                                              <http://xmlns.com/foaf/0.1/Organization> ;
-                                              rdfs:label "OrganizationalUnit"@en ,
-                                                         "Unità Organizzativa"@it ,
-                                                         "Unité opérationnelle"@fr ,
-                                                         "unidad organizativa"@es .
+org:OrganizationalUnit rdf:type owl:Class ;
+                       rdfs:subClassOf org:Organization ,
+                                       <http://xmlns.com/foaf/0.1/Organization> ;
+                       rdfs:label "OrganizationalUnit"@en ,
+                                  "Unità Organizzativa"@it ,
+                                  "Unité opérationnelle"@fr ,
+                                  "unidad organizativa"@es .
 
 
 ###  http://www.w3.org/ns/org#Post
-<http://www.w3.org/ns/org#Post> rdf:type owl:Class ;
-                                rdfs:subClassOf obo:BFO_0000023 ;
-                                rdfs:label "Impiego"@it ,
-                                           "Post"@en ,
-                                           "Poste"@fr ,
-                                           "puesto"@es .
+org:Post rdf:type owl:Class ;
+         rdfs:subClassOf obo:BFO_0000023 ;
+         rdfs:label "Impiego"@it ,
+                    "Post"@en ,
+                    "Poste"@fr ,
+                    "puesto"@es .
 
 
 ###  http://www.w3.org/ns/org#Role
-<http://www.w3.org/ns/org#Role> rdf:type owl:Class ;
-                                rdfs:subClassOf skos:Concept ;
-                                rdfs:label "Role"@en ,
-                                           "Ruolo"@it ,
-                                           "Rôle"@fr ,
-                                           "actividad"@es .
+org:Role rdf:type owl:Class ;
+         rdfs:subClassOf skos:Concept ;
+         owl:disjointWith org:Site ;
+         rdfs:label "Role"@en ,
+                    "Ruolo"@it ,
+                    "Rôle"@fr ,
+                    "actividad"@es .
+
+
+###  http://www.w3.org/ns/org#Site
+org:Site rdf:type owl:Class ;
+         rdfs:label "Sede"@it ,
+                    "Site"@en ,
+                    "Site"@fr ,
+                    "sede"@es .
+
+
+###  http://www.w3.org/ns/prov#Activity
+<http://www.w3.org/ns/prov#Activity> rdf:type owl:Class .
 
 
 ###  http://xmlns.com/foaf/0.1/Agent
@@ -3819,7 +4012,7 @@ co:PMD_0000005 rdf:type owl:Class ;
                                  owl:onProperty obo:BFO_0000054 ;
                                  owl:someValuesFrom co:PMD_0000950
                                ] ,
-                               _:genid205 ;
+                               _:genid207 ;
                rdfs:comment """A property is a material trait in terms of the kind and magnitude of response to a specific imposed stimulus. Generally, definitions of properties are made independent of material shape and size.
 (Callister, W.D., Rethwisch, D.G., Materials Science and Engineering, Wiley, 2014)
 
@@ -3832,7 +4025,7 @@ Extensive properties that depend on the object being tested rather than on the p
                skos:definition "a disposition of a portion of matter that is realized in a compatible process and whose realization is grounded in the portions intensive qualities"@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
-_:genid205 rdf:type owl:Restriction ;
+_:genid207 rdf:type owl:Restriction ;
             owl:onProperty obo:RO_0000052 ;
             owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000001
                                                       [ rdf:type owl:Restriction ;
@@ -3846,7 +4039,7 @@ _:genid205 rdf:type owl:Restriction ;
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0000005 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid205 ;
+   owl:annotatedTarget _:genid207 ;
    rdfs:comment "Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom."@en
  ] .
 
@@ -10274,21 +10467,21 @@ co:PMD_0020130 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/co/PMD_0020131
 co:PMD_0020131 rdf:type owl:Class ;
                rdfs:subClassOf obo:BFO_0000019 ,
-                               _:genid946 ;
+                               _:genid948 ;
                owl:disjointWith co:PMD_0020148 ;
                rdfs:label "intensive quality"@en ;
                skos:altLabel "Point property"@en ;
                skos:definition "An intensive quality is a quality that inheres in only portion of matter and thus is independent of the bearers (system-) size."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
-_:genid946 rdf:type owl:Restriction ;
+_:genid948 rdf:type owl:Restriction ;
             owl:onProperty obo:RO_0000080 ;
             owl:someValuesFrom co:PMD_0000001 .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0020131 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid946 ;
+   owl:annotatedTarget _:genid948 ;
    rdfs:comment "Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom."@en
  ] .
 
@@ -15025,7 +15218,7 @@ co:PMD_0200008 rdf:type owl:Class ;
                                                              rdf:type owl:Class
                                                            ] ;
                                        rdfs:subClassOf obo:BFO_0000027 ,
-                                                       <http://www.w3.org/ns/org#FormalOrganization> ,
+                                                       org:FormalOrganization ,
                                                        [ rdf:type owl:Restriction ;
                                                          owl:onProperty obo:IAO_0000235 ;
                                                          owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000006>
@@ -15127,7 +15320,7 @@ co:PMD_0200008 rdf:type owl:Class ;
                                                        ] ;
                                        obo:IAO_0000412 <https://spec.industrialontologies.org/ontology/core/Core/AgentRole> ;
                                        rdfs:label "agent role"@en ;
-                                       skos:closeMatch <http://www.w3.org/ns/org#Role> ;
+                                       skos:closeMatch org:Role ;
                                        skos:definition "role that someone or something has when they act on behalf of a person, engineered system or a group of agents"@en-us .
 
 
@@ -17050,13 +17243,13 @@ obo:UO_0000164 rdf:type owl:NamedIndividual .
 
 
 ###  http://www.w3.org/ns/org#Head
-<http://www.w3.org/ns/org#Head> rdf:type owl:NamedIndividual ,
-                                         <http://www.w3.org/ns/org#Role> ;
-                                rdfs:label "director ejecutivo"@es ,
-                                           "directora ejecutiva"@es ,
-                                           "head"@en ,
-                                           "responsabile"@it ,
-                                           "responsable"@fr .
+org:Head rdf:type owl:NamedIndividual ,
+                  org:Role ;
+         rdfs:label "director ejecutivo"@es ,
+                    "directora ejecutiva"@es ,
+                    "head"@en ,
+                    "responsabile"@it ,
+                    "responsable"@fr .
 
 
 ###  https://w3id.org/pmd/co/PMD_0020006

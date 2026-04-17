@@ -11,6 +11,7 @@ Ontology(<https://w3id.org/pmd/log/imports/org_import.owl>
 Annotation(owl:versionInfo "2026-04-17")
 
 Declaration(Class(<http://www.w3.org/2004/02/skos/core#Concept>))
+Declaration(Class(<http://www.w3.org/ns/org#ChangeEvent>))
 Declaration(Class(<http://www.w3.org/ns/org#FormalOrganization>))
 Declaration(Class(<http://www.w3.org/ns/org#Membership>))
 Declaration(Class(<http://www.w3.org/ns/org#Organization>))
@@ -18,33 +19,85 @@ Declaration(Class(<http://www.w3.org/ns/org#OrganizationalCollaboration>))
 Declaration(Class(<http://www.w3.org/ns/org#OrganizationalUnit>))
 Declaration(Class(<http://www.w3.org/ns/org#Post>))
 Declaration(Class(<http://www.w3.org/ns/org#Role>))
+Declaration(Class(<http://www.w3.org/ns/org#Site>))
+Declaration(Class(<http://www.w3.org/ns/prov#Activity>))
 Declaration(Class(<http://xmlns.com/foaf/0.1/Agent>))
 Declaration(Class(<http://xmlns.com/foaf/0.1/Organization>))
+Declaration(Class(<http://xmlns.com/foaf/0.1/Person>))
+Declaration(ObjectProperty(<http://www.w3.org/ns/org#changedBy>))
+Declaration(ObjectProperty(<http://www.w3.org/ns/org#classification>))
 Declaration(ObjectProperty(<http://www.w3.org/ns/org#hasMember>))
 Declaration(ObjectProperty(<http://www.w3.org/ns/org#hasMembership>))
 Declaration(ObjectProperty(<http://www.w3.org/ns/org#hasPost>))
+Declaration(ObjectProperty(<http://www.w3.org/ns/org#hasPrimarySite>))
+Declaration(ObjectProperty(<http://www.w3.org/ns/org#hasRegisteredSite>))
+Declaration(ObjectProperty(<http://www.w3.org/ns/org#hasSite>))
 Declaration(ObjectProperty(<http://www.w3.org/ns/org#hasSubOrganization>))
 Declaration(ObjectProperty(<http://www.w3.org/ns/org#hasUnit>))
 Declaration(ObjectProperty(<http://www.w3.org/ns/org#headOf>))
 Declaration(ObjectProperty(<http://www.w3.org/ns/org#heldBy>))
 Declaration(ObjectProperty(<http://www.w3.org/ns/org#holds>))
+Declaration(ObjectProperty(<http://www.w3.org/ns/org#linkedTo>))
 Declaration(ObjectProperty(<http://www.w3.org/ns/org#member>))
+Declaration(ObjectProperty(<http://www.w3.org/ns/org#memberDuring>))
 Declaration(ObjectProperty(<http://www.w3.org/ns/org#memberOf>))
 Declaration(ObjectProperty(<http://www.w3.org/ns/org#organization>))
+Declaration(ObjectProperty(<http://www.w3.org/ns/org#originalOrganization>))
 Declaration(ObjectProperty(<http://www.w3.org/ns/org#postIn>))
 Declaration(ObjectProperty(<http://www.w3.org/ns/org#reportsTo>))
+Declaration(ObjectProperty(<http://www.w3.org/ns/org#resultedFrom>))
+Declaration(ObjectProperty(<http://www.w3.org/ns/org#resultingOrganization>))
 Declaration(ObjectProperty(<http://www.w3.org/ns/org#role>))
+Declaration(ObjectProperty(<http://www.w3.org/ns/org#siteAddress>))
+Declaration(ObjectProperty(<http://www.w3.org/ns/org#siteOf>))
 Declaration(ObjectProperty(<http://www.w3.org/ns/org#subOrganizationOf>))
 Declaration(ObjectProperty(<http://www.w3.org/ns/org#transitiveSubOrganizationOf>))
 Declaration(ObjectProperty(<http://www.w3.org/ns/org#unitOf>))
+Declaration(ObjectProperty(<http://www.w3.org/ns/prov#used>))
+Declaration(ObjectProperty(<http://www.w3.org/ns/prov#wasDerivedFrom>))
+Declaration(ObjectProperty(<http://www.w3.org/ns/prov#wasGeneratedBy>))
+Declaration(DataProperty(<http://www.w3.org/2004/02/skos/core#notation>))
+Declaration(DataProperty(<http://www.w3.org/ns/org#identifier>))
 Declaration(NamedIndividual(<http://www.w3.org/ns/org#Head>))
 Declaration(AnnotationProperty(<http://purl.org/dc/terms/created>))
 Declaration(AnnotationProperty(<http://purl.org/dc/terms/license>))
 Declaration(AnnotationProperty(<http://purl.org/dc/terms/title>))
+Declaration(AnnotationProperty(<http://www.w3.org/ns/org#purpose>))
+############################
+#   Annotation Properties
+############################
+
+# Annotation Property: <http://www.w3.org/ns/org#purpose> (obiettivo)
+
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#purpose> "but"@fr)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#purpose> "obiettivo"@it)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#purpose> "purpose"@en)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#purpose> "tiene objetivo"@es)
+
 
 ############################
 #   Object Properties
 ############################
+
+# Object Property: <http://www.w3.org/ns/org#changedBy> (cambiata da)
+
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#changedBy> "cambiata da"@it)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#changedBy> "changed by"@en)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#changedBy> "es modificada por"@es)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#changedBy> "es modificado por"@es)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#changedBy> "modifiée par"@fr)
+InverseObjectProperties(<http://www.w3.org/ns/org#changedBy> <http://www.w3.org/ns/org#originalOrganization>)
+ObjectPropertyDomain(<http://www.w3.org/ns/org#changedBy> <http://www.w3.org/ns/org#Organization>)
+ObjectPropertyRange(<http://www.w3.org/ns/org#changedBy> <http://www.w3.org/ns/org#ChangeEvent>)
+
+# Object Property: <http://www.w3.org/ns/org#classification> (classification)
+
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#classification> "classification"@en)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#classification> "classification"@fr)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#classification> "classificazione"@it)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#classification> "pertenece a la clasificación"@es)
+ObjectPropertyDomain(<http://www.w3.org/ns/org#classification> <http://www.w3.org/ns/org#Organization>)
+ObjectPropertyRange(<http://www.w3.org/ns/org#classification> <http://www.w3.org/2004/02/skos/core#Concept>)
 
 # Object Property: <http://www.w3.org/ns/org#hasMember> (has member)
 
@@ -75,6 +128,36 @@ AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#hasPost> "tiene puesto"
 InverseObjectProperties(<http://www.w3.org/ns/org#hasPost> <http://www.w3.org/ns/org#postIn>)
 ObjectPropertyDomain(<http://www.w3.org/ns/org#hasPost> <http://www.w3.org/ns/org#Organization>)
 ObjectPropertyRange(<http://www.w3.org/ns/org#hasPost> <http://www.w3.org/ns/org#Post>)
+
+# Object Property: <http://www.w3.org/ns/org#hasPrimarySite> (sede principale)
+
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#hasPrimarySite> "primary Site"@en)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#hasPrimarySite> "sede principale"@it)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#hasPrimarySite> "site principal"@fr)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#hasPrimarySite> "tiene sede principal en"@es)
+SubObjectPropertyOf(<http://www.w3.org/ns/org#hasPrimarySite> <http://www.w3.org/ns/org#hasSite>)
+ObjectPropertyDomain(<http://www.w3.org/ns/org#hasPrimarySite> <http://www.w3.org/ns/org#Organization>)
+ObjectPropertyRange(<http://www.w3.org/ns/org#hasPrimarySite> <http://www.w3.org/ns/org#Site>)
+
+# Object Property: <http://www.w3.org/ns/org#hasRegisteredSite> (tiene sede registrada en)
+
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#hasRegisteredSite> "registered Site"@en)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#hasRegisteredSite> "sede legale"@it)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#hasRegisteredSite> "siège social"@fr)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#hasRegisteredSite> "tiene sede registrada en"@es)
+SubObjectPropertyOf(<http://www.w3.org/ns/org#hasRegisteredSite> <http://www.w3.org/ns/org#hasPrimarySite>)
+ObjectPropertyDomain(<http://www.w3.org/ns/org#hasRegisteredSite> <http://www.w3.org/ns/org#FormalOrganization>)
+ObjectPropertyRange(<http://www.w3.org/ns/org#hasRegisteredSite> <http://www.w3.org/ns/org#Site>)
+
+# Object Property: <http://www.w3.org/ns/org#hasSite> (a un site)
+
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#hasSite> "a un site"@fr)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#hasSite> "ha sede"@it)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#hasSite> "has site"@en)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#hasSite> "tiene sede en"@es)
+InverseObjectProperties(<http://www.w3.org/ns/org#hasSite> <http://www.w3.org/ns/org#siteOf>)
+ObjectPropertyDomain(<http://www.w3.org/ns/org#hasSite> <http://www.w3.org/ns/org#Organization>)
+ObjectPropertyRange(<http://www.w3.org/ns/org#hasSite> <http://www.w3.org/ns/org#Site>)
 
 # Object Property: <http://www.w3.org/ns/org#hasSubOrganization> (has SubOrganization)
 
@@ -126,6 +209,16 @@ AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#holds> "ricopre"@it)
 ObjectPropertyDomain(<http://www.w3.org/ns/org#holds> <http://xmlns.com/foaf/0.1/Agent>)
 ObjectPropertyRange(<http://www.w3.org/ns/org#holds> <http://www.w3.org/ns/org#Post>)
 
+# Object Property: <http://www.w3.org/ns/org#linkedTo> (está relacionado con)
+
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#linkedTo> "collegato a"@it)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#linkedTo> "está relacionada con"@es)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#linkedTo> "está relacionado con"@es)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#linkedTo> "linked to"@en)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#linkedTo> "relié à"@fr)
+ObjectPropertyDomain(<http://www.w3.org/ns/org#linkedTo> <http://www.w3.org/ns/org#Organization>)
+ObjectPropertyRange(<http://www.w3.org/ns/org#linkedTo> <http://www.w3.org/ns/org#Organization>)
+
 # Object Property: <http://www.w3.org/ns/org#member> (membro)
 
 AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#member> "es condición de miembro sobre agente"@es)
@@ -135,6 +228,14 @@ AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#member> "membro"@it)
 FunctionalObjectProperty(<http://www.w3.org/ns/org#member>)
 ObjectPropertyDomain(<http://www.w3.org/ns/org#member> <http://www.w3.org/ns/org#Membership>)
 ObjectPropertyRange(<http://www.w3.org/ns/org#member> <http://xmlns.com/foaf/0.1/Agent>)
+
+# Object Property: <http://www.w3.org/ns/org#memberDuring> (es miembro durante)
+
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#memberDuring> "durée d'engagement"@fr)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#memberDuring> "es miembro durante"@es)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#memberDuring> "member During"@en)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#memberDuring> "membro durante"@it)
+ObjectPropertyDomain(<http://www.w3.org/ns/org#memberDuring> <http://www.w3.org/ns/org#Membership>)
 
 # Object Property: <http://www.w3.org/ns/org#memberOf> (member of)
 
@@ -155,6 +256,16 @@ FunctionalObjectProperty(<http://www.w3.org/ns/org#organization>)
 ObjectPropertyDomain(<http://www.w3.org/ns/org#organization> <http://www.w3.org/ns/org#Membership>)
 ObjectPropertyRange(<http://www.w3.org/ns/org#organization> <http://www.w3.org/ns/org#Organization>)
 
+# Object Property: <http://www.w3.org/ns/org#originalOrganization> (organisation originelle)
+
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#originalOrganization> "es organización original"@es)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#originalOrganization> "organisation originelle"@fr)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#originalOrganization> "organizzazione originale"@it)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#originalOrganization> "original organization"@en)
+SubObjectPropertyOf(<http://www.w3.org/ns/org#originalOrganization> <http://www.w3.org/ns/prov#used>)
+ObjectPropertyDomain(<http://www.w3.org/ns/org#originalOrganization> <http://www.w3.org/ns/org#ChangeEvent>)
+ObjectPropertyRange(<http://www.w3.org/ns/org#originalOrganization> <http://www.w3.org/ns/org#Organization>)
+
 # Object Property: <http://www.w3.org/ns/org#postIn> (poste chez)
 
 AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#postIn> "es un puesto en"@es)
@@ -173,6 +284,26 @@ AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#reportsTo> "riporta a"@
 ObjectPropertyDomain(<http://www.w3.org/ns/org#reportsTo> ObjectUnionOf(<http://www.w3.org/ns/org#Post> <http://xmlns.com/foaf/0.1/Agent>))
 ObjectPropertyRange(<http://www.w3.org/ns/org#reportsTo> ObjectUnionOf(<http://www.w3.org/ns/org#Post> <http://xmlns.com/foaf/0.1/Agent>))
 
+# Object Property: <http://www.w3.org/ns/org#resultedFrom> (issue de)
+
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#resultedFrom> "es el resultado de"@es)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#resultedFrom> "issue de"@fr)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#resultedFrom> "resulted from"@en)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#resultedFrom> "risultato da"@it)
+SubObjectPropertyOf(<http://www.w3.org/ns/org#resultedFrom> <http://www.w3.org/ns/prov#wasGeneratedBy>)
+InverseObjectProperties(<http://www.w3.org/ns/org#resultedFrom> <http://www.w3.org/ns/org#resultingOrganization>)
+ObjectPropertyDomain(<http://www.w3.org/ns/org#resultedFrom> <http://www.w3.org/ns/org#Organization>)
+ObjectPropertyRange(<http://www.w3.org/ns/org#resultedFrom> <http://www.w3.org/ns/org#ChangeEvent>)
+
+# Object Property: <http://www.w3.org/ns/org#resultingOrganization> (resulted in)
+
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#resultingOrganization> "a donné naissance à"@fr)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#resultingOrganization> "resulta en"@es)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#resultingOrganization> "resulted in"@en)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#resultingOrganization> "risultato in"@it)
+ObjectPropertyDomain(<http://www.w3.org/ns/org#resultingOrganization> <http://www.w3.org/ns/org#ChangeEvent>)
+ObjectPropertyRange(<http://www.w3.org/ns/org#resultingOrganization> <http://www.w3.org/ns/org#Organization>)
+
 # Object Property: <http://www.w3.org/ns/org#role> (role)
 
 AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#role> "desempeña la actividad de"@es)
@@ -181,6 +312,23 @@ AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#role> "ruolo"@it)
 AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#role> "rôle"@fr)
 ObjectPropertyDomain(<http://www.w3.org/ns/org#role> ObjectUnionOf(<http://www.w3.org/ns/org#Membership> <http://www.w3.org/ns/org#Post>))
 ObjectPropertyRange(<http://www.w3.org/ns/org#role> <http://www.w3.org/ns/org#Role>)
+
+# Object Property: <http://www.w3.org/ns/org#siteAddress> (site Address)
+
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#siteAddress> "adresse du Site"@fr)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#siteAddress> "es la dirección de la sede"@es)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#siteAddress> "indirizzo della sede"@it)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#siteAddress> "site Address"@en)
+ObjectPropertyDomain(<http://www.w3.org/ns/org#siteAddress> <http://www.w3.org/ns/org#Site>)
+
+# Object Property: <http://www.w3.org/ns/org#siteOf> (site Of)
+
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#siteOf> "es sede de"@es)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#siteOf> "sede di"@it)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#siteOf> "site Of"@en)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#siteOf> "site de"@fr)
+ObjectPropertyDomain(<http://www.w3.org/ns/org#siteOf> <http://www.w3.org/ns/org#Site>)
+ObjectPropertyRange(<http://www.w3.org/ns/org#siteOf> <http://www.w3.org/ns/org#Organization>)
 
 # Object Property: <http://www.w3.org/ns/org#subOrganizationOf> (sotto-Organization di)
 
@@ -214,10 +362,36 @@ ObjectPropertyDomain(<http://www.w3.org/ns/org#unitOf> <http://www.w3.org/ns/org
 ObjectPropertyRange(<http://www.w3.org/ns/org#unitOf> <http://www.w3.org/ns/org#FormalOrganization>)
 
 
+############################
+#   Data Properties
+############################
+
+# Data Property: <http://www.w3.org/ns/org#identifier> (tiene identificador)
+
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#identifier> "identifiant"@fr)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#identifier> "identificatore"@it)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#identifier> "identifier"@en)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#identifier> "tiene identificador"@es)
+SubDataPropertyOf(<http://www.w3.org/ns/org#identifier> <http://www.w3.org/2004/02/skos/core#notation>)
+DataPropertyDomain(<http://www.w3.org/ns/org#identifier> <http://www.w3.org/ns/org#Organization>)
+
+
 
 ############################
 #   Classes
 ############################
+
+# Class: <http://www.w3.org/ns/org#ChangeEvent> (Évènement)
+
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#ChangeEvent> "Change Event"@en)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#ChangeEvent> "Evento di cambiamento"@it)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#ChangeEvent> "evento de cambio"@es)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#ChangeEvent> "Évènement"@fr)
+SubClassOf(<http://www.w3.org/ns/org#ChangeEvent> <http://www.w3.org/ns/prov#Activity>)
+DisjointClasses(<http://www.w3.org/ns/org#ChangeEvent> <http://www.w3.org/ns/org#Membership>)
+DisjointClasses(<http://www.w3.org/ns/org#ChangeEvent> <http://www.w3.org/ns/org#Organization>)
+DisjointClasses(<http://www.w3.org/ns/org#ChangeEvent> <http://www.w3.org/ns/org#Role>)
+DisjointClasses(<http://www.w3.org/ns/org#ChangeEvent> <http://www.w3.org/ns/org#Site>)
 
 # Class: <http://www.w3.org/ns/org#FormalOrganization> (Organisation Formelle)
 
@@ -236,6 +410,7 @@ AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#Membership> "Membership
 AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#Membership> "membresía"@es)
 DisjointClasses(<http://www.w3.org/ns/org#Membership> <http://www.w3.org/ns/org#Organization>)
 DisjointClasses(<http://www.w3.org/ns/org#Membership> <http://www.w3.org/ns/org#Role>)
+DisjointClasses(<http://www.w3.org/ns/org#Membership> <http://www.w3.org/ns/org#Site>)
 
 # Class: <http://www.w3.org/ns/org#Organization> (Organization)
 
@@ -246,6 +421,7 @@ AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#Organization> "organiza
 EquivalentClasses(<http://www.w3.org/ns/org#Organization> <http://xmlns.com/foaf/0.1/Organization>)
 SubClassOf(<http://www.w3.org/ns/org#Organization> <http://xmlns.com/foaf/0.1/Agent>)
 DisjointClasses(<http://www.w3.org/ns/org#Organization> <http://www.w3.org/ns/org#Role>)
+DisjointClasses(<http://www.w3.org/ns/org#Organization> <http://www.w3.org/ns/org#Site>)
 
 # Class: <http://www.w3.org/ns/org#OrganizationalCollaboration> (Endeavour)
 
@@ -278,6 +454,14 @@ AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#Role> "Ruolo"@it)
 AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#Role> "Rôle"@fr)
 AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#Role> "actividad"@es)
 SubClassOf(<http://www.w3.org/ns/org#Role> <http://www.w3.org/2004/02/skos/core#Concept>)
+DisjointClasses(<http://www.w3.org/ns/org#Role> <http://www.w3.org/ns/org#Site>)
+
+# Class: <http://www.w3.org/ns/org#Site> (Site)
+
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#Site> "Sede"@it)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#Site> "Site"@en)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#Site> "Site"@fr)
+AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#Site> "sede"@es)
 
 
 ############################
@@ -294,4 +478,5 @@ AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#Head> "responsable"@fr)
 ClassAssertion(<http://www.w3.org/ns/org#Role> <http://www.w3.org/ns/org#Head>)
 
 
+SubObjectPropertyOf(ObjectPropertyChain(<http://www.w3.org/ns/org#resultedFrom> <http://www.w3.org/ns/org#originalOrganization>) <http://www.w3.org/ns/prov#wasDerivedFrom>)
 )
