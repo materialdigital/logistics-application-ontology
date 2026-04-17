@@ -141,7 +141,7 @@ jobs:
         run: |
           cd src/ontology
           touch log-edit.owl
-          make PAT=false \
+          make -B PAT=false \
             VERSION=${{ steps.version.outputs.version }} \
             'ANNOTATE_ONTOLOGY_VERSION=annotate -V $(ONTBASE)/$(VERSION) --annotation owl:versionInfo $(VERSION)' \
             refresh-imports all_assets
