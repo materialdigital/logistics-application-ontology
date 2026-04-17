@@ -2,65 +2,98 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix log: <https://w3id.org/pmd/log/> .
 @prefix pmd: <https://w3id.org/pmd/co/> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 @prefix ex: <https://example.org/shipment-by-sea#> .
 
-<https://example.org/shipment-by-sea> rdf:type owl:Ontology .
+<https://example.org/shipment-by-sea> rdf:type owl:Ontology ;
+    rdfs:label "Shipment by Sea — Example"@en ;
+    dcterms:description "Steel coil shipment from a Chinese steel supplier to a German automotive producer via sea freight through the Port of Shanghai and Port of Hamburg."@en .
 
 # --- Geospatial locations ---
-# Explicit supertype assertions needed for standalone SHACL validation (no ontology loaded)
 
-ex:port_shanghai a log:LOG_1000088 , pmd:PMD_0040029 ;   # ship from location + geospatial site
+ex:port_shanghai a log:LOG_1000088 , pmd:PMD_0040029 ;
+    rdfs:label "Port of Shanghai — Yangshan Deep Water Port"@en ;
+    rdfs:comment "Largest container port in the world by throughput, located on Yangshan Island."@en ;
+    geo:lat "30.6214"^^xsd:decimal ;
+    geo:long "122.0528"^^xsd:decimal ;
+    org:siteAddress "Yangshan Rd, Nanhui New City, Pudong, Shanghai 201306, China" ;
     obo:BFO_0000196 ex:ship_from_role .
 
-ex:ship_from_role a log:LOG_1000075 .                     # ship from location role
+ex:ship_from_role a log:LOG_1000075 ;
+    rdfs:label "ship-from location role of Port of Shanghai"@en .
 
-ex:port_hamburg a log:LOG_1000089 , pmd:PMD_0040029 ;     # ship to location + geospatial site
+ex:port_hamburg a log:LOG_1000089 , pmd:PMD_0040029 ;
+    rdfs:label "Port of Hamburg — HHLA Container Terminal Burchardkai"@en ;
+    rdfs:comment "Europe's second-largest container port, primary entry point for Asian goods into Central Europe."@en ;
+    geo:lat "53.5396"^^xsd:decimal ;
+    geo:long "9.9372"^^xsd:decimal ;
+    org:siteAddress "Vancouver-Kai 2, 21129 Hamburg, Germany" ;
     obo:BFO_0000196 ex:ship_to_role .
 
-ex:ship_to_role a log:LOG_1000076 .                       # ship to location role
+ex:ship_to_role a log:LOG_1000076 ;
+    rdfs:label "ship-to location role of Port of Hamburg"@en .
 
-# --- Material product (steel coils) ---
+# --- Material product ---
 
-ex:steel_coils a log:LOG_1000029 ;                        # material product
+ex:steel_coils a log:LOG_1000029 ;
+    rdfs:label "Hot-rolled steel coils"@en ;
+    rdfs:comment "500 tonnes of hot-rolled carbon steel coils, grade S355, width 1250 mm."@en ;
     obo:BFO_0000196 ex:cargo_role .
 
-ex:cargo_role a log:LOG_1000073 .                         # cargo role
+ex:cargo_role a log:LOG_1000073 ;
+    rdfs:label "cargo role of steel coils"@en .
 
 # --- Shipment ---
 
-ex:shipment_001 a log:LOG_1000051 ;                       # shipment
+ex:shipment_001 a log:LOG_1000051 ;
+    rdfs:label "Shipment SHP-2024-CN-DE-0042"@en ;
+    rdfs:comment "Full container load (FCL) shipment, 20 × 40ft containers."@en ;
     obo:BFO_0000196 ex:shipment_role .
 
-ex:shipment_role a log:LOG_1000081 .                      # shipment role
+ex:shipment_role a log:LOG_1000081 ;
+    rdfs:label "shipment role of SHP-2024-CN-DE-0042"@en .
 
 # --- Bill of lading ---
 
-ex:bol_001 a log:LOG_1000002 ;                            # bill of lading
-    obo:IAO_0000136 ex:shipment_001 .                     # is about shipment
+ex:bol_001 a log:LOG_1000002 ;
+    rdfs:label "Bill of Lading COSU-BL-2024-042"@en ;
+    rdfs:comment "Negotiable bill of lading issued by COSCO Shipping, 2024-03-15."@en ;
+    obo:IAO_0000136 ex:shipment_001 .
 
-# --- Organizations with roles ---
+# --- Organizations ---
 
-ex:supplier_org a log:LOG_1000020 ;                       # supplier
+ex:supplier_org a log:LOG_1000020 ;
+    rdfs:label "Baosteel Group Co., Ltd."@en ;
+    rdfs:comment "Chinese state-owned steel manufacturer, world's top-5 steel producer."@en ;
+    foaf:homepage <https://www.baosteel.com> ;
     obo:BFO_0000196 ex:consignor_role .
 
-ex:consignor_role a log:LOG_1000057 .                     # consignor role
+ex:consignor_role a log:LOG_1000057 ;
+    rdfs:label "consignor role of Baosteel"@en .
 
-ex:producer_org a log:LOG_1000047 ;                       # business organization (producer)
+ex:producer_org a log:LOG_1000047 ;
+    rdfs:label "Volkswagen AG — Wolfsburg Stamping Plant"@en ;
+    rdfs:comment "German automotive manufacturer receiving steel coils for body panel stamping."@en ;
+    foaf:homepage <https://www.volkswagen.de> ;
     obo:BFO_0000196 ex:consignee_role .
 
-ex:consignee_role a log:LOG_1000056 .                     # consignee role
+ex:consignee_role a log:LOG_1000056 ;
+    rdfs:label "consignee role of Volkswagen AG"@en .
 
-# --- Transport process by sea ---
+# --- Transport process ---
 
-ex:sea_transport a log:LOG_1000143 ;                      # transport process
-    obo:RO_0000057 ex:shipment_001 ;                      # has participant: shipment
-    obo:RO_0000057 ex:supplier_org ;                      # has participant: supplier
-    obo:RO_0000057 ex:producer_org ;                      # has participant: producer
-    obo:RO_0002233 ex:steel_coils ;                       # has input: goods
-    obo:BFO_0000066 ex:port_shanghai ;                    # occurs in: ship-from
-    obo:BFO_0000066 ex:port_hamburg .                     # occurs in: ship-to
+ex:sea_transport a log:LOG_1000143 ;
+    rdfs:label "Sea freight leg Shanghai → Hamburg"@en ;
+    rdfs:comment "30-day voyage operated by COSCO Shipping on the AEX-2 Asia–Europe service."@en ;
+    obo:RO_0000057 ex:shipment_001 ;
+    obo:RO_0000057 ex:supplier_org ;
+    obo:RO_0000057 ex:producer_org ;
+    obo:RO_0002233 ex:steel_coils ;
+    obo:BFO_0000066 ex:port_shanghai ;
+    obo:BFO_0000066 ex:port_hamburg .

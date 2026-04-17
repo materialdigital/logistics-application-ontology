@@ -2,71 +2,113 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix log: <https://w3id.org/pmd/log/> .
 @prefix pmd: <https://w3id.org/pmd/co/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix ex: <https://example.org/multimodal-transport#> .
 
-<https://example.org/multimodal-transport> rdf:type owl:Ontology .
+<https://example.org/multimodal-transport> rdf:type owl:Ontology ;
+    rdfs:label "Multimodal Transport — Example"@en ;
+    dcterms:description "Automotive parts shipped from Busan (South Korea) to Düsseldorf (Germany) via sea freight to Rotterdam followed by road transport, with Rotterdam acting as the intermodal transfer node."@en .
 
-# --- Geospatial sites with explicit PMD_0040029 supertype ---
+# --- Geospatial sites ---
 
-ex:port_busan a log:LOG_1000088 , pmd:PMD_0040029 ;       # ship-from + geospatial site
+ex:port_busan a log:LOG_1000088 , pmd:PMD_0040029 ;
+    rdfs:label "Port of Busan — Busan New Port"@en ;
+    rdfs:comment "South Korea's largest container port and Northeast Asia's major transshipment hub."@en ;
+    geo:lat "35.0700"^^xsd:decimal ;
+    geo:long "128.7780"^^xsd:decimal ;
+    org:siteAddress "61-11 Shinseon-ro, Gangseo-gu, Busan 46721, South Korea" ;
     obo:BFO_0000196 ex:from_role_busan .
 
-ex:from_role_busan a log:LOG_1000075 .                    # ship from location role
+ex:from_role_busan a log:LOG_1000075 ;
+    rdfs:label "ship-from location role of Port of Busan"@en .
 
-ex:port_rotterdam a log:LOG_1000090 , pmd:PMD_0040029 ;   # supply chain node + geospatial site
+ex:port_rotterdam a log:LOG_1000090 , pmd:PMD_0040029 ;
+    rdfs:label "Port of Rotterdam — Maasvlakte II"@en ;
+    rdfs:comment "Europe's largest port and primary intermodal hub for Asia–Europe deep-sea services. Acts as transfer node for sea-to-road handoff."@en ;
+    geo:lat "51.9476"^^xsd:decimal ;
+    geo:long "4.0544"^^xsd:decimal ;
+    org:siteAddress "Maasvlakte-Oost, 3199 Rotterdam, Netherlands" ;
     obo:BFO_0000196 ex:scn_role_rotterdam .
 
-ex:scn_role_rotterdam a log:LOG_1000077 .                 # supply chain node role
+ex:scn_role_rotterdam a log:LOG_1000077 ;
+    rdfs:label "supply chain node role of Port of Rotterdam"@en .
 
-ex:warehouse_dusseldorf a log:LOG_1000089 , pmd:PMD_0040029 ;  # ship-to + geospatial site
+ex:warehouse_dusseldorf a log:LOG_1000089 , pmd:PMD_0040029 ;
+    rdfs:label "Düsseldorf Automotive Parts Distribution Centre"@en ;
+    rdfs:comment "Regional distribution centre receiving just-in-time automotive parts for Rhein-Ruhr assembly plants."@en ;
+    geo:lat "51.2627"^^xsd:decimal ;
+    geo:long "6.6817"^^xsd:decimal ;
+    org:siteAddress "Hansaallee 321, 40549 Düsseldorf, Germany" ;
     obo:BFO_0000196 ex:to_role_dusseldorf .
 
-ex:to_role_dusseldorf a log:LOG_1000076 .                 # ship to location role
+ex:to_role_dusseldorf a log:LOG_1000076 ;
+    rdfs:label "ship-to location role of Düsseldorf Distribution Centre"@en .
 
 # --- Material product ---
 
-ex:auto_parts a log:LOG_1000029 ;                         # material product
+ex:auto_parts a log:LOG_1000029 ;
+    rdfs:label "Automotive transmission components — batch KR-2024-TRN-118"@en ;
+    rdfs:comment "380 pallets of precision-machined gearbox components from Hyundai Mobis, Ulsan facility."@en ;
     obo:BFO_0000196 ex:cargo_role .
 
-ex:cargo_role a log:LOG_1000073 .                         # cargo role
+ex:cargo_role a log:LOG_1000073 ;
+    rdfs:label "cargo role of transmission components"@en .
 
-# --- Shipment (same across both legs) ---
+# --- Shipment ---
 
 ex:shipment_001 a log:LOG_1000051 ;
+    rdfs:label "Shipment SHP-2024-KR-DE-0118"@en ;
+    rdfs:comment "Multimodal shipment, 14 × 20ft containers, total weight 182 tonnes."@en ;
     obo:BFO_0000196 ex:shipment_role .
 
-ex:shipment_role a log:LOG_1000081 .                      # shipment role
+ex:shipment_role a log:LOG_1000081 ;
+    rdfs:label "shipment role of SHP-2024-KR-DE-0118"@en .
 
 # --- Carriers ---
 
 ex:shipping_line a log:LOG_1000047 ;
+    rdfs:label "Maersk Line A/S"@en ;
+    rdfs:comment "Danish container shipping company operating the AE-1/Shogun Asia–Europe service."@en ;
+    foaf:homepage <https://www.maersk.com> ;
     obo:BFO_0000196 ex:carrier_role_sea .
 
-ex:carrier_role_sea a log:LOG_1000021 .                   # carrier role
+ex:carrier_role_sea a log:LOG_1000021 ;
+    rdfs:label "carrier role of Maersk Line (sea leg)"@en .
 
 ex:trucking_co a log:LOG_1000047 ;
+    rdfs:label "DB Schenker Road Logistics GmbH"@en ;
+    rdfs:comment "European road freight operator handling final-mile delivery from Rotterdam to Düsseldorf."@en ;
+    foaf:homepage <https://www.dbschenker.com> ;
     obo:BFO_0000196 ex:carrier_role_road .
 
-ex:carrier_role_road a log:LOG_1000021 .                  # carrier role
+ex:carrier_role_road a log:LOG_1000021 ;
+    rdfs:label "carrier role of DB Schenker Road (road leg)"@en .
 
 # --- Sea leg: Busan → Rotterdam ---
 
-ex:sea_leg a log:LOG_1000143 ;                            # transport process
-    obo:RO_0000057 ex:shipment_001 ;                      # participant: shipment
-    obo:RO_0000057 ex:shipping_line ;                     # participant: carrier
-    obo:RO_0002233 ex:auto_parts ;                        # input: goods
-    obo:BFO_0000066 ex:port_busan ;                       # occurs in: origin
-    obo:BFO_0000066 ex:port_rotterdam .                   # occurs in: transfer node
+ex:sea_leg a log:LOG_1000143 ;
+    rdfs:label "Sea freight leg Busan → Rotterdam"@en ;
+    rdfs:comment "22-day voyage on Maersk AE-1/Shogun service departing 2024-03-01, ETD Busan, ETA Rotterdam 2024-03-23."@en ;
+    obo:RO_0000057 ex:shipment_001 ;
+    obo:RO_0000057 ex:shipping_line ;
+    obo:RO_0002233 ex:auto_parts ;
+    obo:BFO_0000066 ex:port_busan ;
+    obo:BFO_0000066 ex:port_rotterdam .
 
 # --- Road leg: Rotterdam → Düsseldorf ---
 
-ex:road_leg a log:LOG_1000143 ;                           # transport process
-    obo:RO_0000057 ex:shipment_001 ;                      # participant: same shipment
-    obo:RO_0000057 ex:trucking_co ;                       # participant: road carrier
-    obo:RO_0002233 ex:auto_parts ;                        # input: goods
-    obo:BFO_0000066 ex:port_rotterdam ;                   # occurs in: transfer node (handoff)
-    obo:BFO_0000066 ex:warehouse_dusseldorf ;             # occurs in: final destination
-    obo:BFO_0000062 ex:sea_leg .                          # preceded by: sea leg
+ex:road_leg a log:LOG_1000143 ;
+    rdfs:label "Road freight leg Rotterdam → Düsseldorf"@en ;
+    rdfs:comment "220 km truck delivery by DB Schenker, 2024-03-24. Transit time approx. 4 hours including customs release at Rotterdam."@en ;
+    obo:RO_0000057 ex:shipment_001 ;
+    obo:RO_0000057 ex:trucking_co ;
+    obo:RO_0002233 ex:auto_parts ;
+    obo:BFO_0000066 ex:port_rotterdam ;
+    obo:BFO_0000066 ex:warehouse_dusseldorf ;
+    obo:BFO_0000062 ex:sea_leg .

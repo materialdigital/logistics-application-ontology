@@ -2,66 +2,105 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix log: <https://w3id.org/pmd/log/> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 @prefix ex: <https://example.org/contract-negotiation#> .
 
-<https://example.org/contract-negotiation> rdf:type owl:Ontology .
+<https://example.org/contract-negotiation> rdf:type owl:Ontology ;
+    rdfs:label "Contract Negotiation — Example"@en ;
+    dcterms:description "Annual steel supply framework agreement negotiated between a Chinese steel producer and a German automotive manufacturer, signed by their respective procurement and sales representatives."@en .
 
 # --- Persons ---
 
 ex:alice a foaf:Person ;
     foaf:name "Alice Müller" ;
+    foaf:title "Head of Sales, Automotive Division" ;
+    rdfs:comment "Senior sales manager at Baosteel responsible for European automotive accounts."@en ;
     org:memberOf ex:supplier_co ;
     org:holds ex:alice_post .
 
 ex:bob a foaf:Person ;
-    foaf:name "Bob Schmidt" ;
+    foaf:name "Robert Schmidt" ;
+    foaf:title "Director of Strategic Procurement" ;
+    rdfs:comment "Procurement director at Volkswagen AG responsible for flat steel sourcing."@en ;
     org:memberOf ex:buyer_co ;
     org:holds ex:bob_post .
 
-# --- Posts (formal positions grounding authority to sign) ---
+# --- Posts ---
 
 ex:alice_post a org:Post ;
+    rdfs:label "Head of Sales (Automotive) at Baosteel"@en ;
     org:postIn ex:supplier_co ;
     org:heldBy ex:alice ;
     obo:BFO_0000196 ex:supplier_role .
 
 ex:bob_post a org:Post ;
+    rdfs:label "Director of Strategic Procurement at Volkswagen AG"@en ;
     org:postIn ex:buyer_co ;
     org:heldBy ex:bob ;
     obo:BFO_0000196 ex:buyer_role .
 
 # --- Organizations ---
-# Explicit BFO_0000027 (object aggregate) supertype for standalone validation
 
-ex:supplier_co a log:LOG_1000047 ;                   # business organization
+ex:supplier_co a log:LOG_1000047 ;
+    rdfs:label "Baosteel Group Co., Ltd."@en ;
+    rdfs:comment "Chinese state-owned steel manufacturer headquartered in Shanghai."@en ;
+    foaf:homepage <https://www.baosteel.com> ;
+    org:hasSite ex:baosteel_hq ;
     org:hasMember ex:alice ;
     obo:BFO_0000196 ex:supplier_role .
 
-ex:buyer_co a log:LOG_1000047 ;                      # business organization
+ex:baosteel_hq a org:Site , log:LOG_1000146 ;
+    rdfs:label "Baosteel Group Headquarters"@en ;
+    org:siteAddress "370 Pudian Rd, Pudong, Shanghai 200122, China" ;
+    geo:lat "31.2231"^^xsd:decimal ;
+    geo:long "121.5086"^^xsd:decimal .
+
+ex:buyer_co a log:LOG_1000047 ;
+    rdfs:label "Volkswagen AG"@en ;
+    rdfs:comment "German multinational automotive manufacturer headquartered in Wolfsburg."@en ;
+    foaf:homepage <https://www.volkswagen.de> ;
+    org:hasSite ex:vw_hq ;
     org:hasMember ex:bob ;
     obo:BFO_0000196 ex:buyer_role .
 
-# --- Roles with explicit BFO supertype ---
+ex:vw_hq a org:Site , log:LOG_1000146 ;
+    rdfs:label "Volkswagen AG Headquarters"@en ;
+    org:siteAddress "Berliner Ring 2, 38440 Wolfsburg, Germany" ;
+    geo:lat "52.4277"^^xsd:decimal ;
+    geo:long "10.7865"^^xsd:decimal .
 
-ex:supplier_role a log:LOG_1000063 , obo:BFO_0000023 .  # supplier role
-ex:buyer_role    a log:LOG_1000055 , obo:BFO_0000023 .  # buyer role
+# --- Roles ---
+
+ex:supplier_role a log:LOG_1000063 , obo:BFO_0000023 ;
+    rdfs:label "supplier role of Baosteel"@en .
+
+ex:buyer_role a log:LOG_1000055 , obo:BFO_0000023 ;
+    rdfs:label "buyer role of Volkswagen AG"@en .
 
 # --- Commercial service specification ---
 
-ex:steel_supply_spec a log:LOG_1000093 .             # commercial service specification
+ex:steel_supply_spec a log:LOG_1000093 ;
+    rdfs:label "Annual steel supply specification 2024"@en ;
+    rdfs:comment "Framework specification for supply of 12,000 tonnes of hot-rolled flat steel per year, delivered quarterly to Wolfsburg."@en .
 
 # --- Contract ---
 
-ex:contract_001 a log:LOG_1000001 ;                  # commercial service agreement
-    obo:RO_0000059 ex:steel_supply_spec .            # concretizes
+ex:contract_001 a log:LOG_1000001 ;
+    rdfs:label "Framework Supply Agreement FA-2024-BST-VW-001"@en ;
+    rdfs:comment "Annual steel supply framework agreement, valid 2024-01-01 to 2024-12-31. Price fixed at €680/tonne with quarterly price review clause."@en ;
+    dcterms:created "2023-11-30"^^xsd:date ;
+    obo:RO_0000059 ex:steel_supply_spec .
 
 # --- Selling process ---
 
-ex:selling_process a log:LOG_1000125 ;               # selling business process
-    obo:RO_0000057 ex:supplier_co ;                  # has participant: seller
-    obo:RO_0000057 ex:buyer_co ;                     # has participant: buyer
-    obo:RO_0002234 ex:contract_001 .                 # has output: contract
+ex:selling_process a log:LOG_1000125 ;
+    rdfs:label "Contract negotiation FA-2024-BST-VW-001"@en ;
+    rdfs:comment "Six-week negotiation conducted in Hamburg and Shanghai, concluded with signing ceremony 2023-11-30."@en ;
+    obo:RO_0000057 ex:supplier_co ;
+    obo:RO_0000057 ex:buyer_co ;
+    obo:RO_0002234 ex:contract_001 .
