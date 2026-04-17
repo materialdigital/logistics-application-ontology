@@ -132,19 +132,18 @@ jobs:
       # expanding $(ONTBASE) and $(VERSION) — make expands them itself using
       # values already defined in the ODK-generated Makefile.
       #
-      # IMP=false / PAT=false skips import refresh for speed — imports were
-      # already refreshed by the last regular build. Remove IMP=false to
-      # force a full import refresh as part of the release.
+      # refresh-imports is run before all_assets (same as qc.yml ontology-build)
+      # to ensure SLME modules are extracted from current mirrors.
       # ──────────────────────────────────────────────────────────────────────
       - name: Build release artifacts
         env:
           ROBOT_ENV: ROBOT_JAVA_ARGS=-Xmx6G
         run: |
           cd src/ontology
-          make IMP=false PAT=false \
+          make PAT=false \
             VERSION=${{ steps.version.outputs.version }} \
             'ANNOTATE_ONTOLOGY_VERSION=annotate -V $(ONTBASE)/$(VERSION) --annotation owl:versionInfo $(VERSION)' \
-            all_assets
+            refresh-imports all_assets
 
       # ── Commit release artifacts to main ─────────────────────────────────
       # Versioned artifacts must be in main so that docs.yml can find them
