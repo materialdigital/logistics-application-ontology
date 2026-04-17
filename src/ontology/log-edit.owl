@@ -820,7 +820,6 @@ SubClassOf(<https://w3id.org/pmd/log/LOG_1000054> <http://purl.obolibrary.org/ob
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#closeMatch> <https://w3id.org/pmd/log/LOG_1000054> <http://www.w3.org/ns/org#Role>)
 SubClassOf(<http://www.w3.org/ns/org#Post> <http://purl.obolibrary.org/obo/BFO_0000023>)
 SubClassOf(<http://www.w3.org/ns/org#Membership> <http://purl.obolibrary.org/obo/BFO_0000023>)
-SubClassOf(<http://www.w3.org/ns/org#Site> <https://w3id.org/pmd/co/PMD_0040029>)
 SubClassOf(<https://w3id.org/pmd/log/LOG_1000054> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000197> ObjectIntersectionOf(ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000040> ObjectComplementOf(<http://purl.obolibrary.org/obo/BFO_0000024>)) ObjectSomeValuesFrom(<https://w3id.org/pmd/log/LOG_1900001> ObjectUnionOf(<http://xmlns.com/foaf/0.1/Person> <https://w3id.org/pmd/log/LOG_1000050>)))))
 
 # Class: <https://w3id.org/pmd/log/LOG_1000055> (buyer role)
