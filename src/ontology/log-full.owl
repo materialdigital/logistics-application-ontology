@@ -1539,6 +1539,262 @@ Werner suggests a solution based on &quot;Magnitudes&quot; a proposal for which 
     
 
 
+    <!-- http://www.w3.org/ns/org#hasMember -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/org#hasMember">
+        <owl:inverseOf rdf:resource="http://www.w3.org/ns/org#memberOf"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/org#Organization"/>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:label xml:lang="it">ha membro</rdfs:label>
+        <rdfs:label xml:lang="en">has member</rdfs:label>
+        <rdfs:label xml:lang="fr">possède un membre</rdfs:label>
+        <rdfs:label xml:lang="es">tiene miembro</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/org#hasMembership -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/org#hasMembership">
+        <owl:inverseOf rdf:resource="http://www.w3.org/ns/org#member"/>
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/org#Membership"/>
+        <rdfs:label xml:lang="it">appartenenza</rdfs:label>
+        <rdfs:label xml:lang="fr">engagement</rdfs:label>
+        <rdfs:label xml:lang="en">membership</rdfs:label>
+        <rdfs:label xml:lang="es">tiene membresía</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/org#hasPost -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/org#hasPost">
+        <owl:inverseOf rdf:resource="http://www.w3.org/ns/org#postIn"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/org#Organization"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/org#Post"/>
+        <rdfs:label xml:lang="it">impiego</rdfs:label>
+        <rdfs:label xml:lang="fr">possède un poste</rdfs:label>
+        <rdfs:label xml:lang="en">post</rdfs:label>
+        <rdfs:label xml:lang="es">tiene puesto</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/org#hasSubOrganization -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/org#hasSubOrganization">
+        <owl:inverseOf rdf:resource="http://www.w3.org/ns/org#subOrganizationOf"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/org#Organization"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/org#Organization"/>
+        <rdfs:label xml:lang="fr">a une Sous-Organization</rdfs:label>
+        <rdfs:label xml:lang="it">ha sotto-Organization</rdfs:label>
+        <rdfs:label xml:lang="en">has SubOrganization</rdfs:label>
+        <rdfs:label xml:lang="es">tiene suborganización</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/org#hasUnit -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/org#hasUnit">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/org#hasSubOrganization"/>
+        <owl:inverseOf rdf:resource="http://www.w3.org/ns/org#unitOf"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/org#FormalOrganization"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/org#OrganizationalUnit"/>
+        <rdfs:label xml:lang="es">contiene unidad</rdfs:label>
+        <rdfs:label xml:lang="it">ha Unit</rdfs:label>
+        <rdfs:label xml:lang="en">has Unit</rdfs:label>
+        <rdfs:label xml:lang="fr">possède une Unité</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/org#headOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/org#headOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/org#memberOf"/>
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/org#Organization"/>
+        <rdfs:label xml:lang="es">es director ejecutivo de</rdfs:label>
+        <rdfs:label xml:lang="en">head of</rdfs:label>
+        <rdfs:label xml:lang="it">responsabile di</rdfs:label>
+        <rdfs:label xml:lang="fr">responsable de</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/org#heldBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/org#heldBy">
+        <owl:inverseOf rdf:resource="http://www.w3.org/ns/org#holds"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/org#Post"/>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:label xml:lang="en">held by</rdfs:label>
+        <rdfs:label xml:lang="fr">occupé par</rdfs:label>
+        <rdfs:label xml:lang="es">ocupado por</rdfs:label>
+        <rdfs:label xml:lang="it">ricoperto da</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/org#holds -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/org#holds">
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/org#Post"/>
+        <rdfs:label xml:lang="en">holds</rdfs:label>
+        <rdfs:label xml:lang="fr">occupe</rdfs:label>
+        <rdfs:label xml:lang="es">ocupa</rdfs:label>
+        <rdfs:label xml:lang="it">ricopre</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/org#member -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/org#member">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/org#Membership"/>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:label xml:lang="es">es condición de miembro sobre agente</rdfs:label>
+        <rdfs:label xml:lang="en">member</rdfs:label>
+        <rdfs:label xml:lang="fr">membre</rdfs:label>
+        <rdfs:label xml:lang="it">membro</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/org#memberOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/org#memberOf">
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/org#Organization"/>
+        <rdfs:label xml:lang="es">es miembro de</rdfs:label>
+        <rdfs:label xml:lang="en">member of</rdfs:label>
+        <rdfs:label xml:lang="fr">membre de</rdfs:label>
+        <rdfs:label xml:lang="it">membro di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/org#organization -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/org#organization">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/org#Membership"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/org#Organization"/>
+        <rdfs:label xml:lang="es">es condición de miembro sobre organización</rdfs:label>
+        <rdfs:label xml:lang="fr">organisation</rdfs:label>
+        <rdfs:label xml:lang="en">organization</rdfs:label>
+        <rdfs:label xml:lang="it">organizzazione</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/org#postIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/org#postIn">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/org#Post"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/org#Organization"/>
+        <rdfs:label xml:lang="es">es un puesto en</rdfs:label>
+        <rdfs:label xml:lang="it">impiego in</rdfs:label>
+        <rdfs:label xml:lang="en">post in</rdfs:label>
+        <rdfs:label xml:lang="fr">poste chez</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/org#reportsTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/org#reportsTo">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/org#Post"/>
+                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/org#Post"/>
+                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:label xml:lang="fr">est subordonné à</rdfs:label>
+        <rdfs:label xml:lang="en">reports to</rdfs:label>
+        <rdfs:label xml:lang="es">responde ante</rdfs:label>
+        <rdfs:label xml:lang="it">riporta a</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/org#role -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/org#role">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/org#Membership"/>
+                    <rdf:Description rdf:about="http://www.w3.org/ns/org#Post"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/org#Role"/>
+        <rdfs:label xml:lang="es">desempeña la actividad de</rdfs:label>
+        <rdfs:label xml:lang="en">role</rdfs:label>
+        <rdfs:label xml:lang="it">ruolo</rdfs:label>
+        <rdfs:label xml:lang="fr">rôle</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/org#subOrganizationOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/org#subOrganizationOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/org#transitiveSubOrganizationOf"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/org#Organization"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/org#Organization"/>
+        <rdfs:label xml:lang="es">es suborganización de</rdfs:label>
+        <rdfs:label xml:lang="it">sotto-Organization di</rdfs:label>
+        <rdfs:label xml:lang="fr">sous-Organization de</rdfs:label>
+        <rdfs:label xml:lang="en">subOrganization of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/org#transitiveSubOrganizationOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/org#transitiveSubOrganizationOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/org#Organization"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/org#Organization"/>
+        <rdfs:label xml:lang="es">es suborganización de (transitiva)</rdfs:label>
+        <rdfs:label xml:lang="es">es suborganización de manera transitiva de</rdfs:label>
+        <rdfs:label xml:lang="it">sotto-Organization transitiva</rdfs:label>
+        <rdfs:label xml:lang="fr">sous-Organization transitive de</rdfs:label>
+        <rdfs:label xml:lang="en">transitive sub-organization</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/org#unitOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/org#unitOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/org#subOrganizationOf"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/org#OrganizationalUnit"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/org#FormalOrganization"/>
+        <rdfs:label xml:lang="es">es unidad de</rdfs:label>
+        <rdfs:label xml:lang="en">unit Of</rdfs:label>
+        <rdfs:label xml:lang="it">unità di</rdfs:label>
+        <rdfs:label xml:lang="fr">unité de</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0000004 -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/PMD_0000004">
@@ -4734,6 +4990,150 @@ for now.</obo:IAO_0000116>
     
 
 
+    <!-- http://purl.org/dc/terms/Agent -->
+
+    <owl:Class rdf:about="http://purl.org/dc/terms/Agent">
+        <owl:equivalentClass rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Concept -->
+
+    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
+    
+
+
+    <!-- http://www.w3.org/ns/org#FormalOrganization -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/org#FormalOrganization">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/org#Organization"/>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+        <rdfs:label xml:lang="en">Formal Organization</rdfs:label>
+        <rdfs:label xml:lang="fr">Organisation Formelle</rdfs:label>
+        <rdfs:label xml:lang="it">Organizzazione formale</rdfs:label>
+        <rdfs:label xml:lang="es">organización formal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/org#Membership -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/org#Membership">
+        <owl:disjointWith rdf:resource="http://www.w3.org/ns/org#Organization"/>
+        <owl:disjointWith rdf:resource="http://www.w3.org/ns/org#Role"/>
+        <rdfs:label xml:lang="it">Appartenenza</rdfs:label>
+        <rdfs:label xml:lang="fr">Engagement</rdfs:label>
+        <rdfs:label xml:lang="en">Membership</rdfs:label>
+        <rdfs:label xml:lang="es">membresía</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/org#Organization -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/org#Organization">
+        <owl:equivalentClass rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/Agent"/>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <owl:disjointWith rdf:resource="http://www.w3.org/ns/org#Role"/>
+        <rdfs:label xml:lang="fr">Organisation</rdfs:label>
+        <rdfs:label xml:lang="en">Organization</rdfs:label>
+        <rdfs:label xml:lang="it">Organizzazione</rdfs:label>
+        <rdfs:label xml:lang="es">organización</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/org#OrganizationalCollaboration -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/org#OrganizationalCollaboration">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/org#Organization"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.w3.org/ns/org#hasMember"/>
+                        <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/org#Organization"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/org#Organization"/>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+        <rdfs:label xml:lang="it">Collaborazione</rdfs:label>
+        <rdfs:label xml:lang="en">Endeavour</rdfs:label>
+        <rdfs:label xml:lang="fr">Partenariat</rdfs:label>
+        <rdfs:label xml:lang="es">proyecto de cooperación empresarial</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/org#OrganizationalUnit -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/org#OrganizationalUnit">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/org#Organization"/>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+        <rdfs:label xml:lang="en">OrganizationalUnit</rdfs:label>
+        <rdfs:label xml:lang="it">Unità Organizzativa</rdfs:label>
+        <rdfs:label xml:lang="fr">Unité opérationnelle</rdfs:label>
+        <rdfs:label xml:lang="es">unidad organizativa</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/org#Post -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/org#Post">
+        <rdfs:label xml:lang="it">Impiego</rdfs:label>
+        <rdfs:label xml:lang="en">Post</rdfs:label>
+        <rdfs:label xml:lang="fr">Poste</rdfs:label>
+        <rdfs:label xml:lang="es">puesto</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/org#Role -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/org#Role">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:label xml:lang="en">Role</rdfs:label>
+        <rdfs:label xml:lang="it">Ruolo</rdfs:label>
+        <rdfs:label xml:lang="fr">Rôle</rdfs:label>
+        <rdfs:label xml:lang="es">actividad</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Agent -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Agent">
+        <rdfs:label>Agent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Organization -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Organization">
+        <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/Agent"/>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <owl:disjointWith rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:label>Organization</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person">
+        <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/Agent"/>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:label>Person</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000027 -->
 
     <owl:Class rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000027">
@@ -4835,7 +5235,7 @@ granularity. At these coarser levels, the individual molecules cannot be differe
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000950"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf rdf:nodeID="genid192"/>
+        <rdfs:subClassOf rdf:nodeID="genid205"/>
         <rdfs:comment xml:lang="en">A property is a material trait in terms of the kind and magnitude of response to a specific imposed stimulus. Generally, definitions of properties are made independent of material shape and size.
 (Callister, W.D., Rethwisch, D.G., Materials Science and Engineering, Wiley, 2014)
 
@@ -4848,7 +5248,7 @@ Extensive properties that depend on the object being tested rather than on the p
         <skos:definition xml:lang="en">a disposition of a portion of matter that is realized in a compatible process and whose realization is grounded in the portions intensive qualities</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
-    <owl:Restriction rdf:nodeID="genid192">
+    <owl:Restriction rdf:nodeID="genid205">
         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
         <owl:someValuesFrom>
             <owl:Class>
@@ -4865,7 +5265,7 @@ Extensive properties that depend on the object being tested rather than on the p
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0000005"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid192"/>
+        <owl:annotatedTarget rdf:nodeID="genid205"/>
         <rdfs:comment xml:lang="en">Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom.</rdfs:comment>
     </owl:Axiom>
     
@@ -13566,21 +13966,21 @@ Depending on the interconnectedness of the pores the foam is open- or closed-cel
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020131">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
-        <rdfs:subClassOf rdf:nodeID="genid934"/>
+        <rdfs:subClassOf rdf:nodeID="genid947"/>
         <owl:disjointWith rdf:resource="https://w3id.org/pmd/co/PMD_0020148"/>
         <rdfs:label xml:lang="en">intensive quality</rdfs:label>
         <skos:altLabel xml:lang="en">Point property</skos:altLabel>
         <skos:definition xml:lang="en">An intensive quality is a quality that inheres in only portion of matter and thus is independent of the bearers (system-) size.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
-    <owl:Restriction rdf:nodeID="genid934">
+    <owl:Restriction rdf:nodeID="genid947">
         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000001"/>
     </owl:Restriction>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0020131"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid934"/>
+        <owl:annotatedTarget rdf:nodeID="genid947"/>
         <rdfs:comment xml:lang="en">Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom.</rdfs:comment>
     </owl:Axiom>
     
@@ -19845,7 +20245,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                                         <owl:someValuesFrom>
                                             <owl:Class>
                                                 <owl:intersectionOf rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000014"/>
+                                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000260"/>
                                                     <owl:Restriction>
                                                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
                                                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000097"/>
@@ -19889,7 +20289,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                                 <owl:someValuesFrom>
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000014"/>
+                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000260"/>
                                             <owl:Restriction>
                                                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
                                                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000097"/>
@@ -22296,7 +22696,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000014"/>
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000260"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
                                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000095"/>
@@ -22516,7 +22916,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000014"/>
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000260"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
                                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000098"/>
@@ -22547,7 +22947,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000014"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000260"/>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
                                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000098"/>
@@ -22590,7 +22990,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000014"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000260"/>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
                                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IAO_0000104"/>
@@ -22623,7 +23023,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000014"/>
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000260"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
                                         <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IAO_0000104"/>
@@ -22726,7 +23126,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000014"/>
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000260"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
                                         <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IAO_0000104"/>
@@ -22918,7 +23318,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000014"/>
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000260"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
                                         <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IAO_0000104"/>
@@ -22974,6 +23374,19 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
     <!-- http://purl.obolibrary.org/obo/UO_0000164 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/UO_0000164"/>
+    
+
+
+    <!-- http://www.w3.org/ns/org#Head -->
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/ns/org#Head">
+        <rdf:type rdf:resource="http://www.w3.org/ns/org#Role"/>
+        <rdfs:label xml:lang="es">director ejecutivo</rdfs:label>
+        <rdfs:label xml:lang="es">directora ejecutiva</rdfs:label>
+        <rdfs:label xml:lang="en">head</rdfs:label>
+        <rdfs:label xml:lang="it">responsabile</rdfs:label>
+        <rdfs:label xml:lang="fr">responsable</rdfs:label>
+    </owl:NamedIndividual>
     
 
 
@@ -23506,7 +23919,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000014"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000260"/>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
                                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_10001247"/>
@@ -23526,7 +23939,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000014"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000260"/>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
                                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000112"/>
@@ -23546,7 +23959,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000014"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000260"/>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
                                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000121"/>
@@ -23566,7 +23979,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000014"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000260"/>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
                                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_10001247"/>
@@ -23586,7 +23999,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000014"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000260"/>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
                                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000129"/>

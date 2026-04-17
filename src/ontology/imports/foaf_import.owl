@@ -1,0 +1,43 @@
+Prefix(:=<https://w3id.org/pmd/log/imports/foaf_import.owl#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<https://w3id.org/pmd/log/imports/foaf_import.owl>
+<https://w3id.org/pmd/log/releases/2026-04-17/imports/foaf_import.owl>
+Annotation(owl:versionInfo "2026-04-17")
+
+Declaration(Class(<http://purl.org/dc/terms/Agent>))
+Declaration(Class(<http://xmlns.com/foaf/0.1/Agent>))
+Declaration(Class(<http://xmlns.com/foaf/0.1/Organization>))
+Declaration(Class(<http://xmlns.com/foaf/0.1/Person>))
+
+
+############################
+#   Classes
+############################
+
+# Class: <http://purl.org/dc/terms/Agent> (<http://purl.org/dc/terms/Agent>)
+
+EquivalentClasses(<http://purl.org/dc/terms/Agent> <http://xmlns.com/foaf/0.1/Agent>)
+
+# Class: <http://xmlns.com/foaf/0.1/Agent> (Agent)
+
+AnnotationAssertion(rdfs:label <http://xmlns.com/foaf/0.1/Agent> "Agent")
+
+# Class: <http://xmlns.com/foaf/0.1/Organization> (Organization)
+
+AnnotationAssertion(rdfs:label <http://xmlns.com/foaf/0.1/Organization> "Organization")
+SubClassOf(<http://xmlns.com/foaf/0.1/Organization> <http://xmlns.com/foaf/0.1/Agent>)
+DisjointClasses(<http://xmlns.com/foaf/0.1/Organization> <http://xmlns.com/foaf/0.1/Person>)
+
+# Class: <http://xmlns.com/foaf/0.1/Person> (Person)
+
+AnnotationAssertion(rdfs:label <http://xmlns.com/foaf/0.1/Person> "Person")
+SubClassOf(<http://xmlns.com/foaf/0.1/Person> <http://xmlns.com/foaf/0.1/Agent>)
+
+
+)

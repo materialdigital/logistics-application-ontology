@@ -9,6 +9,8 @@ Prefix(dcterms:=<http://purl.org/dc/terms/>)
 
 
 Ontology(<https://w3id.org/pmd/log>
+Import(<https://w3id.org/pmd/log/imports/foaf_import.owl>)
+Import(<https://w3id.org/pmd/log/imports/org_import.owl>)
 Import(<https://w3id.org/pmd/log/imports/pmdco_import.owl>)
 Annotation(dcterms:creator <https://orcid.org/0000-0003-1649-6832>)
 Annotation(dcterms:description "This is an alignment of the IOF Supply Chain Ontologies Library to the Platform Material Digital Core Ontology. It contains ontologies to be used in the domain of supply chain and logistics.")
@@ -376,18 +378,18 @@ SubClassOf(<https://w3id.org/pmd/log/LOG_0000001> ObjectSomeValuesFrom(<http://p
 
 # Class: <https://w3id.org/pmd/log/LOG_0000002> (consigning process)
 
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000115> <https://w3id.org/pmd/log/LOG_0000002> "business process that results in placing a material entity in the possession of some agent without changing the ownership until the material entity is sold")
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <https://w3id.org/pmd/log/LOG_0000002> "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/ConsigningProcess")
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/log/LOG_0000002> "consigning process"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/log/LOG_0000002> "business process that results in placing a material entity in the possession of some agent without changing the ownership until the material entity is sold")
-AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000115> <https://w3id.org/pmd/log/LOG_0000002> "business process that results in placing a material entity in the possession of some agent without changing the ownership until the material entity is sold")
 SubClassOf(<https://w3id.org/pmd/log/LOG_0000002> <https://w3id.org/pmd/log/LOG_1000130>)
 
 # Class: <https://w3id.org/pmd/log/LOG_0000003> (freight forwarding process)
 
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000115> <https://w3id.org/pmd/log/LOG_0000003> "business process of planning and coordinating the transportation of material products on behalf of a shipper")
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <https://w3id.org/pmd/log/LOG_0000003> "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/FreightForwardingProcess")
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/log/LOG_0000003> "freight forwarding process"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/log/LOG_0000003> "business process of planning and coordinating the transportation of material products on behalf of a shipper")
-AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000115> <https://w3id.org/pmd/log/LOG_0000003> "business process of planning and coordinating the transportation of material products on behalf of a shipper")
 SubClassOf(<https://w3id.org/pmd/log/LOG_0000003> ObjectIntersectionOf(<https://w3id.org/pmd/log/LOG_1000130> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000057> <https://w3id.org/pmd/log/LOG_1000016>)))
 
 # Class: <https://w3id.org/pmd/log/LOG_0080000> (manufacturer identifier)
@@ -1269,7 +1271,7 @@ AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <https://w3id.o
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/log/LOG_1000121> "packaging process")
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/log/LOG_1000121> "business process of putting some products or some portion of material into a package according to a packaging plan specification"@en)
 SubClassOf(<https://w3id.org/pmd/log/LOG_1000121> <https://w3id.org/pmd/log/LOG_1000130>)
-SubClassOf(<https://w3id.org/pmd/log/LOG_1000121> ObjectIntersectionOf(<https://w3id.org/pmd/log/LOG_1000130> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0002233> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0000260> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000059> <https://w3id.org/pmd/log/LOG_1000095>))) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000057> <https://w3id.org/pmd/log/LOG_1000029>)))
+SubClassOf(<https://w3id.org/pmd/log/LOG_1000121> ObjectIntersectionOf(<https://w3id.org/pmd/log/LOG_1000130> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000057> <https://w3id.org/pmd/log/LOG_1000029>) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0002233> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0000260> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000059> <https://w3id.org/pmd/log/LOG_1000095>)))))
 
 # Class: <https://w3id.org/pmd/log/LOG_1000122> (procuring business process)
 
@@ -1330,7 +1332,7 @@ SubClassOf(<https://w3id.org/pmd/log/LOG_1000128> ObjectSomeValuesFrom(<http://p
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <https://w3id.org/pmd/log/LOG_1000129> "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/WarehousingProcess")
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/log/LOG_1000129> "warehousing process"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/log/LOG_1000129> "business process of storing products (material products) in a storage facility for future use")
-EquivalentClasses(<https://w3id.org/pmd/log/LOG_1000129> ObjectIntersectionOf(<https://w3id.org/pmd/log/LOG_1000130> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0002233> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0000260> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000059> <https://w3id.org/pmd/log/LOG_1000098>))) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000066> <https://w3id.org/pmd/log/LOG_1000034>) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000117> <https://w3id.org/pmd/log/LOG_1000144>)))
+EquivalentClasses(<https://w3id.org/pmd/log/LOG_1000129> ObjectIntersectionOf(<https://w3id.org/pmd/log/LOG_1000130> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000066> <https://w3id.org/pmd/log/LOG_1000034>) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000117> <https://w3id.org/pmd/log/LOG_1000144>) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0002233> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0000260> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000059> <https://w3id.org/pmd/log/LOG_1000098>)))))
 SubClassOf(<https://w3id.org/pmd/log/LOG_1000129> <https://w3id.org/pmd/log/LOG_1000130>)
 
 # Class: <https://w3id.org/pmd/log/LOG_1000130> (business process)
@@ -1339,8 +1341,8 @@ AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <https://w3id.o
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/log/LOG_1000130> "business process"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/log/LOG_1000130> "planned process which is prescribed by a plan specification with one or more objectives specified by a business organization"@en-us)
 SubClassOf(<https://w3id.org/pmd/log/LOG_1000130> <http://purl.obolibrary.org/obo/BFO_0000015>)
-SubClassOf(<https://w3id.org/pmd/log/LOG_1000130> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0002233> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0000260> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000059> <http://purl.obolibrary.org/obo/IAO_0000104>))))
 SubClassOf(<https://w3id.org/pmd/log/LOG_1000130> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000057> ObjectIntersectionOf(<https://w3id.org/pmd/log/LOG_1000011> ObjectSomeValuesFrom(<https://w3id.org/pmd/log/LOG_1900001> <https://w3id.org/pmd/log/LOG_1000047>))))
+SubClassOf(<https://w3id.org/pmd/log/LOG_1000130> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0002233> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0000260> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000059> <http://purl.obolibrary.org/obo/IAO_0000104>))))
 
 # Class: <https://w3id.org/pmd/log/LOG_1000131> (manufacturing process)
 
@@ -1348,7 +1350,7 @@ AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <https://w3id.o
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/log/LOG_1000131> "manufacturing process"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/log/LOG_1000131> "planned process that consists of a structured set of operations through which input material is transformed or modified"@en-us)
 SubClassOf(<https://w3id.org/pmd/log/LOG_1000131> <http://purl.obolibrary.org/obo/BFO_0000015>)
-SubClassOf(<https://w3id.org/pmd/log/LOG_1000131> ObjectIntersectionOf(ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0002233> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0000260> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000059> <http://purl.obolibrary.org/obo/IAO_0000104>))) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000057> <https://w3id.org/pmd/log/LOG_1000011>)))
+SubClassOf(<https://w3id.org/pmd/log/LOG_1000131> ObjectIntersectionOf(ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000057> <https://w3id.org/pmd/log/LOG_1000011>) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0002233> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0000260> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000059> <http://purl.obolibrary.org/obo/IAO_0000104>)))))
 SubClassOf(<https://w3id.org/pmd/log/LOG_1000131> ObjectIntersectionOf(ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0002233> <http://purl.obolibrary.org/obo/BFO_0000040>) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0002234> ObjectUnionOf(<https://w3id.org/pmd/log/LOG_1000028> <https://w3id.org/pmd/log/LOG_1000029> <https://w3id.org/pmd/log/LOG_1000030>))))
 
 # Class: <https://w3id.org/pmd/log/LOG_1000132> (assembly process)
@@ -1365,7 +1367,7 @@ AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <https://w3id.o
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/log/LOG_1000134> "measurement process"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/log/LOG_1000134> "planned process to determine the value of an attribute (specifically dependent continuant or temporal region or process characteristic) of an entity of interest"@en-us)
 SubClassOf(<https://w3id.org/pmd/log/LOG_1000134> <http://purl.obolibrary.org/obo/BFO_0000015>)
-SubClassOf(<https://w3id.org/pmd/log/LOG_1000134> ObjectIntersectionOf(ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0002233> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0000260> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000059> <http://purl.obolibrary.org/obo/IAO_0000104>))) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000057> <https://w3id.org/pmd/log/LOG_1000011>)))
+SubClassOf(<https://w3id.org/pmd/log/LOG_1000134> ObjectIntersectionOf(ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000057> <https://w3id.org/pmd/log/LOG_1000011>) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0002233> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0000260> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000059> <http://purl.obolibrary.org/obo/IAO_0000104>)))))
 
 # Class: <https://w3id.org/pmd/log/LOG_1000135> (appraisal process)
 
@@ -1409,7 +1411,7 @@ AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <https://w3id.o
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/log/LOG_1000144> "storage process"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/log/LOG_1000144> "planned process of putting and keeping material entities in a specified location for future use"@en-us)
 SubClassOf(<https://w3id.org/pmd/log/LOG_1000144> <http://purl.obolibrary.org/obo/BFO_0000015>)
-SubClassOf(<https://w3id.org/pmd/log/LOG_1000144> ObjectIntersectionOf(ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0002233> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0000260> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000059> <http://purl.obolibrary.org/obo/IAO_0000104>))) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000057> <https://w3id.org/pmd/log/LOG_1000011>)))
+SubClassOf(<https://w3id.org/pmd/log/LOG_1000144> ObjectIntersectionOf(ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000057> <https://w3id.org/pmd/log/LOG_1000011>) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0002233> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0000260> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000059> <http://purl.obolibrary.org/obo/IAO_0000104>)))))
 
 # Class: <https://w3id.org/pmd/log/LOG_1000145> (travel process)
 

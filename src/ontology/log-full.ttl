@@ -1160,6 +1160,202 @@ obo:STATO_0000102 rdf:type owl:ObjectProperty ;
                   rdfs:label "executes" .
 
 
+###  http://www.w3.org/ns/org#hasMember
+<http://www.w3.org/ns/org#hasMember> rdf:type owl:ObjectProperty ;
+                                     owl:inverseOf <http://www.w3.org/ns/org#memberOf> ;
+                                     rdfs:domain <http://www.w3.org/ns/org#Organization> ;
+                                     rdfs:range <http://xmlns.com/foaf/0.1/Agent> ;
+                                     rdfs:label "ha membro"@it ,
+                                                "has member"@en ,
+                                                "possède un membre"@fr ,
+                                                "tiene miembro"@es .
+
+
+###  http://www.w3.org/ns/org#hasMembership
+<http://www.w3.org/ns/org#hasMembership> rdf:type owl:ObjectProperty ;
+                                         owl:inverseOf <http://www.w3.org/ns/org#member> ;
+                                         rdfs:domain <http://xmlns.com/foaf/0.1/Agent> ;
+                                         rdfs:range <http://www.w3.org/ns/org#Membership> ;
+                                         rdfs:label "appartenenza"@it ,
+                                                    "engagement"@fr ,
+                                                    "membership"@en ,
+                                                    "tiene membresía"@es .
+
+
+###  http://www.w3.org/ns/org#hasPost
+<http://www.w3.org/ns/org#hasPost> rdf:type owl:ObjectProperty ;
+                                   owl:inverseOf <http://www.w3.org/ns/org#postIn> ;
+                                   rdfs:domain <http://www.w3.org/ns/org#Organization> ;
+                                   rdfs:range <http://www.w3.org/ns/org#Post> ;
+                                   rdfs:label "impiego"@it ,
+                                              "possède un poste"@fr ,
+                                              "post"@en ,
+                                              "tiene puesto"@es .
+
+
+###  http://www.w3.org/ns/org#hasSubOrganization
+<http://www.w3.org/ns/org#hasSubOrganization> rdf:type owl:ObjectProperty ;
+                                              owl:inverseOf <http://www.w3.org/ns/org#subOrganizationOf> ;
+                                              rdfs:domain <http://www.w3.org/ns/org#Organization> ;
+                                              rdfs:range <http://www.w3.org/ns/org#Organization> ;
+                                              rdfs:label "a une Sous-Organization"@fr ,
+                                                         "ha sotto-Organization"@it ,
+                                                         "has SubOrganization"@en ,
+                                                         "tiene suborganización"@es .
+
+
+###  http://www.w3.org/ns/org#hasUnit
+<http://www.w3.org/ns/org#hasUnit> rdf:type owl:ObjectProperty ;
+                                   rdfs:subPropertyOf <http://www.w3.org/ns/org#hasSubOrganization> ;
+                                   owl:inverseOf <http://www.w3.org/ns/org#unitOf> ;
+                                   rdfs:domain <http://www.w3.org/ns/org#FormalOrganization> ;
+                                   rdfs:range <http://www.w3.org/ns/org#OrganizationalUnit> ;
+                                   rdfs:label "contiene unidad"@es ,
+                                              "ha Unit"@it ,
+                                              "has Unit"@en ,
+                                              "possède une Unité"@fr .
+
+
+###  http://www.w3.org/ns/org#headOf
+<http://www.w3.org/ns/org#headOf> rdf:type owl:ObjectProperty ;
+                                  rdfs:subPropertyOf <http://www.w3.org/ns/org#memberOf> ;
+                                  rdfs:domain <http://xmlns.com/foaf/0.1/Agent> ;
+                                  rdfs:range <http://www.w3.org/ns/org#Organization> ;
+                                  rdfs:label "es director ejecutivo de"@es ,
+                                             "head of"@en ,
+                                             "responsabile di"@it ,
+                                             "responsable de"@fr .
+
+
+###  http://www.w3.org/ns/org#heldBy
+<http://www.w3.org/ns/org#heldBy> rdf:type owl:ObjectProperty ;
+                                  owl:inverseOf <http://www.w3.org/ns/org#holds> ;
+                                  rdfs:domain <http://www.w3.org/ns/org#Post> ;
+                                  rdfs:range <http://xmlns.com/foaf/0.1/Agent> ;
+                                  rdfs:label "held by"@en ,
+                                             "occupé par"@fr ,
+                                             "ocupado por"@es ,
+                                             "ricoperto da"@it .
+
+
+###  http://www.w3.org/ns/org#holds
+<http://www.w3.org/ns/org#holds> rdf:type owl:ObjectProperty ;
+                                 rdfs:domain <http://xmlns.com/foaf/0.1/Agent> ;
+                                 rdfs:range <http://www.w3.org/ns/org#Post> ;
+                                 rdfs:label "holds"@en ,
+                                            "occupe"@fr ,
+                                            "ocupa"@es ,
+                                            "ricopre"@it .
+
+
+###  http://www.w3.org/ns/org#member
+<http://www.w3.org/ns/org#member> rdf:type owl:ObjectProperty ,
+                                           owl:FunctionalProperty ;
+                                  rdfs:domain <http://www.w3.org/ns/org#Membership> ;
+                                  rdfs:range <http://xmlns.com/foaf/0.1/Agent> ;
+                                  rdfs:label "es condición de miembro sobre agente"@es ,
+                                             "member"@en ,
+                                             "membre"@fr ,
+                                             "membro"@it .
+
+
+###  http://www.w3.org/ns/org#memberOf
+<http://www.w3.org/ns/org#memberOf> rdf:type owl:ObjectProperty ;
+                                    rdfs:domain <http://xmlns.com/foaf/0.1/Agent> ;
+                                    rdfs:range <http://www.w3.org/ns/org#Organization> ;
+                                    rdfs:label "es miembro de"@es ,
+                                               "member of"@en ,
+                                               "membre de"@fr ,
+                                               "membro di"@it .
+
+
+###  http://www.w3.org/ns/org#organization
+<http://www.w3.org/ns/org#organization> rdf:type owl:ObjectProperty ,
+                                                 owl:FunctionalProperty ;
+                                        rdfs:domain <http://www.w3.org/ns/org#Membership> ;
+                                        rdfs:range <http://www.w3.org/ns/org#Organization> ;
+                                        rdfs:label "es condición de miembro sobre organización"@es ,
+                                                   "organisation"@fr ,
+                                                   "organization"@en ,
+                                                   "organizzazione"@it .
+
+
+###  http://www.w3.org/ns/org#postIn
+<http://www.w3.org/ns/org#postIn> rdf:type owl:ObjectProperty ;
+                                  rdfs:domain <http://www.w3.org/ns/org#Post> ;
+                                  rdfs:range <http://www.w3.org/ns/org#Organization> ;
+                                  rdfs:label "es un puesto en"@es ,
+                                             "impiego in"@it ,
+                                             "post in"@en ,
+                                             "poste chez"@fr .
+
+
+###  http://www.w3.org/ns/org#reportsTo
+<http://www.w3.org/ns/org#reportsTo> rdf:type owl:ObjectProperty ;
+                                     rdfs:domain [ rdf:type owl:Class ;
+                                                   owl:unionOf ( <http://www.w3.org/ns/org#Post>
+                                                                 <http://xmlns.com/foaf/0.1/Agent>
+                                                               )
+                                                 ] ;
+                                     rdfs:range [ rdf:type owl:Class ;
+                                                  owl:unionOf ( <http://www.w3.org/ns/org#Post>
+                                                                <http://xmlns.com/foaf/0.1/Agent>
+                                                              )
+                                                ] ;
+                                     rdfs:label "est subordonné à"@fr ,
+                                                "reports to"@en ,
+                                                "responde ante"@es ,
+                                                "riporta a"@it .
+
+
+###  http://www.w3.org/ns/org#role
+<http://www.w3.org/ns/org#role> rdf:type owl:ObjectProperty ;
+                                rdfs:domain [ rdf:type owl:Class ;
+                                              owl:unionOf ( <http://www.w3.org/ns/org#Membership>
+                                                            <http://www.w3.org/ns/org#Post>
+                                                          )
+                                            ] ;
+                                rdfs:range <http://www.w3.org/ns/org#Role> ;
+                                rdfs:label "desempeña la actividad de"@es ,
+                                           "role"@en ,
+                                           "ruolo"@it ,
+                                           "rôle"@fr .
+
+
+###  http://www.w3.org/ns/org#subOrganizationOf
+<http://www.w3.org/ns/org#subOrganizationOf> rdf:type owl:ObjectProperty ;
+                                             rdfs:subPropertyOf <http://www.w3.org/ns/org#transitiveSubOrganizationOf> ;
+                                             rdfs:domain <http://www.w3.org/ns/org#Organization> ;
+                                             rdfs:range <http://www.w3.org/ns/org#Organization> ;
+                                             rdfs:label "es suborganización de"@es ,
+                                                        "sotto-Organization di"@it ,
+                                                        "sous-Organization de"@fr ,
+                                                        "subOrganization of"@en .
+
+
+###  http://www.w3.org/ns/org#transitiveSubOrganizationOf
+<http://www.w3.org/ns/org#transitiveSubOrganizationOf> rdf:type owl:ObjectProperty ,
+                                                                owl:TransitiveProperty ;
+                                                       rdfs:domain <http://www.w3.org/ns/org#Organization> ;
+                                                       rdfs:range <http://www.w3.org/ns/org#Organization> ;
+                                                       rdfs:label "es suborganización de (transitiva)"@es ,
+                                                                  "es suborganización de manera transitiva de"@es ,
+                                                                  "sotto-Organization transitiva"@it ,
+                                                                  "sous-Organization transitive de"@fr ,
+                                                                  "transitive sub-organization"@en .
+
+
+###  http://www.w3.org/ns/org#unitOf
+<http://www.w3.org/ns/org#unitOf> rdf:type owl:ObjectProperty ;
+                                  rdfs:subPropertyOf <http://www.w3.org/ns/org#subOrganizationOf> ;
+                                  rdfs:domain <http://www.w3.org/ns/org#OrganizationalUnit> ;
+                                  rdfs:range <http://www.w3.org/ns/org#FormalOrganization> ;
+                                  rdfs:label "es unidad de"@es ,
+                                             "unit Of"@en ,
+                                             "unità di"@it ,
+                                             "unité de"@fr .
+
+
 ###  https://w3id.org/pmd/co/PMD_0000004
 co:PMD_0000004 rdf:type owl:ObjectProperty ;
                rdfs:label "is subject of"@en ;
@@ -3433,6 +3629,112 @@ obo:UO_1000164 rdf:type owl:Class ;
                rdfs:label "mass volume percentage based unit" .
 
 
+###  http://purl.org/dc/terms/Agent
+dcterms:Agent rdf:type owl:Class ;
+              owl:equivalentClass <http://xmlns.com/foaf/0.1/Agent> .
+
+
+###  http://www.w3.org/2004/02/skos/core#Concept
+skos:Concept rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/org#FormalOrganization
+<http://www.w3.org/ns/org#FormalOrganization> rdf:type owl:Class ;
+                                              rdfs:subClassOf <http://www.w3.org/ns/org#Organization> ,
+                                                              <http://xmlns.com/foaf/0.1/Organization> ;
+                                              rdfs:label "Formal Organization"@en ,
+                                                         "Organisation Formelle"@fr ,
+                                                         "Organizzazione formale"@it ,
+                                                         "organización formal"@es .
+
+
+###  http://www.w3.org/ns/org#Membership
+<http://www.w3.org/ns/org#Membership> rdf:type owl:Class ;
+                                      owl:disjointWith <http://www.w3.org/ns/org#Organization> ,
+                                                       <http://www.w3.org/ns/org#Role> ;
+                                      rdfs:label "Appartenenza"@it ,
+                                                 "Engagement"@fr ,
+                                                 "Membership"@en ,
+                                                 "membresía"@es .
+
+
+###  http://www.w3.org/ns/org#Organization
+<http://www.w3.org/ns/org#Organization> rdf:type owl:Class ;
+                                        owl:equivalentClass <http://xmlns.com/foaf/0.1/Organization> ;
+                                        rdfs:subClassOf dcterms:Agent ,
+                                                        <http://xmlns.com/foaf/0.1/Agent> ;
+                                        owl:disjointWith <http://www.w3.org/ns/org#Role> ;
+                                        rdfs:label "Organisation"@fr ,
+                                                   "Organization"@en ,
+                                                   "Organizzazione"@it ,
+                                                   "organización"@es .
+
+
+###  http://www.w3.org/ns/org#OrganizationalCollaboration
+<http://www.w3.org/ns/org#OrganizationalCollaboration> rdf:type owl:Class ;
+                                                       owl:equivalentClass [ owl:intersectionOf ( <http://www.w3.org/ns/org#Organization>
+                                                                                                  [ rdf:type owl:Restriction ;
+                                                                                                    owl:onProperty <http://www.w3.org/ns/org#hasMember> ;
+                                                                                                    owl:allValuesFrom <http://www.w3.org/ns/org#Organization>
+                                                                                                  ]
+                                                                                                ) ;
+                                                                             rdf:type owl:Class
+                                                                           ] ;
+                                                       rdfs:subClassOf <http://www.w3.org/ns/org#Organization> ,
+                                                                       <http://xmlns.com/foaf/0.1/Organization> ;
+                                                       rdfs:label "Collaborazione"@it ,
+                                                                  "Endeavour"@en ,
+                                                                  "Partenariat"@fr ,
+                                                                  "proyecto de cooperación empresarial"@es .
+
+
+###  http://www.w3.org/ns/org#OrganizationalUnit
+<http://www.w3.org/ns/org#OrganizationalUnit> rdf:type owl:Class ;
+                                              rdfs:subClassOf <http://www.w3.org/ns/org#Organization> ,
+                                                              <http://xmlns.com/foaf/0.1/Organization> ;
+                                              rdfs:label "OrganizationalUnit"@en ,
+                                                         "Unità Organizzativa"@it ,
+                                                         "Unité opérationnelle"@fr ,
+                                                         "unidad organizativa"@es .
+
+
+###  http://www.w3.org/ns/org#Post
+<http://www.w3.org/ns/org#Post> rdf:type owl:Class ;
+                                rdfs:label "Impiego"@it ,
+                                           "Post"@en ,
+                                           "Poste"@fr ,
+                                           "puesto"@es .
+
+
+###  http://www.w3.org/ns/org#Role
+<http://www.w3.org/ns/org#Role> rdf:type owl:Class ;
+                                rdfs:subClassOf skos:Concept ;
+                                rdfs:label "Role"@en ,
+                                           "Ruolo"@it ,
+                                           "Rôle"@fr ,
+                                           "actividad"@es .
+
+
+###  http://xmlns.com/foaf/0.1/Agent
+<http://xmlns.com/foaf/0.1/Agent> rdf:type owl:Class ;
+                                  rdfs:label "Agent" .
+
+
+###  http://xmlns.com/foaf/0.1/Organization
+<http://xmlns.com/foaf/0.1/Organization> rdf:type owl:Class ;
+                                         rdfs:subClassOf dcterms:Agent ,
+                                                         <http://xmlns.com/foaf/0.1/Agent> ;
+                                         owl:disjointWith <http://xmlns.com/foaf/0.1/Person> ;
+                                         rdfs:label "Organization" .
+
+
+###  http://xmlns.com/foaf/0.1/Person
+<http://xmlns.com/foaf/0.1/Person> rdf:type owl:Class ;
+                                   rdfs:subClassOf dcterms:Agent ,
+                                                   <http://xmlns.com/foaf/0.1/Agent> ;
+                                   rdfs:label "Person" .
+
+
 ###  https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000027
 <https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000027> rdf:type owl:Class ;
                                                       rdfs:subClassOf obo:IAO_0000027 ;
@@ -3511,7 +3813,7 @@ co:PMD_0000005 rdf:type owl:Class ;
                                  owl:onProperty obo:BFO_0000054 ;
                                  owl:someValuesFrom co:PMD_0000950
                                ] ,
-                               _:genid192 ;
+                               _:genid205 ;
                rdfs:comment """A property is a material trait in terms of the kind and magnitude of response to a specific imposed stimulus. Generally, definitions of properties are made independent of material shape and size.
 (Callister, W.D., Rethwisch, D.G., Materials Science and Engineering, Wiley, 2014)
 
@@ -3524,7 +3826,7 @@ Extensive properties that depend on the object being tested rather than on the p
                skos:definition "a disposition of a portion of matter that is realized in a compatible process and whose realization is grounded in the portions intensive qualities"@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
-_:genid192 rdf:type owl:Restriction ;
+_:genid205 rdf:type owl:Restriction ;
             owl:onProperty obo:RO_0000052 ;
             owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000001
                                                       [ rdf:type owl:Restriction ;
@@ -3538,7 +3840,7 @@ _:genid192 rdf:type owl:Restriction ;
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0000005 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid192 ;
+   owl:annotatedTarget _:genid205 ;
    rdfs:comment "Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom."@en
  ] .
 
@@ -9983,21 +10285,21 @@ co:PMD_0020130 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/co/PMD_0020131
 co:PMD_0020131 rdf:type owl:Class ;
                rdfs:subClassOf obo:BFO_0000019 ,
-                               _:genid934 ;
+                               _:genid947 ;
                owl:disjointWith co:PMD_0020148 ;
                rdfs:label "intensive quality"@en ;
                skos:altLabel "Point property"@en ;
                skos:definition "An intensive quality is a quality that inheres in only portion of matter and thus is independent of the bearers (system-) size."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
-_:genid934 rdf:type owl:Restriction ;
+_:genid947 rdf:type owl:Restriction ;
             owl:onProperty obo:RO_0000080 ;
             owl:someValuesFrom co:PMD_0000001 .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0020131 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid934 ;
+   owl:annotatedTarget _:genid947 ;
    rdfs:comment "Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom."@en
  ] .
 
@@ -14509,7 +14811,7 @@ co:PMD_0200008 rdf:type owl:Class ;
                                                                                     owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000015
                                                                                                                               [ rdf:type owl:Restriction ;
                                                                                                                                 owl:onProperty obo:RO_0002233 ;
-                                                                                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000014
+                                                                                                                                owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0000260
                                                                                                                                                                           [ rdf:type owl:Restriction ;
                                                                                                                                                                             owl:onProperty obo:RO_0000059 ;
                                                                                                                                                                             owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000097>
@@ -14543,7 +14845,7 @@ co:PMD_0200008 rdf:type owl:Class ;
                                                          owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000015
                                                                                                    [ rdf:type owl:Restriction ;
                                                                                                      owl:onProperty obo:RO_0002233 ;
-                                                                                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000014
+                                                                                                     owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0000260
                                                                                                                                                [ rdf:type owl:Restriction ;
                                                                                                                                                  owl:onProperty obo:RO_0000059 ;
                                                                                                                                                  owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000097>
@@ -16265,7 +16567,7 @@ co:PMD_0200008 rdf:type owl:Class ;
                                                                               ]
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:RO_0002233 ;
-                                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000014
+                                                                                owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0000260
                                                                                                                           [ rdf:type owl:Restriction ;
                                                                                                                             owl:onProperty obo:RO_0000059 ;
                                                                                                                             owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000095>
@@ -16427,7 +16729,7 @@ co:PMD_0200008 rdf:type owl:Class ;
                                                                                   ]
                                                                                   [ rdf:type owl:Restriction ;
                                                                                     owl:onProperty obo:RO_0002233 ;
-                                                                                    owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000014
+                                                                                    owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0000260
                                                                                                                               [ rdf:type owl:Restriction ;
                                                                                                                                 owl:onProperty obo:RO_0000059 ;
                                                                                                                                 owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000098>
@@ -16450,7 +16752,7 @@ co:PMD_0200008 rdf:type owl:Class ;
                                                        ] ,
                                                        [ rdf:type owl:Restriction ;
                                                          owl:onProperty obo:RO_0002233 ;
-                                                         owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000014
+                                                         owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0000260
                                                                                                    [ rdf:type owl:Restriction ;
                                                                                                      owl:onProperty obo:RO_0000059 ;
                                                                                                      owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000098>
@@ -16480,7 +16782,7 @@ co:PMD_0200008 rdf:type owl:Class ;
                                                        ] ,
                                                        [ rdf:type owl:Restriction ;
                                                          owl:onProperty obo:RO_0002233 ;
-                                                         owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000014
+                                                         owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0000260
                                                                                                    [ rdf:type owl:Restriction ;
                                                                                                      owl:onProperty obo:RO_0000059 ;
                                                                                                      owl:someValuesFrom obo:IAO_0000104
@@ -16503,7 +16805,7 @@ co:PMD_0200008 rdf:type owl:Class ;
                                                                               ]
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:RO_0002233 ;
-                                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000014
+                                                                                owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0000260
                                                                                                                           [ rdf:type owl:Restriction ;
                                                                                                                             owl:onProperty obo:RO_0000059 ;
                                                                                                                             owl:someValuesFrom obo:IAO_0000104
@@ -16579,7 +16881,7 @@ co:PMD_0200008 rdf:type owl:Class ;
                                                                               ]
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:RO_0002233 ;
-                                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000014
+                                                                                owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0000260
                                                                                                                           [ rdf:type owl:Restriction ;
                                                                                                                             owl:onProperty obo:RO_0000059 ;
                                                                                                                             owl:someValuesFrom obo:IAO_0000104
@@ -16714,7 +17016,7 @@ co:PMD_0200008 rdf:type owl:Class ;
                                                                               ]
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:RO_0002233 ;
-                                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000014
+                                                                                owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0000260
                                                                                                                           [ rdf:type owl:Restriction ;
                                                                                                                             owl:onProperty obo:RO_0000059 ;
                                                                                                                             owl:someValuesFrom obo:IAO_0000104
@@ -16753,6 +17055,16 @@ obo:UO_0000163 rdf:type owl:NamedIndividual .
 
 ###  http://purl.obolibrary.org/obo/UO_0000164
 obo:UO_0000164 rdf:type owl:NamedIndividual .
+
+
+###  http://www.w3.org/ns/org#Head
+<http://www.w3.org/ns/org#Head> rdf:type owl:NamedIndividual ,
+                                         <http://www.w3.org/ns/org#Role> ;
+                                rdfs:label "director ejecutivo"@es ,
+                                           "directora ejecutiva"@es ,
+                                           "head"@en ,
+                                           "responsabile"@it ,
+                                           "responsable"@fr .
 
 
 ###  https://w3id.org/pmd/co/PMD_0020006
@@ -17162,7 +17474,7 @@ co:PMD_0000879 obo:IAO_0000412 <https://spec.industrialontologies.org/ontology/c
                        ]
                        [ rdf:type owl:Restriction ;
                          owl:onProperty obo:RO_0000059 ;
-                         owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000014
+                         owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0000260
                                                                    [ rdf:type owl:Restriction ;
                                                                      owl:onProperty obo:BFO_0000055 ;
                                                                      owl:someValuesFrom <https://w3id.org/pmd/log/LOG_10001247>
@@ -17180,7 +17492,7 @@ co:PMD_0000879 obo:IAO_0000412 <https://spec.industrialontologies.org/ontology/c
 [ owl:intersectionOf ( obo:IAO_0000104
                        [ rdf:type owl:Restriction ;
                          owl:onProperty obo:RO_0000059 ;
-                         owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000014
+                         owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0000260
                                                                    [ rdf:type owl:Restriction ;
                                                                      owl:onProperty obo:BFO_0000055 ;
                                                                      owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000112>
@@ -17198,7 +17510,7 @@ co:PMD_0000879 obo:IAO_0000412 <https://spec.industrialontologies.org/ontology/c
 [ owl:intersectionOf ( obo:IAO_0000104
                        [ rdf:type owl:Restriction ;
                          owl:onProperty obo:RO_0000059 ;
-                         owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000014
+                         owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0000260
                                                                    [ rdf:type owl:Restriction ;
                                                                      owl:onProperty obo:BFO_0000055 ;
                                                                      owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000121>
@@ -17216,7 +17528,7 @@ co:PMD_0000879 obo:IAO_0000412 <https://spec.industrialontologies.org/ontology/c
 [ owl:intersectionOf ( obo:IAO_0000104
                        [ rdf:type owl:Restriction ;
                          owl:onProperty obo:RO_0000059 ;
-                         owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000014
+                         owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0000260
                                                                    [ rdf:type owl:Restriction ;
                                                                      owl:onProperty obo:BFO_0000055 ;
                                                                      owl:someValuesFrom <https://w3id.org/pmd/log/LOG_10001247>
@@ -17234,7 +17546,7 @@ co:PMD_0000879 obo:IAO_0000412 <https://spec.industrialontologies.org/ontology/c
 [ owl:intersectionOf ( obo:IAO_0000104
                        [ rdf:type owl:Restriction ;
                          owl:onProperty obo:RO_0000059 ;
-                         owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000014
+                         owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0000260
                                                                    [ rdf:type owl:Restriction ;
                                                                      owl:onProperty obo:BFO_0000055 ;
                                                                      owl:someValuesFrom <https://w3id.org/pmd/log/LOG_1000129>

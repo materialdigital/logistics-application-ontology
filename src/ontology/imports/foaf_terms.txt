@@ -1,0 +1,3 @@
+http://xmlns.com/foaf/0.1/Person
+http://xmlns.com/foaf/0.1/Agent
+http://xmlns.com/foaf/0.1/Organization

@@ -28,3 +28,13 @@ import_group:
       mirror_from: https://w3id.org/pmd/co/3.0.0
       base_iris:
         - https://w3id.org/pmd/co/
+    - id: org
+      module_type: slme
+      mirror_from: https://www.w3.org/ns/org
+      base_iris:
+        - http://www.w3.org/ns/org#
+    - id: foaf
+      module_type: custom
+      mirror_from: http://xmlns.com/foaf/0.1/index.rdf
+      base_iris:
+        - http://xmlns.com/foaf/0.1/
