@@ -103,6 +103,12 @@ jobs:
               --version-iri "${ONTBASE}/${VERSION}" \
               --annotation owl:versionInfo "${VERSION}" \
               --output "$f"
+            TTL="${f%.owl}.ttl"
+            [ -f "$TTL" ] && robot annotate \
+              --input "$TTL" \
+              --version-iri "${ONTBASE}/${VERSION}" \
+              --annotation owl:versionInfo "${VERSION}" \
+              --output "$TTL"
           done
 
       # ── Commit stamped artifacts ──────────────────────────────────────────
