@@ -37,6 +37,7 @@ Declaration(Class(<http://purl.obolibrary.org/obo/IAO_0020000>))
 Declaration(Class(<http://purl.obolibrary.org/obo/OBI_0000571>))
 Declaration(Class(<http://www.w3.org/ns/org#Membership>))
 Declaration(Class(<http://www.w3.org/ns/org#Post>))
+Declaration(Class(<http://www.w3.org/ns/org#Site>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0040029>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0040030>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0040129>))
@@ -665,6 +666,7 @@ AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000412> <https://w3id.o
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/log/LOG_1000032> "facility"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/log/LOG_1000032> "engineered system that consists of buildings, structures, roads, machines, and equipment desgined to provide certain capabilities"@en-us)
 SubClassOf(<https://w3id.org/pmd/log/LOG_1000032> <http://purl.obolibrary.org/obo/BFO_0000027>)
+SubClassOf(<https://w3id.org/pmd/log/LOG_1000032> <http://www.w3.org/ns/org#Site>)
 
 # Class: <https://w3id.org/pmd/log/LOG_1000033> (laboratory)
 
@@ -818,6 +820,7 @@ SubClassOf(<https://w3id.org/pmd/log/LOG_1000054> <http://purl.obolibrary.org/ob
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#closeMatch> <https://w3id.org/pmd/log/LOG_1000054> <http://www.w3.org/ns/org#Role>)
 SubClassOf(<http://www.w3.org/ns/org#Post> <http://purl.obolibrary.org/obo/BFO_0000023>)
 SubClassOf(<http://www.w3.org/ns/org#Membership> <http://purl.obolibrary.org/obo/BFO_0000023>)
+SubClassOf(<http://www.w3.org/ns/org#Site> <https://w3id.org/pmd/co/PMD_0040029>)
 SubClassOf(<https://w3id.org/pmd/log/LOG_1000054> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000197> ObjectIntersectionOf(ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000040> ObjectComplementOf(<http://purl.obolibrary.org/obo/BFO_0000024>)) ObjectSomeValuesFrom(<https://w3id.org/pmd/log/LOG_1900001> ObjectUnionOf(<http://xmlns.com/foaf/0.1/Person> <https://w3id.org/pmd/log/LOG_1000050>)))))
 
 # Class: <https://w3id.org/pmd/log/LOG_1000055> (buyer role)
