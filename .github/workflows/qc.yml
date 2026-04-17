@@ -57,17 +57,17 @@ on:
   # Bot commits from this workflow touch only release artifacts (*.owl, *.ttl,
   # *.json) which are NOT in the paths list below, so there is no infinite loop.
   push:
-    branches: ["main"]
+    branches: [main]
     paths:
-      - 'src/ontology/*-edit.owl'
-      - 'src/ontology/components/**'
-      - 'src/ontology/imports/**'
-      - 'src/ontology/Makefile'
-      - 'src/ontology/*-Makefile'
+      - src/ontology/*-edit.owl
+      - src/ontology/components/**
+      - src/ontology/imports/**
+      - src/ontology/Makefile
+      - src/ontology/*-Makefile
 
   # ── Pull request: fast PR checks (no path filter — runs on every PR) ────────
   pull_request:
-    branches: ["main"]
+    branches: [main]
 
   # ── Manual trigger ──────────────────────────────────────────────────────────
   workflow_dispatch:
@@ -317,20 +317,29 @@ jobs:
       # ──────────────────────────────────────────────────────────────────────
       - name: Build ontology (refresh imports + generate all release assets)
         env:
-          ROBOT_ENV: 'ROBOT_JAVA_ARGS=-Xmx6G'
+          ROBOT_ENV: ROBOT_JAVA_ARGS=-Xmx6G
         run: |
           cd src/ontology
           make refresh-imports all_assets
 
       # ── Commit release artifacts ───────────────────────────────────────────
+      # git add each glob separately so a missing pattern (e.g. no *.json) does
+      # not abort the entire staging step.
+      - name: Stage release artifacts
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git add src/ontology/*.owl       || true
+          git add src/ontology/*.ttl       || true
+          git add src/ontology/*.json      || true
+          git add src/ontology/imports/*.owl || true
+
       - name: Commit ontology release assets
-        uses: EndBug/add-and-commit@v9
-        with:
-          message: "Building the ontology from the edits"
-          cwd: "."
-          add: "src/ontology/*.owl src/ontology/*.json src/ontology/*.ttl src/ontology/imports/*.owl --force"
-          default_author: github_actions
-          push: true
+        run: |
+          git diff --cached --quiet && echo "Nothing to commit." && exit 0
+          git commit -m "Building the ontology from the edits"
+          git push
 
       # ── Trigger documentation workflow ─────────────────────────────────────
       - name: Trigger Documentation Workflow

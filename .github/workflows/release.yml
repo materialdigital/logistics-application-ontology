@@ -95,9 +95,12 @@ jobs:
       - name: Stamp version into artifacts
         run: |
           VERSION="${{ steps.version.outputs.version }}"
-          ONTBASE="https://w3id.org/pmd/log"
-          for f in src/ontology/log-full.owl src/ontology/log-base.owl src/ontology/log-simple.owl src/ontology/log.owl; do
-            [ -f "$f" ] || continue
+          ODK_YAML=$(find src/ontology -maxdepth 1 -name "*-odk.yaml" | head -1)
+          ONT_ID=$(python3 -c "import yaml; d=yaml.safe_load(open('$ODK_YAML')); print(d['id'])")
+          URIBASE=$(python3 -c "import yaml; d=yaml.safe_load(open('$ODK_YAML')); print(d['uribase'])")
+          ONTBASE="${URIBASE}/${ONT_ID}"
+          for f in $(find src/ontology -maxdepth 1 -name "*.owl" \
+                     ! -name "*-edit.owl" ! -name "*-idranges.owl"); do
             robot annotate \
               --input "$f" \
               --version-iri "${ONTBASE}/${VERSION}" \
@@ -117,7 +120,7 @@ jobs:
         with:
           message: Release v${{ steps.version.outputs.version }}
           cwd: .
-          add: src/ontology/*.owl src/ontology/*.ttl --force
+          add: src/ontology/*.owl src/ontology/*.ttl
           default_author: github_actions
           push: true
 
