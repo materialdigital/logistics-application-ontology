@@ -1,0 +1,69 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix log: <https://w3id.org/pmd/log/> .
+@prefix pmd: <https://w3id.org/pmd/co/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix ex: <https://example.org/warehouse-receiving#> .
+
+<https://example.org/warehouse-receiving> rdf:type owl:Ontology ;
+    rdfs:label "Warehouse Receiving — Example"@en ;
+    dcterms:description "Receiving and storage of steel coils arriving at a Hamburg logistics centre operated by DB Schenker for Volkswagen AG."@en .
+
+# --- Geospatial site ---
+
+ex:hamburg_warehouse_site a pmd:PMD_0040029 ;
+    rdfs:label "Geospatial site — DB Schenker Steel Logistics Centre, Hamburg"@en ;
+    geo:lat "53.5135"^^xsd:decimal ;
+    geo:long "9.9256"^^xsd:decimal .
+
+# --- Storage facility ---
+
+ex:hamburg_warehouse a log:LOG_1000034 ;
+    rdfs:label "DB Schenker Steel Logistics Centre Hamburg-Altenwerder"@en ;
+    rdfs:comment "Dedicated steel coil storage facility with 15,000 m² covered space and indoor crane capacity of 40 tonnes."@en ;
+    org:siteAddress "Altenwerder Chaussee 2, 21129 Hamburg, Germany" ;
+    obo:BFO_0000082 ex:hamburg_warehouse_site .
+
+# --- Incoming goods ---
+
+ex:steel_coils a log:LOG_1000029 ;
+    rdfs:label "Hot-rolled steel coils — shipment SHP-2024-CN-DE-0042"@en ;
+    rdfs:comment "500 tonnes, 20 coils, grade S355, width 1250 mm. Arriving from Port of Hamburg terminal."@en ;
+    obo:BFO_0000196 ex:cargo_role .
+
+ex:cargo_role a log:LOG_1000073 ;
+    rdfs:label "cargo role of steel coils"@en .
+
+# --- Shipment ---
+
+ex:shipment_001 a log:LOG_1000051 ;
+    rdfs:label "Shipment SHP-2024-CN-DE-0042"@en ;
+    rdfs:comment "Inbound shipment from Baosteel Shanghai, 20 × 40ft containers."@en .
+
+# --- Warehousing plan ---
+
+ex:warehousing_plan a log:LOG_1000098 ;
+    rdfs:label "Warehousing plan WP-VW-2024-Q1"@en ;
+    rdfs:comment "Volkswagen Q1 2024 steel buffer stock plan: maintain 3-week buffer of flat steel at Hamburg logistics centre."@en .
+
+# --- Receiving process ---
+
+ex:receiving_001 a log:LOG_1000124 ;
+    rdfs:label "Receiving process — SHP-2024-CN-DE-0042"@en ;
+    rdfs:comment "Goods inspection, weight verification, and crane unloading. Duration: 2024-04-15, 06:00–14:00."@en ;
+    obo:RO_0002233 ex:shipment_001 ;
+    obo:BFO_0000066 ex:hamburg_warehouse .
+
+# --- Warehousing process ---
+
+ex:warehousing_001 a log:LOG_1000129 ;
+    rdfs:label "Warehousing process — steel coil buffer stock Q1 2024"@en ;
+    rdfs:comment "Coils stored in designated bays A12–A16 with humidity monitoring. Planned withdrawal: weekly delivery to Wolfsburg stamping plant."@en ;
+    obo:RO_0002233 ex:steel_coils ;
+    obo:BFO_0000066 ex:hamburg_warehouse ;
+    obo:RO_0000059 ex:warehousing_plan .

@@ -1,536 +1,192 @@
-<div align="center">
 
-# PMD Application Ontology Template
+![Build Status](https://github.com/materialdigital/logistics-application-ontology/actions/workflows/qc.yml/badge.svg)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19629237.svg)](https://doi.org/10.5281/zenodo.19629237)
 
-**Template for building modular [PMD Core](https://github.com/materialdigital/core-ontology) application ontologies**
+# Platform Material Digital — Logistics Application Ontology (LOG)
 
-[![ODK](https://img.shields.io/badge/Powered%20by-ODK%20v1.6-blue?logo=github)](https://github.com/INCATools/ontology-development-kit)
-[![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](LICENSE)
-[![CI](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-orange?logo=githubactions&logoColor=white)](.github/workflows/)
+The PMD Logistics Application Ontology (LOG) is a BFO- and IOF-conformant ontology for logistics and supply chain management. It extends the [PMD Core Ontology (PMDCo)](https://w3id.org/pmd/co) and is adopted from the [IOF Supply Chain Module](https://spec.industrialontologies.org/ontology/supplychain/Metadatasupplychain/supplychainModule).
 
-*Automated scaffolding, modular import architecture, SLME extraction, ROBOT templates, and Widoco documentation — all wired together with GitHub Actions.*
-
-</div>
+More information: **https://w3id.org/pmd/log/**
 
 ---
 
-## Table of Contents
+## Contents
 
-- [Overview](#overview)
-- [Architecture](#architecture)
-- [Repository Structure](#repository-structure)
-- [Prerequisites](#prerequisites)
-- [Quick Start](#quick-start)
-- [Configuration Files](#configuration-files)
-- [CI/CD Workflows](#cicd-workflows)
-- [Release Process](#release-process)
-- [Development Guide](#development-guide)
-- [Import Architecture](#import-architecture)
-- [ID Range Allocation](#id-range-allocation)
-- [Troubleshooting](#troubleshooting)
-- [Contributing](#contributing)
-- [License](#license)
+- [Scope](#scope)
+- [Imports](#imports)
+- [Key Classes](#key-classes)
+- [Usage Patterns](#usage-patterns)
+- [Versions](#versions)
+- [Development](#development)
+- [Contact](#contact)
 
 ---
 
-## Overview
+## Scope
 
-This is a **template repository** for creating new [Platform MaterialDigital (PMD)](https://www.2025.2030.2050.2070.2090.materialdigital.de/) application ontologies. It provides:
+LOG covers the following domains:
 
-- **One-click setup** — A single GitHub Actions workflow generates the entire ontology scaffold from configuration files
-- **Modular component system** — Ontology content is organized into independent OWL modules (e.g., `material_data`, `process_data`) that share a common import backbone
-- **Automated imports** — External ontologies (PMD Core, LogO, TTO, HTO, etc.) are imported via [SLME extraction](https://robot.obolibrary.org/extract) so only referenced terms are included
-- **ROBOT template support** — Define classes in simple TSV spreadsheets; they compile to OWL automatically
-- **Full CI/CD pipeline** — Quality control, builds, import refresh, and documentation generation run on every push
-- **Auto-generated documentation** — [Widoco](https://github.com/dgarijo/Widoco) produces HTML docs deployed to GitHub Pages
-
-Built on the [Ontology Development Kit (ODK)](https://github.com/INCATools/ontology-development-kit) v1.6 and runs entirely inside the `obolibrary/odkfull` Docker container — no local tooling required.
-
----
-
-## Architecture
-
-```
-                     ┌─────────────────────────┐
-                     │   External Ontologies    │
-                     │  (pmdco, logo, tto, hto) │
-                     └────────────┬────────────┘
-                          SLME extraction
-                                  │
-                     ┌────────────▼────────────┐
-                     │   *_import.owl modules   │
-                     │  (pmdco_import.owl, ...) │
-                     └────────────┬────────────┘
-                                  │
-                     ┌────────────▼────────────┐
-                     │    imports-edit.owl      │
-                     │  (aggregates all imports)│
-                     └────────────┬────────────┘
-                                  │
-                     ┌────────────▼────────────┐
-                     │    {id}-shared.owl       │
-                     │  (shared import base)    │
-                     └────────────┬────────────┘
-                      ┌───────────┼───────────┐
-                      │           │           │
-               ┌──────▼──┐ ┌─────▼───┐ ┌─────▼───┐
-               │{id}-     │ │{id}-    │ │{id}-    │
-               │material_ │ │process_ │ │sustain- │
-               │data.owl  │ │data.owl │ │ability  │  ... more components
-               └──────┬───┘ └────┬────┘ └────┬────┘
-                      │          │            │
-                     ┌▼──────────▼────────────▼┐
-                     │ {id}-axioms-shared.owl   │
-                     │ (top-level aggregation)  │
-                     └──────────────────────────┘
-```
-
-Each component module **imports `{id}-shared.owl`**, which transitively provides access to all external terms. The `{id}-axioms-shared.owl` file aggregates every component for the final build.
+- **Organizations and roles** — business organizations, suppliers, manufacturers, carriers, freight forwarders and their BFO-aligned roles; integrated with [W3C ORG vocabulary](https://www.w3.org/TR/vocab-org/) for membership, posts, and sites
+- **Persons** — modeled via [FOAF](http://xmlns.com/foaf/0.1/) (`foaf:Person`), linked to organizations through `org:Membership` and `org:Post`
+- **Physical premises and locations** — `LOG:LOG_1000146` (physical premises, BFO object aggregate) aligned to `org:Site`; geospatial sites (`PMD:PMD_0040029`, BFO:0000029) for spatial modeling; ship-from/ship-to locations with WGS84 coordinates
+- **Shipments and cargo** — shipment, load, cargo, lot, traceable resource unit, bill of lading, purchase order
+- **Transport** — transport process, seaway, airway, shipping route, multimodal chains via supply chain nodes
+- **Facilities** — facility, storage facility, distribution center, warehouse; subclassing `LOG:LOG_1000146 → org:Site`
+- **Agreements and contracts** — commercial service agreement, bill of lading, purchase order, framework contracts
+- **Processes** — transport, receiving, warehousing, packaging, procurement, selling, manufacturing, supply chain processes
+- **Business functions** — freight forwarding, transportation, logistics service, manufacturing service
+- **Plan specifications** — shipment plan, warehousing plan, supply chain plan, packaging plan
 
 ---
 
-## Repository Structure
+## Imports
 
-```
-application-ontology-template/
-│
-├── .github/workflows/           # CI/CD pipeline (5 workflows)
-│   ├── setup-repo.yml           #   Initial ontology scaffolding (22 steps)
-│   ├── qc.yml                   #   PR quality checks + full build
-│   ├── release.yml              #   Versioned release + GitHub release creation
-│   ├── enforce-tags.yml         #   Reject non-semver tags
-│   ├── refresh-imports.yml      #   Re-extract external imports via SLME
-│   ├── update-repo.yml          #   Sync repo structure from ODK config
-│   └── docs.yml                 #   Generate Widoco HTML documentation
-│
-├── component_seeds.txt          # Component seed data (name|id|label|parent)
-├── components.txt               # Component module names (one per line)
-├── creators.txt                 # Contributor names for ID range allocation
-├── imports.txt                  # External ontology imports (id|url)
-├── pmdco_terms.txt              # PMD Core terms to import via SLME
-│
-├── project-odk.yaml             # Main ODK configuration (auto-updated by setup)
-├── seed-template.yaml           # Minimal seed config template
-│
-├── LICENSE                      # Apache 2.0
-└── README.md                    # You are here
-```
-
-**After running the setup workflow**, the following directories are generated:
-
-```
-├── src/
-│   ├── ontology/
-│   │   ├── {id}-edit.owl                  # Main ontology source (edit here)
-│   │   ├── {id}-idranges.owl              # ID allocation per contributor
-│   │   ├── {id}-odk.yaml                  # Internal ODK config copy
-│   │   ├── Makefile                       # ODK build system
-│   │   ├── catalog-v001.xml               # ROBOT import catalog
-│   │   ├── imports/                       # SLME-extracted import modules
-│   │   │   ├── pmdco_import.owl
-│   │   │   ├── logo_import.owl
-│   │   │   └── ...
-│   │   └── components/                    # Modular OWL component files
-│   │       ├── imports-edit.owl           # Aggregates all *_import.owl
-│   │       ├── {id}-shared.owl            # Shared base (imports imports-edit)
-│   │       ├── {id}-material_data.owl     # Component module
-│   │       ├── {id}-process_data.owl      # Component module
-│   │       └── {id}-axioms-shared.owl     # Top-level aggregation
-│   └── templates/                         # ROBOT template TSV files
-│       ├── {id}-material_data.tsv
-│       └── {id}-process_data.tsv
-└── src/ontology/config/
-    └── context.json                       # JSON-LD prefix context for ROBOT
-```
+| Import | Type | Source |
+|--------|------|--------|
+| `pmdco` | mirror | [PMD Core Ontology 3.0.0](https://w3id.org/pmd/co/3.0.0) |
+| `org` | SLME | [W3C Organization Ontology](https://www.w3.org/ns/org) |
+| `foaf` | custom | [FOAF Vocabulary](http://xmlns.com/foaf/0.1/) — with OWL DL violation fix removing `schema:Person`/`contact:Person` equivalencies |
 
 ---
 
-## Prerequisites
+## Key Classes
 
-| Requirement | Details |
-|:---|:---|
-| **GitHub Account** | With write access to this repository |
-| **GitHub Pages** | Enabled in repo settings → Pages → Source: **GitHub Actions** |
-| **Actions Permissions** | Settings → Actions → General → **Read and write permissions** + **Allow GitHub Actions to create pull requests** |
-| **No local tools needed** | Everything runs in the `obolibrary/odkfull:v1.6` Docker container via GitHub Actions |
-
-> **For local development** (optional): Install [Protégé](https://protege.stanford.edu/) to edit OWL files, and Docker to run ODK locally via `make`.
-
----
-
-## Quick Start
-
-### 1. Create Your Repository
-
-Click **[Use this template](https://github.com/materialdigital/application-ontology-template/generate)** to create a new repository from this template.
-
-### 2. Configure Your Input Files
-
-Edit the following files in your new repo **before running the setup workflow**:
-
-<details>
-<summary><strong>components.txt</strong> — Define your ontology modules</summary>
-
-```
-# One component name per line (no .owl extension)
-material_data
-process_data
-sustainability_info
-dismantling_data
-```
-</details>
-
-<details>
-<summary><strong>component_seeds.txt</strong> — Pre-populate components with seed classes</summary>
-
-```
-# Format: ComponentName | ClassIRI | rdfs:label | ParentClassIRI
-material_data | https://w3id.org/pmd/co/PMD_0000892 | portion of matter | http://purl.obolibrary.org/obo/BFO_0000040
-process_data  | https://w3id.org/pmd/co/PMD_0000907 | primary shaping   | https://w3id.org/pmd/co/PMD_0000899
-```
-</details>
-
-<details>
-<summary><strong>creators.txt</strong> — Register contributors for ID range allocation</summary>
-
-```
-Alice
-Bob
-Charlie
-```
-
-Each creator gets a block of 10,000 entity IDs (0–9999, 10000–19999, ...).
-</details>
-
-<details>
-<summary><strong>imports.txt</strong> — Add external ontology imports</summary>
-
-```
-# Format: import_id|direct_url_to_owl_file
-# PMD Core (pmdco) is always imported automatically — don't add it here
-logo|https://raw.githubusercontent.com/.../log-full.owl
-tto|https://raw.githubusercontent.com/.../tto-full.owl
-```
-</details>
-
-<details>
-<summary><strong>pmdco_terms.txt</strong> — Specify which PMD Core terms to import</summary>
-
-```
-# One IRI per line (comments with # are ignored)
-https://w3id.org/pmd/co/PMD_0000833  # manufacturing process
-https://w3id.org/pmd/co/PMD_0000892  # portion of matter
-https://w3id.org/pmd/co/PMD_0000602  # Device
-```
-</details>
-
-### 3. Enable GitHub Pages
-
-Go to **Settings → Pages → Build and deployment → Source** and select **GitHub Actions**.
-
-### 4. Set Actions Permissions
-
-Go to **Settings → Actions → General → Workflow permissions**:
-- Select **Read and write permissions**
-- Check **Allow GitHub Actions to create and approve pull requests**
-
-### 5. Run the Setup Workflow
-
-1. Navigate to **Actions** → **Setup New Ontology**
-2. Click **Run workflow**
-3. Fill in the parameters:
-
-| Parameter | Example | Description |
-|:---|:---|:---|
-| `ontology_id` | `autoce` | Lowercase acronym for your ontology |
-| `ontology_title` | `Automotive Components Ontology` | Human-readable title |
-| `id_digits` | `7` | Number of digits in entity IDs (default: 7) |
-
-4. Click **Run workflow** and wait for completion (~5–10 minutes)
-
-### 6. Start Editing
-
-Open `src/ontology/{id}-edit.owl` in [Protégé](https://protege.stanford.edu/) or your preferred OWL editor.
-Create new entities under the namespace `https://w3id.org/pmd/{id}/` (e.g., `AUTOCE_0000001`).
+| IRI | Label | BFO alignment |
+|-----|-------|---------------|
+| `LOG:LOG_1000047` | business organization | `BFO:0000027`, `org:FormalOrganization` |
+| `LOG:LOG_1000050` | organization | `BFO:0000027`, `org:FormalOrganization` |
+| `LOG:LOG_1000146` | physical premises | `BFO:0000027 ∩ ∃BFO:0000082.PMD_0040029`, `org:Site` |
+| `LOG:LOG_1000032` | facility | `LOG_1000146` |
+| `LOG:LOG_1000034` | storage facility | `LOG_1000032` |
+| `LOG:LOG_1000051` | shipment | `BFO:0000027` |
+| `LOG:LOG_1000029` | material product | `BFO:0000040` |
+| `LOG:LOG_1000143` | transport process | `BFO:0000015` |
+| `LOG:LOG_1000129` | warehousing process | `LOG_1000146` context |
+| `LOG:LOG_1000001` | commercial service agreement | `IAO:0000030` (information content entity) |
+| `LOG:LOG_1000002` | bill of lading | `IAO:0000030` |
+| `LOG:LOG_1000088` | ship from location | `PMD:PMD_0040029` |
+| `LOG:LOG_1000089` | ship to location | `PMD:PMD_0040029` |
+| `LOG:LOG_1000090` | supply chain node | `PMD:PMD_0040029` |
 
 ---
 
-## Configuration Files
+## Usage Patterns
 
-### `project-odk.yaml`
+Patterns demonstrate how to model real-world logistics scenarios using this ontology. Each pattern provides:
 
-The main ODK configuration file. **Auto-generated by the setup workflow** — manual edits will be overwritten during setup. Key sections:
+- **`pattern.md`** — description, entities, and key properties
+- **`shape.ttl`** — hand-written SHACL shapes for validation
+- **`shape-data.ttl`** — real-world annotated example data (with coordinates, addresses, named organizations)
 
-| Section | Purpose |
-|:---|:---|
-| `id`, `title` | Ontology identifier and display name |
-| `uribase`, `uribase_suffix` | IRI structure (`https://w3id.org/pmd/{id}/`) |
-| `import_group.products` | External ontologies to import (SLME) |
-| `components.products` | Modular OWL files registered for build |
-| `idranges` | Entity ID blocks allocated per contributor |
-| `ci: []` | Disables ODK's default workflows (we use custom ones) |
+Patterns are validated with [pyshacl](https://github.com/RDFLib/pySHACL). SHACL shapes can also be auto-generated from the ontology axioms using the [autoshape pipeline](#autoshape-pipeline).
 
-### `seed-template.yaml`
+### Shipment by Sea
 
-Minimal bootstrap config used only if `project-odk.yaml` is missing. Defines the bare minimum for ODK seed to run.
+Models a steel coil shipment from Baosteel (Shanghai) to Volkswagen (Hamburg) via COSCO sea freight.
 
----
+**Entities:** shipment, material product, ship-from/ship-to locations (with WGS84 coordinates), bill of lading, consignor/consignee organizations, transport process.
 
-## CI/CD Workflows
+[View pattern](patterns/shipment-by-sea/pattern.md) · [Visualize data](https://thhanke.github.io/visgraph/?rdfUrl=https://raw.githubusercontent.com/materialdigital/logistics-application-ontology/refs/heads/main/patterns/shipment-by-sea/shape-data.ttl)
 
-Five GitHub Actions workflows automate the entire ontology lifecycle:
+### Contract Negotiation
 
-### `setup-repo.yml` — Setup New Ontology
-| | |
-|:---|:---|
-| **Trigger** | Manual dispatch (`workflow_dispatch`) |
-| **Steps** | 22 steps end-to-end |
-| **What it does** | Reads config files → configures ODK → seeds repo scaffold → creates import stubs → patches catalog → generates shared OWL backbone → extracts imports via SLME → creates ROBOT templates → injects annotations → validates → commits → triggers QC build |
-| **Container** | `obolibrary/odkfull:v1.6` |
+Models an annual steel supply framework agreement negotiated between Baosteel and Volkswagen AG, signed by named representatives holding formal organizational posts.
 
-### `qc.yml` — Build Ontology + PR Quality Checks
+**Entities:** commercial service agreement, selling process, persons with titles, `org:Post`, buyer/supplier roles, HQ sites with coordinates.
 
-`qc.yml` runs two different jobs depending on the event type:
+[View pattern](patterns/contract-negotiation/pattern.md) · [Visualize data](https://thhanke.github.io/visgraph/?rdfUrl=https://raw.githubusercontent.com/materialdigital/logistics-application-ontology/refs/heads/main/patterns/contract-negotiation/shape-data.ttl)
 
-#### Job 1: `pr-checks` — Fast quality gates on every pull request
+### Warehouse Receiving
 
-| | |
-|:---|:---|
-| **Trigger** | Every pull request targeting `main` (no path filter) |
-| **Container** | `obolibrary/odkfull:v1.6` |
-| **What it does** | Runs fast ODK quality checks → validates OWL DL profile → posts report as PR comment |
+Models steel coils arriving at DB Schenker's Hamburg logistics centre, covering the receiving process and subsequent warehousing under a quarterly buffer stock plan.
 
-Checks performed (in order):
+**Entities:** storage facility (with address and coordinates), receiving process, warehousing process, warehousing plan specification, material product.
 
-| Check | ODK target / tool | What it catches |
-|:---|:---|:---|
-| ID range validation | `make validate_idranges` | IRI conflicts outside allocated ranges |
-| Consistency (ELK) | `make reason_test` | Unsatisfiable classes, logical contradictions |
-| SPARQL unit tests | `make sparql_test` | Custom SPARQL checks in `src/ontology/sparql/` |
-| ROBOT report | `make robot_reports` | Missing labels, definitions, synonyms |
-| OWL DL profile | `robot validate-profile` | OWL DL violations (undeclared entities, etc.) |
+[View pattern](patterns/warehouse-receiving/pattern.md) · [Visualize data](https://thhanke.github.io/visgraph/?rdfUrl=https://raw.githubusercontent.com/materialdigital/logistics-application-ontology/refs/heads/main/patterns/warehouse-receiving/shape-data.ttl)
 
-Results are posted as a **comment on the PR** and also appear in the GitHub Actions Step Summary. If a previous run already posted a comment, it is updated in place rather than creating a new one.
+### Multimodal Transport
 
-#### Job 2: `ontology-build` — Full build on push to main
+Models automotive parts shipped from Busan to Düsseldorf via Maersk sea freight (Busan → Rotterdam) followed by DB Schenker road freight (Rotterdam → Düsseldorf), with Rotterdam as the intermodal supply chain node.
 
-| | |
-|:---|:---|
-| **Trigger** | Push to `main` (ontology source files only) / `repository_dispatch: trigger-qc` / `workflow_dispatch` |
-| **Container** | `obolibrary/odkfull:v1.6` |
-| **What it does** | `make refresh-imports` → `make all_assets` → commits release artifacts → triggers `docs.yml` |
+**Entities:** two transport process legs, supply chain node, three geospatial sites (with coordinates), two carriers, shipment continuity across legs, temporal ordering.
 
-#### Customising PR Quality Checks
+[View pattern](patterns/multimodal-transport/pattern.md) · [Visualize data](https://thhanke.github.io/visgraph/?rdfUrl=https://raw.githubusercontent.com/materialdigital/logistics-application-ontology/refs/heads/main/patterns/multimodal-transport/shape-data.ttl)
 
-**Add custom SPARQL checks**
+### Autoshape Pipeline
 
-Place any `.sparql` `ASK` or `SELECT` query in `src/ontology/sparql/`. ODK's `sparql_test` target picks them up automatically:
+SHACL shapes are auto-generated from the ontology axioms in three strictness profiles using [owl2shacl](https://github.com/sparna-git/owl2shacl):
 
-```
-src/ontology/sparql/
-├── my-check-no-orphans.sparql
-└── my-check-required-annotations.sparql
-```
+| Profile | File | Description |
+|---------|------|-------------|
+| Open | `patterns/autoshape/auto-shapes-open.ttl` | Properties from other ontologies allowed |
+| Semi-closed | `patterns/autoshape/auto-shapes-semi-closed.ttl` | Domain constraints validated |
+| Closed | `patterns/autoshape/auto-shapes-closed.ttl` | Only declared properties allowed |
 
-**Disable a specific ODK check**
-
-Pass the corresponding flag as `false` in the `make` call inside `qc.yml`:
-
-```yaml
-# Example: skip pattern expansion and mirror downloads
-make IMP=false PAT=false COMP=false MIR=false validate_idranges reason_test sparql_test robot_reports
-```
-
-| Flag | Default | Effect when `false` |
-|:---|:---|:---|
-| `IMP` | true | Skip import refresh |
-| `PAT` | true | Skip pattern expansion |
-| `COMP` | true | Skip component rebuild |
-| `MIR` | true | Skip upstream mirror downloads |
-
-**Change the OWL profile checked**
-
-In `qc.yml`, find the `robot validate-profile` step and change `--profile DL` to `--profile EL` or `--profile RL` as needed.
-
-**Disable the PR comment** (keep only GitHub Step Summary)
-
-In `qc.yml`, remove or comment out the `gh pr comment` / `gh api` call at the end of the `Post QC report as PR comment` step's Python block.
-
-**Increase ROBOT memory** (for large upstream ontologies)
-
-In the `ontology-build` job, change `ROBOT_JAVA_ARGS=-Xmx6G` to a larger value:
-
-```yaml
-env:
-  ROBOT_ENV: 'ROBOT_JAVA_ARGS=-Xmx12G'
-```
-
-### `refresh-imports.yml` — Refresh Ontology Imports
-| | |
-|:---|:---|
-| **Trigger** | Manual dispatch / `repository_dispatch: trigger-refresh-imports` |
-| **What it does** | Re-downloads upstream ontologies and re-extracts SLME modules into `imports/*_import.owl` |
-
-### `update-repo.yml` — Update Repo Config
-| | |
-|:---|:---|
-| **Trigger** | Manual dispatch / `repository_dispatch: trigger-update-repo` |
-| **What it does** | Regenerates `Makefile` and config files from `{id}-odk.yaml` after manual config changes |
-
-### `docs.yml` — Create Widoco Documentation
-| | |
-|:---|:---|
-| **Trigger** | Manual dispatch / `repository_dispatch: trigger-docs` |
-| **What it does** | Generates HTML documentation using [Widoco](https://github.com/dgarijo/Widoco) and deploys to GitHub Pages |
-
-### `release.yml` — Release Ontology
-| | |
-|:---|:---|
-| **Trigger** | Manual dispatch (enter version in UI) / push `v*.*.*` git tag |
-| **Container** | `obolibrary/odkfull:v1.6` |
-| **What it does** | Builds release artifacts → sets PMDco-convention `owl:versionIRI` → commits to `main` → creates GitHub release with OWL/TTL/JSON attached → triggers versioned docs |
-
-### Workflow Chain
-
-<<<<<<< HEAD
-```
-setup-repo  ──►  qc (build)  ──►  docs (Widoco)
-                    ▲
-    push to main ───┘
-```
-
----
-
-## Development Guide
-
-### Editing Your Ontology
-
-1. **Open** `src/ontology/{id}-edit.owl` in Protégé
-2. **Create** new classes under namespace `https://w3id.org/pmd/{id}/`
-3. **Push** to `main` — the QC workflow builds and validates automatically
-
-### Makefile Commands (Local Development)
-
-Run these from `src/ontology/`:
-
+**Generate shapes:**
 ```bash
-make test                  # Run reasoner + validation checks
-make refresh-imports       # Re-extract external imports via SLME
-make release               # Build all release artifacts (OWL, TTL, JSON)
-make update_repo           # Regenerate Makefile from ODK config
+cd src/ontology
+sh utils/generate-auto-shapes.sh
 ```
 
-### Adding a New Component
-
-1. Add the name to `components.txt`
-2. Re-run the **Setup New Ontology** workflow, or manually:
-   - Register in `project-odk.yaml` under `components.products`
-   - Create the OWL file in `src/ontology/components/`
-   - Add an `Import()` for it in `{id}-axioms-shared.owl`
-   - Run `make update_repo`
-
-### Adding a New External Import
-
-1. Add a line to `imports.txt`:
-   ```
-   myonto|https://example.org/ontologies/myonto.owl
-   ```
-2. Optionally create `myonto_terms.txt` with specific IRIs to extract
-3. Run the **Refresh Ontology Imports** workflow
-
----
-
-## Import Architecture
-
-The setup workflow generates a **layered OWL import graph** that keeps modules decoupled while sharing external terms:
-
-| File | Role |
-|:---|:---|
-| `imports/*_import.owl` | SLME-extracted modules from upstream ontologies |
-| `imports-edit.owl` | Aggregates all `*_import.owl` into a single import point |
-| `{id}-shared.owl` | Imports `imports-edit.owl` — shared base for all components |
-| `{id}-{component}.owl` | Individual component modules — each imports `{id}-shared.owl` |
-| `{id}-axioms-shared.owl` | Top-level aggregation importing ALL component files |
-
-**Why this structure?**
-- Each component gets all external terms through `{id}-shared.owl` without redundant imports
-- Components are independently editable and testable
-- Adding/removing a component only requires updating `{id}-axioms-shared.owl`
-- The SLME extraction keeps import files minimal (only referenced terms)
-
----
-
-## ID Range Allocation
-
-Each contributor listed in `creators.txt` is allocated a **10,000 ID block**:
-
-| Creator | Range | Example ID |
-|:---|:---|:---|
-| First | `0` – `9,999` | `AUTOCE_0000001` |
-| Second | `10,000` – `19,999` | `AUTOCE_0010000` |
-| Third | `20,000` – `29,999` | `AUTOCE_0020000` |
-
-The ranges are encoded in `{id}-idranges.owl` (Manchester Syntax) and enforced by tools like dicer-cli.
-
----
-
-## Troubleshooting
-
-<details>
-<summary><strong>Setup workflow fails at "Run ODK seed"</strong></summary>
-
-- Ensure `project-odk.yaml` exists in the repo root
-- Check that `ontology_id` contains only alphanumeric characters
-- Review the stub import files — they must exist before ODK seed runs
-</details>
-
-<details>
-<summary><strong>ROBOT out-of-memory errors during SLME extraction</strong></summary>
-
-The workflows default to `-Xmx8G`. For very large upstream ontologies, increase the heap:
-```yaml
-ROBOT_ENV='ROBOT_JAVA_ARGS=-Xmx12G'
-```
-</details>
-
-<details>
-<summary><strong>Double slashes in IRIs (e.g., /pmd//autoce/)</strong></summary>
-
-Step 12 of the setup workflow automatically normalizes these. If they persist:
+**Validate a pattern:**
 ```bash
-find src/ontology -name "*.owl" -exec sed -i 's|/pmd//|/pmd/|g' {} +
+cd patterns
+sh test.sh shipment-by-sea
 ```
-</details>
 
-<details>
-<summary><strong>Catalog resolution errors (HTTP fetch during CI)</strong></summary>
-
-Ensure `catalog-v001.xml` has `rewriteURI` entries for both `imports/` and `components/` directories. Step 10 of setup does this automatically.
-</details>
-
-<details>
-<summary><strong>"Protected branch" error when pushing</strong></summary>
-
-The `main` branch requires pull requests. Push to a feature branch and open a PR:
+**Validate all patterns (make target):**
 ```bash
-git checkout -b feature/my-changes
-git push origin feature/my-changes
+cd src/ontology
+make validate-patterns
 ```
-</details>
 
 ---
 
-## Contributing
+## Versions
 
-We welcome contributions to the PMD Application Ontology Template!
+### Stable release
 
-- **Issues**: [Report bugs or request features](https://github.com/materialdigital/application-ontology-template/issues)
-- **Discussions**: [Join community conversations](https://github.com/materialdigital/application-ontology-template/discussions)
-- **PMD Playground Meetings**: Every second Friday, 1–2 PM CET — [Register via mailing list](https://www.lists.kit.edu/sympa/subscribe/ontology-playground?previous_action=info)
-- **Contact**: [info@material-digital.de](mailto:info@material-digital.de)
+Latest release always at: **https://w3id.org/pmd/log.owl**
+
+### Release artefacts
+
+| Artefact | Description |
+|----------|-------------|
+| `log.owl` / `log.ttl` | Full ontology with all imports merged |
+| `log-full.owl` / `log-full.ttl` | Full with inferred axioms (primary release) |
+| `log-base.owl` / `log-base.ttl` | Base — no imports merged |
+| `log-simple.owl` / `log-simple.ttl` | Simplified, classified, imports filtered |
+
+### Editors' version
+
+[src/ontology/log-edit.owl](src/ontology/log-edit.owl)
 
 ---
 
-## License
+## Development
 
-This project is licensed under the [Apache License 2.0](LICENSE).
+This repository uses the [Ontology Development Kit (ODK)](https://github.com/INCATools/ontology-development-kit).
+
+**Run quality checks:**
+```bash
+cd src/ontology
+docker run --rm -v $(pwd)/../../:/work -w /work/src/ontology obolibrary/odkfull:latest make IMP=false MIR=false
+```
+
+**Refresh imports:**
+```bash
+cd src/ontology
+docker run --rm -v $(pwd)/../../:/work -w /work/src/ontology obolibrary/odkfull:latest make all_imports
+```
+
+Customizations to the build pipeline belong in [src/ontology/log.Makefile](src/ontology/log.Makefile) — this file is never overwritten by ODK updates.
+
+---
+
+## Contact
+
+Please use the [Issue tracker](https://github.com/materialdigital/logistics-application-ontology/issues) to request new terms or report errors.
+
+## Acknowledgements
+
+This ontology repository was created using the [Ontology Development Kit (ODK)](https://github.com/INCATools/ontology-development-kit). The autoshape pipeline uses [owl2shacl rulesets](https://github.com/sparna-git/owl2shacl) derived from work by TopQuadrant, adapted from [PMD Core Ontology](https://github.com/materialdigital/core-ontology).

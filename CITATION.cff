@@ -1,0 +1,62 @@
+cff-version: 1.2.0
+message: "If you use this ontology, please cite it as below."
+title: "Platform Material Digital Application Ontology for Logistics and Supply Chain (LOG)"
+version: 1.0.0
+date-released: 2026-04-17
+license: CC-BY-4.0
+repository-code: https://github.com/materialdigital/logistics-application-ontology
+url: https://w3id.org/pmd/log/
+abstract: >
+  The PMD Logistics Application Ontology (LOG) is a BFO- and IOF-conformant ontology
+  for logistics and supply chain management. It extends the PMD Core Ontology (PMDCo)
+  and is adopted from the IOF Supply Chain Module. LOG covers organizations and roles,
+  shipments, transport processes, facilities, agreements, and supply chain planning.
+
+authors:
+  - family-names: Hanke
+    given-names: Thomas
+    orcid: https://orcid.org/0000-0003-1649-6832
+    affiliation: Fraunhofer Institute for Mechanics of Materials IWM
+  - family-names: Waitelonis
+    given-names: Jörg
+    orcid: https://orcid.org/0000-0001-7192-7143
+  - family-names: Zaripova
+    given-names: Kamilla
+    orcid: https://orcid.org/0009-0003-1503-4422
+  - family-names: Potu
+    given-names: Sai Teja
+    orcid: https://orcid.org/0009-0007-7468-3544
+    affiliation: Fraunhofer Institute for Mechanics of Materials IWM
+
+funding:
+  - name: "Plattform MaterialDigital (PMD)"
+    url: https://www.materialdigital.de/
+    funder:
+      name: "German Federal Ministry for Research, Technology and Space (BMFTR)"
+      url: https://www.bmftr.bund.de
+  - name: "EDCar — Automotive End-of-Life Datenaustausch für Circular Economy"
+    grant: "13XPM504B"
+    url: https://www.iwm.fraunhofer.de/de/forschungsprojekte-des-fraunhofer-iwm/EDCar.html
+    funder:
+      name: "German Federal Ministry for Research, Technology and Space (BMFTR)"
+      url: https://www.bmftr.bund.de
+
+references:
+  - type: software
+    title: "PMD Core Ontology (PMDCo)"
+    url: https://w3id.org/pmd/co
+    license: CC-BY-4.0
+    notes: "Imported as foundation ontology. Terms reused under CC BY 4.0."
+  - type: software
+    title: "IOF Supply Chain Module"
+    url: https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/
+    license: MIT
+    notes: "Terms adopted via IAO:0000412 annotations. Developed by the Industrial Ontologies Foundry."
+  - type: software
+    title: "W3C Organization Ontology"
+    url: https://www.w3.org/TR/vocab-org/
+    notes: "Imported for organization, membership, post, and site modeling."
+  - type: software
+    title: "FOAF Vocabulary"
+    url: http://xmlns.com/foaf/0.1/
+    notes: "Imported for person modeling."

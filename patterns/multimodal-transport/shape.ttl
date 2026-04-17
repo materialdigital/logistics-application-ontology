@@ -1,0 +1,38 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix log: <https://w3id.org/pmd/log/> .
+@prefix pmd: <https://w3id.org/pmd/co/> .
+@prefix shape: <https://w3id.org/pmd/log/shapes/multimodal-transport/> .
+@prefix : <https://w3id.org/pmd/log/shapes/multimodal-transport/> .
+@base <https://w3id.org/pmd/log/shapes/multimodal-transport/> .
+
+shape: rdf:type owl:Ontology ; owl:imports sh: .
+
+shape:TransportProcess rdf:type sh:NodeShape ;
+    sh:targetClass log:LOG_1000143 ;
+    sh:property [
+        sh:path obo:RO_0000057 ;
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedValueShape [ sh:class log:LOG_1000051 ] ;  # shipment participant
+    ] ;
+    sh:property [
+        sh:path obo:BFO_0000066 ;
+        sh:qualifiedMinCount 2 ;
+        sh:qualifiedValueShape [ sh:class pmd:PMD_0040029 ] ;  # two geospatial sites
+    ] ;
+    sh:closed false ;
+    sh:ignoredProperties ( rdf:type owl:topObjectProperty ) .
+
+shape:SupplyChainNode rdf:type sh:NodeShape ;
+    sh:targetClass log:LOG_1000090 ;
+    sh:property [
+        sh:path obo:BFO_0000196 ;
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedValueShape [ sh:class log:LOG_1000077 ] ;  # supply chain node role
+    ] ;
+    sh:closed false ;
+    sh:ignoredProperties ( rdf:type owl:topObjectProperty ) .
