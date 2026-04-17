@@ -1,0 +1,72 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix log: <https://w3id.org/pmd/log/> .
+@prefix pmd: <https://w3id.org/pmd/co/> .
+@prefix ex: <https://example.org/multimodal-transport#> .
+
+<https://example.org/multimodal-transport> rdf:type owl:Ontology .
+
+# --- Geospatial sites ---
+
+ex:port_busan a log:LOG_1000088 ;              # ship from location (origin)
+    obo:BFO_0000196 ex:from_role_busan .
+
+ex:from_role_busan a log:LOG_1000075 .         # ship from location role
+
+ex:port_rotterdam a log:LOG_1000090 ;          # supply chain node (transfer port)
+    obo:BFO_0000196 ex:scn_role_rotterdam .
+
+ex:scn_role_rotterdam a log:LOG_1000077 .      # supply chain node role
+
+ex:warehouse_dusseldorf a log:LOG_1000089 ;    # ship to location (final destination)
+    obo:BFO_0000196 ex:to_role_dusseldorf .
+
+ex:to_role_dusseldorf a log:LOG_1000076 .      # ship to location role
+
+# --- Material product ---
+
+ex:auto_parts a log:LOG_1000029 ;              # material product
+    obo:BFO_0000196 ex:cargo_role .
+
+ex:cargo_role a log:LOG_1000073 .              # cargo role
+
+# --- Shipment ---
+
+ex:shipment_001 a log:LOG_1000051 ;            # shipment
+    obo:BFO_0000196 ex:shipment_role .
+
+ex:shipment_role a log:LOG_1000081 .           # shipment role
+
+# --- Carrier organizations ---
+
+ex:shipping_line a log:LOG_1000047 ;           # business organization (carrier)
+    obo:BFO_0000196 ex:carrier_role_sea .
+
+ex:carrier_role_sea a log:LOG_1000021 .        # carrier role
+
+ex:trucking_co a log:LOG_1000047 ;             # business organization (road carrier)
+    obo:BFO_0000196 ex:carrier_role_road .
+
+ex:carrier_role_road a log:LOG_1000021 .       # carrier role
+
+# --- Sea transport leg: Busan → Rotterdam ---
+
+ex:sea_leg a log:LOG_1000143 ;                 # transport process
+    obo:RO_0000057 ex:shipment_001 ;           # has participant: shipment
+    obo:RO_0000057 ex:shipping_line ;          # has participant: carrier
+    obo:RO_0002233 ex:auto_parts ;             # has input: goods
+    obo:BFO_0000066 ex:port_busan ;            # occurs in: origin
+    obo:BFO_0000066 ex:port_rotterdam .        # occurs in: transfer node
+
+# --- Road transport leg: Rotterdam → Düsseldorf ---
+
+ex:road_leg a log:LOG_1000143 ;                # transport process
+    obo:RO_0000057 ex:shipment_001 ;           # has participant: same shipment
+    obo:RO_0000057 ex:trucking_co ;            # has participant: road carrier
+    obo:RO_0002233 ex:auto_parts ;             # has input: goods
+    obo:BFO_0000066 ex:port_rotterdam ;        # occurs in: transfer node (handoff)
+    obo:BFO_0000066 ex:warehouse_dusseldorf ;  # occurs in: final destination
+    obo:BFO_0000062 ex:sea_leg .               # preceded by: sea leg

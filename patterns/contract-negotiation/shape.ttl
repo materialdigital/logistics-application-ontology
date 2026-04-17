@@ -1,0 +1,69 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix log: <https://w3id.org/pmd/log/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix shape: <https://w3id.org/pmd/log/shapes/contract-negotiation/> .
+@prefix : <https://w3id.org/pmd/log/shapes/contract-negotiation/> .
+@base <https://w3id.org/pmd/log/shapes/contract-negotiation/> .
+
+shape: rdf:type owl:Ontology ; owl:imports sh: .
+
+shape:CommercialServiceAgreement rdf:type sh:NodeShape ;
+    sh:targetClass log:LOG_1000001 ;
+    sh:property [
+        sh:path obo:RO_0000059 ;           # concretizes (specifies)
+        sh:minCount 1 ;
+        sh:class log:LOG_1000093 ;         # commercial service specification
+    ] ;
+    sh:closed false ;
+    sh:ignoredProperties ( rdf:type owl:topObjectProperty ) .
+
+shape:SellingProcess rdf:type sh:NodeShape ;
+    sh:targetClass log:LOG_1000125 ;
+    sh:property [
+        sh:path obo:RO_0000057 ;           # has participant
+        sh:minCount 1 ;
+        sh:class log:LOG_1000047 ;         # business organization (seller)
+    ] ;
+    sh:property [
+        sh:path obo:RO_0002234 ;           # has output
+        sh:minCount 1 ;
+        sh:class log:LOG_1000001 ;         # commercial service agreement
+    ] ;
+    sh:closed false ;
+    sh:ignoredProperties ( rdf:type owl:topObjectProperty ) .
+
+shape:BusinessOrganization rdf:type sh:NodeShape ;
+    sh:targetClass log:LOG_1000047 ;
+    sh:property [
+        sh:path obo:BFO_0000196 ;          # bearer of
+        sh:minCount 1 ;
+        sh:class obo:BFO_0000023 ;         # role
+    ] ;
+    sh:property [
+        sh:path org:hasMember ;
+        sh:minCount 1 ;
+        sh:class foaf:Person ;
+    ] ;
+    sh:closed false ;
+    sh:ignoredProperties ( rdf:type owl:topObjectProperty ) .
+
+shape:Post rdf:type sh:NodeShape ;
+    sh:targetClass org:Post ;
+    sh:property [
+        sh:path org:postIn ;
+        sh:minCount 1 ;
+        sh:class log:LOG_1000047 ;         # business organization
+    ] ;
+    sh:property [
+        sh:path org:heldBy ;
+        sh:minCount 1 ;
+        sh:class foaf:Person ;
+    ] ;
+    sh:closed false ;
+    sh:ignoredProperties ( rdf:type owl:topObjectProperty ) .

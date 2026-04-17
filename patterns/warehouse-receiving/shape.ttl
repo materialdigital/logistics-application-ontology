@@ -1,0 +1,56 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix log: <https://w3id.org/pmd/log/> .
+@prefix shape: <https://w3id.org/pmd/log/shapes/warehouse-receiving/> .
+@prefix : <https://w3id.org/pmd/log/shapes/warehouse-receiving/> .
+@base <https://w3id.org/pmd/log/shapes/warehouse-receiving/> .
+
+shape: rdf:type owl:Ontology ; owl:imports sh: .
+
+shape:ReceivingProcess rdf:type sh:NodeShape ;
+    sh:targetClass log:LOG_1000124 ;
+    sh:property [
+        sh:path obo:RO_0002233 ;           # has input
+        sh:minCount 1 ;
+        sh:class log:LOG_1000051 ;         # shipment
+    ] ;
+    sh:property [
+        sh:path obo:BFO_0000066 ;          # occurs in
+        sh:minCount 1 ;
+        sh:class log:LOG_1000034 ;         # storage facility
+    ] ;
+    sh:closed false ;
+    sh:ignoredProperties ( rdf:type owl:topObjectProperty ) .
+
+shape:WarehousingProcess rdf:type sh:NodeShape ;
+    sh:targetClass log:LOG_1000129 ;
+    sh:property [
+        sh:path obo:RO_0002233 ;           # has input
+        sh:minCount 1 ;
+        sh:class log:LOG_1000029 ;         # material product
+    ] ;
+    sh:property [
+        sh:path obo:BFO_0000066 ;          # occurs in
+        sh:minCount 1 ;
+        sh:class log:LOG_1000034 ;         # storage facility
+    ] ;
+    sh:property [
+        sh:path obo:RO_0002233 ;           # prescribed by plan
+        sh:class log:LOG_1000098 ;         # warehousing plan specification
+    ] ;
+    sh:closed false ;
+    sh:ignoredProperties ( rdf:type owl:topObjectProperty ) .
+
+shape:StorageFacility rdf:type sh:NodeShape ;
+    sh:targetClass log:LOG_1000034 ;
+    sh:property [
+        sh:path obo:BFO_0000082 ;          # has location
+        sh:minCount 1 ;
+        sh:class <https://w3id.org/pmd/co/PMD_0040029> ;  # geospatial site
+    ] ;
+    sh:closed false ;
+    sh:ignoredProperties ( rdf:type owl:topObjectProperty ) .

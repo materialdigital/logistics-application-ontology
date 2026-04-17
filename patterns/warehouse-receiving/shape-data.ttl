@@ -1,0 +1,48 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix log: <https://w3id.org/pmd/log/> .
+@prefix pmd: <https://w3id.org/pmd/co/> .
+@prefix ex: <https://example.org/warehouse-receiving#> .
+
+<https://example.org/warehouse-receiving> rdf:type owl:Ontology .
+
+# --- Geospatial site of the warehouse ---
+
+ex:hamburg_warehouse_site a pmd:PMD_0040029 .  # geospatial site
+
+# --- Storage facility ---
+
+ex:hamburg_warehouse a log:LOG_1000034 ;        # storage facility
+    obo:BFO_0000082 ex:hamburg_warehouse_site . # has location
+
+# --- Incoming goods ---
+
+ex:steel_coils a log:LOG_1000029 ;              # material product
+    obo:BFO_0000196 ex:cargo_role .
+
+ex:cargo_role a log:LOG_1000073 .               # cargo role
+
+# --- Shipment ---
+
+ex:shipment_001 a log:LOG_1000051 ;             # shipment
+    obo:RO_0002233 ex:steel_coils .             # has input: goods
+
+# --- Warehousing plan ---
+
+ex:warehousing_plan a log:LOG_1000098 .         # warehousing plan specification
+
+# --- Receiving process ---
+
+ex:receiving_001 a log:LOG_1000124 ;            # receiving process
+    obo:RO_0002233 ex:shipment_001 ;            # has input: shipment
+    obo:BFO_0000066 ex:hamburg_warehouse .      # occurs in: storage facility
+
+# --- Warehousing process ---
+
+ex:warehousing_001 a log:LOG_1000129 ;          # warehousing process
+    obo:RO_0002233 ex:steel_coils ;             # has input: goods
+    obo:BFO_0000066 ex:hamburg_warehouse ;      # occurs in: storage facility
+    obo:RO_0002233 ex:warehousing_plan .        # prescribed by plan

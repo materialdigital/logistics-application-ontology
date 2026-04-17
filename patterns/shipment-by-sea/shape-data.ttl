@@ -1,0 +1,65 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix log: <https://w3id.org/pmd/log/> .
+@prefix pmd: <https://w3id.org/pmd/co/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ex: <https://example.org/shipment-by-sea#> .
+
+<https://example.org/shipment-by-sea> rdf:type owl:Ontology .
+
+# --- Geospatial locations ---
+
+ex:port_shanghai a log:LOG_1000088 ;          # ship from location
+    obo:BFO_0000196 ex:ship_from_role .
+
+ex:ship_from_role a log:LOG_1000075 .         # ship from location role
+
+ex:port_hamburg a log:LOG_1000089 ;           # ship to location
+    obo:BFO_0000196 ex:ship_to_role .
+
+ex:ship_to_role a log:LOG_1000076 .           # ship to location role
+
+# --- Material product (steel coils) ---
+
+ex:steel_coils a log:LOG_1000029 ;            # material product
+    obo:BFO_0000196 ex:cargo_role .
+
+ex:cargo_role a log:LOG_1000073 .             # cargo role
+
+# --- Shipment ---
+
+ex:shipment_001 a log:LOG_1000051 ;           # shipment
+    obo:BFO_0000196 ex:shipment_role .
+
+ex:shipment_role a log:LOG_1000081 .          # shipment role
+
+# --- Bill of lading ---
+
+ex:bol_001 a log:LOG_1000002 ;                # bill of lading
+    obo:IAO_0000136 ex:shipment_001 .         # is about shipment
+
+# --- Organizations with roles ---
+
+ex:supplier_org a log:LOG_1000020 ;           # supplier (organization)
+    obo:BFO_0000196 ex:consignor_role .
+
+ex:consignor_role a log:LOG_1000057 .         # consignor role
+
+ex:producer_org a log:LOG_1000047 ;           # business organization (producer)
+    obo:BFO_0000196 ex:consignee_role .
+
+ex:consignee_role a log:LOG_1000056 .         # consignee role
+
+# --- Transport process by sea ---
+
+ex:sea_transport a log:LOG_1000143 ;          # transport process
+    obo:RO_0000057 ex:shipment_001 ;          # has participant: shipment
+    obo:RO_0002233 ex:steel_coils ;           # has input: goods
+    obo:BFO_0000066 ex:port_shanghai ;        # occurs in: ship-from location
+    obo:BFO_0000066 ex:port_hamburg ;         # occurs in: ship-to location
+    obo:RO_0000057 ex:supplier_org ;          # has participant: supplier
+    obo:RO_0000057 ex:producer_org .          # has participant: producer

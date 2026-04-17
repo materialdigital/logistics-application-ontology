@@ -1,0 +1,66 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix log: <https://w3id.org/pmd/log/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ex: <https://example.org/contract-negotiation#> .
+
+<https://example.org/contract-negotiation> rdf:type owl:Ontology .
+
+# --- Persons ---
+
+ex:alice a foaf:Person ;
+    foaf:name "Alice Müller" ;
+    org:memberOf ex:supplier_co ;
+    org:holds ex:alice_post .
+
+ex:bob a foaf:Person ;
+    foaf:name "Bob Schmidt" ;
+    org:memberOf ex:buyer_co ;
+    org:holds ex:bob_post .
+
+# --- Posts (formal positions grounding authority) ---
+
+ex:alice_post a org:Post ;
+    org:postIn ex:supplier_co ;
+    org:heldBy ex:alice ;
+    obo:BFO_0000196 ex:supplier_role .    # bearer of supplier role
+
+ex:bob_post a org:Post ;
+    org:postIn ex:buyer_co ;
+    org:heldBy ex:bob ;
+    obo:BFO_0000196 ex:buyer_role .       # bearer of buyer role
+
+# --- Organizations ---
+
+ex:supplier_co a log:LOG_1000047 ;        # business organization
+    org:hasMember ex:alice ;
+    obo:BFO_0000196 ex:supplier_role .
+
+ex:buyer_co a log:LOG_1000047 ;           # business organization
+    org:hasMember ex:bob ;
+    obo:BFO_0000196 ex:buyer_role .
+
+# --- Roles ---
+
+ex:supplier_role a log:LOG_1000063 .      # supplier role
+ex:buyer_role a log:LOG_1000055 .         # buyer role
+
+# --- Commercial service specification ---
+
+ex:steel_supply_spec a log:LOG_1000093 .  # commercial service specification
+
+# --- Contract (commercial service agreement) ---
+
+ex:contract_001 a log:LOG_1000001 ;       # commercial service agreement
+    obo:RO_0000059 ex:steel_supply_spec . # concretizes service specification
+
+# --- Selling process (negotiation and signing) ---
+
+ex:selling_process a log:LOG_1000125 ;    # selling business process
+    obo:RO_0000057 ex:supplier_co ;       # has participant: seller
+    obo:RO_0000057 ex:buyer_co ;          # has participant: buyer
+    obo:RO_0002234 ex:contract_001 .      # has output: contract
