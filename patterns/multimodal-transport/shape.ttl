@@ -15,14 +15,14 @@ shape: rdf:type owl:Ontology ; owl:imports sh: .
 shape:TransportProcess rdf:type sh:NodeShape ;
     sh:targetClass log:LOG_1000143 ;
     sh:property [
-        sh:path obo:RO_0000057 ;           # has participant
-        sh:minCount 1 ;
-        sh:class log:LOG_1000051 ;         # shipment
+        sh:path obo:RO_0000057 ;
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedValueShape [ sh:class log:LOG_1000051 ] ;  # shipment participant
     ] ;
     sh:property [
-        sh:path obo:BFO_0000066 ;          # occurs in
-        sh:minCount 2 ;
-        sh:class pmd:PMD_0040029 ;         # geospatial site
+        sh:path obo:BFO_0000066 ;
+        sh:qualifiedMinCount 2 ;
+        sh:qualifiedValueShape [ sh:class pmd:PMD_0040029 ] ;  # two geospatial sites
     ] ;
     sh:closed false ;
     sh:ignoredProperties ( rdf:type owl:topObjectProperty ) .
@@ -30,9 +30,9 @@ shape:TransportProcess rdf:type sh:NodeShape ;
 shape:SupplyChainNode rdf:type sh:NodeShape ;
     sh:targetClass log:LOG_1000090 ;
     sh:property [
-        sh:path obo:BFO_0000196 ;          # bearer of
-        sh:minCount 1 ;
-        sh:class log:LOG_1000077 ;         # supply chain node role
+        sh:path obo:BFO_0000196 ;
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedValueShape [ sh:class log:LOG_1000077 ] ;  # supply chain node role
     ] ;
     sh:closed false ;
     sh:ignoredProperties ( rdf:type owl:topObjectProperty ) .

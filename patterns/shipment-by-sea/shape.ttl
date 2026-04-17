@@ -14,20 +14,23 @@ shape: rdf:type owl:Ontology ; owl:imports sh: .
 
 shape:TransportProcess rdf:type sh:NodeShape ;
     sh:targetClass log:LOG_1000143 ;
+    # at least one participant must be a shipment
     sh:property [
-        sh:path obo:RO_0000057 ;         # has participant
-        sh:minCount 1 ;
-        sh:class log:LOG_1000051 ;       # shipment
+        sh:path obo:RO_0000057 ;
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedValueShape [ sh:class log:LOG_1000051 ] ;
     ] ;
+    # at least two occurrences in geospatial sites (from + to)
     sh:property [
-        sh:path obo:BFO_0000066 ;        # occurs in
-        sh:minCount 2 ;
-        sh:class pmd:PMD_0040029 ;       # geospatial site
+        sh:path obo:BFO_0000066 ;
+        sh:qualifiedMinCount 2 ;
+        sh:qualifiedValueShape [ sh:class pmd:PMD_0040029 ] ;
     ] ;
+    # at least one material product as input
     sh:property [
-        sh:path obo:RO_0002233 ;         # has input
-        sh:minCount 1 ;
-        sh:class log:LOG_1000029 ;       # material product
+        sh:path obo:RO_0002233 ;
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedValueShape [ sh:class log:LOG_1000029 ] ;
     ] ;
     sh:closed false ;
     sh:ignoredProperties ( rdf:type owl:topObjectProperty ) .
@@ -35,9 +38,9 @@ shape:TransportProcess rdf:type sh:NodeShape ;
 shape:Shipment rdf:type sh:NodeShape ;
     sh:targetClass log:LOG_1000051 ;
     sh:property [
-        sh:path obo:BFO_0000196 ;        # bearer of
-        sh:minCount 1 ;
-        sh:class log:LOG_1000081 ;       # shipment role
+        sh:path obo:BFO_0000196 ;
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedValueShape [ sh:class log:LOG_1000081 ] ;  # shipment role
     ] ;
     sh:closed false ;
     sh:ignoredProperties ( rdf:type owl:topObjectProperty ) .
@@ -45,9 +48,9 @@ shape:Shipment rdf:type sh:NodeShape ;
 shape:BillOfLading rdf:type sh:NodeShape ;
     sh:targetClass log:LOG_1000002 ;
     sh:property [
-        sh:path obo:IAO_0000136 ;        # is about
+        sh:path obo:IAO_0000136 ;
         sh:minCount 1 ;
-        sh:class log:LOG_1000051 ;       # shipment
+        sh:class log:LOG_1000051 ;
     ] ;
     sh:closed false ;
     sh:ignoredProperties ( rdf:type owl:topObjectProperty ) .
@@ -55,9 +58,9 @@ shape:BillOfLading rdf:type sh:NodeShape ;
 shape:ShipFromLocation rdf:type sh:NodeShape ;
     sh:targetClass log:LOG_1000088 ;
     sh:property [
-        sh:path obo:BFO_0000196 ;        # bearer of
-        sh:minCount 1 ;
-        sh:class log:LOG_1000075 ;       # ship from location role
+        sh:path obo:BFO_0000196 ;
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedValueShape [ sh:class log:LOG_1000075 ] ;  # ship from location role
     ] ;
     sh:closed false ;
     sh:ignoredProperties ( rdf:type owl:topObjectProperty ) .
@@ -65,9 +68,9 @@ shape:ShipFromLocation rdf:type sh:NodeShape ;
 shape:ShipToLocation rdf:type sh:NodeShape ;
     sh:targetClass log:LOG_1000089 ;
     sh:property [
-        sh:path obo:BFO_0000196 ;        # bearer of
-        sh:minCount 1 ;
-        sh:class log:LOG_1000076 ;       # ship to location role
+        sh:path obo:BFO_0000196 ;
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedValueShape [ sh:class log:LOG_1000076 ] ;  # ship to location role
     ] ;
     sh:closed false ;
     sh:ignoredProperties ( rdf:type owl:topObjectProperty ) .

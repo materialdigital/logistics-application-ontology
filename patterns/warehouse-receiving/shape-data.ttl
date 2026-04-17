@@ -11,38 +11,37 @@
 
 # --- Geospatial site of the warehouse ---
 
-ex:hamburg_warehouse_site a pmd:PMD_0040029 .  # geospatial site
+ex:hamburg_warehouse_site a pmd:PMD_0040029 .         # geospatial site
 
 # --- Storage facility ---
 
-ex:hamburg_warehouse a log:LOG_1000034 ;        # storage facility
-    obo:BFO_0000082 ex:hamburg_warehouse_site . # has location
+ex:hamburg_warehouse a log:LOG_1000034 ;               # storage facility
+    obo:BFO_0000082 ex:hamburg_warehouse_site .        # has location at geospatial site
 
 # --- Incoming goods ---
 
-ex:steel_coils a log:LOG_1000029 ;              # material product
+ex:steel_coils a log:LOG_1000029 ;                     # material product
     obo:BFO_0000196 ex:cargo_role .
 
-ex:cargo_role a log:LOG_1000073 .               # cargo role
+ex:cargo_role a log:LOG_1000073 .                      # cargo role
 
 # --- Shipment ---
 
-ex:shipment_001 a log:LOG_1000051 ;             # shipment
-    obo:RO_0002233 ex:steel_coils .             # has input: goods
+ex:shipment_001 a log:LOG_1000051 .                    # shipment
 
 # --- Warehousing plan ---
 
-ex:warehousing_plan a log:LOG_1000098 .         # warehousing plan specification
+ex:warehousing_plan a log:LOG_1000098 .                # warehousing plan specification
 
 # --- Receiving process ---
 
-ex:receiving_001 a log:LOG_1000124 ;            # receiving process
-    obo:RO_0002233 ex:shipment_001 ;            # has input: shipment
-    obo:BFO_0000066 ex:hamburg_warehouse .      # occurs in: storage facility
+ex:receiving_001 a log:LOG_1000124 ;                   # receiving process
+    obo:RO_0002233 ex:shipment_001 ;                   # has input: shipment
+    obo:BFO_0000066 ex:hamburg_warehouse .             # occurs in: storage facility
 
 # --- Warehousing process ---
 
-ex:warehousing_001 a log:LOG_1000129 ;          # warehousing process
-    obo:RO_0002233 ex:steel_coils ;             # has input: goods
-    obo:BFO_0000066 ex:hamburg_warehouse ;      # occurs in: storage facility
-    obo:RO_0002233 ex:warehousing_plan .        # prescribed by plan
+ex:warehousing_001 a log:LOG_1000129 ;                 # warehousing process
+    obo:RO_0002233 ex:steel_coils ;                    # has input: material product
+    obo:BFO_0000066 ex:hamburg_warehouse ;             # occurs in: storage facility
+    obo:RO_0000059 ex:warehousing_plan .               # concretizes (prescribed by) plan

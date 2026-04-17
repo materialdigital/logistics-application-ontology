@@ -22,45 +22,46 @@ ex:bob a foaf:Person ;
     org:memberOf ex:buyer_co ;
     org:holds ex:bob_post .
 
-# --- Posts (formal positions grounding authority) ---
+# --- Posts (formal positions grounding authority to sign) ---
 
 ex:alice_post a org:Post ;
     org:postIn ex:supplier_co ;
     org:heldBy ex:alice ;
-    obo:BFO_0000196 ex:supplier_role .    # bearer of supplier role
+    obo:BFO_0000196 ex:supplier_role .
 
 ex:bob_post a org:Post ;
     org:postIn ex:buyer_co ;
     org:heldBy ex:bob ;
-    obo:BFO_0000196 ex:buyer_role .       # bearer of buyer role
+    obo:BFO_0000196 ex:buyer_role .
 
 # --- Organizations ---
+# Explicit BFO_0000027 (object aggregate) supertype for standalone validation
 
-ex:supplier_co a log:LOG_1000047 ;        # business organization
+ex:supplier_co a log:LOG_1000047 ;                   # business organization
     org:hasMember ex:alice ;
     obo:BFO_0000196 ex:supplier_role .
 
-ex:buyer_co a log:LOG_1000047 ;           # business organization
+ex:buyer_co a log:LOG_1000047 ;                      # business organization
     org:hasMember ex:bob ;
     obo:BFO_0000196 ex:buyer_role .
 
-# --- Roles ---
+# --- Roles with explicit BFO supertype ---
 
-ex:supplier_role a log:LOG_1000063 .      # supplier role
-ex:buyer_role a log:LOG_1000055 .         # buyer role
+ex:supplier_role a log:LOG_1000063 , obo:BFO_0000023 .  # supplier role
+ex:buyer_role    a log:LOG_1000055 , obo:BFO_0000023 .  # buyer role
 
 # --- Commercial service specification ---
 
-ex:steel_supply_spec a log:LOG_1000093 .  # commercial service specification
+ex:steel_supply_spec a log:LOG_1000093 .             # commercial service specification
 
-# --- Contract (commercial service agreement) ---
+# --- Contract ---
 
-ex:contract_001 a log:LOG_1000001 ;       # commercial service agreement
-    obo:RO_0000059 ex:steel_supply_spec . # concretizes service specification
+ex:contract_001 a log:LOG_1000001 ;                  # commercial service agreement
+    obo:RO_0000059 ex:steel_supply_spec .            # concretizes
 
-# --- Selling process (negotiation and signing) ---
+# --- Selling process ---
 
-ex:selling_process a log:LOG_1000125 ;    # selling business process
-    obo:RO_0000057 ex:supplier_co ;       # has participant: seller
-    obo:RO_0000057 ex:buyer_co ;          # has participant: buyer
-    obo:RO_0002234 ex:contract_001 .      # has output: contract
+ex:selling_process a log:LOG_1000125 ;               # selling business process
+    obo:RO_0000057 ex:supplier_co ;                  # has participant: seller
+    obo:RO_0000057 ex:buyer_co ;                     # has participant: buyer
+    obo:RO_0002234 ex:contract_001 .                 # has output: contract

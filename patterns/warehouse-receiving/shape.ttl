@@ -5,6 +5,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix log: <https://w3id.org/pmd/log/> .
+@prefix pmd: <https://w3id.org/pmd/co/> .
 @prefix shape: <https://w3id.org/pmd/log/shapes/warehouse-receiving/> .
 @prefix : <https://w3id.org/pmd/log/shapes/warehouse-receiving/> .
 @base <https://w3id.org/pmd/log/shapes/warehouse-receiving/> .
@@ -14,14 +15,14 @@ shape: rdf:type owl:Ontology ; owl:imports sh: .
 shape:ReceivingProcess rdf:type sh:NodeShape ;
     sh:targetClass log:LOG_1000124 ;
     sh:property [
-        sh:path obo:RO_0002233 ;           # has input
-        sh:minCount 1 ;
-        sh:class log:LOG_1000051 ;         # shipment
+        sh:path obo:RO_0002233 ;
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedValueShape [ sh:class log:LOG_1000051 ] ;  # shipment as input
     ] ;
     sh:property [
-        sh:path obo:BFO_0000066 ;          # occurs in
-        sh:minCount 1 ;
-        sh:class log:LOG_1000034 ;         # storage facility
+        sh:path obo:BFO_0000066 ;
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedValueShape [ sh:class log:LOG_1000034 ] ;  # occurs in storage facility
     ] ;
     sh:closed false ;
     sh:ignoredProperties ( rdf:type owl:topObjectProperty ) .
@@ -29,18 +30,19 @@ shape:ReceivingProcess rdf:type sh:NodeShape ;
 shape:WarehousingProcess rdf:type sh:NodeShape ;
     sh:targetClass log:LOG_1000129 ;
     sh:property [
-        sh:path obo:RO_0002233 ;           # has input
-        sh:minCount 1 ;
-        sh:class log:LOG_1000029 ;         # material product
+        sh:path obo:RO_0002233 ;
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedValueShape [ sh:class log:LOG_1000029 ] ;  # material product as input
     ] ;
     sh:property [
-        sh:path obo:BFO_0000066 ;          # occurs in
-        sh:minCount 1 ;
-        sh:class log:LOG_1000034 ;         # storage facility
+        sh:path obo:BFO_0000066 ;
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedValueShape [ sh:class log:LOG_1000034 ] ;  # occurs in storage facility
     ] ;
     sh:property [
-        sh:path obo:RO_0002233 ;           # prescribed by plan
-        sh:class log:LOG_1000098 ;         # warehousing plan specification
+        sh:path obo:RO_0000059 ;                               # concretizes (is prescribed by)
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedValueShape [ sh:class log:LOG_1000098 ] ;  # warehousing plan specification
     ] ;
     sh:closed false ;
     sh:ignoredProperties ( rdf:type owl:topObjectProperty ) .
@@ -48,9 +50,9 @@ shape:WarehousingProcess rdf:type sh:NodeShape ;
 shape:StorageFacility rdf:type sh:NodeShape ;
     sh:targetClass log:LOG_1000034 ;
     sh:property [
-        sh:path obo:BFO_0000082 ;          # has location
+        sh:path obo:BFO_0000082 ;
         sh:minCount 1 ;
-        sh:class <https://w3id.org/pmd/co/PMD_0040029> ;  # geospatial site
+        sh:class pmd:PMD_0040029 ;
     ] ;
     sh:closed false ;
     sh:ignoredProperties ( rdf:type owl:topObjectProperty ) .
