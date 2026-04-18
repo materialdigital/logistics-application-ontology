@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this ontology, please cite it as below."
 title: "Platform Material Digital Application Ontology for Logistics and Supply Chain (LOG)"
-version: 1.0.0
+version: 1.0.2
 date-released: 2026-04-17
 license: CC-BY-4.0
 repository-code: https://github.com/materialdigital/logistics-application-ontology
