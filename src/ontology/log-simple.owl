@@ -20,8 +20,8 @@
         <terms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
         <terms:title xml:lang="en">Platform Material Digital Application Ontology for Logistics and Supply Chain (LOG)</terms:title>
         <rdfs:comment xml:lang="en">The logistics application ontology for use with PMD Core Ontology (PMDco). The scope of this module is the description of material science and engineering related logistics and general organization. Its is adopted from the IOF SupplyChain Module https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/</rdfs:comment>
-        <owl:versionInfo>2026-04-18</owl:versionInfo>
         <owl:versionInfo>1.0.2</owl:versionInfo>
+        <owl:versionInfo>2026-04-18</owl:versionInfo>
     </owl:Ontology>
     
 
