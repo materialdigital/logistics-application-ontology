@@ -11,7 +11,7 @@
      xmlns:terms="http://purl.org/dc/terms/"
      xmlns:logistics="https://w3id.org/pmd/co/logistics/">
     <owl:Ontology rdf:about="https://w3id.org/pmd/log/log-simple.owl">
-        <owl:versionIRI rdf:resource="https://w3id.org/pmd/log/1.0.1"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/pmd/log/releases/2026-04-18/log-simple.owl"/>
         <terms:creator rdf:resource="https://orcid.org/0000-0001-7192-7143"/>
         <terms:creator rdf:resource="https://orcid.org/0000-0003-1649-6832"/>
         <terms:creator rdf:resource="https://orcid.org/0009-0003-1503-4422"/>
@@ -20,8 +20,7 @@
         <terms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
         <terms:title xml:lang="en">Platform Material Digital Application Ontology for Logistics and Supply Chain (LOG)</terms:title>
         <rdfs:comment xml:lang="en">The logistics application ontology for use with PMD Core Ontology (PMDco). The scope of this module is the description of material science and engineering related logistics and general organization. Its is adopted from the IOF SupplyChain Module https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/</rdfs:comment>
-        <owl:versionInfo>2026-04-17</owl:versionInfo>
-        <owl:versionInfo>1.0.1</owl:versionInfo>
+        <owl:versionInfo>2026-04-18</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -37,12 +36,6 @@
     
 
 
-    <!-- http://purl.obolibrary.org/obo/IAO_0000112 -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000112"/>
-    
-
-
     <!-- http://purl.obolibrary.org/obo/IAO_0000114 -->
 
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000114"/>
@@ -54,57 +47,11 @@
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000115">
         <obo:IAO_0000115 xml:lang="en">The official OBI definition, explaining the meaning of a class or property. Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions.</obo:IAO_0000115>
         <obo:IAO_0000115 xml:lang="en">The official definition, explaining the meaning of a class or property. Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions.</obo:IAO_0000115>
-        <obo:IAO_0000116 xml:lang="en">2012-04-05: 
-Barry Smith
-
-The official OBI definition, explaining the meaning of a class or property: &apos;Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions&apos;  is terrible.
-
-Can you fix to something like:
-
-A statement of necessary and sufficient conditions explaining the meaning of an expression referring to a class or property.
-
-Alan Ruttenberg
-
-Your proposed definition is a reasonable candidate, except that it is very common that necessary and sufficient conditions are not given. Mostly they are necessary, occasionally they are necessary and sufficient or just sufficient. Often they use terms that are not themselves defined and so they effectively can&apos;t be evaluated by those criteria. 
-
-On the specifics of the proposed definition:
-
-We don&apos;t have definitions of &apos;meaning&apos; or &apos;expression&apos; or &apos;property&apos;. For &apos;reference&apos; in the intended sense I think we use the term &apos;denotation&apos;. For &apos;expression&apos;, I think we you mean symbol, or identifier. For &apos;meaning&apos; it differs for class and property. For class we want documentation that let&apos;s the intended reader determine whether an entity is instance of the class, or not. For property we want documentation that let&apos;s the intended reader determine, given a pair of potential relata, whether the assertion that the relation holds is true. The &apos;intended reader&apos; part suggests that we also specify who, we expect, would be able to understand the definition, and also generalizes over human and computer reader to include textual and logical definition. 
-
-Personally, I am more comfortable weakening definition to documentation, with instructions as to what is desirable. 
-
-We also have the outstanding issue of how to aim different definitions to different audiences. A clinical audience reading chebi wants a different sort of definition documentation/definition from a chemistry trained audience, and similarly there is a need for a definition that is adequate for an ontologist to work with.</obo:IAO_0000116>
-        <obo:IAO_0000116 xml:lang="en">2012-04-05: 
-Barry Smith
-
-The official OBI definition, explaining the meaning of a class or property: &apos;Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions&apos;  is terrible.
-
-Can you fix to something like:
-
-A statement of necessary and sufficient conditions explaining the meaning of an expression referring to a class or property.
-
-Alan Ruttenberg
-
-Your proposed definition is a reasonable candidate, except that it is very common that necessary and sufficient conditions are not given. Mostly they are necessary, occasionally they are necessary and sufficient or just sufficient. Often they use terms that are not themselves defined and so they effectively can&apos;t be evaluated by those criteria. 
-
-On the specifics of the proposed definition:
-
-We don&apos;t have definitions of &apos;meaning&apos; or &apos;expression&apos; or &apos;property&apos;. For &apos;reference&apos; in the intended sense I think we use the term &apos;denotation&apos;. For &apos;expression&apos;, I think we you mean symbol, or identifier. For &apos;meaning&apos; it differs for class and property. For class we want documentation that let&apos;s the intended reader determine whether an entity is instance of the class, or not. For property we want documentation that let&apos;s the intended reader determine, given a pair of potential relata, whether the assertion that the relation holds is true. The &apos;intended reader&apos; part suggests that we also specify who, we expect, would be able to understand the definition, and also generalizes over human and computer reader to include textual and logical definition. 
-
-Personally, I am more comfortable weakening definition to documentation, with instructions as to what is desirable. 
-
-We also have the outstanding issue of how to aim different definitions to different audiences. A clinical audience reading chebi wants a different sort of definition documentation/definition from a chemistry trained audience, and similarly there is a need for a definition that is adequate for an ontologist to work with.  </obo:IAO_0000116>
         <obo:IAO_0000119 xml:lang="en">GROUP:OBI:&lt;http://purl.obolibrary.org/obo/obi&gt;</obo:IAO_0000119>
         <rdfs:label>definition</rdfs:label>
         <rdfs:label xml:lang="en">definition</rdfs:label>
         <rdfs:label>textual definition</rdfs:label>
     </owl:AnnotationProperty>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/IAO_0000116 -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000116"/>
     
 
 
@@ -118,12 +65,6 @@ We also have the outstanding issue of how to aim different definitions to differ
         <obo:IAO_0000119 xml:lang="en">GROUP:OBI:&lt;http://purl.obolibrary.org/obo/obi&gt;</obo:IAO_0000119>
         <rdfs:label xml:lang="en">definition source</rdfs:label>
     </owl:AnnotationProperty>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/IAO_0000233 -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000233"/>
     
 
 
@@ -189,12 +130,6 @@ We also have the outstanding issue of how to aim different definitions to differ
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#example -->
-
-    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#example"/>
-    
-
-
     <!-- https://w3id.org/pmd/co/logistics/PMD_0000060 -->
 
     <owl:AnnotationProperty rdf:about="https://w3id.org/pmd/co/logistics/PMD_0000060"/>
@@ -222,15 +157,7 @@ We also have the outstanding issue of how to aim different definitions to differ
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000050">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-        <obo:IAO_0000112 xml:lang="en">my brain is part of my body (continuant parthood, two material entities)</obo:IAO_0000112>
-        <obo:IAO_0000112 xml:lang="en">my stomach cavity is part of my stomach (continuant parthood, immaterial entity is part of material entity)</obo:IAO_0000112>
-        <obo:IAO_0000112 xml:lang="en">this day is part of this year (occurrent parthood)</obo:IAO_0000112>
         <obo:IAO_0000115 xml:lang="en">a core relation that holds between a part and its whole</obo:IAO_0000115>
-        <obo:IAO_0000116 xml:lang="en">Everything is part of itself. Any part of any part of a thing is itself part of that thing. Two distinct things cannot be part of each other.</obo:IAO_0000116>
-        <obo:IAO_0000116 xml:lang="en">Occurrents are not subject to change and so parthood between occurrents holds for all the times that the part exists. Many continuants are subject to change, so parthood between continuants will only hold at certain times, but this is difficult to specify in OWL. See http://purl.obolibrary.org/obo/ro/docs/temporal-semantics/</obo:IAO_0000116>
-        <obo:IAO_0000116 xml:lang="en">Parthood requires the part and the whole to have compatible classes: only an occurrent can be part of an occurrent; only a process can be part of a process; only a continuant can be part of a continuant; only an independent continuant can be part of an independent continuant; only an immaterial entity can be part of an immaterial entity; only a specifically dependent continuant can be part of a specifically dependent continuant; only a generically dependent continuant can be part of a generically dependent continuant. (This list is not exhaustive.)
-
-A continuant cannot be part of an occurrent: use &apos;participates in&apos;. An occurrent cannot be part of a continuant: use &apos;has participant&apos;. A material entity cannot be part of an immaterial entity: use &apos;has location&apos;. A specifically dependent continuant cannot be part of an independent continuant: use &apos;inheres in&apos;. An independent continuant cannot be part of a specifically dependent continuant: use &apos;bearer of&apos;.</obo:IAO_0000116>
         <rdfs:label xml:lang="en">part of</rdfs:label>
     </owl:ObjectProperty>
     
@@ -243,7 +170,6 @@ A continuant cannot be part of an occurrent: use &apos;participates in&apos;. An
         <rdfs:label xml:lang="en">has realization</rdfs:label>
         <rdfs:label xml:lang="en">realized in</rdfs:label>
         <skos:definition xml:lang="en">b has realization c =Def c realizes b</skos:definition>
-        <skos:example xml:lang="en">As for realizes</skos:example>
     </owl:ObjectProperty>
     
 
@@ -254,7 +180,6 @@ A continuant cannot be part of an occurrent: use &apos;participates in&apos;. An
         <obo:IAO_0000115 xml:lang="en">Paraphrase of elucidation: a relation between a process and a realizable entity, where there is some material entity that is bearer of the realizable entity and participates in the process, and the realizable entity comes to be realized in the course of the process</obo:IAO_0000115>
         <rdfs:label xml:lang="en">realizes</rdfs:label>
         <skos:definition xml:lang="en">(Elucidation) realizes is a relation between a process b and realizable entity c such that c inheres in some d &amp; for all t, if b has participant d then c exists &amp; the type instantiated by b is correlated with the type instantiated by c</skos:definition>
-        <skos:example xml:lang="en">A balding process realizes a disposition to go bald; a studying process realizes a student role; a process of pumping blood realizes the pumping function of a heart</skos:example>
     </owl:ObjectProperty>
     
 
@@ -265,7 +190,6 @@ A continuant cannot be part of an occurrent: use &apos;participates in&apos;. An
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000183"/>
         <rdfs:label xml:lang="en">occurs in</rdfs:label>
         <skos:definition xml:lang="en">b occurs in c =Def b is a process or a process boundary &amp; c is a material entity or site &amp; there exists a spatiotemporal region r &amp; b occupies spatiotemporal region r &amp; for all time t, if b exists at t then c exists at t &amp; there exist spatial regions s and s&apos; where b spatially projects onto s at t &amp; c occupies spatial region s&apos; at t &amp; s is a continuant part of s&apos; at t</skos:definition>
-        <skos:example xml:lang="en">A process of digestion occurs in the interior of an organism; a process of loading artillery rounds into a tank cannon occurs in the interior of the tank</skos:example>
     </owl:ObjectProperty>
     
 
@@ -281,7 +205,6 @@ A continuant cannot be part of an occurrent: use &apos;participates in&apos;. An
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000108">
         <rdfs:label xml:lang="en">exists at</rdfs:label>
         <skos:definition xml:lang="en">(Elucidation) exists at is a relation between a particular and some temporal region at which the particular exists</skos:definition>
-        <skos:example xml:lang="en">First World War exists at 1914-1916; Mexico exists at January 1, 2000</skos:example>
     </owl:ObjectProperty>
     
 
@@ -293,7 +216,6 @@ A continuant cannot be part of an occurrent: use &apos;participates in&apos;. An
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdfs:label xml:lang="en">has occurrent part</rdfs:label>
         <skos:definition xml:lang="en">b has occurrent part c =Def c occurrent part of b</skos:definition>
-        <skos:example xml:lang="en">Mary&apos;s life has occurrent part Mary&apos;s 5th birthday</skos:example>
     </owl:ObjectProperty>
     
 
@@ -305,7 +227,6 @@ A continuant cannot be part of an occurrent: use &apos;participates in&apos;. An
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdfs:label xml:lang="en">occurrent part of</rdfs:label>
         <skos:definition xml:lang="en">(Elucidation) occurrent part of is a relation between occurrents b and c when b is part of c</skos:definition>
-        <skos:example xml:lang="en">Mary&apos;s 5th birthday is an occurrent part of Mary&apos;s life; the first set of the tennis match is an occurrent part of the tennis match</skos:example>
     </owl:ObjectProperty>
     
 
@@ -315,7 +236,6 @@ A continuant cannot be part of an occurrent: use &apos;participates in&apos;. An
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000183">
         <rdfs:label xml:lang="en">environs</rdfs:label>
         <skos:definition xml:lang="en">b environs c =Def c occurs in b</skos:definition>
-        <skos:example xml:lang="en">Mouth environs process of mastication; city environs traffic</skos:example>
     </owl:ObjectProperty>
     
 
@@ -338,7 +258,6 @@ A continuant cannot be part of an occurrent: use &apos;participates in&apos;. An
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:label xml:lang="en">occupies temporal region</rdfs:label>
         <skos:definition xml:lang="en">p occupies temporal region t =Def p is a process or process boundary &amp; the spatiotemporal region occupied by p temporally projects onto t</skos:definition>
-        <skos:example xml:lang="en">The Second World War occupies the temporal region September 1, 1939 - September 2, 1945</skos:example>
     </owl:ObjectProperty>
     
 
@@ -348,7 +267,6 @@ A continuant cannot be part of an occurrent: use &apos;participates in&apos;. An
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000221">
         <rdfs:label xml:lang="en">first instant of</rdfs:label>
         <skos:definition xml:lang="en">t first instant of t&apos; =Def t is a temporal instant &amp; t&apos; is a temporal region t&apos; &amp; t precedes all temporal parts of t&apos; other than t</skos:definition>
-        <skos:example xml:lang="en">An hour starting at midnight yesterday has first instant midnight yesterday</skos:example>
     </owl:ObjectProperty>
     
 
@@ -358,7 +276,6 @@ A continuant cannot be part of an occurrent: use &apos;participates in&apos;. An
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000223">
         <rdfs:label xml:lang="en">last instant of</rdfs:label>
         <skos:definition xml:lang="en">t last instant of t&apos; =Def t is a temporal instant &amp; t&apos; is a temporal region &amp; all temporal parts of t&apos; other than t precede t</skos:definition>
-        <skos:example xml:lang="en">Last midnight is the last instant of yesterday</skos:example>
     </owl:ObjectProperty>
     
 
@@ -367,13 +284,7 @@ A continuant cannot be part of an occurrent: use &apos;participates in&apos;. An
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000136">
         <owl:inverseOf rdf:resource="https://w3id.org/pmd/co/PMD_0000004"/>
-        <obo:IAO_0000112 xml:lang="en">This document is about information artifacts and their representations</obo:IAO_0000112>
         <obo:IAO_0000115 xml:lang="en">A (currently) primitive relation that relates an information artifact to an entity.</obo:IAO_0000115>
-        <obo:IAO_0000116 xml:lang="en">7/6/2009 Alan Ruttenberg. Following discussion with Jonathan Rees, and introduction of &quot;mentions&quot; relation. Weaken the is_about relationship to be primitive. 
-
-We will try to build it back up by elaborating the various subproperties that are more precisely defined.
-
-Some currently missing phenomena that should be considered &quot;about&quot; are predications - &quot;The only person who knows the answer is sitting beside me&quot; , Allegory, Satire, and other literary forms that can be topical without explicitly mentioning the topic.</obo:IAO_0000116>
         <obo:IAO_0000119 xml:lang="en">Smith, Ceusters, Ruttenberg, 2000 years of philosophy</obo:IAO_0000119>
         <rdfs:label xml:lang="en">is about</rdfs:label>
     </owl:ObjectProperty>
@@ -385,15 +296,8 @@ Some currently missing phenomena that should be considered &quot;about&quot; are
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000219">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
-        <obo:IAO_0000112 xml:lang="en">A person&apos;s name denotes the person. A variable name in a computer program denotes some piece of memory. Lexically equivalent strings can denote different things, for instance &quot;Alan&quot; can denote different people. In each case of use, there is a case of the denotation relation obtaining, between &quot;Alan&quot; and the person that is being named.</obo:IAO_0000112>
         <obo:IAO_0000115 xml:lang="en">A primitive, instance-level, relation obtaining between an information content entity and some portion of reality. Denotation is what happens when someone creates an information content entity E in order to specifically refer to something. The only relation between E and the thing is that E can be used to &apos;pick out&apos; the thing. This relation connects those two together. Freedictionary.com sense 3: To signify directly; refer to specifically</obo:IAO_0000115>
-        <obo:IAO_0000116 xml:lang="en">2009-11-10 Alan Ruttenberg. Old definition said the following to emphasize the generic nature of this relation. We no longer have &apos;specifically denotes&apos;, which would have been primitive, so make this relation primitive.
-g denotes r =def 
-r is a portion of reality
-there is some c that is a concretization of g 
-every c that is a concretization of g specifically denotes r</obo:IAO_0000116>
         <obo:IAO_0000119 xml:lang="en">Conversations with Barry Smith, Werner Ceusters, Bjoern Peters, Michel Dumontier, Melanie Courtot, James Malone, Bill Hogan</obo:IAO_0000119>
-        <rdfs:comment xml:lang="en"></rdfs:comment>
         <rdfs:label xml:lang="en">denotes</rdfs:label>
     </owl:ObjectProperty>
     
@@ -403,7 +307,6 @@ every c that is a concretization of g specifically denotes r</obo:IAO_0000116>
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000235">
         <obo:IAO_0000115 xml:lang="en">inverse of the relation &apos;denotes&apos;</obo:IAO_0000115>
-        <obo:IAO_0000233 rdf:resource="https://github.com/information-artifact-ontology/IAO/issues/206"/>
         <rdfs:label xml:lang="en">denoted by</rdfs:label>
     </owl:ObjectProperty>
     
@@ -413,9 +316,6 @@ every c that is a concretization of g specifically denotes r</obo:IAO_0000116>
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0000056">
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
-        <obo:IAO_0000112 xml:lang="en">this blood clot participates in this blood coagulation</obo:IAO_0000112>
-        <obo:IAO_0000112 xml:lang="en">this input material (or this output material) participates in this process</obo:IAO_0000112>
-        <obo:IAO_0000112 xml:lang="en">this investigator participates in this investigation</obo:IAO_0000112>
         <obo:IAO_0000115 xml:lang="en">a relation between a continuant and a process, in which the continuant is somehow involved in the process</obo:IAO_0000115>
         <rdfs:label xml:lang="en">participates in</rdfs:label>
     </owl:ObjectProperty>
@@ -425,11 +325,7 @@ every c that is a concretization of g specifically denotes r</obo:IAO_0000116>
     <!-- http://purl.obolibrary.org/obo/RO_0000057 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0000057">
-        <obo:IAO_0000112 xml:lang="en">this blood coagulation has participant this blood clot</obo:IAO_0000112>
-        <obo:IAO_0000112 xml:lang="en">this investigation has participant this investigator</obo:IAO_0000112>
-        <obo:IAO_0000112 xml:lang="en">this process has participant this input material (or this output material)</obo:IAO_0000112>
         <obo:IAO_0000115 xml:lang="en">a relation between a process and a continuant, in which the continuant is somehow involved in the process</obo:IAO_0000115>
-        <obo:IAO_0000116 xml:lang="en">Has_participant is a primitive instance-level relation between a process, a continuant, and a time at which the continuant participates in some way in the process. The relation obtains, for example, when this particular process of oxygen exchange across this particular alveolar membrane has_participant this particular sample of hemoglobin at this particular time.</obo:IAO_0000116>
         <rdfs:label xml:lang="en">has participant</rdfs:label>
     </owl:ObjectProperty>
     
@@ -438,8 +334,6 @@ every c that is a concretization of g specifically denotes r</obo:IAO_0000116>
     <!-- http://purl.obolibrary.org/obo/RO_0000059 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0000059">
-        <obo:IAO_0000112 xml:lang="en">A journal article is an information artifact that inheres in some number of printed journals. For each copy of the printed journal there is some quality that carries the journal article, such as a pattern of ink. The quality (a specifically dependent continuant) concretizes the journal article (a generically dependent continuant), and both depend on that copy of the printed journal (an independent continuant).</obo:IAO_0000112>
-        <obo:IAO_0000112 xml:lang="en">An investigator reads a protocol and forms a plan to carry out an assay. The plan is a realizable entity (a specifically dependent continuant) that concretizes the protocol (a generically dependent continuant), and both depend on the investigator (an independent continuant). The plan is then realized by the assay (a process).</obo:IAO_0000112>
         <obo:IAO_0000115 xml:lang="en">A relationship between a specifically dependent continuant and a generically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant also depends on that same independent continuant. Multiple specifically dependent continuants can concretize the same generically dependent continuant.</obo:IAO_0000115>
         <obo:IAO_0000115 xml:lang="en">A relationship between a specifically dependent continuant or process and a generically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant or process also depends on that same independent continuant. Multiple specifically dependent continuants or processes can concretize the same generically dependent continuant.</obo:IAO_0000115>
         <rdfs:label xml:lang="en">concretizes</rdfs:label>
@@ -452,10 +346,7 @@ every c that is a concretization of g specifically denotes r</obo:IAO_0000116>
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0001015">
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0001025"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-        <obo:IAO_0000112 xml:lang="en">my head is the location of my brain</obo:IAO_0000112>
-        <obo:IAO_0000112 xml:lang="en">this cage is the location of this rat</obo:IAO_0000112>
         <obo:IAO_0000115 xml:lang="en">a relation between two independent continuants, the location and the target, in which the target is entirely within the location</obo:IAO_0000115>
-        <obo:IAO_0000116 xml:lang="en">Most location relations will only hold at certain times, but this is difficult to specify in OWL. See http://purl.obolibrary.org/obo/ro/docs/temporal-semantics/</obo:IAO_0000116>
         <rdfs:label xml:lang="en">location of</rdfs:label>
     </owl:ObjectProperty>
     
@@ -469,11 +360,7 @@ every c that is a concretization of g specifically denotes r</obo:IAO_0000116>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0001025"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
         </owl:propertyChainAxiom>
-        <obo:IAO_0000112 xml:lang="en">my brain is located in my head</obo:IAO_0000112>
-        <obo:IAO_0000112 xml:lang="en">this rat is located in this cage</obo:IAO_0000112>
         <obo:IAO_0000115 xml:lang="en">a relation between two independent continuants, the target and the location, in which the target is entirely within the location</obo:IAO_0000115>
-        <obo:IAO_0000116 xml:lang="en">Location as a relation between instances: The primitive instance-level relation c located_in r at t reflects the fact that each continuant is at any given time associated with exactly one spatial region, namely its exact location. Following we can use this relation to define a further instance-level location relation - not between a continuant and the region which it exactly occupies, but rather between one continuant and another. c is located in c1, in this sense, whenever the spatial region occupied by c is part_of the spatial region occupied by c1.    Note that this relation comprehends both the relation of exact location between one continuant and another which obtains when r and r1 are identical (for example, when a portion of fluid exactly fills a cavity), as well as those sorts of inexact location relations which obtain, for example, between brain and head or between ovum and uterus</obo:IAO_0000116>
-        <obo:IAO_0000116 xml:lang="en">Most location relations will only hold at certain times, but this is difficult to specify in OWL. See http://purl.obolibrary.org/obo/ro/docs/temporal-semantics/</obo:IAO_0000116>
         <rdfs:label xml:lang="en">located in</rdfs:label>
     </owl:ObjectProperty>
     
