@@ -1,1 +1,41 @@
-{\n  \"title\": \"Platform Material Digital Application Ontology for Logistics and Supply Chain (LOG)\",\n  \"description\": \"This ontology provides a structured representation of concepts related to logistics and supply chain management to facilitate better data interoperability and integration within digital platforms.\",\n  \"creators\": [\n    {\n      \"name\": \"Hanke, Thorsten\",\n      \"affiliation\": \"Material Digital\",\n      \"orcid\": \"0000-0001-2345-6789\"\n    },\n    {\n      \"name\": \"Author Two\",\n      \"affiliation\": \"Institution Two\",\n      \"orcid\": \"0000-0002-2345-6789\"\n    },\n    {\n      \"name\": \"Author Three\",\n      \"affiliation\": \"Institution Three\",\n      \"orcid\": \"0000-0003-2345-6789\"\n    },\n    {\n      \"name\": \"Author Four\",\n      \"affiliation\": \"Institution Four\",\n      \"orcid\": \"0000-0004-2345-6789\"\n    }\n  ],\n  \"keywords\": [\n    \"ontology\",\n    \"logistics\",\n    \"supply-chain\",\n    \"BFO\",\n    \"IOF\",\n    \"semantic-web\"\n  ],\n  \"license\": \"CC-BY-4.0\",\n  \"grants\": [\n    {\n      \"id\": \"EDCar\",\n      \"project\": \"EDCar project\",\n      \"grant_id\": \"13XPM504B\"\n    }\n  ]\n}
+{
+  "title": "Platform Material Digital Application Ontology for Logistics and Supply Chain (LOG)",
+  "description": "The PMD Logistics Application Ontology (LOG) is a BFO- and IOF-conformant ontology for logistics and supply chain management. It extends the PMD Core Ontology (PMDCo) and is adopted from the IOF Supply Chain Module. LOG covers organizations and roles, shipments, transport processes, facilities, agreements, and supply chain planning.",
+  "creators": [
+    {
+      "name": "Hanke, Thomas",
+      "affiliation": "Fraunhofer Institute for Mechanics of Materials IWM",
+      "orcid": "https://orcid.org/0000-0003-1649-6832"
+    },
+    {
+      "name": "Waitelonis, Jörg",
+      "affiliation": "Fraunhofer Institute for Mechanics of Materials IWM",
+      "orcid": "https://orcid.org/0000-0001-7192-7143"
+    },
+    {
+      "name": "Zaripova, Kamilla",
+      "affiliation": "Fraunhofer Institute for Mechanics of Materials IWM",
+      "orcid": "https://orcid.org/0009-0003-1503-4422"
+    },
+    {
+      "name": "Potu, Sai Teja",
+      "affiliation": "Fraunhofer Institute for Mechanics of Materials IWM",
+      "orcid": "https://orcid.org/0009-0007-7468-3544"
+    }
+  ],
+  "keywords": [
+    "ontology",
+    "logistics",
+    "supply-chain",
+    "BFO",
+    "IOF",
+    "semantic-web"
+  ],
+  "license": "CC-BY-4.0",
+  "grants": [
+    {
+      "id": "13XPM504B",
+      "title": "EDCar — Automotive End-of-Life Datenaustausch für Circular Economy"
+    }
+  ]
+}
