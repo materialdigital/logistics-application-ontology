@@ -10,7 +10,7 @@
 # More information: https://github.com/INCATools/ontology-development-kit/
 
 # Fingerprint of the configuration file when this Makefile was last generated
-CONFIG_HASH=                381b0d29b1aa737638fe59d228561eecb1f22be804ecf63444c5cbd52c271c45
+CONFIG_HASH=                84ad52dc3ec389d72684443fad64535aa3bd0b2023f6feca9b2e94357662a2b0
 
 
 # ----------------------------------------
@@ -416,15 +416,6 @@ $(IMPORTDIR)/%_import.owl: $(MIRRORDIR)/%.owl $(IMPORTDIR)/%_terms.txt \
 		 $(ANNOTATE_CONVERT_FILE)
 
 .PRECIOUS: $(IMPORTDIR)/%_import.owl
-
-## Module for ontology: pmdco (mirror)
-$(IMPORTDIR)/pmdco_import.owl: $(MIRRORDIR)/pmdco.owl | all_robot_plugins
-	$(ROBOT) annotate --input $< --remove-annotations \
-		 odk:normalize --base-iri https://w3id.org/pmd \
-		               --subset-decls true --synonym-decls true \
-		               --add-source true \
-		 repair --merge-axiom-annotations true \
-		 $(ANNOTATE_CONVERT_FILE)
 
 ## Module for ontology: foaf (custom)
 $(IMPORTDIR)/foaf_import.owl: $(MIRRORDIR)/foaf.owl
