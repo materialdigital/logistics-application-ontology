@@ -211,16 +211,16 @@
     "id" : "101",
     "type" : "owl:intersectionOf"
   }, {
-    "id" : "102",
-    "type" : "owl:intersectionOf"
-  }, {
     "id" : "181",
     "type" : "owl:Class"
+  }, {
+    "id" : "102",
+    "type" : "owl:intersectionOf"
   }, {
     "id" : "191",
     "type" : "owl:Class"
   }, {
-    "id" : "75",
+    "id" : "69",
     "type" : "owl:equivalentClass"
   }, {
     "id" : "293",
@@ -310,13 +310,13 @@
     "id" : "56",
     "type" : "owl:Thing"
   }, {
-    "id" : "69",
+    "id" : "72",
     "type" : "owl:Thing"
   }, {
-    "id" : "78",
+    "id" : "77",
     "type" : "owl:Thing"
   }, {
-    "id" : "379",
+    "id" : "378",
     "type" : "owl:Class"
   }, {
     "id" : "295",
@@ -349,16 +349,16 @@
     "id" : "443",
     "type" : "owl:Class"
   }, {
-    "id" : "9",
+    "id" : "26",
     "type" : "owl:Class"
   }, {
-    "id" : "26",
+    "id" : "9",
     "type" : "owl:Class"
   }, {
     "id" : "125",
     "type" : "owl:Class"
   }, {
-    "id" : "380",
+    "id" : "379",
     "type" : "owl:Class"
   }, {
     "id" : "151",
@@ -460,11 +460,11 @@
     "id" : "121",
     "type" : "owl:Class"
   }, {
-    "id" : "461",
-    "type" : "owl:intersectionOf"
-  }, {
     "id" : "285",
     "type" : "owl:Class"
+  }, {
+    "id" : "461",
+    "type" : "owl:intersectionOf"
   }, {
     "id" : "147",
     "type" : "owl:intersectionOf"
@@ -475,10 +475,10 @@
     "id" : "149",
     "type" : "owl:Class"
   }, {
-    "id" : "128",
+    "id" : "260",
     "type" : "owl:Class"
   }, {
-    "id" : "260",
+    "id" : "128",
     "type" : "owl:Class"
   }, {
     "id" : "312",
@@ -517,10 +517,10 @@
     "id" : "500",
     "type" : "owl:Class"
   }, {
-    "id" : "503",
+    "id" : "139",
     "type" : "owl:Class"
   }, {
-    "id" : "137",
+    "id" : "503",
     "type" : "owl:Class"
   }, {
     "id" : "479",
@@ -538,25 +538,25 @@
     "id" : "93",
     "type" : "owl:Class"
   }, {
-    "id" : "17",
+    "id" : "135",
     "type" : "owl:intersectionOf"
   }, {
-    "id" : "135",
+    "id" : "17",
     "type" : "owl:intersectionOf"
   }, {
     "id" : "491",
     "type" : "owl:intersectionOf"
   }, {
-    "id" : "127",
-    "type" : "owl:Class"
-  }, {
     "id" : "224",
     "type" : "owl:intersectionOf"
   }, {
-    "id" : "18",
-    "type" : "owl:intersectionOf"
+    "id" : "127",
+    "type" : "owl:Class"
   }, {
     "id" : "562",
+    "type" : "owl:intersectionOf"
+  }, {
+    "id" : "18",
     "type" : "owl:intersectionOf"
   }, {
     "id" : "19",
@@ -607,7 +607,7 @@
     "id" : "459",
     "type" : "owl:Class"
   }, {
-    "id" : "139",
+    "id" : "136",
     "type" : "owl:Class"
   }, {
     "id" : "456",
@@ -652,7 +652,7 @@
     "id" : "46",
     "type" : "owl:Class"
   }, {
-    "id" : "79",
+    "id" : "78",
     "type" : "owl:Class"
   }, {
     "id" : "366",
@@ -664,11 +664,11 @@
     "id" : "210",
     "type" : "owl:Class"
   }, {
-    "id" : "561",
-    "type" : "owl:Class"
-  }, {
     "id" : "105",
     "type" : "owl:intersectionOf"
+  }, {
+    "id" : "561",
+    "type" : "owl:Class"
   }, {
     "id" : "481",
     "type" : "owl:Class"
@@ -730,16 +730,16 @@
     "id" : "559",
     "type" : "owl:Class"
   }, {
-    "id" : "115",
-    "type" : "owl:Class"
-  }, {
     "id" : "355",
     "type" : "owl:Class"
   }, {
-    "id" : "454",
+    "id" : "115",
     "type" : "owl:Class"
   }, {
     "id" : "416",
+    "type" : "owl:Class"
+  }, {
+    "id" : "454",
     "type" : "owl:Class"
   }, {
     "id" : "201",
@@ -763,17 +763,17 @@
     "baseIri" : "http://purl.obolibrary.org/obo",
     "instances" : 0,
     "annotations" : {
-      "IAO_0000412" : [ {
-        "identifier" : "IAO_0000412",
-        "language" : "undefined",
-        "value" : "https://spec.industrialontologies.org/ontology/core/Core/Identifier",
-        "type" : "iri"
-      } ],
       "IAO_0000115" : [ {
         "identifier" : "IAO_0000115",
         "language" : "en",
         "value" : "An information content entity that is the outcome of a dubbing process and is used to refer to one instance of entity shared by a group of people to refer to that individual entity.",
         "type" : "label"
+      } ],
+      "IAO_0000412" : [ {
+        "identifier" : "IAO_0000412",
+        "language" : "undefined",
+        "value" : "https://spec.industrialontologies.org/ontology/core/Core/Identifier",
+        "type" : "iri"
       } ]
     },
     "label" : {
@@ -867,10 +867,10 @@
       "IRI-based" : "IAO_0020010",
       "en" : "identifier creating process"
     },
-    "intersection" : [ "79" ],
+    "intersection" : [ "78" ],
     "attributes" : [ "external", "intersection" ],
     "id" : "109",
-    "superClasses" : [ "79" ]
+    "superClasses" : [ "78" ]
   }, {
     "iri" : "https://w3id.org/pmd/log/LOG_1000093",
     "baseIri" : "https://w3id.org/pmd/log",
@@ -1724,6 +1724,31 @@
     "id" : "101",
     "superClasses" : [ "100" ]
   }, {
+    "iri" : "https://w3id.org/pmd/co/PMD_0000008",
+    "baseIri" : "https://w3id.org/pmd/co",
+    "instances" : 0,
+    "annotations" : {
+      "altLabel" : [ {
+        "identifier" : "altLabel",
+        "language" : "en",
+        "value" : "process characteristic",
+        "type" : "label"
+      } ],
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en",
+        "value" : "a process attribute is a dependent occurrent that existentially depends on a process.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "PMD_0000008",
+      "en" : "process attribute"
+    },
+    "attributes" : [ "external" ],
+    "id" : "181",
+    "superClasses" : [ "63" ]
+  }, {
     "iri" : "https://w3id.org/pmd/log/LOG_1000053",
     "baseIri" : "https://w3id.org/pmd/log",
     "instances" : 0,
@@ -1750,45 +1775,20 @@
     "id" : "102",
     "superClasses" : [ "100" ]
   }, {
-    "iri" : "https://w3id.org/pmd/co/PMD_0000008",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "instances" : 0,
-    "annotations" : {
-      "altLabel" : [ {
-        "identifier" : "altLabel",
-        "language" : "en",
-        "value" : "process characteristic",
-        "type" : "label"
-      } ],
-      "definition" : [ {
-        "identifier" : "definition",
-        "language" : "en",
-        "value" : "a process attribute is a dependent occurrent that existentially depends on a process.",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "PMD_0000008",
-      "en" : "process attribute"
-    },
-    "attributes" : [ "external" ],
-    "id" : "181",
-    "superClasses" : [ "63" ]
-  }, {
     "iri" : "https://w3id.org/pmd/log/LOG_1000054",
     "baseIri" : "https://w3id.org/pmd/log",
     "instances" : 0,
     "annotations" : {
-      "closeMatch" : [ {
-        "identifier" : "closeMatch",
-        "language" : "undefined",
-        "value" : "http://www.w3.org/ns/org#Role",
-        "type" : "iri"
-      } ],
       "IAO_0000412" : [ {
         "identifier" : "IAO_0000412",
         "language" : "undefined",
         "value" : "https://spec.industrialontologies.org/ontology/core/Core/AgentRole",
+        "type" : "iri"
+      } ],
+      "closeMatch" : [ {
+        "identifier" : "closeMatch",
+        "language" : "undefined",
+        "value" : "http://www.w3.org/ns/org#Role",
         "type" : "iri"
       } ],
       "definition" : [ {
@@ -1820,7 +1820,7 @@
     },
     "subClasses" : [ "1", "294", "2" ],
     "attributes" : [ "external", "equivalent" ],
-    "id" : "75",
+    "id" : "69",
     "superClasses" : [ "293", "34" ]
   }, {
     "iri" : "http://purl.org/dc/terms/Agent",
@@ -1830,7 +1830,7 @@
     "label" : {
       "IRI-based" : "Agent"
     },
-    "subClasses" : [ "75", "295", "53" ],
+    "subClasses" : [ "69", "295", "53" ],
     "attributes" : [ "external", "equivalent" ],
     "id" : "293"
   }, {
@@ -2489,14 +2489,14 @@
   }, {
     "iri" : "http://www.w3.org/2002/07/owl#Thing",
     "baseIri" : "http://owl2vowl.de",
-    "id" : "69",
+    "id" : "72",
     "label" : {
       "undefined" : "Thing"
     }
   }, {
     "iri" : "http://www.w3.org/2002/07/owl#Thing",
     "baseIri" : "http://owl2vowl.de",
-    "id" : "78",
+    "id" : "77",
     "label" : {
       "undefined" : "Thing"
     }
@@ -2507,12 +2507,12 @@
     "label" : {
       "IRI-based" : "Activity"
     },
-    "subClasses" : [ "380" ],
+    "subClasses" : [ "379" ],
     "attributes" : [ "external" ],
-    "id" : "379"
+    "id" : "378"
   }, {
     "iri" : "http://xmlns.com/foaf/0.1/Organization",
-    "equivalent" : [ "75" ],
+    "equivalent" : [ "69" ],
     "baseIri" : "http://xmlns.com/foaf/0.1",
     "instances" : 0,
     "label" : {
@@ -2615,7 +2615,7 @@
         "en" : "head",
         "it" : "responsabile",
         "fr" : "responsable",
-        "es" : "director ejecutivo"
+        "es" : "directora ejecutiva"
       }
     } ],
     "attributes" : [ "external" ],
@@ -2750,25 +2750,6 @@
     "id" : "443",
     "superClasses" : [ "194" ]
   }, {
-    "iri" : "http://purl.obolibrary.org/obo/BFO_0000145",
-    "baseIri" : "http://purl.obolibrary.org/obo",
-    "instances" : 0,
-    "annotations" : {
-      "definition" : [ {
-        "identifier" : "definition",
-        "language" : "en",
-        "value" : "b is a relational quality =Def b is a quality & there exists c and d such that c and d are not identical & b specifically depends on c & b specifically depends on d",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "BFO_0000145",
-      "en" : "relational quality"
-    },
-    "attributes" : [ "external" ],
-    "id" : "9",
-    "superClasses" : [ "10" ]
-  }, {
     "iri" : "http://purl.obolibrary.org/obo/BFO_0000024",
     "baseIri" : "http://purl.obolibrary.org/obo",
     "instances" : 0,
@@ -2787,6 +2768,25 @@
     "attributes" : [ "external" ],
     "id" : "26",
     "superClasses" : [ "14" ]
+  }, {
+    "iri" : "http://purl.obolibrary.org/obo/BFO_0000145",
+    "baseIri" : "http://purl.obolibrary.org/obo",
+    "instances" : 0,
+    "annotations" : {
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en",
+        "value" : "b is a relational quality =Def b is a quality & there exists c and d such that c and d are not identical & b specifically depends on c & b specifically depends on d",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "BFO_0000145",
+      "en" : "relational quality"
+    },
+    "attributes" : [ "external" ],
+    "id" : "9",
+    "superClasses" : [ "10" ]
   }, {
     "iri" : "http://purl.obolibrary.org/obo/BFO_0000023",
     "baseIri" : "http://purl.obolibrary.org/obo",
@@ -2825,8 +2825,8 @@
       "es" : "evento de cambio"
     },
     "attributes" : [ "external" ],
-    "id" : "380",
-    "superClasses" : [ "379" ]
+    "id" : "379",
+    "superClasses" : [ "378" ]
   }, {
     "iri" : "http://purl.obolibrary.org/obo/BFO_0000028",
     "baseIri" : "http://purl.obolibrary.org/obo",
@@ -3007,7 +3007,7 @@
       "IRI-based" : "BFO_0000015",
       "en" : "process"
     },
-    "subClasses" : [ "133", "137", "142", "149", "89", "93" ],
+    "subClasses" : [ "133", "139", "142", "149", "89", "93" ],
     "attributes" : [ "external" ],
     "id" : "7",
     "superClasses" : [ "63" ]
@@ -3056,17 +3056,17 @@
     "baseIri" : "http://purl.obolibrary.org/obo",
     "instances" : 0,
     "annotations" : {
-      "IAO_0000115" : [ {
-        "identifier" : "IAO_0000115",
-        "language" : "en",
-        "value" : "An independent continuant that is spatially extended whose identity is independent of that of other entities and can be maintained through time.",
-        "type" : "label"
-      } ],
       "IAO_0000412" : [ {
         "identifier" : "IAO_0000412",
         "language" : "undefined",
         "value" : "http://purl.obolibrary.org/obo/BFO_0000040",
         "type" : "iri"
+      } ],
+      "IAO_0000115" : [ {
+        "identifier" : "IAO_0000115",
+        "language" : "en",
+        "value" : "An independent continuant that is spatially extended whose identity is independent of that of other entities and can be maintained through time.",
+        "type" : "label"
       } ],
       "definition" : [ {
         "identifier" : "definition",
@@ -3367,7 +3367,7 @@
     },
     "attributes" : [ "external" ],
     "id" : "2",
-    "superClasses" : [ "75", "295" ]
+    "superClasses" : [ "69", "295" ]
   }, {
     "iri" : "https://w3id.org/pmd/co/PMD_0020216",
     "baseIri" : "https://w3id.org/pmd/co",
@@ -3541,13 +3541,13 @@
     "annotations" : {
       "definition" : [ {
         "identifier" : "definition",
-        "language" : "de",
-        "value" : "Ein geplannter Prozess, der von der primären Absicht angetrieben wird, Objekte zu transformieren. Ein Herstellungsprozess ist immer ein Transformationsprozess.",
+        "language" : "en",
+        "value" : "A planned process that is driven by the primary intent to transform objects\nA manufacturing process is always a transformative process.",
         "type" : "label"
       }, {
         "identifier" : "definition",
-        "language" : "en",
-        "value" : "A planned process that is driven by the primary intent to transform objects\nA manufacturing process is always a transformative process.",
+        "language" : "de",
+        "value" : "Ein geplannter Prozess, der von der primären Absicht angetrieben wird, Objekte zu transformieren. Ein Herstellungsprozess ist immer ein Transformationsprozess.",
         "type" : "label"
       } ]
     },
@@ -3557,10 +3557,10 @@
       "en" : "manufacturing process"
     },
     "subClasses" : [ "333", "302" ],
-    "intersection" : [ "79" ],
+    "intersection" : [ "78" ],
     "attributes" : [ "external", "intersection" ],
     "id" : "221",
-    "superClasses" : [ "79" ]
+    "superClasses" : [ "78" ]
   }, {
     "iri" : "https://w3id.org/pmd/co/PMD_0040129",
     "baseIri" : "https://w3id.org/pmd/co",
@@ -3598,10 +3598,10 @@
       "fr" : "Partenariat",
       "es" : "proyecto de cooperación empresarial"
     },
-    "intersection" : [ "75" ],
+    "intersection" : [ "69" ],
     "attributes" : [ "external", "intersection" ],
     "id" : "294",
-    "superClasses" : [ "75", "295" ]
+    "superClasses" : [ "69", "295" ]
   }, {
     "iri" : "http://www.w3.org/2004/02/skos/core#Concept",
     "baseIri" : "http://www.w3.org/2004/02/skos/core",
@@ -3672,7 +3672,7 @@
       "IRI-based" : "Agent",
       "undefined" : "Agent"
     },
-    "subClasses" : [ "75", "295", "53" ],
+    "subClasses" : [ "69", "295", "53" ],
     "attributes" : [ "external", "equivalent" ],
     "id" : "34"
   }, {
@@ -3726,6 +3726,31 @@
     "id" : "121",
     "superClasses" : [ "37" ]
   }, {
+    "iri" : "https://w3id.org/pmd/log/LOG_1000145",
+    "baseIri" : "https://w3id.org/pmd/log",
+    "instances" : 0,
+    "annotations" : {
+      "IAO_0000412" : [ {
+        "identifier" : "IAO_0000412",
+        "language" : "undefined",
+        "value" : "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/TravelProcess",
+        "type" : "iri"
+      } ],
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en-us",
+        "value" : "material location change process wherein one or more persons move between geographical locations",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "LOG_1000145",
+      "en" : "travel process"
+    },
+    "attributes" : [ "external" ],
+    "id" : "285",
+    "superClasses" : [ "149" ]
+  }, {
     "iri" : "https://w3id.org/pmd/log/LOG_1000024",
     "baseIri" : "https://w3id.org/pmd/log",
     "instances" : 0,
@@ -3751,31 +3776,6 @@
     "attributes" : [ "external", "intersection" ],
     "id" : "461",
     "superClasses" : [ "37" ]
-  }, {
-    "iri" : "https://w3id.org/pmd/log/LOG_1000145",
-    "baseIri" : "https://w3id.org/pmd/log",
-    "instances" : 0,
-    "annotations" : {
-      "IAO_0000412" : [ {
-        "identifier" : "IAO_0000412",
-        "language" : "undefined",
-        "value" : "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/TravelProcess",
-        "type" : "iri"
-      } ],
-      "definition" : [ {
-        "identifier" : "definition",
-        "language" : "en-us",
-        "value" : "material location change process wherein one or more persons move between geographical locations",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "LOG_1000145",
-      "en" : "travel process"
-    },
-    "attributes" : [ "external" ],
-    "id" : "285",
-    "superClasses" : [ "149" ]
   }, {
     "iri" : "https://w3id.org/pmd/log/LOG_1000146",
     "baseIri" : "https://w3id.org/pmd/log",
@@ -3850,6 +3850,31 @@
     "id" : "149",
     "superClasses" : [ "7" ]
   }, {
+    "iri" : "https://w3id.org/pmd/log/LOG_1000141",
+    "baseIri" : "https://w3id.org/pmd/log",
+    "instances" : 0,
+    "annotations" : {
+      "IAO_0000412" : [ {
+        "identifier" : "IAO_0000412",
+        "language" : "undefined",
+        "value" : "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/ArrivalProcess",
+        "type" : "iri"
+      } ],
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en-us",
+        "value" : "material location change process that consists of the participating entity reaching its destination such that the travel or transport process which it is a part of is completed",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "LOG_1000141",
+      "en" : "arrival process"
+    },
+    "attributes" : [ "external" ],
+    "id" : "260",
+    "superClasses" : [ "149" ]
+  }, {
     "iri" : "https://w3id.org/pmd/log/LOG_1000020",
     "baseIri" : "https://w3id.org/pmd/log",
     "instances" : 0,
@@ -3875,31 +3900,6 @@
     "attributes" : [ "external" ],
     "id" : "128",
     "superClasses" : [ "37" ]
-  }, {
-    "iri" : "https://w3id.org/pmd/log/LOG_1000141",
-    "baseIri" : "https://w3id.org/pmd/log",
-    "instances" : 0,
-    "annotations" : {
-      "IAO_0000412" : [ {
-        "identifier" : "IAO_0000412",
-        "language" : "undefined",
-        "value" : "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/ArrivalProcess",
-        "type" : "iri"
-      } ],
-      "definition" : [ {
-        "identifier" : "definition",
-        "language" : "en-us",
-        "value" : "material location change process that consists of the participating entity reaching its destination such that the travel or transport process which it is a part of is completed",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "LOG_1000141",
-      "en" : "arrival process"
-    },
-    "attributes" : [ "external" ],
-    "id" : "260",
-    "superClasses" : [ "149" ]
   }, {
     "iri" : "https://w3id.org/pmd/log/LOG_1000021",
     "baseIri" : "https://w3id.org/pmd/log",
@@ -4092,7 +4092,7 @@
       "IRI-based" : "COB_0000082",
       "en" : "planned process"
     },
-    "subClasses" : [ "79" ],
+    "subClasses" : [ "78" ],
     "attributes" : [ "external" ],
     "id" : "142",
     "superClasses" : [ "7" ]
@@ -4116,12 +4116,12 @@
       "IAO_0000119" : [ {
         "identifier" : "IAO_0000119",
         "language" : "en",
-        "value" : "OBI_0000344",
+        "value" : "OBI Plan and Planned Process branch",
         "type" : "label"
       }, {
         "identifier" : "IAO_0000119",
         "language" : "en",
-        "value" : "OBI Plan and Planned Process branch",
+        "value" : "OBI_0000344",
         "type" : "label"
       } ]
     },
@@ -4206,6 +4206,32 @@
     "id" : "500",
     "superClasses" : [ "37" ]
   }, {
+    "iri" : "https://w3id.org/pmd/log/LOG_1000134",
+    "baseIri" : "https://w3id.org/pmd/log",
+    "instances" : 0,
+    "annotations" : {
+      "IAO_0000412" : [ {
+        "identifier" : "IAO_0000412",
+        "language" : "undefined",
+        "value" : "https://spec.industrialontologies.org/ontology/core/Core/MeasurementProcess",
+        "type" : "iri"
+      } ],
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en-us",
+        "value" : "planned process to determine the value of an attribute (specifically dependent continuant or temporal region or process characteristic) of an entity of interest",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "LOG_1000134",
+      "en" : "measurement process"
+    },
+    "subClasses" : [ "557" ],
+    "attributes" : [ "external" ],
+    "id" : "139",
+    "superClasses" : [ "7" ]
+  }, {
     "iri" : "https://w3id.org/pmd/log/LOG_1000013",
     "baseIri" : "https://w3id.org/pmd/log",
     "instances" : 0,
@@ -4231,32 +4257,6 @@
     "id" : "503",
     "superClasses" : [ "37" ]
   }, {
-    "iri" : "https://w3id.org/pmd/log/LOG_1000134",
-    "baseIri" : "https://w3id.org/pmd/log",
-    "instances" : 0,
-    "annotations" : {
-      "IAO_0000412" : [ {
-        "identifier" : "IAO_0000412",
-        "language" : "undefined",
-        "value" : "https://spec.industrialontologies.org/ontology/core/Core/MeasurementProcess",
-        "type" : "iri"
-      } ],
-      "definition" : [ {
-        "identifier" : "definition",
-        "language" : "en-us",
-        "value" : "planned process to determine the value of an attribute (specifically dependent continuant or temporal region or process characteristic) of an entity of interest",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "LOG_1000134",
-      "en" : "measurement process"
-    },
-    "subClasses" : [ "557" ],
-    "attributes" : [ "external" ],
-    "id" : "137",
-    "superClasses" : [ "7" ]
-  }, {
     "iri" : "https://w3id.org/pmd/log/LOG_1000014",
     "baseIri" : "https://w3id.org/pmd/log",
     "instances" : 0,
@@ -4267,16 +4267,16 @@
         "value" : "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/Shipper",
         "type" : "iri"
       } ],
-      "altLabel" : [ {
-        "identifier" : "altLabel",
-        "language" : "undefined",
-        "value" : "shipper",
-        "type" : "label"
-      } ],
       "definition" : [ {
         "identifier" : "definition",
         "language" : "en-us",
         "value" : "person or business organization that prepares and sends shipments for transport",
+        "type" : "label"
+      } ],
+      "altLabel" : [ {
+        "identifier" : "altLabel",
+        "language" : "undefined",
+        "value" : "shipper",
         "type" : "label"
       } ]
     },
@@ -4311,7 +4311,7 @@
     },
     "attributes" : [ "external" ],
     "id" : "557",
-    "superClasses" : [ "137" ]
+    "superClasses" : [ "139" ]
   }, {
     "iri" : "https://w3id.org/pmd/log/LOG_1000130",
     "baseIri" : "https://w3id.org/pmd/log",
@@ -4415,6 +4415,32 @@
     "id" : "93",
     "superClasses" : [ "7" ]
   }, {
+    "iri" : "https://w3id.org/pmd/log/LOG_1000129",
+    "baseIri" : "https://w3id.org/pmd/log",
+    "instances" : 0,
+    "annotations" : {
+      "IAO_0000412" : [ {
+        "identifier" : "IAO_0000412",
+        "language" : "undefined",
+        "value" : "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/WarehousingProcess",
+        "type" : "label"
+      } ],
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "undefined",
+        "value" : "business process of storing products (material products) in a storage facility for future use",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "LOG_1000129",
+      "en" : "warehousing process"
+    },
+    "intersection" : [ "89" ],
+    "attributes" : [ "external", "intersection" ],
+    "id" : "135",
+    "superClasses" : [ "89" ]
+  }, {
     "iri" : "https://w3id.org/pmd/log/LOG_1000008",
     "baseIri" : "https://w3id.org/pmd/log",
     "instances" : 0,
@@ -4442,32 +4468,6 @@
     "id" : "17",
     "superClasses" : [ "15" ]
   }, {
-    "iri" : "https://w3id.org/pmd/log/LOG_1000129",
-    "baseIri" : "https://w3id.org/pmd/log",
-    "instances" : 0,
-    "annotations" : {
-      "IAO_0000412" : [ {
-        "identifier" : "IAO_0000412",
-        "language" : "undefined",
-        "value" : "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/WarehousingProcess",
-        "type" : "label"
-      } ],
-      "definition" : [ {
-        "identifier" : "definition",
-        "language" : "undefined",
-        "value" : "business process of storing products (material products) in a storage facility for future use",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "LOG_1000129",
-      "en" : "warehousing process"
-    },
-    "intersection" : [ "89" ],
-    "attributes" : [ "external", "intersection" ],
-    "id" : "135",
-    "superClasses" : [ "89" ]
-  }, {
     "iri" : "https://w3id.org/pmd/log/LOG_1000009",
     "baseIri" : "https://w3id.org/pmd/log",
     "instances" : 0,
@@ -4493,31 +4493,6 @@
     "attributes" : [ "external", "intersection" ],
     "id" : "491",
     "superClasses" : [ "17" ]
-  }, {
-    "iri" : "https://w3id.org/pmd/log/LOG_1000125",
-    "baseIri" : "https://w3id.org/pmd/log",
-    "instances" : 0,
-    "annotations" : {
-      "IAO_0000412" : [ {
-        "identifier" : "IAO_0000412",
-        "language" : "undefined",
-        "value" : "https://spec.industrialontologies.org/ontology/core/Core/SellingBusinessProcess",
-        "type" : "label"
-      } ],
-      "definition" : [ {
-        "identifier" : "definition",
-        "language" : "undefined",
-        "value" : "business process wherein a product or commercial service is offered by an agent (seller) for another agent (buyer) to acquire ownership via a financial instrument",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "LOG_1000125",
-      "en" : "selling business process"
-    },
-    "attributes" : [ "external" ],
-    "id" : "127",
-    "superClasses" : [ "89" ]
   }, {
     "iri" : "https://w3id.org/pmd/log/LOG_1000004",
     "baseIri" : "https://w3id.org/pmd/log",
@@ -4545,31 +4520,30 @@
     "id" : "224",
     "superClasses" : [ "210" ]
   }, {
-    "iri" : "https://w3id.org/pmd/log/LOG_1000005",
+    "iri" : "https://w3id.org/pmd/log/LOG_1000125",
     "baseIri" : "https://w3id.org/pmd/log",
     "instances" : 0,
     "annotations" : {
       "IAO_0000412" : [ {
         "identifier" : "IAO_0000412",
         "language" : "undefined",
-        "value" : "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/LotNumber",
-        "type" : "iri"
+        "value" : "https://spec.industrialontologies.org/ontology/core/Core/SellingBusinessProcess",
+        "type" : "label"
       } ],
       "definition" : [ {
         "identifier" : "definition",
-        "language" : "en-us",
-        "value" : "identifier that uniquely denotes a particular quantity of material entities that have shared production or transformation history",
+        "language" : "undefined",
+        "value" : "business process wherein a product or commercial service is offered by an agent (seller) for another agent (buyer) to acquire ownership via a financial instrument",
         "type" : "label"
       } ]
     },
     "label" : {
-      "IRI-based" : "LOG_1000005",
-      "en" : "lot number"
+      "IRI-based" : "LOG_1000125",
+      "en" : "selling business process"
     },
-    "intersection" : [ "15" ],
-    "attributes" : [ "external", "intersection" ],
-    "id" : "18",
-    "superClasses" : [ "15" ]
+    "attributes" : [ "external" ],
+    "id" : "127",
+    "superClasses" : [ "89" ]
   }, {
     "iri" : "https://w3id.org/pmd/log/LOG_1000126",
     "baseIri" : "https://w3id.org/pmd/log",
@@ -4595,6 +4569,32 @@
     "intersection" : [ "89" ],
     "attributes" : [ "external", "intersection" ],
     "id" : "562"
+  }, {
+    "iri" : "https://w3id.org/pmd/log/LOG_1000005",
+    "baseIri" : "https://w3id.org/pmd/log",
+    "instances" : 0,
+    "annotations" : {
+      "IAO_0000412" : [ {
+        "identifier" : "IAO_0000412",
+        "language" : "undefined",
+        "value" : "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/LotNumber",
+        "type" : "iri"
+      } ],
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en-us",
+        "value" : "identifier that uniquely denotes a particular quantity of material entities that have shared production or transformation history",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "LOG_1000005",
+      "en" : "lot number"
+    },
+    "intersection" : [ "15" ],
+    "attributes" : [ "external", "intersection" ],
+    "id" : "18",
+    "superClasses" : [ "15" ]
   }, {
     "iri" : "https://w3id.org/pmd/log/LOG_1000006",
     "baseIri" : "https://w3id.org/pmd/log",
@@ -4889,7 +4889,7 @@
       "en" : "lot"
     },
     "intersection" : [ "161" ],
-    "attributes" : [ "external", "equivalent", "intersection" ],
+    "attributes" : [ "external", "intersection", "equivalent" ],
     "id" : "183",
     "superClasses" : [ "161" ]
   }, {
@@ -5025,7 +5025,7 @@
     },
     "subClasses" : [ "456" ],
     "attributes" : [ "external" ],
-    "id" : "139",
+    "id" : "136",
     "superClasses" : [ "279" ]
   }, {
     "iri" : "https://w3id.org/pmd/log/LOG_1000035",
@@ -5051,7 +5051,7 @@
     },
     "attributes" : [ "external" ],
     "id" : "456",
-    "superClasses" : [ "139" ]
+    "superClasses" : [ "136" ]
   }, {
     "iri" : "https://w3id.org/pmd/log/LOG_1000036",
     "baseIri" : "https://w3id.org/pmd/log",
@@ -5152,7 +5152,7 @@
       "IRI-based" : "LOG_1000032",
       "en" : "facility"
     },
-    "subClasses" : [ "459", "139" ],
+    "subClasses" : [ "459", "136" ],
     "attributes" : [ "external" ],
     "id" : "279",
     "superClasses" : [ "147" ]
@@ -5391,7 +5391,7 @@
     },
     "subClasses" : [ "109", "221" ],
     "attributes" : [ "external" ],
-    "id" : "79",
+    "id" : "78",
     "superClasses" : [ "142" ]
   }, {
     "iri" : "http://purl.obolibrary.org/obo/OBI_0000245",
@@ -5470,31 +5470,6 @@
     "id" : "210",
     "superClasses" : [ "16" ]
   }, {
-    "iri" : "https://w3id.org/pmd/log/LOG_1000122",
-    "baseIri" : "https://w3id.org/pmd/log",
-    "instances" : 0,
-    "annotations" : {
-      "IAO_0000412" : [ {
-        "identifier" : "IAO_0000412",
-        "language" : "undefined",
-        "value" : "https://spec.industrialontologies.org/ontology/core/Core/ProcuringBusinessProcess",
-        "type" : "iri"
-      } ],
-      "definition" : [ {
-        "identifier" : "definition",
-        "language" : "en-us",
-        "value" : "business process that consists of buying and ensuring the supply of products or services",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "LOG_1000122",
-      "en" : "procuring business process"
-    },
-    "attributes" : [ "external" ],
-    "id" : "561",
-    "superClasses" : [ "89" ]
-  }, {
     "iri" : "https://w3id.org/pmd/log/LOG_1000001",
     "baseIri" : "https://w3id.org/pmd/log",
     "instances" : 0,
@@ -5521,6 +5496,31 @@
     "attributes" : [ "external", "intersection" ],
     "id" : "105",
     "superClasses" : [ "210" ]
+  }, {
+    "iri" : "https://w3id.org/pmd/log/LOG_1000122",
+    "baseIri" : "https://w3id.org/pmd/log",
+    "instances" : 0,
+    "annotations" : {
+      "IAO_0000412" : [ {
+        "identifier" : "IAO_0000412",
+        "language" : "undefined",
+        "value" : "https://spec.industrialontologies.org/ontology/core/Core/ProcuringBusinessProcess",
+        "type" : "iri"
+      } ],
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en-us",
+        "value" : "business process that consists of buying and ensuring the supply of products or services",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "LOG_1000122",
+      "en" : "procuring business process"
+    },
+    "attributes" : [ "external" ],
+    "id" : "561",
+    "superClasses" : [ "89" ]
   }, {
     "iri" : "https://w3id.org/pmd/log/LOG_1000123",
     "baseIri" : "https://w3id.org/pmd/log",
@@ -5786,13 +5786,13 @@
       } ],
       "definition" : [ {
         "identifier" : "definition",
-        "language" : "undefined",
-        "value" : "logistics service that consists of at least one transport process",
+        "language" : "en-us",
+        "value" : "business process that results in placing a material entity in the possession of some agent without changing the ownership until the material entity is sold",
         "type" : "label"
       }, {
         "identifier" : "definition",
-        "language" : "en-us",
-        "value" : "business process that results in placing a material entity in the possession of some agent without changing the ownership until the material entity is sold",
+        "language" : "undefined",
+        "value" : "logistics service that consists of at least one transport process",
         "type" : "label"
       } ]
     },
@@ -5817,12 +5817,12 @@
       "IAO_0000119" : [ {
         "identifier" : "IAO_0000119",
         "language" : "en",
-        "value" : "OBI Plan and Planned Process/Roles Branch",
+        "value" : "OBI_0000217",
         "type" : "label"
       }, {
         "identifier" : "IAO_0000119",
         "language" : "en",
-        "value" : "OBI_0000217",
+        "value" : "OBI Plan and Planned Process/Roles Branch",
         "type" : "label"
       } ]
     },
@@ -5848,7 +5848,7 @@
     "subClasses" : [ "179" ],
     "attributes" : [ "external" ],
     "id" : "1",
-    "superClasses" : [ "75", "295" ]
+    "superClasses" : [ "69", "295" ]
   }, {
     "iri" : "http://purl.obolibrary.org/obo/IAO_0000007",
     "baseIri" : "http://purl.obolibrary.org/obo",
@@ -6011,16 +6011,16 @@
     "baseIri" : "https://w3id.org/pmd/log",
     "instances" : 0,
     "annotations" : {
-      "IAO_0000412" : [ {
-        "identifier" : "IAO_0000412",
-        "language" : "undefined",
-        "value" : "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/ConsigningProcess",
-        "type" : "label"
-      } ],
       "IAO_0000115" : [ {
         "identifier" : "IAO_0000115",
         "language" : "undefined",
         "value" : "business process that results in placing a material entity in the possession of some agent without changing the ownership until the material entity is sold",
+        "type" : "label"
+      } ],
+      "IAO_0000412" : [ {
+        "identifier" : "IAO_0000412",
+        "language" : "undefined",
+        "value" : "https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/ConsigningProcess",
         "type" : "label"
       } ],
       "definition" : [ {
@@ -6037,31 +6037,6 @@
     "attributes" : [ "external" ],
     "id" : "559",
     "superClasses" : [ "89" ]
-  }, {
-    "iri" : "http://purl.obolibrary.org/obo/OBI_0000260",
-    "baseIri" : "http://purl.obolibrary.org/obo",
-    "instances" : 0,
-    "annotations" : {
-      "IAO_0000115" : [ {
-        "identifier" : "IAO_0000115",
-        "language" : "en",
-        "value" : "A plan is a realizable entity that is the inheres in a bearer who is committed to realizing it as a completely executed planned process.",
-        "type" : "label"
-      } ],
-      "IAO_0000119" : [ {
-        "identifier" : "IAO_0000119",
-        "language" : "en",
-        "value" : "branch derived",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "OBI_0000260",
-      "en" : "plan"
-    },
-    "attributes" : [ "external" ],
-    "id" : "115",
-    "superClasses" : [ "116" ]
   }, {
     "iri" : "https://w3id.org/pmd/log/LOG_1000103",
     "baseIri" : "https://w3id.org/pmd/log",
@@ -6088,30 +6063,30 @@
     "id" : "355",
     "superClasses" : [ "14" ]
   }, {
-    "iri" : "https://w3id.org/pmd/log/LOG_1000104",
-    "baseIri" : "https://w3id.org/pmd/log",
+    "iri" : "http://purl.obolibrary.org/obo/OBI_0000260",
+    "baseIri" : "http://purl.obolibrary.org/obo",
     "instances" : 0,
     "annotations" : {
-      "IAO_0000412" : [ {
-        "identifier" : "IAO_0000412",
-        "language" : "undefined",
-        "value" : "https://spec.industrialontologies.org/ontology/core/Core/MaintainableMaterialItemRole",
-        "type" : "iri"
+      "IAO_0000115" : [ {
+        "identifier" : "IAO_0000115",
+        "language" : "en",
+        "value" : "A plan is a realizable entity that is the inheres in a bearer who is committed to realizing it as a completely executed planned process.",
+        "type" : "label"
       } ],
-      "definition" : [ {
-        "identifier" : "definition",
-        "language" : "en-us",
-        "value" : "role played by an asset (engineered system or material artifact) when there is a maintenance strategy prescribing its maintenance process",
+      "IAO_0000119" : [ {
+        "identifier" : "IAO_0000119",
+        "language" : "en",
+        "value" : "branch derived",
         "type" : "label"
       } ]
     },
     "label" : {
-      "IRI-based" : "LOG_1000104",
-      "en" : "maintainable material item role"
+      "IRI-based" : "OBI_0000260",
+      "en" : "plan"
     },
     "attributes" : [ "external" ],
-    "id" : "454",
-    "superClasses" : [ "125" ]
+    "id" : "115",
+    "superClasses" : [ "116" ]
   }, {
     "iri" : "https://w3id.org/pmd/log/LOG_0000000",
     "baseIri" : "https://w3id.org/pmd/log",
@@ -6137,6 +6112,31 @@
     "attributes" : [ "external" ],
     "id" : "416",
     "superClasses" : [ "370" ]
+  }, {
+    "iri" : "https://w3id.org/pmd/log/LOG_1000104",
+    "baseIri" : "https://w3id.org/pmd/log",
+    "instances" : 0,
+    "annotations" : {
+      "IAO_0000412" : [ {
+        "identifier" : "IAO_0000412",
+        "language" : "undefined",
+        "value" : "https://spec.industrialontologies.org/ontology/core/Core/MaintainableMaterialItemRole",
+        "type" : "iri"
+      } ],
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en-us",
+        "value" : "role played by an asset (engineered system or material artifact) when there is a maintenance strategy prescribing its maintenance process",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "LOG_1000104",
+      "en" : "maintainable material item role"
+    },
+    "attributes" : [ "external" ],
+    "id" : "454",
+    "superClasses" : [ "125" ]
   }, {
     "iri" : "https://w3id.org/pmd/log/LOG_1000105",
     "baseIri" : "https://w3id.org/pmd/log",
@@ -6241,13 +6241,13 @@
     "id" : "67",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "39",
-    "type" : "owl:objectProperty"
-  }, {
     "id" : "68",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "74",
+    "id" : "39",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "71",
     "type" : "owl:objectProperty"
   }, {
     "id" : "65",
@@ -6256,10 +6256,10 @@
     "id" : "59",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "77",
+    "id" : "66",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "66",
+    "id" : "79",
     "type" : "owl:objectProperty"
   }, {
     "id" : "80",
@@ -6313,10 +6313,10 @@
     "id" : "134",
     "type" : "owl:someValuesFrom"
   }, {
-    "id" : "136",
+    "id" : "138",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "138",
+    "id" : "140",
     "type" : "owl:someValuesFrom"
   }, {
     "id" : "141",
@@ -6424,10 +6424,10 @@
     "id" : "220",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "60",
+    "id" : "50",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "50",
+    "id" : "60",
     "type" : "owl:objectProperty"
   }, {
     "id" : "222",
@@ -6481,7 +6481,7 @@
     "id" : "250",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "70",
+    "id" : "73",
     "type" : "owl:objectProperty"
   }, {
     "id" : "83",
@@ -6565,7 +6565,7 @@
     "id" : "297",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "71",
+    "id" : "74",
     "type" : "owl:objectProperty"
   }, {
     "id" : "299",
@@ -6574,7 +6574,7 @@
     "id" : "301",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "72",
+    "id" : "75",
     "type" : "owl:objectProperty"
   }, {
     "id" : "303",
@@ -6589,7 +6589,7 @@
     "id" : "308",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "73",
+    "id" : "76",
     "type" : "owl:objectProperty"
   }, {
     "id" : "310",
@@ -6706,7 +6706,7 @@
     "id" : "373",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "140",
+    "id" : "137",
     "type" : "owl:objectProperty"
   }, {
     "id" : "375",
@@ -6715,7 +6715,7 @@
     "id" : "377",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "378",
+    "id" : "380",
     "type" : "owl:objectProperty"
   }, {
     "id" : "381",
@@ -7120,7 +7120,7 @@
     "id" : "545",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "76",
+    "id" : "70",
     "type" : "owl:objectProperty"
   }, {
     "id" : "385",
@@ -7358,13 +7358,13 @@
     "type" : "owl:disjointWith"
   }, {
     "id" : "618",
-    "type" : "owl:disjointWith"
+    "type" : "owl:allValuesFrom"
   }, {
     "id" : "619",
     "type" : "owl:disjointWith"
   }, {
     "id" : "620",
-    "type" : "owl:allValuesFrom"
+    "type" : "owl:disjointWith"
   }, {
     "id" : "621",
     "type" : "owl:disjointWith"
@@ -7376,10 +7376,10 @@
     "type" : "owl:disjointWith"
   }, {
     "id" : "626",
-    "type" : "owl:allValuesFrom"
+    "type" : "owl:disjointWith"
   }, {
     "id" : "627",
-    "type" : "owl:disjointWith"
+    "type" : "owl:allValuesFrom"
   } ],
   "propertyAttribute" : [ {
     "iri" : "http://www.w3.org/ns/org#hasUnit",
@@ -7600,6 +7600,22 @@
     "attributes" : [ "external", "object" ],
     "id" : "67"
   }, {
+    "iri" : "http://www.w3.org/ns/org#subOrganizationOf",
+    "baseIri" : "http://www.w3.org/ns/org",
+    "range" : "69",
+    "label" : {
+      "IRI-based" : "subOrganizationOf",
+      "en" : "subOrganization of",
+      "it" : "sotto-Organization di",
+      "fr" : "sous-Organization de",
+      "es" : "es suborganización de"
+    },
+    "superproperty" : [ "70" ],
+    "domain" : "69",
+    "subproperty" : [ "3" ],
+    "attributes" : [ "external", "object" ],
+    "id" : "68"
+  }, {
     "iri" : "http://purl.obolibrary.org/obo/BFO_0000224",
     "baseIri" : "http://purl.obolibrary.org/obo",
     "range" : "32",
@@ -7634,26 +7650,10 @@
       "IRI-based" : "RO_0000053",
       "en" : "has characteristic"
     },
-    "domain" : "69",
-    "subproperty" : [ "70", "71", "72", "73" ],
+    "domain" : "72",
+    "subproperty" : [ "73", "74", "75", "76" ],
     "attributes" : [ "external", "object", "inverse functional" ],
-    "id" : "68"
-  }, {
-    "iri" : "http://www.w3.org/ns/org#subOrganizationOf",
-    "baseIri" : "http://www.w3.org/ns/org",
-    "range" : "75",
-    "label" : {
-      "IRI-based" : "subOrganizationOf",
-      "en" : "subOrganization of",
-      "it" : "sotto-Organization di",
-      "fr" : "sous-Organization de",
-      "es" : "es suborganización de"
-    },
-    "superproperty" : [ "76" ],
-    "domain" : "75",
-    "subproperty" : [ "3" ],
-    "attributes" : [ "external", "object" ],
-    "id" : "74"
+    "id" : "71"
   }, {
     "iri" : "http://purl.obolibrary.org/obo/RO_0002353",
     "baseIri" : "http://purl.obolibrary.org/obo",
@@ -7668,7 +7668,7 @@
     },
     "label" : {
       "IRI-based" : "RO_0002353",
-      "en" : "is output of"
+      "en" : "output of"
     },
     "superproperty" : [ "61" ],
     "domain" : "56",
@@ -7695,23 +7695,9 @@
     "attributes" : [ "external", "object" ],
     "id" : "59"
   }, {
-    "iri" : "http://www.w3.org/ns/org#holds",
-    "baseIri" : "http://www.w3.org/ns/org",
-    "range" : "35",
-    "label" : {
-      "IRI-based" : "holds",
-      "en" : "holds",
-      "it" : "ricopre",
-      "fr" : "occupe",
-      "es" : "ocupa"
-    },
-    "domain" : "34",
-    "attributes" : [ "external", "object" ],
-    "id" : "77"
-  }, {
     "iri" : "http://purl.obolibrary.org/obo/OBI_0000312",
     "baseIri" : "http://purl.obolibrary.org/obo",
-    "range" : "79",
+    "range" : "78",
     "annotations" : {
       "IAO_0000115" : [ {
         "identifier" : "IAO_0000115",
@@ -7725,14 +7711,28 @@
       "en" : "is specified output of"
     },
     "superproperty" : [ "61" ],
-    "domain" : "78",
+    "domain" : "77",
     "attributes" : [ "external", "object" ],
     "id" : "66"
   }, {
+    "iri" : "http://www.w3.org/ns/org#holds",
+    "baseIri" : "http://www.w3.org/ns/org",
+    "range" : "35",
+    "label" : {
+      "IRI-based" : "holds",
+      "en" : "holds",
+      "it" : "ricopre",
+      "fr" : "occupe",
+      "es" : "ocupa"
+    },
+    "domain" : "34",
+    "attributes" : [ "external", "object" ],
+    "id" : "79"
+  }, {
     "iri" : "http://purl.obolibrary.org/obo/RO_0000052",
-    "inverse" : "68",
+    "inverse" : "71",
     "baseIri" : "http://purl.obolibrary.org/obo",
-    "range" : "69",
+    "range" : "72",
     "annotations" : {
       "IAO_0000115" : [ {
         "identifier" : "IAO_0000115",
@@ -7937,6 +7937,31 @@
     "attributes" : [ "anonymous", "object" ],
     "id" : "132"
   }, {
+    "iri" : "http://purl.obolibrary.org/obo/BFO_0000066",
+    "inverse" : "137",
+    "baseIri" : "http://purl.obolibrary.org/obo",
+    "range" : "136",
+    "annotations" : {
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en",
+        "value" : "b occurs in c =Def b is a process or a process boundary & c is a material entity or site & there exists a spatiotemporal region r & b occupies spatiotemporal region r & for all time t, if b exists at t then c exists at t & there exist spatial regions s and s' where b spatially projects onto s at t & c occupies spatial region s' at t & s is a continuant part of s' at t",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "BFO_0000066",
+      "en" : "occurs in"
+    },
+    "domain" : "135",
+    "attributes" : [ "external", "object", "someValues" ],
+    "id" : "134"
+  }, {
+    "range" : "7",
+    "domain" : "139",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "138"
+  }, {
     "iri" : "http://purl.obolibrary.org/obo/BFO_0000117",
     "inverse" : "112",
     "baseIri" : "http://purl.obolibrary.org/obo",
@@ -7956,32 +7981,7 @@
     "superproperty" : [ "113" ],
     "domain" : "135",
     "attributes" : [ "external", "object", "someValues", "transitive" ],
-    "id" : "134"
-  }, {
-    "range" : "7",
-    "domain" : "137",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "136"
-  }, {
-    "iri" : "http://purl.obolibrary.org/obo/BFO_0000066",
-    "inverse" : "140",
-    "baseIri" : "http://purl.obolibrary.org/obo",
-    "range" : "139",
-    "annotations" : {
-      "definition" : [ {
-        "identifier" : "definition",
-        "language" : "en",
-        "value" : "b occurs in c =Def b is a process or a process boundary & c is a material entity or site & there exists a spatiotemporal region r & b occupies spatiotemporal region r & for all time t, if b exists at t then c exists at t & there exist spatial regions s and s' where b spatially projects onto s at t & c occupies spatial region s' at t & s is a continuant part of s' at t",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "BFO_0000066",
-      "en" : "occurs in"
-    },
-    "domain" : "135",
-    "attributes" : [ "external", "object", "someValues" ],
-    "id" : "138"
+    "id" : "140"
   }, {
     "range" : "7",
     "domain" : "142",
@@ -8193,7 +8193,7 @@
     "attributes" : [ "anonymous", "object" ],
     "id" : "216"
   }, {
-    "range" : "79",
+    "range" : "78",
     "domain" : "109",
     "attributes" : [ "anonymous", "object" ],
     "id" : "217"
@@ -8203,10 +8203,29 @@
     "attributes" : [ "anonymous", "object" ],
     "id" : "218"
   }, {
-    "range" : "79",
+    "range" : "78",
     "domain" : "221",
     "attributes" : [ "anonymous", "object" ],
     "id" : "220"
+  }, {
+    "iri" : "http://purl.obolibrary.org/obo/RO_0001025",
+    "baseIri" : "http://purl.obolibrary.org/obo",
+    "range" : "49",
+    "annotations" : {
+      "IAO_0000115" : [ {
+        "identifier" : "IAO_0000115",
+        "language" : "en",
+        "value" : "a relation between two independent continuants, the target and the location, in which the target is entirely within the location",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "RO_0001025",
+      "en" : "located in"
+    },
+    "domain" : "49",
+    "attributes" : [ "external", "object", "transitive" ],
+    "id" : "50"
   }, {
     "iri" : "http://purl.obolibrary.org/obo/RO_0000057",
     "baseIri" : "http://purl.obolibrary.org/obo",
@@ -8227,25 +8246,6 @@
     "subproperty" : [ "122", "58", "67", "123" ],
     "attributes" : [ "external", "object" ],
     "id" : "60"
-  }, {
-    "iri" : "http://purl.obolibrary.org/obo/RO_0001025",
-    "baseIri" : "http://purl.obolibrary.org/obo",
-    "range" : "49",
-    "annotations" : {
-      "IAO_0000115" : [ {
-        "identifier" : "IAO_0000115",
-        "language" : "en",
-        "value" : "a relation between two independent continuants, the target and the location, in which the target is entirely within the location",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "RO_0001025",
-      "en" : "located in"
-    },
-    "domain" : "49",
-    "attributes" : [ "external", "object", "transitive" ],
-    "id" : "50"
   }, {
     "range" : "125",
     "domain" : "44",
@@ -8384,10 +8384,10 @@
       "IRI-based" : "RO_0000091",
       "en" : "has disposition"
     },
-    "superproperty" : [ "68" ],
+    "superproperty" : [ "71" ],
     "domain" : "49",
     "attributes" : [ "external", "object" ],
-    "id" : "70"
+    "id" : "73"
   }, {
     "iri" : "http://purl.obolibrary.org/obo/RO_0000092",
     "baseIri" : "http://purl.obolibrary.org/obo",
@@ -8440,7 +8440,7 @@
     "id" : "267"
   }, {
     "range" : "142",
-    "domain" : "79",
+    "domain" : "78",
     "attributes" : [ "anonymous", "object" ],
     "id" : "268"
   }, {
@@ -8520,7 +8520,7 @@
     "id" : "286"
   }, {
     "iri" : "http://purl.obolibrary.org/obo/RO_0000079",
-    "inverse" : "73",
+    "inverse" : "76",
     "baseIri" : "http://purl.obolibrary.org/obo",
     "range" : "49",
     "annotations" : {
@@ -8541,7 +8541,7 @@
     "id" : "84"
   }, {
     "iri" : "http://purl.obolibrary.org/obo/RO_0000080",
-    "inverse" : "71",
+    "inverse" : "74",
     "baseIri" : "http://purl.obolibrary.org/obo",
     "range" : "296",
     "annotations" : {
@@ -8562,7 +8562,7 @@
     "id" : "81"
   }, {
     "iri" : "http://purl.obolibrary.org/obo/RO_0000081",
-    "inverse" : "72",
+    "inverse" : "75",
     "baseIri" : "http://purl.obolibrary.org/obo",
     "range" : "49",
     "annotations" : {
@@ -8589,7 +8589,7 @@
       "IRI-based" : "notation"
     },
     "domain" : "56",
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "297"
   }, {
     "iri" : "http://purl.obolibrary.org/obo/RO_0000086",
@@ -8607,10 +8607,10 @@
       "IRI-based" : "RO_0000086",
       "en" : "has quality"
     },
-    "superproperty" : [ "68" ],
+    "superproperty" : [ "71" ],
     "domain" : "296",
     "attributes" : [ "external", "object" ],
-    "id" : "71"
+    "id" : "74"
   }, {
     "iri" : "http://www.w3.org/ns/org#memberDuring",
     "baseIri" : "http://www.w3.org/ns/org",
@@ -8646,10 +8646,10 @@
       "IRI-based" : "RO_0000087",
       "en" : "has role"
     },
-    "superproperty" : [ "68" ],
+    "superproperty" : [ "71" ],
     "domain" : "49",
     "attributes" : [ "external", "object" ],
-    "id" : "72"
+    "id" : "75"
   }, {
     "range" : "63",
     "domain" : "6",
@@ -8686,10 +8686,10 @@
       "IRI-based" : "RO_0000085",
       "en" : "has function"
     },
-    "superproperty" : [ "68" ],
+    "superproperty" : [ "71" ],
     "domain" : "49",
     "attributes" : [ "external", "object" ],
-    "id" : "73"
+    "id" : "76"
   }, {
     "range" : "63",
     "domain" : "7",
@@ -8707,7 +8707,7 @@
     "id" : "313"
   }, {
     "range" : "34",
-    "domain" : "75",
+    "domain" : "69",
     "attributes" : [ "anonymous", "object" ],
     "id" : "314"
   }, {
@@ -8908,7 +8908,7 @@
     },
     "domain" : "96",
     "attributes" : [ "external", "object" ],
-    "id" : "140"
+    "id" : "137"
   }, {
     "iri" : "http://purl.obolibrary.org/obo/BFO_0000051",
     "baseIri" : "http://purl.obolibrary.org/obo",
@@ -8964,7 +8964,7 @@
     },
     "domain" : "56",
     "attributes" : [ "external", "object" ],
-    "id" : "378"
+    "id" : "380"
   }, {
     "iri" : "https://w3id.org/pmd/log/LOG_1900002",
     "baseIri" : "https://w3id.org/pmd/log",
@@ -8992,7 +8992,7 @@
     "id" : "381"
   }, {
     "iri" : "http://purl.obolibrary.org/obo/BFO_0000066",
-    "inverse" : "140",
+    "inverse" : "137",
     "baseIri" : "http://purl.obolibrary.org/obo",
     "range" : "90",
     "annotations" : {
@@ -9038,9 +9038,9 @@
     "id" : "57"
   }, {
     "iri" : "http://www.w3.org/ns/org#hasSubOrganization",
-    "inverse" : "74",
+    "inverse" : "68",
     "baseIri" : "http://www.w3.org/ns/org",
-    "range" : "75",
+    "range" : "69",
     "label" : {
       "IRI-based" : "hasSubOrganization",
       "en" : "has SubOrganization",
@@ -9048,7 +9048,7 @@
       "fr" : "a une Sous-Organization",
       "es" : "tiene suborganización"
     },
-    "domain" : "75",
+    "domain" : "69",
     "subproperty" : [ "0" ],
     "attributes" : [ "external", "object" ],
     "id" : "4"
@@ -9125,7 +9125,7 @@
     },
     "superproperty" : [ "113" ],
     "domain" : "6",
-    "attributes" : [ "allValues", "external", "object", "transitive" ],
+    "attributes" : [ "external", "allValues", "object", "transitive" ],
     "id" : "388"
   }, {
     "iri" : "http://purl.obolibrary.org/obo/BFO_0000050",
@@ -9146,7 +9146,7 @@
     },
     "domain" : "177",
     "subproperty" : [ "112", "85" ],
-    "attributes" : [ "allValues", "external", "object", "transitive" ],
+    "attributes" : [ "external", "allValues", "object", "transitive" ],
     "id" : "389"
   }, {
     "iri" : "http://purl.obolibrary.org/obo/BFO_0000055",
@@ -9170,7 +9170,7 @@
       "IRI-based" : "BFO_0000055",
       "en" : "realizes"
     },
-    "domain" : "79",
+    "domain" : "78",
     "attributes" : [ "external", "object", "someValues" ],
     "id" : "390"
   }, {
@@ -9202,7 +9202,7 @@
     },
     "domain" : "116",
     "subproperty" : [ "112", "85" ],
-    "attributes" : [ "allValues", "external", "object", "transitive" ],
+    "attributes" : [ "external", "allValues", "object", "transitive" ],
     "id" : "393"
   }, {
     "iri" : "http://purl.obolibrary.org/obo/BFO_0000050",
@@ -9223,7 +9223,7 @@
     },
     "domain" : "24",
     "subproperty" : [ "112", "85" ],
-    "attributes" : [ "allValues", "external", "object", "transitive" ],
+    "attributes" : [ "external", "allValues", "object", "transitive" ],
     "id" : "394"
   }, {
     "iri" : "http://purl.obolibrary.org/obo/BFO_0000050",
@@ -9244,7 +9244,7 @@
     },
     "domain" : "10",
     "subproperty" : [ "112", "85" ],
-    "attributes" : [ "allValues", "external", "object", "transitive" ],
+    "attributes" : [ "external", "allValues", "object", "transitive" ],
     "id" : "395"
   }, {
     "iri" : "http://purl.obolibrary.org/obo/BFO_0000054",
@@ -9261,7 +9261,7 @@
     },
     "label" : {
       "IRI-based" : "BFO_0000054",
-      "en" : "realized in"
+      "en" : "has realization"
     },
     "domain" : "116",
     "attributes" : [ "external", "object" ],
@@ -9294,7 +9294,7 @@
   }, {
     "iri" : "http://www.w3.org/ns/org#memberOf",
     "baseIri" : "http://www.w3.org/ns/org",
-    "range" : "75",
+    "range" : "69",
     "label" : {
       "IRI-based" : "memberOf",
       "en" : "member of",
@@ -9324,7 +9324,7 @@
     },
     "superproperty" : [ "87" ],
     "domain" : "7",
-    "attributes" : [ "allValues", "external", "object", "transitive" ],
+    "attributes" : [ "external", "allValues", "object", "transitive" ],
     "id" : "403"
   }, {
     "iri" : "http://purl.obolibrary.org/obo/BFO_0000132",
@@ -9344,7 +9344,7 @@
     },
     "superproperty" : [ "87" ],
     "domain" : "180",
-    "attributes" : [ "allValues", "external", "object", "transitive" ],
+    "attributes" : [ "external", "allValues", "object", "transitive" ],
     "id" : "404"
   }, {
     "range" : "125",
@@ -9389,7 +9389,7 @@
     },
     "superproperty" : [ "87" ],
     "domain" : "31",
-    "attributes" : [ "allValues", "external", "object", "transitive" ],
+    "attributes" : [ "external", "allValues", "object", "transitive" ],
     "id" : "410"
   }, {
     "iri" : "http://www.w3.org/ns/org#hasPost",
@@ -9403,7 +9403,7 @@
       "fr" : "possède un poste",
       "es" : "tiene puesto"
     },
-    "domain" : "75",
+    "domain" : "69",
     "attributes" : [ "external", "object" ],
     "id" : "411"
   }, {
@@ -9417,7 +9417,7 @@
       "fr" : "unité de",
       "es" : "es unidad de"
     },
-    "superproperty" : [ "74" ],
+    "superproperty" : [ "68" ],
     "domain" : "2",
     "attributes" : [ "external", "object" ],
     "id" : "3"
@@ -9498,7 +9498,7 @@
   }, {
     "iri" : "http://www.w3.org/ns/org#organization",
     "baseIri" : "http://www.w3.org/ns/org",
-    "range" : "75",
+    "range" : "69",
     "label" : {
       "IRI-based" : "organization",
       "en" : "organization",
@@ -9516,7 +9516,7 @@
     "id" : "422"
   }, {
     "range" : "158",
-    "domain" : "75",
+    "domain" : "69",
     "attributes" : [ "anonymous", "object" ],
     "id" : "423"
   }, {
@@ -9535,7 +9535,7 @@
     "attributes" : [ "anonymous", "object" ],
     "id" : "425"
   }, {
-    "range" : "305",
+    "range" : "69",
     "domain" : "44",
     "attributes" : [ "anonymous", "object" ],
     "id" : "426"
@@ -9546,22 +9546,22 @@
     "id" : "427"
   }, {
     "range" : "305",
-    "domain" : "75",
+    "domain" : "69",
     "attributes" : [ "anonymous", "object" ],
     "id" : "428"
   }, {
-    "range" : "75",
+    "range" : "305",
     "domain" : "44",
     "attributes" : [ "anonymous", "object" ],
     "id" : "429"
   }, {
-    "range" : "305",
-    "domain" : "380",
+    "range" : "158",
+    "domain" : "379",
     "attributes" : [ "anonymous", "object" ],
     "id" : "430"
   }, {
-    "range" : "75",
-    "domain" : "380",
+    "range" : "44",
+    "domain" : "379",
     "attributes" : [ "anonymous", "object" ],
     "id" : "431"
   }, {
@@ -9584,8 +9584,8 @@
     "attributes" : [ "external", "object", "functional" ],
     "id" : "432"
   }, {
-    "range" : "158",
-    "domain" : "380",
+    "range" : "69",
+    "domain" : "379",
     "attributes" : [ "anonymous", "object" ],
     "id" : "433"
   }, {
@@ -9604,7 +9604,7 @@
     "id" : "434"
   }, {
     "iri" : "http://purl.obolibrary.org/obo/RO_0000052",
-    "inverse" : "68",
+    "inverse" : "71",
     "baseIri" : "http://purl.obolibrary.org/obo",
     "range" : "14",
     "annotations" : {
@@ -9648,8 +9648,8 @@
     "attributes" : [ "external", "object", "someValues" ],
     "id" : "436"
   }, {
-    "range" : "44",
-    "domain" : "380",
+    "range" : "305",
+    "domain" : "379",
     "attributes" : [ "anonymous", "object" ],
     "id" : "437"
   }, {
@@ -9668,27 +9668,34 @@
       "IRI-based" : "RO_0000087",
       "en" : "has role"
     },
-    "superproperty" : [ "68" ],
+    "superproperty" : [ "71" ],
     "domain" : "29",
     "attributes" : [ "external", "object", "someValues" ],
     "id" : "438"
   }, {
-    "iri" : "http://purl.obolibrary.org/obo/OBI_0000312",
+    "iri" : "http://purl.obolibrary.org/obo/IAO_0000219",
+    "inverse" : "418",
     "baseIri" : "http://purl.obolibrary.org/obo",
-    "range" : "109",
+    "range" : "95",
     "annotations" : {
       "IAO_0000115" : [ {
         "identifier" : "IAO_0000115",
         "language" : "en",
-        "value" : "A relation between a completely executed planned process and a continuant participating in that process. The presence of the continuant at the end of the process is explicitly specified in the objective specification which the process realizes the concretization of.",
+        "value" : "A primitive, instance-level, relation obtaining between an information content entity and some portion of reality. Denotation is what happens when someone creates an information content entity E in order to specifically refer to something. The only relation between E and the thing is that E can be used to 'pick out' the thing. This relation connects those two together. Freedictionary.com sense 3: To signify directly; refer to specifically",
+        "type" : "label"
+      } ],
+      "IAO_0000119" : [ {
+        "identifier" : "IAO_0000119",
+        "language" : "en",
+        "value" : "Conversations with Barry Smith, Werner Ceusters, Bjoern Peters, Michel Dumontier, Melanie Courtot, James Malone, Bill Hogan",
         "type" : "label"
       } ]
     },
     "label" : {
-      "IRI-based" : "OBI_0000312",
-      "en" : "is specified output of"
+      "IRI-based" : "IAO_0000219",
+      "en" : "denotes"
     },
-    "superproperty" : [ "61" ],
+    "superproperty" : [ "419" ],
     "domain" : "15",
     "attributes" : [ "external", "object", "someValues" ],
     "id" : "439"
@@ -9735,29 +9742,22 @@
     "attributes" : [ "external", "object", "someValues" ],
     "id" : "441"
   }, {
-    "iri" : "http://purl.obolibrary.org/obo/IAO_0000219",
-    "inverse" : "418",
+    "iri" : "http://purl.obolibrary.org/obo/OBI_0000312",
     "baseIri" : "http://purl.obolibrary.org/obo",
-    "range" : "95",
+    "range" : "109",
     "annotations" : {
       "IAO_0000115" : [ {
         "identifier" : "IAO_0000115",
         "language" : "en",
-        "value" : "A primitive, instance-level, relation obtaining between an information content entity and some portion of reality. Denotation is what happens when someone creates an information content entity E in order to specifically refer to something. The only relation between E and the thing is that E can be used to 'pick out' the thing. This relation connects those two together. Freedictionary.com sense 3: To signify directly; refer to specifically",
-        "type" : "label"
-      } ],
-      "IAO_0000119" : [ {
-        "identifier" : "IAO_0000119",
-        "language" : "en",
-        "value" : "Conversations with Barry Smith, Werner Ceusters, Bjoern Peters, Michel Dumontier, Melanie Courtot, James Malone, Bill Hogan",
+        "value" : "A relation between a completely executed planned process and a continuant participating in that process. The presence of the continuant at the end of the process is explicitly specified in the objective specification which the process realizes the concretization of.",
         "type" : "label"
       } ]
     },
     "label" : {
-      "IRI-based" : "IAO_0000219",
-      "en" : "denotes"
+      "IRI-based" : "OBI_0000312",
+      "en" : "is specified output of"
     },
-    "superproperty" : [ "419" ],
+    "superproperty" : [ "61" ],
     "domain" : "15",
     "attributes" : [ "external", "object", "someValues" ],
     "id" : "442"
@@ -9817,7 +9817,7 @@
     "attributes" : [ "external", "object", "someValues" ],
     "id" : "453"
   }, {
-    "range" : "139",
+    "range" : "136",
     "domain" : "456",
     "attributes" : [ "anonymous", "object" ],
     "id" : "455"
@@ -9843,7 +9843,7 @@
     "id" : "460"
   }, {
     "range" : "279",
-    "domain" : "139",
+    "domain" : "136",
     "attributes" : [ "anonymous", "object" ],
     "id" : "462"
   }, {
@@ -9884,7 +9884,7 @@
       "es" : "tiene sede principal en"
     },
     "superproperty" : [ "468" ],
-    "domain" : "75",
+    "domain" : "69",
     "subproperty" : [ "157" ],
     "attributes" : [ "external", "object" ],
     "id" : "159"
@@ -10204,10 +10204,10 @@
     },
     "label" : {
       "IRI-based" : "BFO_0000054",
-      "en" : "realized in"
+      "en" : "has realization"
     },
     "domain" : "320",
-    "attributes" : [ "allValues", "external", "object" ],
+    "attributes" : [ "external", "allValues", "object" ],
     "id" : "510"
   }, {
     "iri" : "http://purl.obolibrary.org/obo/BFO_0000196",
@@ -10232,7 +10232,7 @@
   }, {
     "iri" : "http://www.w3.org/ns/org#originalOrganization",
     "baseIri" : "http://www.w3.org/ns/org",
-    "range" : "75",
+    "range" : "69",
     "label" : {
       "IRI-based" : "originalOrganization",
       "en" : "original organization",
@@ -10241,7 +10241,7 @@
       "es" : "es organización original"
     },
     "superproperty" : [ "465" ],
-    "domain" : "380",
+    "domain" : "379",
     "attributes" : [ "external", "object" ],
     "id" : "466"
   }, {
@@ -10259,7 +10259,7 @@
     },
     "label" : {
       "IRI-based" : "BFO_0000054",
-      "en" : "realized in"
+      "en" : "has realization"
     },
     "domain" : "101",
     "attributes" : [ "external", "object", "someValues" ],
@@ -10279,7 +10279,7 @@
     },
     "label" : {
       "IRI-based" : "BFO_0000054",
-      "en" : "realized in"
+      "en" : "has realization"
     },
     "domain" : "291",
     "attributes" : [ "external", "object", "someValues" ],
@@ -10299,7 +10299,7 @@
     },
     "label" : {
       "IRI-based" : "BFO_0000054",
-      "en" : "realized in"
+      "en" : "has realization"
     },
     "domain" : "102",
     "attributes" : [ "external", "object", "someValues" ],
@@ -10367,7 +10367,7 @@
     },
     "superproperty" : [ "113" ],
     "domain" : "179",
-    "attributes" : [ "external", "object", "irreflexive", "someValues" ],
+    "attributes" : [ "external", "irreflexive", "object", "someValues" ],
     "id" : "521"
   }, {
     "iri" : "http://purl.obolibrary.org/obo/BFO_0000196",
@@ -10444,7 +10444,7 @@
     },
     "superproperty" : [ "113" ],
     "domain" : "185",
-    "attributes" : [ "external", "object", "irreflexive", "someValues" ],
+    "attributes" : [ "external", "irreflexive", "object", "someValues" ],
     "id" : "526"
   }, {
     "iri" : "http://purl.obolibrary.org/obo/BFO_0000196",
@@ -10460,7 +10460,7 @@
     "iri" : "http://www.w3.org/ns/org#resultedFrom",
     "inverse" : "529",
     "baseIri" : "http://www.w3.org/ns/org",
-    "range" : "380",
+    "range" : "379",
     "label" : {
       "IRI-based" : "resultedFrom",
       "en" : "resulted from",
@@ -10469,7 +10469,7 @@
       "es" : "es el resultado de"
     },
     "superproperty" : [ "530" ],
-    "domain" : "75",
+    "domain" : "69",
     "attributes" : [ "external", "object" ],
     "id" : "528"
   }, {
@@ -10483,8 +10483,8 @@
       "fr" : "identifiant",
       "es" : "tiene identificador"
     },
-    "domain" : "75",
-    "attributes" : [ "datatype", "external" ],
+    "domain" : "69",
+    "attributes" : [ "external", "datatype" ],
     "id" : "531"
   }, {
     "iri" : "http://purl.obolibrary.org/obo/IAO_0000235",
@@ -10631,14 +10631,14 @@
       "fr" : "a un site",
       "es" : "tiene sede en"
     },
-    "domain" : "75",
+    "domain" : "69",
     "subproperty" : [ "159" ],
     "attributes" : [ "external", "object" ],
     "id" : "468"
   }, {
     "iri" : "http://www.w3.org/ns/org#linkedTo",
     "baseIri" : "http://www.w3.org/ns/org",
-    "range" : "75",
+    "range" : "69",
     "label" : {
       "IRI-based" : "linkedTo",
       "en" : "linked to",
@@ -10646,7 +10646,7 @@
       "fr" : "relié à",
       "es" : "está relacionado con"
     },
-    "domain" : "75",
+    "domain" : "69",
     "attributes" : [ "external", "object" ],
     "id" : "542"
   }, {
@@ -10676,7 +10676,7 @@
   }, {
     "iri" : "http://www.w3.org/ns/org#postIn",
     "baseIri" : "http://www.w3.org/ns/org",
-    "range" : "75",
+    "range" : "69",
     "label" : {
       "IRI-based" : "postIn",
       "en" : "post in",
@@ -10691,7 +10691,7 @@
     "iri" : "http://www.w3.org/ns/org#changedBy",
     "inverse" : "466",
     "baseIri" : "http://www.w3.org/ns/org",
-    "range" : "380",
+    "range" : "379",
     "label" : {
       "IRI-based" : "changedBy",
       "en" : "changed by",
@@ -10699,13 +10699,13 @@
       "fr" : "modifiée par",
       "es" : "es modificada por"
     },
-    "domain" : "75",
+    "domain" : "69",
     "attributes" : [ "external", "object" ],
     "id" : "545"
   }, {
     "iri" : "http://www.w3.org/ns/org#transitiveSubOrganizationOf",
     "baseIri" : "http://www.w3.org/ns/org",
-    "range" : "75",
+    "range" : "69",
     "label" : {
       "IRI-based" : "transitiveSubOrganizationOf",
       "en" : "transitive sub-organization",
@@ -10713,10 +10713,10 @@
       "fr" : "sous-Organization transitive de",
       "es" : "es suborganización de (transitiva)"
     },
-    "domain" : "75",
-    "subproperty" : [ "74" ],
+    "domain" : "69",
+    "subproperty" : [ "68" ],
     "attributes" : [ "external", "object", "transitive" ],
-    "id" : "76"
+    "id" : "70"
   }, {
     "iri" : "https://w3id.org/pmd/co/PMD_0040121",
     "inverse" : "106",
@@ -10764,7 +10764,7 @@
   }, {
     "iri" : "http://www.w3.org/ns/org#headOf",
     "baseIri" : "http://www.w3.org/ns/org",
-    "range" : "75",
+    "range" : "69",
     "label" : {
       "IRI-based" : "headOf",
       "en" : "head of",
@@ -10871,8 +10871,8 @@
     "attributes" : [ "anonymous", "object" ],
     "id" : "567"
   }, {
-    "range" : "379",
-    "domain" : "380",
+    "range" : "378",
+    "domain" : "379",
     "attributes" : [ "anonymous", "object" ],
     "id" : "568"
   }, {
@@ -10935,7 +10935,7 @@
   }, {
     "iri" : "http://www.w3.org/ns/org#resultingOrganization",
     "baseIri" : "http://www.w3.org/ns/org",
-    "range" : "75",
+    "range" : "69",
     "label" : {
       "IRI-based" : "resultingOrganization",
       "en" : "resulted in",
@@ -10943,13 +10943,13 @@
       "fr" : "a donné naissance à",
       "es" : "resulta en"
     },
-    "domain" : "380",
+    "domain" : "379",
     "attributes" : [ "external", "object" ],
     "id" : "529"
   }, {
     "iri" : "http://purl.obolibrary.org/obo/OBI_0000295",
     "baseIri" : "http://purl.obolibrary.org/obo",
-    "range" : "79",
+    "range" : "78",
     "annotations" : {
       "IAO_0000115" : [ {
         "identifier" : "IAO_0000115",
@@ -10963,14 +10963,14 @@
       "en" : "is specified input of"
     },
     "superproperty" : [ "61" ],
-    "domain" : "78",
+    "domain" : "77",
     "attributes" : [ "external", "object" ],
     "id" : "64"
   }, {
     "iri" : "http://purl.obolibrary.org/obo/OBI_0000293",
     "inverse" : "64",
     "baseIri" : "http://purl.obolibrary.org/obo",
-    "range" : "78",
+    "range" : "77",
     "annotations" : {
       "IAO_0000115" : [ {
         "identifier" : "IAO_0000115",
@@ -10984,11 +10984,11 @@
       "en" : "has specified input"
     },
     "superproperty" : [ "60" ],
-    "domain" : "79",
+    "domain" : "78",
     "attributes" : [ "external", "object" ],
     "id" : "122"
   }, {
-    "range" : "137",
+    "range" : "139",
     "domain" : "557",
     "attributes" : [ "anonymous", "object" ],
     "id" : "575"
@@ -11013,7 +11013,7 @@
     "attributes" : [ "anonymous", "object" ],
     "id" : "579"
   }, {
-    "range" : "75",
+    "range" : "69",
     "domain" : "1",
     "attributes" : [ "anonymous", "object" ],
     "id" : "580"
@@ -11023,7 +11023,7 @@
     "attributes" : [ "anonymous", "object" ],
     "id" : "581"
   }, {
-    "range" : "75",
+    "range" : "69",
     "domain" : "294",
     "attributes" : [ "anonymous", "object" ],
     "id" : "582"
@@ -11033,7 +11033,7 @@
     "attributes" : [ "anonymous", "object" ],
     "id" : "583"
   }, {
-    "range" : "75",
+    "range" : "69",
     "domain" : "2",
     "attributes" : [ "anonymous", "object" ],
     "id" : "584"
@@ -11044,7 +11044,7 @@
     "id" : "585"
   }, {
     "range" : "293",
-    "domain" : "75",
+    "domain" : "69",
     "attributes" : [ "anonymous", "object" ],
     "id" : "586"
   }, {
@@ -11056,7 +11056,7 @@
     "iri" : "http://purl.obolibrary.org/obo/OBI_0000299",
     "inverse" : "66",
     "baseIri" : "http://purl.obolibrary.org/obo",
-    "range" : "78",
+    "range" : "77",
     "annotations" : {
       "IAO_0000115" : [ {
         "identifier" : "IAO_0000115",
@@ -11070,7 +11070,7 @@
       "en" : "has specified output"
     },
     "superproperty" : [ "60" ],
-    "domain" : "79",
+    "domain" : "78",
     "attributes" : [ "external", "object" ],
     "id" : "123"
   }, {
@@ -11129,7 +11129,7 @@
       "fr" : "classification",
       "es" : "pertenece a la clasificación"
     },
-    "domain" : "75",
+    "domain" : "69",
     "attributes" : [ "external", "object" ],
     "id" : "597"
   }, {
@@ -11209,7 +11209,7 @@
     "id" : "612"
   }, {
     "iri" : "http://www.w3.org/ns/org#heldBy",
-    "inverse" : "77",
+    "inverse" : "79",
     "baseIri" : "http://www.w3.org/ns/org",
     "range" : "34",
     "label" : {
@@ -11225,7 +11225,7 @@
   }, {
     "iri" : "http://www.w3.org/ns/org#siteOf",
     "baseIri" : "http://www.w3.org/ns/org",
-    "range" : "75",
+    "range" : "69",
     "label" : {
       "IRI-based" : "siteOf",
       "en" : "site Of",
@@ -11248,7 +11248,7 @@
       "fr" : "possède un membre",
       "es" : "tiene miembro"
     },
-    "domain" : "75",
+    "domain" : "69",
     "attributes" : [ "external", "object" ],
     "id" : "614"
   }, {
@@ -11308,23 +11308,13 @@
     },
     "domain" : "63",
     "subproperty" : [ "112", "85" ],
-    "attributes" : [ "allValues", "external", "object", "transitive" ],
+    "attributes" : [ "external", "allValues", "object", "transitive" ],
     "id" : "616"
   }, {
-    "range" : "24",
+    "range" : "177",
     "domain" : "49",
     "attributes" : [ "anonymous", "object" ],
     "id" : "617"
-  }, {
-    "range" : "177",
-    "domain" : "49",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "618"
-  }, {
-    "range" : "177",
-    "domain" : "24",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "619"
   }, {
     "iri" : "http://purl.obolibrary.org/obo/BFO_0000050",
     "inverse" : "113",
@@ -11344,7 +11334,17 @@
     },
     "domain" : "49",
     "subproperty" : [ "112", "85" ],
-    "attributes" : [ "allValues", "external", "object", "transitive" ],
+    "attributes" : [ "external", "allValues", "object", "transitive" ],
+    "id" : "618"
+  }, {
+    "range" : "24",
+    "domain" : "49",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "619"
+  }, {
+    "range" : "177",
+    "domain" : "24",
+    "attributes" : [ "anonymous", "object" ],
     "id" : "620"
   }, {
     "range" : "91",
@@ -11361,6 +11361,11 @@
     "domain" : "91",
     "attributes" : [ "anonymous", "object" ],
     "id" : "623"
+  }, {
+    "range" : "63",
+    "domain" : "62",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "626"
   }, {
     "iri" : "http://purl.obolibrary.org/obo/BFO_0000050",
     "inverse" : "113",
@@ -11380,12 +11385,7 @@
     },
     "domain" : "62",
     "subproperty" : [ "112", "85" ],
-    "attributes" : [ "allValues", "external", "object", "transitive" ],
-    "id" : "626"
-  }, {
-    "range" : "63",
-    "domain" : "62",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "external", "allValues", "object", "transitive" ],
     "id" : "627"
   } ]
 }
