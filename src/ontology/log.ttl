@@ -15,7 +15,7 @@
 @base <https://w3id.org/pmd/log.ttl> .
 
 <https://w3id.org/pmd/log.ttl> rdf:type owl:Ontology ;
-                                owl:versionIRI <https://w3id.org/pmd/log/releases/2026-04-18/log.ttl> ;
+                                owl:versionIRI <https://w3id.org/pmd/log/1.0.2> ;
                                 dcterms:creator <https://orcid.org/0000-0001-7192-7143> ,
                                                 <https://orcid.org/0000-0003-1649-6832> ,
                                                 <https://orcid.org/0009-0003-1503-4422> ,
@@ -24,7 +24,8 @@
                                 dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
                                 dcterms:title "Platform Material Digital Application Ontology for Logistics and Supply Chain (LOG)"@en ;
                                 rdfs:comment "The logistics application ontology for use with PMD Core Ontology (PMDco). The scope of this module is the description of material science and engineering related logistics and general organization. Its is adopted from the IOF SupplyChain Module https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/"@en ;
-                                owl:versionInfo "2026-04-18" .
+                                owl:versionInfo "1.0.2" ,
+                                                "2026-04-18" .
 
 #################################################################
 #    Annotation properties
@@ -39,8 +40,8 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
                 obo:IAO_0000115 "The official OBI definition, explaining the meaning of a class or property. Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions."@en ,
                                 "The official definition, explaining the meaning of a class or property. Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions."@en ;
                 obo:IAO_0000119 "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ;
-                rdfs:label "definition" ,
-                           "definition"@en ,
+                rdfs:label "definition"@en ,
+                           "definition" ,
                            "textual definition" .
 
 
@@ -48,9 +49,9 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 obo:IAO_0000119 rdf:type owl:AnnotationProperty ;
                 obo:IAO_0000115 "Formal citation, e.g. identifier in external database to indicate / attribute source(s) for the definition. Free text indicate / attribute source(s) for the definition. EXAMPLE: Author Name, URI, MeSH Term C04, PUBMED ID, Wiki uri on 31.01.2007"@en ,
                                 "formal citation, e.g. identifier in external database to indicate / attribute source(s) for the definition. Free text indicate / attribute source(s) for the definition. EXAMPLE: Author Name, URI, MeSH Term C04, PUBMED ID, Wiki uri on 31.01.2007"@en ;
-                obo:IAO_0000119 "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w" ,
-                                "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w"@en ,
-                                "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ;
+                obo:IAO_0000119 "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w"@en ,
+                                "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ,
+                                "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w" ;
                 rdfs:label "definition source"@en .
 
 

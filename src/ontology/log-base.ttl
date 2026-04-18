@@ -12,7 +12,7 @@
 @base <https://w3id.org/pmd/log/log-base.ttl> .
 
 <https://w3id.org/pmd/log/log-base.ttl> rdf:type owl:Ontology ;
-                                         owl:versionIRI <https://w3id.org/pmd/log/releases/2026-04-18/log-base.ttl> ;
+                                         owl:versionIRI <https://w3id.org/pmd/log/1.0.2> ;
                                          dce:type obo:IAO_8000001 ;
                                          dcterms:creator <https://orcid.org/0000-0001-7192-7143> ,
                                                          <https://orcid.org/0000-0003-1649-6832> ,
@@ -22,7 +22,8 @@
                                          dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
                                          dcterms:title "Platform Material Digital Application Ontology for Logistics and Supply Chain (LOG)"@en ;
                                          rdfs:comment "The logistics application ontology for use with PMD Core Ontology (PMDco). The scope of this module is the description of material science and engineering related logistics and general organization. Its is adopted from the IOF SupplyChain Module https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/"@en ;
-                                         owl:versionInfo "2026-04-18" .
+                                         owl:versionInfo "1.0.2" ,
+                                                         "2026-04-18" .
 
 #################################################################
 #    Annotation properties
