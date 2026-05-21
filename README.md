@@ -86,7 +86,7 @@ Models a steel coil shipment from Baosteel (Shanghai) to Volkswagen (Hamburg) vi
 
 **Entities:** shipment, material product, ship-from/ship-to locations (with WGS84 coordinates), bill of lading, consignor/consignee organizations, transport process.
 
-[View pattern](patterns/shipment-by-sea/pattern.md) · [Visualize data](https://thhanke.github.io/visgraph/?rdfUrl=https://raw.githubusercontent.com/materialdigital/logistics-application-ontology/refs/heads/main/patterns/shipment-by-sea/shape-data.ttl)
+[View pattern](patterns/shipment-by-sea/pattern.md) · [Visualize data](https://thhanke.github.io/ontosphere/?rdfUrl=https://raw.githubusercontent.com/materialdigital/logistics-application-ontology/refs/heads/main/patterns/shipment-by-sea/shape-data.ttl&ontology=log, pmdco, bfo2020-nt#shipment-by-sea)
 
 ### Contract Negotiation
 
@@ -94,7 +94,7 @@ Models an annual steel supply framework agreement negotiated between Baosteel an
 
 **Entities:** commercial service agreement, selling process, persons with titles, `org:Post`, buyer/supplier roles, HQ sites with coordinates.
 
-[View pattern](patterns/contract-negotiation/pattern.md) · [Visualize data](https://thhanke.github.io/visgraph/?rdfUrl=https://raw.githubusercontent.com/materialdigital/logistics-application-ontology/refs/heads/main/patterns/contract-negotiation/shape-data.ttl)
+[View pattern](patterns/contract-negotiation/pattern.md) · [Visualize data](https://thhanke.github.io/ontosphere/?rdfUrl=https://raw.githubusercontent.com/materialdigital/logistics-application-ontology/refs/heads/main/patterns/contract-negotiation/shape-data.ttl&ontology=log, pmdco, bfo2020-nt#contract-negotiation)
 
 ### Warehouse Receiving
 
@@ -102,7 +102,7 @@ Models steel coils arriving at DB Schenker's Hamburg logistics centre, covering 
 
 **Entities:** storage facility (with address and coordinates), receiving process, warehousing process, warehousing plan specification, material product.
 
-[View pattern](patterns/warehouse-receiving/pattern.md) · [Visualize data](https://thhanke.github.io/visgraph/?rdfUrl=https://raw.githubusercontent.com/materialdigital/logistics-application-ontology/refs/heads/main/patterns/warehouse-receiving/shape-data.ttl)
+[View pattern](patterns/warehouse-receiving/pattern.md) · [Visualize data](https://thhanke.github.io/ontosphere/?rdfUrl=https://raw.githubusercontent.com/materialdigital/logistics-application-ontology/refs/heads/main/patterns/warehouse-receiving/shape-data.ttl&ontology=log, pmdco, bfo2020-nt#warehouse-receiving)
 
 ### Multimodal Transport
 
@@ -110,7 +110,7 @@ Models automotive parts shipped from Busan to Düsseldorf via Maersk sea freight
 
 **Entities:** two transport process legs, supply chain node, three geospatial sites (with coordinates), two carriers, shipment continuity across legs, temporal ordering.
 
-[View pattern](patterns/multimodal-transport/pattern.md) · [Visualize data](https://thhanke.github.io/visgraph/?rdfUrl=https://raw.githubusercontent.com/materialdigital/logistics-application-ontology/refs/heads/main/patterns/multimodal-transport/shape-data.ttl)
+[View pattern](patterns/multimodal-transport/pattern.md) · [Visualize data](https://thhanke.github.io/ontosphere/?rdfUrl=https://raw.githubusercontent.com/materialdigital/logistics-application-ontology/refs/heads/main/patterns/multimodal-transport/shape-data.ttl&ontology=log, pmdco, bfo2020-nt#multimodal-tansport)
 
 ### Autoshape Pipeline
 
