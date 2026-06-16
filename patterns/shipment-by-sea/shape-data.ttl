@@ -9,6 +9,7 @@
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix ex: <https://example.org/shipment-by-sea#> .
 
 <https://example.org/shipment-by-sea> rdf:type owl:Ontology ;
@@ -22,7 +23,7 @@ ex:port_shanghai a log:LOG_1000088 , pmd:PMD_0040029 ;
     rdfs:comment "Largest container port in the world by throughput, located on Yangshan Island."@en ;
     geo:lat "30.6214"^^xsd:decimal ;
     geo:long "122.0528"^^xsd:decimal ;
-    org:siteAddress "Yangshan Rd, Nanhui New City, Pudong, Shanghai 201306, China" ;
+    org:siteAddress [ a vcard:Address ; vcard:street-address "Yangshan Rd, Nanhui New City, Pudong, Shanghai 201306, China" ] ;
     obo:BFO_0000196 ex:ship_from_role .
 
 ex:ship_from_role a log:LOG_1000075 ;
@@ -33,7 +34,7 @@ ex:port_hamburg a log:LOG_1000089 , pmd:PMD_0040029 ;
     rdfs:comment "Europe's second-largest container port, primary entry point for Asian goods into Central Europe."@en ;
     geo:lat "53.5396"^^xsd:decimal ;
     geo:long "9.9372"^^xsd:decimal ;
-    org:siteAddress "Vancouver-Kai 2, 21129 Hamburg, Germany" ;
+    org:siteAddress [ a vcard:Address ; vcard:street-address "Vancouver-Kai 2, 21129 Hamburg, Germany" ] ;
     obo:BFO_0000196 ex:ship_to_role .
 
 ex:ship_to_role a log:LOG_1000076 ;

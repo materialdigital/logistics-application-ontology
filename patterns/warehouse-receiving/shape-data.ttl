@@ -8,6 +8,7 @@
 @prefix pmd: <https://w3id.org/pmd/co/> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix ex: <https://example.org/warehouse-receiving#> .
 
 <https://example.org/warehouse-receiving> rdf:type owl:Ontology ;
@@ -26,7 +27,7 @@ ex:hamburg_warehouse_site a pmd:PMD_0040029 ;
 ex:hamburg_warehouse a log:LOG_1000034 ;
     rdfs:label "DB Schenker Steel Logistics Centre Hamburg-Altenwerder"@en ;
     rdfs:comment "Dedicated steel coil storage facility with 15,000 m² covered space and indoor crane capacity of 40 tonnes."@en ;
-    org:siteAddress "Altenwerder Chaussee 2, 21129 Hamburg, Germany" ;
+    org:siteAddress [ a vcard:Address ; vcard:street-address "Altenwerder Chaussee 2, 21129 Hamburg, Germany" ] ;
     obo:BFO_0000082 ex:hamburg_warehouse_site .
 
 # --- Incoming goods ---

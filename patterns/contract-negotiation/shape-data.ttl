@@ -8,6 +8,7 @@
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix ex: <https://example.org/contract-negotiation#> .
 
 <https://example.org/contract-negotiation> rdf:type owl:Ontology ;
@@ -56,7 +57,7 @@ ex:supplier_co a log:LOG_1000047 ;
 
 ex:baosteel_hq a org:Site , log:LOG_1000146 ;
     rdfs:label "Baosteel Group Headquarters"@en ;
-    org:siteAddress "370 Pudian Rd, Pudong, Shanghai 200122, China" ;
+    org:siteAddress [ a vcard:Address ; vcard:street-address "370 Pudian Rd, Pudong, Shanghai 200122, China" ] ;
     geo:lat "31.2231"^^xsd:decimal ;
     geo:long "121.5086"^^xsd:decimal .
 
@@ -70,7 +71,7 @@ ex:buyer_co a log:LOG_1000047 ;
 
 ex:vw_hq a org:Site , log:LOG_1000146 ;
     rdfs:label "Volkswagen AG Headquarters"@en ;
-    org:siteAddress "Berliner Ring 2, 38440 Wolfsburg, Germany" ;
+    org:siteAddress [ a vcard:Address ; vcard:street-address "Berliner Ring 2, 38440 Wolfsburg, Germany" ] ;
     geo:lat "52.4277"^^xsd:decimal ;
     geo:long "10.7865"^^xsd:decimal .
 

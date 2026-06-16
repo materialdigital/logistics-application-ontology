@@ -9,6 +9,7 @@
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix ex: <https://example.org/multimodal-transport#> .
 
 <https://example.org/multimodal-transport> rdf:type owl:Ontology ;
@@ -22,7 +23,7 @@ ex:port_busan a log:LOG_1000088 , pmd:PMD_0040029 ;
     rdfs:comment "South Korea's largest container port and Northeast Asia's major transshipment hub."@en ;
     geo:lat "35.0700"^^xsd:decimal ;
     geo:long "128.7780"^^xsd:decimal ;
-    org:siteAddress "61-11 Shinseon-ro, Gangseo-gu, Busan 46721, South Korea" ;
+    org:siteAddress [ a vcard:Address ; vcard:street-address "61-11 Shinseon-ro, Gangseo-gu, Busan 46721, South Korea" ] ;
     obo:BFO_0000196 ex:from_role_busan .
 
 ex:from_role_busan a log:LOG_1000075 ;
@@ -33,7 +34,7 @@ ex:port_rotterdam a log:LOG_1000090 , pmd:PMD_0040029 ;
     rdfs:comment "Europe's largest port and primary intermodal hub for Asia–Europe deep-sea services. Acts as transfer node for sea-to-road handoff."@en ;
     geo:lat "51.9476"^^xsd:decimal ;
     geo:long "4.0544"^^xsd:decimal ;
-    org:siteAddress "Maasvlakte-Oost, 3199 Rotterdam, Netherlands" ;
+    org:siteAddress [ a vcard:Address ; vcard:street-address "Maasvlakte-Oost, 3199 Rotterdam, Netherlands" ] ;
     obo:BFO_0000196 ex:scn_role_rotterdam .
 
 ex:scn_role_rotterdam a log:LOG_1000077 ;
@@ -44,7 +45,7 @@ ex:warehouse_dusseldorf a log:LOG_1000089 , pmd:PMD_0040029 ;
     rdfs:comment "Regional distribution centre receiving just-in-time automotive parts for Rhein-Ruhr assembly plants."@en ;
     geo:lat "51.2627"^^xsd:decimal ;
     geo:long "6.6817"^^xsd:decimal ;
-    org:siteAddress "Hansaallee 321, 40549 Düsseldorf, Germany" ;
+    org:siteAddress [ a vcard:Address ; vcard:street-address "Hansaallee 321, 40549 Düsseldorf, Germany" ] ;
     obo:BFO_0000196 ex:to_role_dusseldorf .
 
 ex:to_role_dusseldorf a log:LOG_1000076 ;
