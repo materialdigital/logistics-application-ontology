@@ -15,7 +15,7 @@
 @base <https://w3id.org/pmd/log.ttl> .
 
 <https://w3id.org/pmd/log.ttl> rdf:type owl:Ontology ;
-                                owl:versionIRI <https://w3id.org/pmd/log/1.0.2> ;
+                                owl:versionIRI <https://w3id.org/pmd/log/releases/2026-10-07/log.ttl> ;
                                 dcterms:creator <https://orcid.org/0000-0001-7192-7143> ,
                                                 <https://orcid.org/0000-0003-1649-6832> ,
                                                 <https://orcid.org/0009-0003-1503-4422> ,
@@ -24,34 +24,38 @@
                                 dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
                                 dcterms:title "Platform Material Digital Application Ontology for Logistics and Supply Chain (LOG)"@en ;
                                 rdfs:comment "The logistics application ontology for use with PMD Core Ontology (PMDco). The scope of this module is the description of material science and engineering related logistics and general organization. Its is adopted from the IOF SupplyChain Module https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/"@en ;
-                                owl:versionInfo "1.0.2" ,
-                                                "2026-04-18" .
+                                owl:versionInfo "2026-10-07" .
 
 #################################################################
 #    Annotation properties
 #################################################################
 
 ###  http://purl.obolibrary.org/obo/IAO_0000114
-obo:IAO_0000114 rdf:type owl:AnnotationProperty .
+obo:IAO_0000114 rdf:type owl:AnnotationProperty ;
+                rdfs:label "has curation status"@en .
 
 
 ###  http://purl.obolibrary.org/obo/IAO_0000115
 obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
-                obo:IAO_0000115 "The official OBI definition, explaining the meaning of a class or property. Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions."@en ,
-                                "The official definition, explaining the meaning of a class or property. Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions."@en ;
+                obo:IAO_0000114 obo:IAO_0000122 ;
+                obo:IAO_0000115 "A property representing the English language definitions of what NCI means by the concept. They may also include information about the definition's source and attribution in a form that can easily be interpreted by software." ,
+                                "English language definitions of what NCI means by the concept. These are limited to 1024 characters. They may also include information about the definition's source and attribution in a form that can easily be interpreted by software." ,
+                                "The official OBI definition, explaining the meaning of a class or property. Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions."@en ,
+                                "The official definition, explaining the meaning of a class or property. Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions."@en ,
+                                "The official definition." ;
                 obo:IAO_0000119 "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ;
-                rdfs:label "definition"@en ,
-                           "definition" ,
+                rdfs:label "definition" ,
+                           "definition"@en ,
                            "textual definition" .
 
 
 ###  http://purl.obolibrary.org/obo/IAO_0000119
 obo:IAO_0000119 rdf:type owl:AnnotationProperty ;
-                obo:IAO_0000115 "Formal citation, e.g. identifier in external database to indicate / attribute source(s) for the definition. Free text indicate / attribute source(s) for the definition. EXAMPLE: Author Name, URI, MeSH Term C04, PUBMED ID, Wiki uri on 31.01.2007"@en ,
-                                "formal citation, e.g. identifier in external database to indicate / attribute source(s) for the definition. Free text indicate / attribute source(s) for the definition. EXAMPLE: Author Name, URI, MeSH Term C04, PUBMED ID, Wiki uri on 31.01.2007"@en ;
-                obo:IAO_0000119 "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w"@en ,
-                                "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ,
-                                "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w" ;
+                obo:IAO_0000114 obo:IAO_0000122 ;
+                obo:IAO_0000115 "Formal citation, e.g. identifier in external database to indicate / attribute source(s) for the definition. Free text indicate / attribute source(s) for the definition. EXAMPLE: Author Name, URI, MeSH Term C04, PUBMED ID, Wiki uri on 31.01.2007"@en ;
+                obo:IAO_0000119 "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w" ,
+                                "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w"@en ,
+                                "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ;
                 rdfs:label "definition source"@en .
 
 
@@ -117,6 +121,14 @@ logistics:PMD_0001032 rdf:type owl:AnnotationProperty .
 
 
 #################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Literal rdf:type rdfs:Datatype .
+
+
+#################################################################
 #    Object Properties
 #################################################################
 
@@ -125,7 +137,8 @@ obo:BFO_0000050 rdf:type owl:ObjectProperty ;
                 owl:inverseOf obo:BFO_0000051 ;
                 rdf:type owl:TransitiveProperty ;
                 obo:IAO_0000115 "a core relation that holds between a part and its whole"@en ;
-                rdfs:label "part of"@en .
+                rdfs:label "part of" ,
+                           "part of"@en .
 
 
 ###  http://purl.obolibrary.org/obo/BFO_0000051
@@ -278,6 +291,14 @@ obo:BFO_0000224 rdf:type owl:ObjectProperty ,
                 skos:definition "t has last instant t' =Def t' last instant of t"@en .
 
 
+###  http://purl.obolibrary.org/obo/IAO_0000039
+obo:IAO_0000039 rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf obo:BFO_0000051 ;
+                rdf:type owl:FunctionalProperty ;
+                rdfs:range obo:IAO_0000003 ;
+                rdfs:label "has measurement unit label"@en .
+
+
 ###  http://purl.obolibrary.org/obo/IAO_0000136
 obo:IAO_0000136 rdf:type owl:ObjectProperty ;
                 owl:inverseOf <https://w3id.org/pmd/co/PMD_0000004> ;
@@ -311,6 +332,7 @@ obo:OBI_0000293 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf obo:RO_0000057 ;
                 owl:inverseOf obo:OBI_0000295 ;
                 rdfs:domain obo:COB_0000035 ;
+                obo:IAO_0000114 obo:IAO_0000122 ;
                 obo:IAO_0000115 "The inverse property of is specified input of" ;
                 rdfs:label "has specified input"@en .
 
@@ -319,17 +341,17 @@ obo:OBI_0000293 rdf:type owl:ObjectProperty ;
 obo:OBI_0000295 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf obo:RO_0000056 ;
                 rdfs:range obo:COB_0000035 ;
+                obo:IAO_0000114 obo:IAO_0000122 ;
                 obo:IAO_0000115 "A relation between a completely executed planned process and a continuant participating in that process that is not created during the process. The presence of the continuant during the process is explicitly specified in the plan specification which the process realizes the concretization of." ;
                 rdfs:label "is specified input of"@en .
 
 
 ###  http://purl.obolibrary.org/obo/OBI_0000299
 obo:OBI_0000299 rdf:type owl:ObjectProperty ;
-                owl:equivalentProperty [ owl:inverseOf obo:OBI_0000312
-                                       ] ;
                 rdfs:subPropertyOf obo:RO_0000057 ;
                 owl:inverseOf obo:OBI_0000312 ;
                 rdfs:domain obo:COB_0000035 ;
+                obo:IAO_0000114 obo:IAO_0000122 ;
                 obo:IAO_0000115 "The inverse property of is specified output of" ;
                 rdfs:label "has specified output"@en .
 
@@ -338,6 +360,7 @@ obo:OBI_0000299 rdf:type owl:ObjectProperty ;
 obo:OBI_0000312 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf obo:RO_0000056 ;
                 rdfs:range obo:COB_0000035 ;
+                obo:IAO_0000114 obo:IAO_0000122 ;
                 obo:IAO_0000115 "A relation between a completely executed planned process and a continuant participating in that process. The presence of the continuant at the end of the process is explicitly specified in the objective specification which the process realizes the concretization of."@en ;
                 rdfs:label "is specified output of"@en .
 
@@ -531,6 +554,13 @@ obo:RO_0002234 rdf:type owl:ObjectProperty ;
                rdfs:label "has output"@en .
 
 
+###  http://purl.obolibrary.org/obo/RO_0002328
+obo:RO_0002328 rdf:type owl:ObjectProperty ;
+               obo:IAO_0000115 "A grouping relationship for any relationship directly involving a function, or that holds because of a function of one of the related entities." ;
+               rdfs:label "functionally related to"@en ;
+               skos:definition "A grouping relationship for any relationship directly involving a function, or that holds because of a function of one of the related entities."@en .
+
+
 ###  http://purl.obolibrary.org/obo/RO_0002350
 obo:RO_0002350 rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf obo:BFO_0000050 ;
@@ -551,14 +581,16 @@ obo:RO_0002351 rdf:type owl:ObjectProperty ;
 
 ###  http://purl.obolibrary.org/obo/RO_0002352
 obo:RO_0002352 rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf obo:RO_0000056 ;
+               rdfs:subPropertyOf obo:RO_0000056 ,
+                                  obo:RO_0002328 ;
                obo:IAO_0000115 "inverse of has input" ;
                rdfs:label "input of"@en .
 
 
 ###  http://purl.obolibrary.org/obo/RO_0002353
 obo:RO_0002353 rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf obo:RO_0000056 ;
+               rdfs:subPropertyOf obo:RO_0000056 ,
+                                  obo:RO_0002328 ;
                obo:IAO_0000115 "inverse of has output" ;
                rdfs:label "is output of"@en ,
                           "output of"@en .
@@ -918,8 +950,53 @@ org:unitOf rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/pmd/co/PMD_0000004
 <https://w3id.org/pmd/co/PMD_0000004> rdf:type owl:ObjectProperty ;
+                                      obo:IAO_0000114 obo:IAO_0000122 ;
                                       rdfs:label "is subject of"@en ;
                                       skos:definition "Inverse of 'is about'."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0000009
+<https://w3id.org/pmd/co/PMD_0000009> rdf:type owl:ObjectProperty ;
+                                      owl:inverseOf <https://w3id.org/pmd/co/PMD_0025006> ;
+                                      rdfs:domain obo:BFO_0000015 ;
+                                      rdfs:range <https://w3id.org/pmd/co/PMD_0000008> ;
+                                      obo:IAO_0000114 obo:IAO_0000122 ;
+                                      rdfs:label "has process attribute"@en ;
+                                      skos:definition "A relation between a process and a process attribute that depends on it."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0025006
+<https://w3id.org/pmd/co/PMD_0025006> rdf:type owl:ObjectProperty ;
+                                      obo:IAO_0000114 obo:IAO_0000122 ;
+                                      rdfs:label "process attribute of"@en ;
+                                      skos:definition "A relation between a process attribute and a process, which \"bears\" the attribute."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0025998
+<https://w3id.org/pmd/co/PMD_0025998> rdf:type owl:ObjectProperty ;
+                                      owl:inverseOf <https://w3id.org/pmd/co/PMD_0025999> ;
+                                      rdfs:domain obo:BFO_0000004 ;
+                                      rdfs:range obo:BFO_0000145 ;
+                                      owl:propertyChainAxiom ( obo:BFO_0000051
+                                                               <https://w3id.org/pmd/co/PMD_0025998>
+                                                             ) ;
+                                      obo:IAO_0000114 obo:IAO_0000122 ;
+                                      rdfs:label "has relational quality"@en ,
+                                                 "hat relationale Qualität"@de ;
+                                      skos:definition "a relation between an independent continuant (the bearer) and a relational quality, in which the quality specifically depends on the bearer for its existence"@en ,
+                                                      "eine Beziehung zwischen einem unabhängigen Kontinuum (dem Träger) und einer relationalen Qualität, bei der die Qualität in ihrer Existenz speziell vom Träger abhängt"@de .
+
+
+###  https://w3id.org/pmd/co/PMD_0025999
+<https://w3id.org/pmd/co/PMD_0025999> rdf:type owl:ObjectProperty ;
+                                      owl:propertyChainAxiom ( <https://w3id.org/pmd/co/PMD_0025999>
+                                                               obo:BFO_0000050
+                                                             ) ;
+                                      obo:IAO_0000114 obo:IAO_0000122 ;
+                                      rdfs:label "relational quality of"@en ,
+                                                 "relationale Qualität von"@de ;
+                                      skos:definition "a relation between a relational quality and an independent continuant (the bearer), in which the quality specifically depends on the bearer for its existence"@en ,
+                                                      "eine Beziehung zwischen einer relationalen Qualität und einem unabhängigen Kontinuum (dem Träger), bei der die Existenz der Qualität speziell vom Träger abhängt"@de .
 
 
 ###  https://w3id.org/pmd/co/PMD_0040121
@@ -990,6 +1067,25 @@ org:unitOf rdf:type owl:ObjectProperty ;
 #################################################################
 #    Data properties
 #################################################################
+
+###  http://purl.obolibrary.org/obo/OBI_0001937
+obo:OBI_0001937 rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf obo:OBI_0002135 ;
+                rdfs:domain obo:OBI_0001933 ;
+                obo:IAO_0000114 obo:IAO_0000120 ;
+                obo:IAO_0000115 "A relation between a value specification and a number that quantifies it."@en ;
+                obo:IAO_0000119 "OBI" ;
+                rdfs:label "has specified numeric value" .
+
+
+###  http://purl.obolibrary.org/obo/OBI_0002135
+obo:OBI_0002135 rdf:type owl:DatatypeProperty ;
+                rdfs:domain obo:OBI_0001933 ;
+                obo:IAO_0000114 obo:IAO_0000123 ;
+                obo:IAO_0000115 "A relation between a value specification and a literal."@en ;
+                obo:IAO_0000119 "OBI" ;
+                rdfs:label "has specified value"@en .
+
 
 ###  http://www.w3.org/2004/02/skos/core#notation
 skos:notation rdf:type owl:DatatypeProperty .
@@ -1262,7 +1358,11 @@ obo:BFO_0000141 rdf:type owl:Class ;
 
 ###  http://purl.obolibrary.org/obo/BFO_0000145
 obo:BFO_0000145 rdf:type owl:Class ;
-                rdfs:subClassOf obo:BFO_0000019 ;
+                rdfs:subClassOf obo:BFO_0000019 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty <https://w3id.org/pmd/co/PMD_0025999> ;
+                                  owl:someValuesFrom obo:BFO_0000002
+                                ] ;
                 rdfs:label "relational quality"@en ;
                 skos:definition "b is a relational quality =Def b is a quality & there exists c and d such that c and d are not identical & b specifically depends on c & b specifically depends on d"@en .
 
@@ -1298,6 +1398,13 @@ obo:COB_0000082 rdf:type owl:Class ;
                 rdfs:label "planned process"@en .
 
 
+###  http://purl.obolibrary.org/obo/IAO_0000003
+obo:IAO_0000003 rdf:type owl:Class ;
+                rdfs:subClassOf obo:IAO_0000009 ;
+                obo:IAO_0000115 "A measurement unit label is as a label that is part of a scalar measurement datum and denotes a unit of measure."@en ;
+                rdfs:label "measurement unit label"@en .
+
+
 ###  http://purl.obolibrary.org/obo/IAO_0000005
 obo:IAO_0000005 rdf:type owl:Class ;
                 rdfs:subClassOf obo:IAO_0000033 ;
@@ -1313,6 +1420,13 @@ obo:IAO_0000007 rdf:type owl:Class ;
                 obo:IAO_0000115 "A directive information entity that describes an action the bearer will take."@en ;
                 obo:IAO_0000119 "OBI Plan and Planned Process branch"@en ;
                 rdfs:label "action specification"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000009
+obo:IAO_0000009 rdf:type owl:Class ;
+                rdfs:subClassOf obo:IAO_0000030 ;
+                obo:IAO_0000115 "A label is a symbol that is part of some other datum and is used to either partially define  the denotation of that datum or to provide a means for identifying the datum as a member of the set of data with the same label"@en ;
+                rdfs:label "datum label"@en .
 
 
 ###  http://purl.obolibrary.org/obo/IAO_0000030
@@ -1413,6 +1527,7 @@ obo:NCBITaxon_9606 rdf:type owl:Class ;
 ###  http://purl.obolibrary.org/obo/OBI_0000245
 obo:OBI_0000245 rdf:type owl:Class ;
                 rdfs:subClassOf obo:BFO_0000040 ;
+                obo:IAO_0000114 obo:IAO_0000122 ;
                 obo:IAO_0000115 "An entity that can bear roles, has members, and has a set of organization rules. Members of organizations are either organizations themselves or individual people. Members can bear specific organization member roles that are determined in the organization rules. The organization rules also determine how decisions are made on behalf of the organization by the organization members."@en ;
                 obo:IAO_0000119 "GROUP: OBI" ;
                 rdfs:label "organization"@en .
@@ -1425,6 +1540,7 @@ obo:OBI_0000260 rdf:type owl:Class ;
                                   owl:onProperty obo:RO_0000059 ;
                                   owl:someValuesFrom obo:IAO_0000104
                                 ] ;
+                obo:IAO_0000114 obo:IAO_0000125 ;
                 obo:IAO_0000115 "A plan is a realizable entity that is the inheres in a bearer who is committed to realizing it as a completely executed planned process."@en ;
                 obo:IAO_0000119 "branch derived"@en ;
                 rdfs:label "plan"@en .
@@ -1446,6 +1562,7 @@ obo:OBI_0000571 rdf:type owl:Class ;
                                                                    )
                                                      ]
                                 ] ;
+                obo:IAO_0000114 obo:IAO_0000123 ;
                 obo:IAO_0000115 "Manufacturer role is a role which inheres in a person or organization and which is realized by a manufacturing process."@en ;
                 obo:IAO_0000119 "OBI" ;
                 rdfs:label "manufacturer role" .
@@ -1470,20 +1587,27 @@ obo:OBI_0000835 rdf:type owl:Class ;
                                   owl:onProperty obo:RO_0000087 ;
                                   owl:someValuesFrom obo:OBI_0000571
                                 ] ;
+                obo:IAO_0000114 obo:IAO_0000123 ;
                 obo:IAO_0000115 "A person or organization that has a manufacturer role."@en ;
                 rdfs:label "manufacturer" .
 
 
-###  http://purl.obolibrary.org/obo/OBI_0001930
-obo:OBI_0001930 rdf:type owl:Class ;
-                rdfs:subClassOf obo:OBI_0001933 ;
-                obo:IAO_0000115 "A value specification that is specifies one category out of a fixed number of nominal categories"@en ;
-                rdfs:label "categorical value specification" .
+###  http://purl.obolibrary.org/obo/OBI_0001931
+obo:OBI_0001931 rdf:type owl:Class ;
+                rdfs:subClassOf obo:OBI_0001933 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:OBI_0001937 ;
+                                  owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                ] ;
+                obo:IAO_0000114 obo:IAO_0000123 ;
+                obo:IAO_0000115 "A value specification that consists of two parts: a numeral and a unit label"@en ;
+                rdfs:label "scalar value specification" .
 
 
 ###  http://purl.obolibrary.org/obo/OBI_0001933
 obo:OBI_0001933 rdf:type owl:Class ;
                 rdfs:subClassOf obo:IAO_0000030 ;
+                obo:IAO_0000114 obo:IAO_0000122 ;
                 obo:IAO_0000115 "An information content entity that specifies a value within a classification scheme or on a quantitative scale."@en ;
                 rdfs:label "value specification" .
 
@@ -1491,6 +1615,14 @@ obo:OBI_0001933 rdf:type owl:Class ;
 ###  http://purl.org/dc/terms/Agent
 dcterms:Agent rdf:type owl:Class ;
               owl:equivalentClass <http://xmlns.com/foaf/0.1/Agent> .
+
+
+###  http://qudt.org/schema/qudt/Unit
+<http://qudt.org/schema/qudt/Unit> rdf:type owl:Class ;
+                                   rdfs:label "Unit" ;
+                                   skos:definition """A unit of measure, or unit, is a particular quantity value that has been chosen as a scale for measuring other quantities the same kind (more generally of equivalent dimension). 
+For example, the meter is a quantity of length that has been rigorously defined and standardized by the BIPM (International Board of Weights and Measures).  Any measurement of the length can be expressed as a number multiplied by the unit meter. 
+More formally, the value of a physical quantity Q with respect to a unit (U) is expressed as the scalar multiple of a real number (n) and U, as  $Q = nU$."""@en .
 
 
 ###  http://www.w3.org/2004/02/skos/core#Concept
@@ -1626,7 +1758,12 @@ org:Site rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0000008
 <https://w3id.org/pmd/co/PMD_0000008> rdf:type owl:Class ;
-                                      rdfs:subClassOf obo:BFO_0000003 ;
+                                      rdfs:subClassOf obo:BFO_0000003 ,
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty <https://w3id.org/pmd/co/PMD_0025006> ;
+                                                        owl:someValuesFrom obo:BFO_0000015
+                                                      ] ;
+                                      obo:IAO_0000114 obo:IAO_0000122 ;
                                       rdfs:label "process attribute"@en ;
                                       skos:altLabel "process characteristic"@en ;
                                       skos:definition "a process attribute is a dependent occurrent that existentially depends on a process."@en .
@@ -1688,66 +1825,6 @@ A manufacturing process is always a transformative process."""@en ,
                                                       "Ein geplannter Prozess, der von der primären Absicht angetrieben wird, Objekte zu transformieren. Ein Herstellungsprozess ist immer ein Transformationsprozess."@de .
 
 
-###  https://w3id.org/pmd/co/PMD_0020023
-<https://w3id.org/pmd/co/PMD_0020023> rdf:type owl:Class ;
-                                      owl:equivalentClass [ rdf:type owl:Class ;
-                                                            owl:oneOf ( <https://w3id.org/pmd/co/PMD_0020027>
-                                                                        <https://w3id.org/pmd/co/PMD_0020097>
-                                                                        <https://w3id.org/pmd/co/PMD_0020100>
-                                                                        <https://w3id.org/pmd/co/PMD_0020107>
-                                                                        <https://w3id.org/pmd/co/PMD_0020109>
-                                                                        <https://w3id.org/pmd/co/PMD_0020110>
-                                                                        <https://w3id.org/pmd/co/PMD_0020111>
-                                                                      )
-                                                          ] ;
-                                      rdfs:subClassOf obo:OBI_0001930 ;
-                                      rdfs:label "metallic grain structures"@en ;
-                                      skos:definition "The metallic grain structures is a categorical value specification that specifies value of the  metallic grain structure quality. It describes the morphology of polycrystalline metallic materials. Polycrystalline metallic materials will typically form their grain structures as one of those categories or a transition or mixture state of those."@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020099
-<https://w3id.org/pmd/co/PMD_0020099> rdf:type owl:Class ;
-                                      owl:equivalentClass [ rdf:type owl:Class ;
-                                                            owl:oneOf ( <https://w3id.org/pmd/co/PMD_0020006>
-                                                                        <https://w3id.org/pmd/co/PMD_0020007>
-                                                                        <https://w3id.org/pmd/co/PMD_0020008>
-                                                                        <https://w3id.org/pmd/co/PMD_0020009>
-                                                                        <https://w3id.org/pmd/co/PMD_0020010>
-                                                                        <https://w3id.org/pmd/co/PMD_0020011>
-                                                                        <https://w3id.org/pmd/co/PMD_0020012>
-                                                                        <https://w3id.org/pmd/co/PMD_0020013>
-                                                                        <https://w3id.org/pmd/co/PMD_0020014>
-                                                                        <https://w3id.org/pmd/co/PMD_0020015>
-                                                                        <https://w3id.org/pmd/co/PMD_0020016>
-                                                                        <https://w3id.org/pmd/co/PMD_0020017>
-                                                                        <https://w3id.org/pmd/co/PMD_0020018>
-                                                                        <https://w3id.org/pmd/co/PMD_0020019>
-                                                                      )
-                                                          ] ;
-                                      rdfs:subClassOf obo:OBI_0001930 ;
-                                      rdfs:label "bravais lattice (3D)"@en ;
-                                      skos:definition "The bravais lattice is a categorical value specification that specifies value of the crystal structure quality. It describes the possible geometric arrangement of lattice points in a crystal. The present descriptor is limited to the 14 possible three-dimensional arrangements."@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020116
-<https://w3id.org/pmd/co/PMD_0020116> rdf:type owl:Class ;
-                                      owl:equivalentClass [ rdf:type owl:Class ;
-                                                            owl:oneOf ( <https://w3id.org/pmd/co/PMD_0020117>
-                                                                        <https://w3id.org/pmd/co/PMD_0020118>
-                                                                        <https://w3id.org/pmd/co/PMD_0020119>
-                                                                        <https://w3id.org/pmd/co/PMD_0020120>
-                                                                        <https://w3id.org/pmd/co/PMD_0020121>
-                                                                        <https://w3id.org/pmd/co/PMD_0020122>
-                                                                        <https://w3id.org/pmd/co/PMD_0020123>
-                                                                        <https://w3id.org/pmd/co/PMD_0020124>
-                                                                        <https://w3id.org/pmd/co/PMD_0020125>
-                                                                      )
-                                                          ] ;
-                                      rdfs:subClassOf obo:OBI_0001930 ;
-                                      rdfs:label "aggregate state value"@en ;
-                                      skos:definition "The aggregate state value is a categorical value specification that specifies value of the aggregate state quality."@en .
-
-
 ###  https://w3id.org/pmd/co/PMD_0020138
 <https://w3id.org/pmd/co/PMD_0020138> rdf:type owl:Class ;
                                       owl:equivalentClass <https://w3id.org/pmd/log/LOG_1000037> ;
@@ -1758,16 +1835,84 @@ A manufacturing process is always a transformative process."""@en ,
 
 ###  https://w3id.org/pmd/co/PMD_0020216
 <https://w3id.org/pmd/co/PMD_0020216> rdf:type owl:Class ;
+                                      rdfs:label "DEPRECATED order scale value"@en ;
+                                      skos:definition "DEPRECATED Mögliche Werte der charakteristischen Länge, über die strukturelle Zusammenhänge in einem Material bestehen bleiben"@de ,
+                                                      "DEPRECATED possible values of characteristic length over which structural correlations persist in a material"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0020265
+<https://w3id.org/pmd/co/PMD_0020265> rdf:type owl:Class ;
+                                      rdfs:subClassOf obo:BFO_0000020 ;
+                                      rdfs:label "property"@en ;
+                                      skos:definition "property is a collection class for entities that are either qualites (represent a state) or realizable entities (represent a behavior)"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0020317
+<https://w3id.org/pmd/co/PMD_0020317> rdf:type owl:Class ;
                                       owl:equivalentClass [ rdf:type owl:Class ;
-                                                            owl:oneOf ( <https://w3id.org/pmd/co/PMD_0020217>
-                                                                        <https://w3id.org/pmd/co/PMD_0020218>
-                                                                        <https://w3id.org/pmd/co/PMD_0020219>
-                                                                        <https://w3id.org/pmd/co/PMD_0020242>
-                                                                      )
+                                                            owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty obo:RO_0000052 ;
+                                                                            owl:someValuesFrom obo:BFO_0000030
+                                                                          ]
+                                                                          [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty <https://w3id.org/pmd/co/PMD_0025999> ;
+                                                                            owl:someValuesFrom obo:BFO_0000030
+                                                                          ]
+                                                                        )
                                                           ] ;
-                                      rdfs:subClassOf obo:OBI_0001930 ;
-                                      rdfs:label "order scale value"@en ;
-                                      skos:definition "possible values of characteristic length over which structural correlations persist in a material"@en .
+                                      rdfs:subClassOf <https://w3id.org/pmd/co/PMD_0023003> ;
+                                      rdfs:label "an objects property"@en ;
+                                      skos:definition "a 'property by bearer' that indicates that its bearer is an object" .
+
+
+###  https://w3id.org/pmd/co/PMD_0023002
+<https://w3id.org/pmd/co/PMD_0023002> rdf:type owl:Class ;
+                                      rdfs:subClassOf <https://w3id.org/pmd/co/PMD_0020265> ;
+                                      rdfs:label "facetted property"@en ;
+                                      skos:definition "an specifically dependent continuant that is giving more detail to an other property or about its bearer"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0023003
+<https://w3id.org/pmd/co/PMD_0023003> rdf:type owl:Class ;
+                                      rdfs:subClassOf <https://w3id.org/pmd/co/PMD_0023002> ;
+                                      rdfs:label "property by bearer"@en ;
+                                      skos:definition "is a facetted property that indicates the type of its bearer" .
+
+
+###  https://w3id.org/pmd/co/PMD_0023007
+<https://w3id.org/pmd/co/PMD_0023007> rdf:type owl:Class ;
+                                      owl:equivalentClass [ rdf:type owl:Class ;
+                                                            owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty obo:RO_0000052 ;
+                                                                            owl:someValuesFrom obo:BFO_0000027
+                                                                          ]
+                                                                          [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty <https://w3id.org/pmd/co/PMD_0025999> ;
+                                                                            owl:someValuesFrom obo:BFO_0000027
+                                                                          ]
+                                                                        )
+                                                          ] ;
+                                      rdfs:subClassOf <https://w3id.org/pmd/co/PMD_0023003> ;
+                                      rdfs:label "an object aggregates property"@en ;
+                                      skos:definition "a 'property by bearer' that indicates that its bearer is an object aggregate"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0023041
+<https://w3id.org/pmd/co/PMD_0023041> rdf:type owl:Class ;
+                                      owl:equivalentClass [ rdf:type owl:Class ;
+                                                            owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty obo:RO_0000052 ;
+                                                                            owl:someValuesFrom obo:BFO_0000029
+                                                                          ]
+                                                                          [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty <https://w3id.org/pmd/co/PMD_0025999> ;
+                                                                            owl:someValuesFrom obo:BFO_0000029
+                                                                          ]
+                                                                        )
+                                                          ] ;
+                                      rdfs:subClassOf <https://w3id.org/pmd/co/PMD_0023003> ;
+                                      rdfs:label "a sites property"@en ;
+                                      skos:definition "a 'property by bearer' that indicates that its bearer is a site"@en .
 
 
 ###  https://w3id.org/pmd/co/PMD_0040029
@@ -4917,6 +5062,11 @@ A manufacturing process is always a transformative process."""@en ,
 #    Individuals
 #################################################################
 
+###  http://qudt.org/vocab/unit/PER-MOL
+<http://qudt.org/vocab/unit/PER-MOL> rdf:type owl:NamedIndividual ,
+                                              <http://qudt.org/schema/qudt/Unit> .
+
+
 ###  http://www.w3.org/ns/org#Head
 org:Head rdf:type owl:NamedIndividual ,
                   org:Role ;
@@ -4927,187 +5077,45 @@ org:Head rdf:type owl:NamedIndividual ,
                     "responsable"@fr .
 
 
-###  https://w3id.org/pmd/co/PMD_0020006
-<https://w3id.org/pmd/co/PMD_0020006> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "bravais lattice triclinic primitive"@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020007
-<https://w3id.org/pmd/co/PMD_0020007> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "bravais lattice monoclinic primitive"@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020008
-<https://w3id.org/pmd/co/PMD_0020008> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "bravais lattice monoclinic base-centered"@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020009
-<https://w3id.org/pmd/co/PMD_0020009> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "bravais lattice orthorombic primitive"@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020010
-<https://w3id.org/pmd/co/PMD_0020010> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "bravais lattice orthorhombic base-centered"@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020011
-<https://w3id.org/pmd/co/PMD_0020011> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "bravais lattice orthorhombic body-centered"@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020012
-<https://w3id.org/pmd/co/PMD_0020012> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "bravais lattice orthorhombic face-centered"@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020013
-<https://w3id.org/pmd/co/PMD_0020013> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "bravais lattice tetragonal primitive"@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020014
-<https://w3id.org/pmd/co/PMD_0020014> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "bravais lattice tetragonal body-centered"@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020015
-<https://w3id.org/pmd/co/PMD_0020015> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "bravais lattice hexagonal rhombohedral primitive"@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020016
-<https://w3id.org/pmd/co/PMD_0020016> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "bravais lattice hexagonal hexagonal primitive"@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020017
-<https://w3id.org/pmd/co/PMD_0020017> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "bravais lattice cubic primitive"@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020018
-<https://w3id.org/pmd/co/PMD_0020018> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "bravais lattice cubic body-centered"@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020019
-<https://w3id.org/pmd/co/PMD_0020019> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "bravais lattice cubic face-centered"@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020027
-<https://w3id.org/pmd/co/PMD_0020027> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "bainite"@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020097
-<https://w3id.org/pmd/co/PMD_0020097> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "austenite"@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020100
-<https://w3id.org/pmd/co/PMD_0020100> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "ferrite"@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020107
-<https://w3id.org/pmd/co/PMD_0020107> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "ledeburite"@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020109
-<https://w3id.org/pmd/co/PMD_0020109> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "pearlite"@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020110
-<https://w3id.org/pmd/co/PMD_0020110> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "widmanstatten structure"@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020111
-<https://w3id.org/pmd/co/PMD_0020111> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "martensite"@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020117
-<https://w3id.org/pmd/co/PMD_0020117> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "aggregate state solid"@en ;
-                                      skos:definition "A state where the bonds between entities transmit shear forces."@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020118
-<https://w3id.org/pmd/co/PMD_0020118> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "aggregate state liquid"@en ;
-                                      skos:definition "A state where the bonds of the entities transmit no shear force."@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020119
-<https://w3id.org/pmd/co/PMD_0020119> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "aggregate state gaseous"@en ;
-                                      skos:definition "A state where the entities have no bonding."@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020120
-<https://w3id.org/pmd/co/PMD_0020120> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "aggregate state plasma"@en ;
-                                      skos:definition "An aggregate state where the entities are atom nuclei and have no bonds."@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020121
-<https://w3id.org/pmd/co/PMD_0020121> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "aggregate state atom gas"@en ;
-                                      skos:definition "A gaseous state where the gas entities are atoms."@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020122
-<https://w3id.org/pmd/co/PMD_0020122> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "aggregate state supercritical fluid"@en ;
-                                      skos:definition "A state with strong bindings between entities that do not transmit shear force."@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020123
-<https://w3id.org/pmd/co/PMD_0020123> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "aggregate state mesomorphic"@en ;
-                                      skos:definition "A state where some bonds transmit shear stresses and some do not."@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020124
-<https://w3id.org/pmd/co/PMD_0020124> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "aggregate state suprafluid"@en ;
-                                      skos:definition "A state with frictionless binding that transmits no shear force between entities."@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020125
-<https://w3id.org/pmd/co/PMD_0020125> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "aggregate state suprasolid"@en ;
-                                      skos:definition "A state that exhibits suprafluid and solid properties."@en .
-
-
 ###  https://w3id.org/pmd/co/PMD_0020217
-<https://w3id.org/pmd/co/PMD_0020217> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "short range order"@en ;
-                                      skos:definition "periodic arrangement of structural features up to a few entities"@en .
+<https://w3id.org/pmd/co/PMD_0020217> rdf:type owl:NamedIndividual ,
+                                               <https://w3id.org/pmd/co/PMD_0020216> ;
+                                      rdfs:label "DEPRECATED short range order"@en ;
+                                      skos:definition "DEPRECATED periodic arrangement of structural features up to a few entities"@en ,
+                                                      "DEPRECATED periodische Anordnung von Strukturmerkmalen bis hin zu wenigen Einheiten"@de .
 
 
 ###  https://w3id.org/pmd/co/PMD_0020218
-<https://w3id.org/pmd/co/PMD_0020218> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "medium range order"@en ;
-                                      skos:definition "periodic arrangement of structural features of many entities"@en .
+<https://w3id.org/pmd/co/PMD_0020218> rdf:type owl:NamedIndividual ,
+                                               <https://w3id.org/pmd/co/PMD_0020216> ;
+                                      rdfs:label "DEPRECATED medium range order"@en ;
+                                      skos:definition "DEPRECATED periodic arrangement of structural features of many entities"@en ,
+                                                      "DEPRECATED periodische Anordnung struktureller Merkmale vieler Entitäten"@de .
 
 
 ###  https://w3id.org/pmd/co/PMD_0020219
-<https://w3id.org/pmd/co/PMD_0020219> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "long range order"@en ;
-                                      skos:definition "periodic arrangement of structural features of virtually all entities"@en .
+<https://w3id.org/pmd/co/PMD_0020219> rdf:type owl:NamedIndividual ,
+                                               <https://w3id.org/pmd/co/PMD_0020216> ;
+                                      rdfs:label "DEPRECATED long range order"@en ;
+                                      skos:definition "DEPRECATED periodic arrangement of structural features of virtually all entities"@en ,
+                                                      "DEPRECATED periodische Anordnung struktureller Merkmale praktisch aller Entitäten"@de .
 
 
 ###  https://w3id.org/pmd/co/PMD_0020242
-<https://w3id.org/pmd/co/PMD_0020242> rdf:type owl:NamedIndividual ;
-                                      rdfs:label "no range order"@en ;
-                                      skos:definition "no periodic arrangement of structural features of entites"@en .
+<https://w3id.org/pmd/co/PMD_0020242> rdf:type owl:NamedIndividual ,
+                                               <https://w3id.org/pmd/co/PMD_0020216> ;
+                                      rdfs:label "DEPRECATED no range order"@en ;
+                                      skos:definition "DEPRECATED keine periodische Anordnung struktureller Merkmale von Entitäten"@de ,
+                                                      "DEPRECATED no periodic arrangement of structural features of entites"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0020368
+<https://w3id.org/pmd/co/PMD_0020368> rdf:type owl:NamedIndividual ,
+                                               obo:OBI_0001931 ;
+                                      obo:IAO_0000039 <http://qudt.org/vocab/unit/PER-MOL> ;
+                                      obo:OBI_0001937 602214086000000000000000 ;
+                                      rdfs:label "avogadro number"@en ;
+                                      skos:definition "The Avogadro number"@en .
 
 
 ###  https://w3id.org/pmd/co/PMD_0040128
@@ -5349,39 +5357,6 @@ org:Head rdf:type owl:NamedIndividual ,
                 obo:BFO_0000015
                 obo:BFO_0000035
               )
-] .
-
-
-[ rdf:type owl:AllDifferent ;
-  owl:distinctMembers ( <https://w3id.org/pmd/co/PMD_0020006>
-                        <https://w3id.org/pmd/co/PMD_0020007>
-                        <https://w3id.org/pmd/co/PMD_0020008>
-                        <https://w3id.org/pmd/co/PMD_0020009>
-                        <https://w3id.org/pmd/co/PMD_0020010>
-                        <https://w3id.org/pmd/co/PMD_0020011>
-                        <https://w3id.org/pmd/co/PMD_0020012>
-                        <https://w3id.org/pmd/co/PMD_0020013>
-                        <https://w3id.org/pmd/co/PMD_0020014>
-                        <https://w3id.org/pmd/co/PMD_0020015>
-                        <https://w3id.org/pmd/co/PMD_0020016>
-                        <https://w3id.org/pmd/co/PMD_0020017>
-                        <https://w3id.org/pmd/co/PMD_0020018>
-                        <https://w3id.org/pmd/co/PMD_0020019>
-                      )
-] .
-
-
-[ rdf:type owl:AllDifferent ;
-  owl:distinctMembers ( <https://w3id.org/pmd/co/PMD_0020117>
-                        <https://w3id.org/pmd/co/PMD_0020118>
-                        <https://w3id.org/pmd/co/PMD_0020119>
-                        <https://w3id.org/pmd/co/PMD_0020120>
-                        <https://w3id.org/pmd/co/PMD_0020121>
-                        <https://w3id.org/pmd/co/PMD_0020122>
-                        <https://w3id.org/pmd/co/PMD_0020123>
-                        <https://w3id.org/pmd/co/PMD_0020124>
-                        <https://w3id.org/pmd/co/PMD_0020125>
-                      )
 ] .
 
 

@@ -7,8 +7,8 @@ Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
 
 
 Ontology(<https://w3id.org/pmd/log/imports/org_import.owl>
-<https://w3id.org/pmd/log/releases/2026-04-18/imports/org_import.owl>
-Annotation(owl:versionInfo "2026-04-18")
+<https://w3id.org/pmd/log/releases/2026-10-07/imports/org_import.owl>
+Annotation(owl:versionInfo "2026-10-07")
 
 Declaration(Class(<http://www.w3.org/2004/02/skos/core#Concept>))
 Declaration(Class(<http://www.w3.org/ns/org#ChangeEvent>))
@@ -275,7 +275,7 @@ AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#postIn> "poste chez"@fr
 ObjectPropertyDomain(<http://www.w3.org/ns/org#postIn> <http://www.w3.org/ns/org#Post>)
 ObjectPropertyRange(<http://www.w3.org/ns/org#postIn> <http://www.w3.org/ns/org#Organization>)
 
-# Object Property: <http://www.w3.org/ns/org#reportsTo> (riporta a)
+# Object Property: <http://www.w3.org/ns/org#reportsTo> (reports to)
 
 AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#reportsTo> "est subordonné à"@fr)
 AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#reportsTo> "reports to"@en)
@@ -313,7 +313,7 @@ AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#role> "rôle"@fr)
 ObjectPropertyDomain(<http://www.w3.org/ns/org#role> ObjectUnionOf(<http://www.w3.org/ns/org#Membership> <http://www.w3.org/ns/org#Post>))
 ObjectPropertyRange(<http://www.w3.org/ns/org#role> <http://www.w3.org/ns/org#Role>)
 
-# Object Property: <http://www.w3.org/ns/org#siteAddress> (site Address)
+# Object Property: <http://www.w3.org/ns/org#siteAddress> (indirizzo della sede)
 
 AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#siteAddress> "adresse du Site"@fr)
 AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#siteAddress> "es la dirección de la sede"@es)
@@ -468,7 +468,7 @@ AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#Site> "sede"@es)
 #   Named Individuals
 ############################
 
-# Individual: <http://www.w3.org/ns/org#Head> (director ejecutivo)
+# Individual: <http://www.w3.org/ns/org#Head> (responsable)
 
 AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#Head> "director ejecutivo"@es)
 AnnotationAssertion(rdfs:label <http://www.w3.org/ns/org#Head> "directora ejecutiva"@es)

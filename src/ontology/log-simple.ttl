@@ -11,7 +11,7 @@
 @base <https://w3id.org/pmd/log/log-simple.ttl> .
 
 <https://w3id.org/pmd/log/log-simple.ttl> rdf:type owl:Ontology ;
-                                           owl:versionIRI <https://w3id.org/pmd/log/1.0.2> ;
+                                           owl:versionIRI <https://w3id.org/pmd/log/releases/2026-10-07/log-simple.ttl> ;
                                            terms:creator <https://orcid.org/0000-0001-7192-7143> ,
                                                          <https://orcid.org/0000-0003-1649-6832> ,
                                                          <https://orcid.org/0009-0003-1503-4422> ,
@@ -20,34 +20,38 @@
                                            terms:license <https://creativecommons.org/licenses/by/4.0/> ;
                                            terms:title "Platform Material Digital Application Ontology for Logistics and Supply Chain (LOG)"@en ;
                                            rdfs:comment "The logistics application ontology for use with PMD Core Ontology (PMDco). The scope of this module is the description of material science and engineering related logistics and general organization. Its is adopted from the IOF SupplyChain Module https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/"@en ;
-                                           owl:versionInfo "1.0.2" ,
-                                                           "2026-04-18" .
+                                           owl:versionInfo "2026-10-07" .
 
 #################################################################
 #    Annotation properties
 #################################################################
 
 ###  http://purl.obolibrary.org/obo/IAO_0000114
-obo:IAO_0000114 rdf:type owl:AnnotationProperty .
+obo:IAO_0000114 rdf:type owl:AnnotationProperty ;
+                rdfs:label "has curation status"@en .
 
 
 ###  http://purl.obolibrary.org/obo/IAO_0000115
 obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
-                obo:IAO_0000115 "The official OBI definition, explaining the meaning of a class or property. Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions."@en ,
-                                "The official definition, explaining the meaning of a class or property. Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions."@en ;
+                obo:IAO_0000114 obo:IAO_0000122 ;
+                obo:IAO_0000115 "A property representing the English language definitions of what NCI means by the concept. They may also include information about the definition's source and attribution in a form that can easily be interpreted by software." ,
+                                "English language definitions of what NCI means by the concept. These are limited to 1024 characters. They may also include information about the definition's source and attribution in a form that can easily be interpreted by software." ,
+                                "The official OBI definition, explaining the meaning of a class or property. Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions."@en ,
+                                "The official definition, explaining the meaning of a class or property. Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions."@en ,
+                                "The official definition." ;
                 obo:IAO_0000119 "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ;
-                rdfs:label "definition"@en ,
-                           "definition" ,
+                rdfs:label "definition" ,
+                           "definition"@en ,
                            "textual definition" .
 
 
 ###  http://purl.obolibrary.org/obo/IAO_0000119
 obo:IAO_0000119 rdf:type owl:AnnotationProperty ;
-                obo:IAO_0000115 "Formal citation, e.g. identifier in external database to indicate / attribute source(s) for the definition. Free text indicate / attribute source(s) for the definition. EXAMPLE: Author Name, URI, MeSH Term C04, PUBMED ID, Wiki uri on 31.01.2007"@en ,
-                                "formal citation, e.g. identifier in external database to indicate / attribute source(s) for the definition. Free text indicate / attribute source(s) for the definition. EXAMPLE: Author Name, URI, MeSH Term C04, PUBMED ID, Wiki uri on 31.01.2007"@en ;
-                obo:IAO_0000119 "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w"@en ,
-                                "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ,
-                                "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w" ;
+                obo:IAO_0000114 obo:IAO_0000122 ;
+                obo:IAO_0000115 "Formal citation, e.g. identifier in external database to indicate / attribute source(s) for the definition. Free text indicate / attribute source(s) for the definition. EXAMPLE: Author Name, URI, MeSH Term C04, PUBMED ID, Wiki uri on 31.01.2007"@en ;
+                obo:IAO_0000119 "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w" ,
+                                "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w"@en ,
+                                "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ;
                 rdfs:label "definition source"@en .
 
 
@@ -108,7 +112,8 @@ logistics:PMD_0001032 rdf:type owl:AnnotationProperty .
 obo:BFO_0000050 rdf:type owl:ObjectProperty ,
                          owl:TransitiveProperty ;
                 obo:IAO_0000115 "a core relation that holds between a part and its whole"@en ;
-                rdfs:label "part of"@en .
+                rdfs:label "part of" ,
+                           "part of"@en .
 
 
 ###  http://purl.obolibrary.org/obo/BFO_0000054
@@ -298,6 +303,7 @@ obo:RO_0002502 rdf:type owl:ObjectProperty .
 
 ###  https://w3id.org/pmd/co/PMD_0000004
 <https://w3id.org/pmd/co/PMD_0000004> rdf:type owl:ObjectProperty ;
+                                      obo:IAO_0000114 obo:IAO_0000122 ;
                                       rdfs:label "is subject of"@en ;
                                       skos:definition "Inverse of 'is about'."@en .
 
