@@ -52,6 +52,7 @@ on:
   # ── Trigger from setup-repo / update-repo ──────────────────────────────────
   repository_dispatch:
     types: [trigger-qc]
+  pull_request:
 
   # ── Push to main: full build (path-filtered to ontology source files) ───────
   # Bot commits from this workflow touch only release artifacts (*.owl, *.ttl,
