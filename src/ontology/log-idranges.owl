@@ -71,6 +71,13 @@ Datatype: idrange:5
     EquivalentTo: 
         xsd:integer[>= 4000000 , <= 4999999]
 
+Datatype: idrange:6
+
+    Annotations: 
+        allocatedto: "Khashayar"
+    
+    EquivalentTo: 
+        xsd:integer[>= 5000000 , <= 5999999]
 
     
 Datatype: xsd:integer
